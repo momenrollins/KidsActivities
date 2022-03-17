@@ -34,12 +34,17 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout container;
     Button replatAgain;
     int[] imgList = {R.drawable.lvl1_1, R.drawable.lvl1_2,
-            R.drawable.appal2, R.drawable.banana, R.drawable.duck,
-            R.drawable.dog, R.drawable.lion};
+            R.drawable.appal2, R.drawable.banana,
+            R.drawable.duck, R.drawable.dog,
+            R.drawable.lion, R.drawable.lion,
+            R.drawable.red, R.drawable.red,};
 
-    int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start, R.raw.selectappal1, R.raw.bana_app1, R.raw.duck1, R.raw.duckdog1, R.raw.lion1};
-    int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success, R.raw.selectappal2, R.raw.bana_app2, R.raw.duck2, R.raw.duckdog2, R.raw.lion2};
-    int[] failedList = {R.raw.lvl1_1_failed, R.raw.lvl1_2_failed, R.raw.selectappal3, R.raw.bana_app3, R.raw.duck3, R.raw.duckdog3, R.raw.lion3};
+    int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start, R.raw.selectappal1, R.raw.bana_app1, R.raw.duck1, R.raw.duckdog1, R.raw.lion1,
+            R.raw.lion_gr1, R.raw.red1, R.raw.black_red1,};
+    int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success, R.raw.selectappal2, R.raw.bana_app2, R.raw.duck2, R.raw.duckdog2, R.raw.lion2, R.raw.lion_gr2, R.raw.red2,
+            R.raw.black_red2,};
+    int[] failedList = {R.raw.lvl1_1_failed, R.raw.lvl1_2_failed, R.raw.selectappal3, R.raw.bana_app3, R.raw.duck3, R.raw.duckdog3, R.raw.lion3, R.raw.lion_gr3, R.raw.red3,
+            R.raw.black_red3,};
     int activityPosition = 0;
     View view, view2;
 
@@ -87,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
                 select_iv2.setImageResource(R.drawable.banana);
                 view = select_iv1;
                 view2 = select_iv2;
-
-
             }
             break;
             case 4: {
@@ -117,8 +120,31 @@ public class MainActivity extends AppCompatActivity {
 
             }
             break;
+            case 7: {
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv1.setImageResource(R.drawable.lion);
+                select_iv2.setImageResource(R.drawable.giraffe);
+                view = select_iv1;
+                view2 = select_iv2;
+            }
+            break;
+            case 8: {
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv2.setImageResource(R.drawable.red);
+                view = select_iv2;
+                view2 = select_iv1;
 
-
+            }
+            case 9: {
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv2.setImageResource(R.drawable.red);
+                select_iv1.setImageResource(R.drawable.black);
+                view = select_iv2;
+                view2 = select_iv1;
+            }
+            break;
         }
 
         runnable = new Runnable() {
@@ -145,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
         if (view != null) view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "YYY", Toast.LENGTH_SHORT).show();
                 path = "android.resource://" + getPackageName() + "/" + successList[activityPosition];
          /*       view.setVisibility(View.GONE);
                 view2.setVisibility(View.GONE);*/
