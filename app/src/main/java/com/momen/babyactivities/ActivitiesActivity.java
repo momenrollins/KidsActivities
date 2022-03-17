@@ -24,7 +24,10 @@ public class ActivitiesActivity extends AppCompatActivity {
         recyclerView.setAdapter(activitiesAdapter);
         lvl = getIntent().getIntExtra("lvl", 1);
         activitiesAdapter.setOnItemClickListener(position ->
+        {
+            if (position < 2)
                 startActivity(new Intent(this, MainActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvty", position)));
+                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+        });
     }
 }

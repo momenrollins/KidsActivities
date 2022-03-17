@@ -8,40 +8,49 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.MediaController;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView iv;
+    LinearLayout iv;
+    ImageView arwImg;
+    ImageView ballImg;
     Handler handler = new Handler();
     Runnable runnable;
     VideoView videoView;
     String path;
     LinearLayout container;
     Button replatAgain;
+    int[] imgList = {R.drawable.lvl1_1, R.drawable.lvl1_2,};
+    int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start,};
+    int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success};
+    int[] failedList = {R.raw.lvl1_1_failed, R.raw.lvl1_2_failed};
+    int num = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        iv = findViewById(R.id.ballImage);
+        iv = findViewById(R.id.lvlImg);
+        arwImg = findViewById(R.id.arwImg);
+        ballImg = findViewById(R.id.ballImg);
+        num = getIntent().getIntExtra("actvtyNum", 0);
+        ballImg.setImageResource(imgList[num]);
         container = findViewById(R.id.container);
         videoView = (VideoView) findViewById(R.id.VideoView);
         replatAgain = findViewById(R.id.reply);
 //        MediaController mediaController = new MediaController(this);
 //        mediaController.setAnchorView(videoView);
 //        videoView.setMediaController(mediaController);
-        path = "android.resource://" + getPackageName() + "/" + R.raw.startballvedio;
+        path = "android.resource://" + getPackageName() + "/" + startList[num];
+        arwImg.setVisibility(View.GONE);
 
         playVideo(path, true);
 
@@ -58,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                path = "android.resource://" + getPackageName() + "/" + R.raw.success_touch_ball;
-
+                path = "android.resource://" + getPackageName() + "/" + successList[num];
+//                arwImg.setVisibility(View.GONE);
                 handler.removeCallbacks(runnable);
 
                 playVideo(path, true);
@@ -68,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                path = "android.resource://" + getPackageName() + "/" + R.raw.faild_touch_ball;
+                path = "android.resource://" + getPackageName() + "/" + failedList[num];
+                arwImg.setVisibility(View.VISIBLE);
 
                 handler.removeCallbacks(runnable);
                 handler.post(runnable);
