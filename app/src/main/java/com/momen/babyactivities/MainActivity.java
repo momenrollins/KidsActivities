@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
 //        videoView.setMediaController(mediaController);
         path = "android.resource://" + getPackageName() + "/" + startList[num];
         arwImg.setVisibility(View.GONE);
-
         playVideo(path, true);
 
         runnable = new Runnable() {
