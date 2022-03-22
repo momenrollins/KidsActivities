@@ -25,10 +25,9 @@ public class ActivitiesActivity extends AppCompatActivity {
         lvl = getIntent().getIntExtra("lvl", 1);
         activitiesAdapter.setOnItemClickListener(position ->
         {
-            if (position < 10)
+
                 startActivity(new Intent(this, MainActivity.class)
                         .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else Toast.makeText(this, "NOT FINISHED YET!", Toast.LENGTH_SHORT).show();
         });
     }
 }
