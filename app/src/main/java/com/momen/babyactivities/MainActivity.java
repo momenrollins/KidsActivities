@@ -37,18 +37,18 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.appal2, R.drawable.banana,
             R.drawable.duck, R.drawable.dog,
             R.drawable.lion, R.drawable.lion,
-            R.drawable.red, R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red
-            ,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red,R.drawable.red};
+            R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red
+            , R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red};
 
     int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start, R.raw.selectappal1, R.raw.bana_app1, R.raw.duck1, R.raw.duckdog1,
-            R.raw.lion1, R.raw.lion_gr1, R.raw.red1, R.raw.black_red1, R.raw.v12_1,13,R.raw.v14_1,
-    15,R.raw.v16_1,16,R.raw.v18_1,18,R.raw.v20_1,18,R.raw.v22_1,18,R.raw.v24_1,18,R.raw.v26_1};
+            R.raw.lion1, R.raw.lion_gr1, R.raw.red1, R.raw.black_red1, R.raw.v12_1, 13, R.raw.v14_1,
+            15, R.raw.v16_1, 16, R.raw.v18_1, 18, R.raw.v20_1, 18, R.raw.v22_1, 18, R.raw.v24_1, 18, R.raw.v26_1};
     int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success, R.raw.selectappal3, R.raw.bana_app3, R.raw.duck3, R.raw.duckdog3,
-            R.raw.lion3, R.raw.lion_gr3, R.raw.red3, R.raw.black_red2, R.raw.v12_3,13,R.raw.v14_3,
-            15,R.raw.v16_3,16,R.raw.v18_3,18,R.raw.v20_3,18,R.raw.v22_3,18,R.raw.v24_3,18,R.raw.v26_3};
+            R.raw.lion3, R.raw.lion_gr3, R.raw.red3, R.raw.black_red2, R.raw.v12_3, 13, R.raw.v14_3,
+            15, R.raw.v16_3, 16, R.raw.v18_3, 18, R.raw.v20_3, 18, R.raw.v22_3, 18, R.raw.v24_3, 18, R.raw.v26_3};
     int[] failedList = {R.raw.lvl1_1_failed, R.raw.lvl1_2_failed, R.raw.selectappal2, R.raw.bana_app2, R.raw.duck2, R.raw.duckdog2,
-            R.raw.lion2, R.raw.lion_gr2, R.raw.red2, R.raw.black_red3, R.raw.v12_2,13,R.raw.v14_2,
-            15,R.raw.v16_2,16,R.raw.v18_2,18,R.raw.v20_2,18,R.raw.v22_2,18,R.raw.v24_2,18,R.raw.v26_2};
+            R.raw.lion2, R.raw.lion_gr2, R.raw.red2, R.raw.black_red3, R.raw.v12_2, 13, R.raw.v14_2,
+            15, R.raw.v16_2, 16, R.raw.v18_2, 18, R.raw.v20_2, 18, R.raw.v22_2, 18, R.raw.v24_2, 18, R.raw.v26_2};
     int activityPosition = 0;
     View viewSuccess, viewFail, arrowRight;
 
