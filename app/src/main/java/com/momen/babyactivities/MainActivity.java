@@ -276,7 +276,6 @@ public class MainActivity extends AppCompatActivity {
                 dip,
                 r.getDisplayMetrics()
         );
-
         return px;
     }
 }
