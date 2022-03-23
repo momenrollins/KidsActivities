@@ -21,9 +21,10 @@ import android.widget.VideoView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout iv;
+    LinearLayout iv, resultContainer;
     ImageView select_iv1;
     ImageView select_iv2;
+    Button next, repeat;
 
     ImageView arwImg;
     ImageView ballImg;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     String path;
     RelativeLayout container;
     Button replatAgain;
+    int nextIndex=0;
     int[] imgList = {R.drawable.lvl1_1, R.drawable.lvl1_2,
             R.drawable.appal2, R.drawable.banana,
             R.drawable.duck, R.drawable.dog,
@@ -61,31 +63,54 @@ public class MainActivity extends AppCompatActivity {
         ballImg = findViewById(R.id.ballImg);
         select_iv1 = findViewById(R.id.selectImage1);
         select_iv2 = findViewById(R.id.selectImage2);
+        next = findViewById(R.id.next);
+        repeat = findViewById(R.id.repeat);
+        resultContainer = findViewById(R.id.resultContainer);
 
         activityPosition = getIntent().getIntExtra("actvtyNum", 0);
+        nextIndex=activityPosition;
 
         Log.d(TAG, "onCreate:activityPosition  " + imgList.length);
         ballImg.setImageResource(imgList[activityPosition]);
         container = findViewById(R.id.container);
         videoView = findViewById(R.id.VideoView);
         replatAgain = findViewById(R.id.reply);
+        action(activityPosition);
 //        MediaController mediaController = new MediaController(this);
 //        mediaController.setAnchorView(videoView);
 //        videoView.setMediaController(mediaController);
-        path = "android.resource://" + getPackageName() + "/" + startList[activityPosition];
+
+        /*replatAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
+    }
+
+    public void action(int index) {
+        path = "android.resource://" + getPackageName() + "/" + startList[index];
+        Log.d(TAG, "action:index  "+index);
         arwImg.setVisibility(View.GONE);
-        playVideo(path, true);
-        switch (activityPosition) {
+        iv.setVisibility(View.GONE);
+        select_iv1.setVisibility(View.INVISIBLE);
+        select_iv2.setVisibility(View.INVISIBLE);
+        resultContainer.setVisibility(View.INVISIBLE);
+        if (arrowRight != null) {
+            arrowRight.setVisibility(View.INVISIBLE);
+        }
+        playVideo(path, false);
+        switch (index) {
             case 0:
             case 1: {
                 iv.setVisibility(View.VISIBLE);
-                ballImg.setImageResource(imgList[activityPosition]);
+                ballImg.setImageResource(imgList[index]);
 
             }
             break;
             case 2: {
                 select_iv1.setVisibility(View.VISIBLE);
-                select_iv1.setImageResource(imgList[activityPosition]);
+                select_iv1.setImageResource(imgList[index]);
                 viewSuccess = select_iv1;
                 viewFail = select_iv2;
                 arrowRight = findViewById(R.id.arwImg1);
@@ -253,7 +278,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-        if (activityPosition == 0 || activityPosition == 1) {
+        if (index == 0 || index == 1) {
             handler.post(runnable);
         }
         iv.setOnClickListener(new View.OnClickListener() {
@@ -261,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "iv", Toast.LENGTH_SHORT).show();
 
-                path = "android.resource://" + getPackageName() + "/" + successList[activityPosition];
+                path = "android.resource://" + getPackageName() + "/" + successList[index];
 //                arwImg.setVisibility(View.GONE);
                 handler.removeCallbacks(runnable);
 
@@ -272,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "viewSuccess", Toast.LENGTH_SHORT).show();
-                path = "android.resource://" + getPackageName() + "/" + successList[activityPosition];
+                path = "android.resource://" + getPackageName() + "/" + successList[index];
                 if (viewFail != null)
                     viewFail.setVisibility(View.GONE);
          /*       view.setVisibility(View.GONE);
@@ -284,12 +309,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "container", Toast.LENGTH_SHORT).show();
-                path = "android.resource://" + getPackageName() + "/" + failedList[activityPosition];
+                path = "android.resource://" + getPackageName() + "/" + failedList[index];
 
                 if (arrowRight != null) {
                     arrowRight.setVisibility(View.VISIBLE);
                 }
-                if (activityPosition == 0 || activityPosition == 1) {
+                if (index == 0 || index == 1) {
                     arwImg.setVisibility(View.VISIBLE);
                     handler.removeCallbacks(runnable);
                     handler.post(runnable);
@@ -300,12 +325,6 @@ public class MainActivity extends AppCompatActivity {
                 playVideo(path, false);
             }
         });
-        /*replatAgain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
     }
 
     private static final String TAG = "MainActivity";
@@ -320,8 +339,24 @@ public class MainActivity extends AppCompatActivity {
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                if (!isSuccess) {
-                    if (activityPosition == 2) {
+                if (isSuccess) {
+                    resultContainer.setVisibility(View.VISIBLE);
+                    next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d(TAG, "onClick: ");
+                            activityPosition=activityPosition+1;
+                            action(activityPosition);
+                        }
+                    });
+                    repeat.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            action(activityPosition);
+
+                        }
+                    });
+                   /* if (activityPosition == 2) {
                         select_iv1.setVisibility(View.VISIBLE);
                     } else if (activityPosition == 3) {
                         select_iv1.setVisibility(View.VISIBLE);
@@ -333,7 +368,7 @@ public class MainActivity extends AppCompatActivity {
                         select_iv2.setVisibility(View.VISIBLE);
                     } else if (activityPosition == 6) {
                         select_iv1.setVisibility(View.VISIBLE);
-                    }
+                    }*/
 //                    replatAgain.setVisibility(View.INVISIBLE);
                 }
             }

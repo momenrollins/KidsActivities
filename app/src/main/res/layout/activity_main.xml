@@ -122,5 +122,30 @@
             app:srcCompat="@drawable/ball" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/resultContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:visibility="gone">
 
+        <Button
+            android:id="@+id/repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="إعادة"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/next"
+            android:text="التالى"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 </RelativeLayout>
