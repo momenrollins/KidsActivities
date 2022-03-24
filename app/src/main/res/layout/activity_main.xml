@@ -131,21 +131,29 @@
         android:padding="15dp"
         android:visibility="gone">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:text="إعادة"
-            android:layout_weight="1" />
+            android:textStyle="bold"
+            app:backgroundTint="#1385DF"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_baseline_replay_24" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/next"
-            android:text="التالى"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:backgroundTint="#00BC44"
+            android:text="التالى"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_baseline_navigate_next_24" />
 
     </LinearLayout>
 </RelativeLayout>

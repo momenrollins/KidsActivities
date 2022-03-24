@@ -33,7 +33,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ad
 
     @Override
     public int getItemCount() {
-        return 27;
+        return 26;
 
     }
 
