@@ -21,6 +21,10 @@ import android.widget.VideoView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    LinearLayout iv, resultContainer;
+
+    Button next, repeat;
+
     LinearLayout iv;
     ImageView select_ivRight;
     ImageView select_ivLeft;
@@ -33,32 +37,35 @@ public class MainActivity extends AppCompatActivity {
     String path;
     RelativeLayout container;
     Button replatAgain;
+    int nextIndex=0;
     int[] imgList = {R.drawable.lvl1_1, R.drawable.lvl1_2,
             R.drawable.appal2, R.drawable.banana,
             R.drawable.duck, R.drawable.dog,
             R.drawable.lion, R.drawable.lion,
+                     R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,
-            R.drawable.red, R.drawable.red,
-            R.drawable.red, R.drawable.red,
+            R.drawable.red, R.drawable.red,  R.drawable.red, R.drawable.red,  R.drawable.red, R.drawable.red,  
+  R.drawable.red, R.drawable.red,  R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,};
-
+    
     int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start, R.raw.selectappal1, R.raw.bana_app1, R.raw.duck1, R.raw.duckdog1,
-            R.raw.lion1, R.raw.lion_gr1, R.raw.red1, R.raw.black_red1,
-            /*12*/ R.raw.apple_banana1,    /*14*/ R.raw.duck_dog1, R.raw.lion_grf1, R.raw.red_black1, R.raw.ap_bana1, R.raw.duck_dog_1,
-            R.raw.lion_grf_1,R.raw.red_black_1,
-    };
+            R.raw.lion1, R.raw.lion_gr1, R.raw.red1, R.raw.black_red1, R.raw.v12_1, R.raw.apple_banana1, R.raw.v14_1,
+            R.raw.duck_dog1, R.raw.v16_1, R.raw.lion_grf1, R.raw.v18_1, R.raw.red_black1, R.raw.v20_1, R.raw.ap_bana1, R.raw.v22_1, R.raw.duck_dog_1, 
+                       R.raw.v24_1, R.raw.lion_grf_1, R.raw.v26_1,R.raw.red_black_1};
+                     
     int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success, R.raw.selectappal3, R.raw.bana_app3, R.raw.duck3, R.raw.duckdog3,
-            R.raw.lion2, R.raw.lion_gr2, R.raw.red2, R.raw.black_red2,
-            R.raw.apple_banana2, R.raw.duck_dog2, R.raw.lion_grf2, R.raw.red_black2, R.raw.ap_bana2, R.raw.duck_dog_2,
-            R.raw.lion_grf_2,R.raw.red_black_2,
-    };
+            R.raw.lion2, R.raw.lion_gr2, R.raw.red2, R.raw.black_red2, R.raw.v12_3,  R.raw.apple_banana2, R.raw.v14_3,
+            R.raw.duck_dog2, R.raw.v16_3, R.raw.lion_grf2, R.raw.v18_3, R.raw.red_black2, R.raw.v20_3, R.raw.ap_bana2, 
+                         R.raw.v22_3, R.raw.duck_dog_2, R.raw.v24_3,  R.raw.lion_grf_2, R.raw.v26_3 ,R.raw.red_black_2};
+  
     int[] failedList = {R.raw.lvl1_1_failed, R.raw.lvl1_2_failed, R.raw.selectappal2, R.raw.bana_app2, R.raw.duck2, R.raw.duckdog2,
             R.raw.lion2, R.raw.lion_gr3, R.raw.red3, R.raw.black_red3,
-            R.raw.apple_banana3, R.raw.duck_dog3, R.raw.lion_grf3, R.raw.red_black3, R.raw.ap_bana3, R.raw.duck_dog_3,
-            R.raw.lion_grf_3,  R.raw.red_black_3,
-    };
+                        R.raw.v12_2, R.raw.apple_banana3, R.raw.v14_2,
+            R.raw.duck_dog3, R.raw.v16_2, R.raw.lion_grf3, R.raw.v18_2,  R.raw.red_black3, R.raw.v20_2, R.raw.ap_bana3, 
+                        R.raw.v22_2,  R.raw.duck_dog_3, R.raw.v24_2,  R.raw.lion_grf_3, R.raw.v26_2 ,  R.raw.red_black_3};
+
     int activityPosition = 0;
     View viewSuccess, viewFail, arrowTrue;
 
@@ -69,35 +76,62 @@ public class MainActivity extends AppCompatActivity {
         iv = findViewById(R.id.lvlImg);
         arwImg = findViewById(R.id.arwImg);
         ballImg = findViewById(R.id.ballImg);
+
+        next = findViewById(R.id.next);
+        repeat = findViewById(R.id.repeat);
+        resultContainer = findViewById(R.id.resultContainer);
+
         select_ivRight = findViewById(R.id.selectImage1);
         select_ivLeft = findViewById(R.id.selectImage2);
 
         activityPosition = getIntent().getIntExtra("actvtyNum", 0);
+        nextIndex=activityPosition;
+
+        Log.d(TAG, "onCreate:activityPosition  " + imgList.length);
         ballImg.setImageResource(imgList[activityPosition]);
         container = findViewById(R.id.container);
         videoView = findViewById(R.id.VideoView);
         replatAgain = findViewById(R.id.reply);
+        action(activityPosition);
 //        MediaController mediaController = new MediaController(this);
 //        mediaController.setAnchorView(videoView);
 //        videoView.setMediaController(mediaController);
-        path = "android.resource://" + getPackageName() + "/" + startList[activityPosition];
+
+        /*replatAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
+    }
+
+    public void action(int index) {
+        path = "android.resource://" + getPackageName() + "/" + startList[index];
+        Log.d(TAG, "action:index  "+index);
         arwImg.setVisibility(View.GONE);
-        playVideo(path, true);
-        switch (activityPosition) {
+        iv.setVisibility(View.GONE);
+        select_iv1.setVisibility(View.INVISIBLE);
+        select_iv2.setVisibility(View.INVISIBLE);
+        resultContainer.setVisibility(View.INVISIBLE);
+        if (arrowRight != null) {
+            arrowRight.setVisibility(View.INVISIBLE);
+        }
+        playVideo(path, false);
+        switch (index) {
             case 0:
             case 1: {
                 iv.setVisibility(View.VISIBLE);
-                ballImg.setImageResource(imgList[activityPosition]);
+                ballImg.setImageResource(imgList[index]);
 
             }
             break;
             case 2: {
-                select_ivRight.setVisibility(View.VISIBLE);
-                select_ivRight.setImageResource(imgList[activityPosition]);
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv1.setImageResource(imgList[index]);
+
                 viewSuccess = select_ivRight;
                 viewFail = select_ivLeft;
                 arrowTrue = findViewById(R.id.arwImgRight);
-
             }
             break;
             case 3: {
@@ -139,21 +173,28 @@ public class MainActivity extends AppCompatActivity {
             }
             break;
             case 7: {
+       
                 select_ivRight.setVisibility(View.VISIBLE);
                 select_ivLeft.setVisibility(View.VISIBLE);
                 select_ivRight.setImageResource(R.drawable.lion);
                 select_ivLeft.setImageResource(R.drawable.giraffe);
                 viewSuccess = select_ivRight;
                 viewFail = select_ivLeft;
-            }
+           }
             break;
             case 8: {
-                select_ivLeft.setVisibility(View.VISIBLE);
+            
+                arrowRight = findViewById(R.id.arwImg2);
+              
+                select_ivRight.setVisibility(View.INVISIBLE);
+
+                 select_ivLeft.setVisibility(View.VISIBLE);
                 select_ivLeft.setImageResource(R.drawable.red);
                 viewSuccess = select_ivLeft;
                 viewFail = select_ivRight;
 
             }
+            break;
             case 9: {
                 select_ivRight.setVisibility(View.VISIBLE);
                 select_ivLeft.setVisibility(View.VISIBLE);
@@ -162,11 +203,22 @@ public class MainActivity extends AppCompatActivity {
                 viewSuccess = select_ivLeft;
                 viewFail = select_ivRight;
             }
+                break;
+            case 10: {
+
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv2.setVisibility(View.INVISIBLE);
+                select_iv1.setImageResource(R.drawable.appal2);
+                viewSuccess = select_iv1;
+                viewFail = select_iv2;
+                arrowRight = findViewById(R.id.arwImg1);
+
+            }
             break;
-            // 11
-            case 10:
-                // 19
-            case 14: {
+            
+            case 11:
+              
+            case 19: {
                 select_ivRight.setVisibility(View.VISIBLE);
                 select_ivLeft.setVisibility(View.VISIBLE);
 
@@ -177,10 +229,19 @@ public class MainActivity extends AppCompatActivity {
 
                 arrowTrue = findViewById(R.id.arwImgRight);
             }
+            case 12: {
+
+                select_iv1.setVisibility(View.INVISIBLE);
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv2.setImageResource(R.drawable.duck);
+                viewSuccess = select_iv2;
+                viewFail = select_iv1;
+                arrowRight = findViewById(R.id.arwImg2);
+
+            }
             break;
-            // 13
-            case 11:
-            case 15: {
+             case 13:
+            case 21: {
                 select_ivRight.setVisibility(View.VISIBLE);
                 select_ivLeft.setVisibility(View.VISIBLE);
 
@@ -190,11 +251,20 @@ public class MainActivity extends AppCompatActivity {
                 viewFail = select_ivRight;
 
                 arrowTrue = findViewById(R.id.arwImgLeft);
+            } break;
+            case 14: {
+
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv2.setVisibility(View.INVISIBLE);
+                select_iv1.setImageResource(R.drawable.lion);
+                viewSuccess = select_iv1;
+                viewFail = select_iv2;
+                arrowRight = findViewById(R.id.arwImg1);
+
             }
             break;
-            // 15
-            case 12:
-            case 16: {
+              case 15:
+            case 23: {
                 select_ivRight.setVisibility(View.VISIBLE);
                 select_ivLeft.setVisibility(View.VISIBLE);
 
@@ -206,8 +276,18 @@ public class MainActivity extends AppCompatActivity {
                 arrowTrue = findViewById(R.id.arwImgRight);
             }
             break;
-            // 17
-            case 13: case 17: {
+            case 16: {
+
+                select_iv1.setVisibility(View.INVISIBLE);
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv2.setImageResource(R.drawable.red);
+                viewSuccess = select_iv2;
+                viewFail = select_iv1;
+                arrowRight = findViewById(R.id.arwImg2);
+
+            }
+            break;
+             case 17: case 25: {
                 select_ivRight.setVisibility(View.VISIBLE);
                 select_ivLeft.setVisibility(View.VISIBLE);
 
@@ -219,6 +299,52 @@ public class MainActivity extends AppCompatActivity {
                 arrowTrue = findViewById(R.id.arwImgLeft);
             }
             break;
+            case 18: {
+
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv2.setVisibility(View.INVISIBLE);
+                select_iv1.setImageResource(R.drawable.appel_with_back);
+                viewSuccess = select_iv1;
+                viewFail = select_iv2;
+                arrowRight = findViewById(R.id.arwImg1);
+
+            }
+            break;
+            case 20: {
+
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv1.setVisibility(View.INVISIBLE);
+                select_iv2.setImageResource(R.drawable.duck_with_back);
+                viewSuccess = select_iv2;
+                viewFail = select_iv1;
+                arrowRight = findViewById(R.id.arwImg2);
+
+            }
+            break;
+            case 22: {
+
+                select_iv1.setVisibility(View.VISIBLE);
+                select_iv2.setVisibility(View.INVISIBLE);
+                select_iv1.setImageResource(R.drawable.lion_with_back);
+                viewSuccess = select_iv1;
+                viewFail = select_iv2;
+                arrowRight = findViewById(R.id.arwImg1);
+
+            }
+            break;
+            case 24: {
+
+                select_iv2.setVisibility(View.VISIBLE);
+                select_iv1.setVisibility(View.INVISIBLE);
+                select_iv2.setImageResource(R.drawable.red_with_back);
+                viewSuccess = select_iv2;
+                viewFail = select_iv1;
+                arrowRight = findViewById(R.id.arwImg2);
+
+
+            }
+            break;
+
         }
 
         runnable = new Runnable() {
@@ -229,7 +355,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-        if (activityPosition == 0 || activityPosition == 1) {
+        if (index == 0 || index == 1) {
             handler.post(runnable);
         }
         iv.setOnClickListener(new View.OnClickListener() {
@@ -237,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                Toast.makeText(MainActivity.this, "iv", Toast.LENGTH_SHORT).show();
 
-                path = "android.resource://" + getPackageName() + "/" + successList[activityPosition];
+                path = "android.resource://" + getPackageName() + "/" + successList[index];
 //                arwImg.setVisibility(View.GONE);
                 handler.removeCallbacks(runnable);
 
@@ -247,8 +373,9 @@ public class MainActivity extends AppCompatActivity {
         if (viewSuccess != null) viewSuccess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "viewSuccess", Toast.LENGTH_SHORT).show();
-                path = "android.resource://" + getPackageName() + "/" + successList[activityPosition];
+                Toast.makeText(MainActivity.this, "viewSuccess", Toast.LENGTH_SHORT).show();
+                path = "android.resource://" + getPackageName() + "/" + successList[index];
+
                 if (viewFail != null)
                     viewFail.setVisibility(View.GONE);
          /*       view.setVisibility(View.GONE);
@@ -259,13 +386,15 @@ public class MainActivity extends AppCompatActivity {
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "container", Toast.LENGTH_SHORT).show();
-                path = "android.resource://" + getPackageName() + "/" + failedList[activityPosition];
+
+                Toast.makeText(MainActivity.this, "container", Toast.LENGTH_SHORT).show();
+                path = "android.resource://" + getPackageName() + "/" + failedList[index];
+
 
                 if (arrowTrue != null) {
                     arrowTrue.setVisibility(View.VISIBLE);
                 }
-                if (activityPosition == 0 || activityPosition == 1) {
+                if (index == 0 || index == 1) {
                     arwImg.setVisibility(View.VISIBLE);
                     handler.removeCallbacks(runnable);
                     handler.post(runnable);
@@ -276,12 +405,6 @@ public class MainActivity extends AppCompatActivity {
                 playVideo(path, false);
             }
         });
-        /*replatAgain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
     }
 
     private static final String TAG = "MainActivity";
@@ -296,9 +419,26 @@ public class MainActivity extends AppCompatActivity {
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                if (!isSuccess) {
-                    if (activityPosition == 2) {
-                        select_ivRight.setVisibility(View.VISIBLE);
+                if (isSuccess) {
+                    resultContainer.setVisibility(View.VISIBLE);
+                    next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d(TAG, "onClick: ");
+                            activityPosition=activityPosition+1;
+                            action(activityPosition);
+                        }
+                    });
+                    repeat.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            action(activityPosition);
+
+                        }
+                    });
+                   /* if (activityPosition == 2) {
+                        select_iv1.setVisibility(View.VISIBLE);
+
                     } else if (activityPosition == 3) {
                         select_ivRight.setVisibility(View.VISIBLE);
                         select_ivLeft.setVisibility(View.VISIBLE);
@@ -308,8 +448,9 @@ public class MainActivity extends AppCompatActivity {
                         select_ivRight.setVisibility(View.VISIBLE);
                         select_ivLeft.setVisibility(View.VISIBLE);
                     } else if (activityPosition == 6) {
-                        select_ivRight.setVisibility(View.VISIBLE);
-                    }
+                        select_iv1.setVisibility(View.VISIBLE);
+                    }*/
+
 //                    replatAgain.setVisibility(View.INVISIBLE);
                 }
             }
