@@ -25,9 +25,11 @@ public class ActivitiesActivity extends AppCompatActivity {
         lvl = getIntent().getIntExtra("lvl", 1);
         activitiesAdapter.setOnItemClickListener(position ->
         {
-
+            if (position < 26)
                 startActivity(new Intent(this, MainActivity.class)
                         .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+            else startActivity(new Intent(this, DragActivity.class)
+                    .putExtra("lvl", lvl).putExtra("actvtyNum", position));
         });
     }
 }

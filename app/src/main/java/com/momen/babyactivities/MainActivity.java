@@ -460,7 +460,7 @@ public class MainActivity extends AppCompatActivity {
 
     public float getRandomPositionX(float deviceTotalWidth) {
         Random random = new Random();
-        float randX = random.nextInt((int) deviceTotalWidth - (int) getImageSizeinPixels());
+        float randX = random.nextInt((int) deviceTotalWidth - 700 - (int) getImageSizeinPixels());
         return randX;
     }
 
