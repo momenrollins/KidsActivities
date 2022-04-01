@@ -34,7 +34,7 @@ public class ChooseLevelActivity extends AppCompatActivity implements View.OnCli
         }
         else if (view == lvl2) {
             lvl = 2;
-            startActivity(new Intent(this,VideoCapture.class));
+//            startActivity(new Intent(this,VideoCapture.class));
 
         }
         else lvl = 3;
