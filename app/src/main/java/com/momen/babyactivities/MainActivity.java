@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout iv, resultContainer;
 
     Button next, repeat;
-
     ImageView select_ivRight;
     ImageView select_ivLeft;
 
