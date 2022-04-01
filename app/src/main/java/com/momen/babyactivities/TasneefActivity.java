@@ -472,10 +472,9 @@ public class TasneefActivity extends AppCompatActivity {
         try {
             player.setDataSource(fileDescriptor, afd.getStartOffset(),
                     afd.getLength());
+            player.setLooping(false);
+            player.prepare();
             player.start();
-//            player.setLooping(false);
-//            player.prepare();
-//            player.start();
         } catch (IOException ex) {
             player.start();
             Log.d("TAG", "number: " + ex.getMessage());
