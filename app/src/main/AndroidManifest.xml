@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BabyActivities">
         <activity
-            android:name=".TasneefActivity"
+            android:name=".ColorActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -22,6 +22,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CollectSquaresActivity"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".TasneefActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+
         </activity>
         <activity
             android:name=".DragActivity"
@@ -37,13 +47,11 @@
         <activity
             android:name=".ChooseLevelActivity"
             android:exported="true"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MovingActivity"
             android:exported="true"
-            android:screenOrientation="landscape">
-
-        </activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

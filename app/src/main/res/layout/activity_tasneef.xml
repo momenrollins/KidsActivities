@@ -9,6 +9,7 @@
     tools:context=".TasneefActivity">
 
     <VideoView
+        android:background="@drawable/background"
         android:id="@+id/VideoView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

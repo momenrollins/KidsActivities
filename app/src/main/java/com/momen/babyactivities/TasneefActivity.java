@@ -58,257 +58,7 @@ public class TasneefActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tasneef);
         initView();
         setData(index);
-      /* ivA1.setOnTouchListener(new View.OnTouchListener() {
-           PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-           PointF StartPT = new PointF(); // Record Start Position of 'img'
 
-           @Override
-           public boolean onTouch(View v, MotionEvent event) {
-
-
-               switch (event.getAction()) {
-                   case MotionEvent.ACTION_MOVE:
-                       ivA1.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                       ivA1.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                       StartPT.set(ivA1.getX(), ivA1.getY());
-                        if (ivA1.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                       break;
-                   case MotionEvent.ACTION_DOWN:
-                       DownPT.set(event.getX(), event.getY());
-                       StartPT.set(ivA1.getX(), ivA1.getY());
-
-                       break;
-                   case MotionEvent.ACTION_UP:
-
-                       break;
-                   default:
-                       break;
-               }
-               return true;
-           }
-       });
-        ivA2.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA2.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA2.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA2.getX(), ivA2.getY());
-                        if (ivA2.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA2.getX(), ivA2.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-        ivA3.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA3.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA3.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA3.getX(), ivA3.getY());
-                        if (ivA3.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA3.getX(), ivA3.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-        ivA4.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA4.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA4.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA4.getX(), ivA4.getY());
-                        if (ivA4.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA4.getX(), ivA4.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-
-
-
-        ivA1.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA1.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA1.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA1.getX(), ivA1.getY());
-                        if (ivA1.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA1.getX(), ivA1.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-        ivA2.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA2.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA2.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA2.getX(), ivA2.getY());
-                        if (ivA2.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA2.getX(), ivA2.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-        ivA3.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA3.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA3.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA3.getX(), ivA3.getY());
-                        if (ivA3.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA3.getX(), ivA3.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-        ivA4.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        ivA4.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        ivA4.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(ivA4.getX(), ivA4.getY());
-                        if (ivA4.getX() > container.getWidth()/2){
-                            Log.d("TAG", "onTouch: bravoooooooo ");
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivA4.getX(), ivA4.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });*/
         ivA1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -398,7 +148,7 @@ public class TasneefActivity extends AppCompatActivity {
             ivF4.setImageResource(tasnefl1F_images[3]);
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
-            number(0,TasneefActivity.this);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1,false);
             txtRight.setText("ضع الحيوانات على اليمين");
             txtLeft.setText("ضع الفاكهة على اليسار");
 
@@ -413,7 +163,7 @@ public class TasneefActivity extends AppCompatActivity {
             ivF4.setImageResource(tasnefl2C_images[3]);
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
-            number(1,TasneefActivity.this);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2,false);
             txtRight.setText("ضع الخضار على اليمين");
             txtLeft.setText("ضع لالوان على اليسار");
 
@@ -429,7 +179,7 @@ public class TasneefActivity extends AppCompatActivity {
             ivF4.setImageResource(tasnefl3B_images[3]);
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
-            number(2,TasneefActivity.this);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3,false);
 
             txtRight.setText("ضع وسايل الموصلات على اليمين");
             txtLeft.setText("ضع الطيور على اليسار");
@@ -448,7 +198,7 @@ public class TasneefActivity extends AppCompatActivity {
 
     }
 
-    public void playVideo(String path) {
+    public void playVideo(String path , boolean isSuccess) {
 
         VideoView.setVideoURI(Uri.parse(path));
         VideoView.start();
@@ -457,8 +207,14 @@ public class TasneefActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
 
-                next.setVisibility(View.VISIBLE);
-                repeat.setVisibility(View.VISIBLE);
+                if (isSuccess){
+                    next.setVisibility(View.VISIBLE);
+                    repeat.setVisibility(View.VISIBLE);
+                }else {
+                    next.setVisibility(View.INVISIBLE);
+                    repeat.setVisibility(View.INVISIBLE);
+                }
+
 
             }
         });
@@ -506,7 +262,7 @@ public class TasneefActivity extends AppCompatActivity {
 
 
                         ) {
-                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez);
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez,true);
                         }
                         break;
                     case MotionEvent.ACTION_DOWN:
