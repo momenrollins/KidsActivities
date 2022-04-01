@@ -1,5 +1,6 @@
 package com.momen.babyactivities;
 
+import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
     private VideoView VideoView;
     private ConstraintLayout mainContainer;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
