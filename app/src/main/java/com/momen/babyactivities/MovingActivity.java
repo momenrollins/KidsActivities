@@ -17,7 +17,7 @@ import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.google.maps.android.PolyUtil;
+import com.google.android.material.button.MaterialButton;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -37,10 +37,16 @@ public class MovingActivity extends AppCompatActivity {
     private TextView fResult;
     private LinearLayout moviLinear;
     private VideoView videoView;
-    int index = 0;
+    int index = 2;
     int[] startList = {R.raw.mataha_l1_v1, R.raw.mataha_l2_v1, R.raw.mataha_l3_1};
-    int[] endtList = {R.raw.mataha_l1_v2, R.raw.mataha_l11_v2, R.raw.mataha_l3_v2};
+    int[] endtList = {R.raw.mataha_l11_v2, R.raw.mataha_l11_v2, R.raw.mataha_l3_v2};
     String path = "";
+    private android.widget.VideoView VideoView;
+    private LinearLayout moviLinearv;
+    private ImageView btn;
+    private MaterialButton repeat;
+    private MaterialButton next;
+    boolean isWalkRight=true;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -53,2743 +59,9 @@ public class MovingActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(359.0, 387.0));
-        pointArrayList.add(new matahaModel(360.0, 383.0));
-        pointArrayList.add(new matahaModel(362.0, 377.0));
-        pointArrayList.add(new matahaModel(363.0, 372.0));
-        pointArrayList.add(new matahaModel(364.0, 368.0));
-        pointArrayList.add(new matahaModel(366.0, 364.0));
-        pointArrayList.add(new matahaModel(368.0, 360.0));
-        pointArrayList.add(new matahaModel(370.0, 357.0));
-        pointArrayList.add(new matahaModel(373.0, 356.0));
-        pointArrayList.add(new matahaModel(374.0, 353.0));
-        pointArrayList.add(new matahaModel(377.0, 353.0));
-        pointArrayList.add(new matahaModel(379.0, 349.0));
-        pointArrayList.add(new matahaModel(381.0, 348.0));
-        pointArrayList.add(new matahaModel(383.0, 346.0));
-        pointArrayList.add(new matahaModel(384.0, 342.0));
-        pointArrayList.add(new matahaModel(384.0, 342.0));
-        pointArrayList.add(new matahaModel(384.0, 343.0));
-        pointArrayList.add(new matahaModel(380.0, 345.0));
-        pointArrayList.add(new matahaModel(380.0, 348.0));
-        pointArrayList.add(new matahaModel(378.0, 352.0));
-        pointArrayList.add(new matahaModel(376.0, 357.0));
-        pointArrayList.add(new matahaModel(372.0, 363.0));
-        pointArrayList.add(new matahaModel(371.0, 368.0));
-        pointArrayList.add(new matahaModel(369.0, 373.0));
-        pointArrayList.add(new matahaModel(368.0, 378.0));
-        pointArrayList.add(new matahaModel(367.0, 383.0));
-        pointArrayList.add(new matahaModel(367.0, 387.0));
-        pointArrayList.add(new matahaModel(366.0, 389.0));
-        pointArrayList.add(new matahaModel(365.0, 391.0));
-        pointArrayList.add(new matahaModel(364.0, 396.0));
-        pointArrayList.add(new matahaModel(363.0, 399.0));
-        pointArrayList.add(new matahaModel(362.0, 403.0));
-        pointArrayList.add(new matahaModel(362.0, 406.0));
-        pointArrayList.add(new matahaModel(362.0, 409.0));
-        pointArrayList.add(new matahaModel(362.0, 412.0));
-        pointArrayList.add(new matahaModel(362.0, 414.0));
-        pointArrayList.add(new matahaModel(362.0, 419.0));
-        pointArrayList.add(new matahaModel(362.0, 428.0));
-        pointArrayList.add(new matahaModel(362.0, 430.0));
-        pointArrayList.add(new matahaModel(363.0, 435.0));
-        pointArrayList.add(new matahaModel(367.0, 432.0));
-        pointArrayList.add(new matahaModel(370.0, 428.0));
-        pointArrayList.add(new matahaModel(374.0, 425.0));
-        pointArrayList.add(new matahaModel(378.0, 421.0));
-        pointArrayList.add(new matahaModel(384.0, 416.0));
-        pointArrayList.add(new matahaModel(389.0, 410.0));
-        pointArrayList.add(new matahaModel(397.0, 405.0));
-        pointArrayList.add(new matahaModel(404.0, 397.0));
-        pointArrayList.add(new matahaModel(410.0, 390.0));
-        pointArrayList.add(new matahaModel(415.0, 384.0));
-        pointArrayList.add(new matahaModel(419.0, 377.0));
-        pointArrayList.add(new matahaModel(423.0, 373.0));
-        pointArrayList.add(new matahaModel(427.0, 370.0));
-        pointArrayList.add(new matahaModel(431.0, 369.0));
-        pointArrayList.add(new matahaModel(435.0, 368.0));
-        pointArrayList.add(new matahaModel(439.0, 367.0));
-        pointArrayList.add(new matahaModel(441.0, 367.0));
-        pointArrayList.add(new matahaModel(441.0, 369.0));
-        pointArrayList.add(new matahaModel(439.0, 373.0));
-        pointArrayList.add(new matahaModel(436.0, 378.0));
-        pointArrayList.add(new matahaModel(432.0, 385.0));
-        pointArrayList.add(new matahaModel(429.0, 393.0));
-        pointArrayList.add(new matahaModel(426.0, 399.0));
-        pointArrayList.add(new matahaModel(423.0, 405.0));
-        pointArrayList.add(new matahaModel(421.0, 412.0));
-        pointArrayList.add(new matahaModel(419.0, 416.0));
-        pointArrayList.add(new matahaModel(417.0, 423.0));
-        pointArrayList.add(new matahaModel(415.0, 428.0));
-        pointArrayList.add(new matahaModel(415.0, 433.0));
-        pointArrayList.add(new matahaModel(412.0, 437.0));
-        pointArrayList.add(new matahaModel(412.0, 441.0));
-        pointArrayList.add(new matahaModel(410.0, 445.0));
-        pointArrayList.add(new matahaModel(409.0, 449.0));
-        pointArrayList.add(new matahaModel(409.0, 453.0));
-        pointArrayList.add(new matahaModel(409.0, 456.0));
-        pointArrayList.add(new matahaModel(409.0, 457.0));
-        pointArrayList.add(new matahaModel(409.0, 458.0));
-        pointArrayList.add(new matahaModel(411.0, 458.0));
-        pointArrayList.add(new matahaModel(413.0, 457.0));
-        pointArrayList.add(new matahaModel(416.0, 456.0));
-        pointArrayList.add(new matahaModel(420.0, 452.0));
-        pointArrayList.add(new matahaModel(424.0, 448.0));
-        pointArrayList.add(new matahaModel(429.0, 443.0));
-        pointArrayList.add(new matahaModel(438.0, 435.0));
-        pointArrayList.add(new matahaModel(448.0, 424.0));
-        pointArrayList.add(new matahaModel(457.0, 415.0));
-        pointArrayList.add(new matahaModel(462.0, 408.0));
-        pointArrayList.add(new matahaModel(468.0, 403.0));
-        pointArrayList.add(new matahaModel(477.0, 399.0));
-        pointArrayList.add(new matahaModel(485.0, 392.0));
-        pointArrayList.add(new matahaModel(491.0, 388.0));
-        pointArrayList.add(new matahaModel(497.0, 382.0));
-        pointArrayList.add(new matahaModel(501.0, 380.0));
-        pointArrayList.add(new matahaModel(505.0, 377.0));
-        pointArrayList.add(new matahaModel(509.0, 376.0));
-        pointArrayList.add(new matahaModel(512.0, 376.0));
-        pointArrayList.add(new matahaModel(514.0, 376.0));
-        pointArrayList.add(new matahaModel(513.0, 378.0));
-        pointArrayList.add(new matahaModel(510.0, 380.0));
-        pointArrayList.add(new matahaModel(508.0, 384.0));
-        pointArrayList.add(new matahaModel(505.0, 389.0));
-        pointArrayList.add(new matahaModel(503.0, 394.0));
-        pointArrayList.add(new matahaModel(500.0, 400.0));
-        pointArrayList.add(new matahaModel(496.0, 408.0));
-        pointArrayList.add(new matahaModel(494.0, 412.0));
-        pointArrayList.add(new matahaModel(490.0, 418.0));
-        pointArrayList.add(new matahaModel(488.0, 424.0));
-        pointArrayList.add(new matahaModel(486.0, 431.0));
-        pointArrayList.add(new matahaModel(483.0, 437.0));
-        pointArrayList.add(new matahaModel(481.0, 441.0));
-        pointArrayList.add(new matahaModel(482.0, 445.0));
-        pointArrayList.add(new matahaModel(481.0, 451.0));
-        pointArrayList.add(new matahaModel(478.0, 455.0));
-        pointArrayList.add(new matahaModel(476.0, 461.0));
-        pointArrayList.add(new matahaModel(474.0, 466.0));
-        pointArrayList.add(new matahaModel(474.0, 471.0));
-        pointArrayList.add(new matahaModel(473.0, 476.0));
-        pointArrayList.add(new matahaModel(472.0, 480.0));
-        pointArrayList.add(new matahaModel(471.0, 484.0));
-        pointArrayList.add(new matahaModel(468.0, 488.0));
-        pointArrayList.add(new matahaModel(468.0, 492.0));
-        pointArrayList.add(new matahaModel(468.0, 497.0));
-        pointArrayList.add(new matahaModel(468.0, 501.0));
-        pointArrayList.add(new matahaModel(468.0, 505.0));
-        pointArrayList.add(new matahaModel(468.0, 509.0));
-        pointArrayList.add(new matahaModel(469.0, 513.0));
-        pointArrayList.add(new matahaModel(470.0, 512.0));
-        pointArrayList.add(new matahaModel(474.0, 512.0));
-        pointArrayList.add(new matahaModel(477.0, 512.0));
-        pointArrayList.add(new matahaModel(479.0, 509.0));
-        pointArrayList.add(new matahaModel(483.0, 505.0));
-        pointArrayList.add(new matahaModel(487.0, 501.0));
-        pointArrayList.add(new matahaModel(490.0, 497.0));
-        pointArrayList.add(new matahaModel(494.0, 489.0));
-        pointArrayList.add(new matahaModel(502.0, 478.0));
-        pointArrayList.add(new matahaModel(508.0, 471.0));
-        pointArrayList.add(new matahaModel(512.0, 467.0));
-        pointArrayList.add(new matahaModel(517.0, 462.0));
-        pointArrayList.add(new matahaModel(522.0, 457.0));
-        pointArrayList.add(new matahaModel(528.0, 450.0));
-        pointArrayList.add(new matahaModel(533.0, 443.0));
-        pointArrayList.add(new matahaModel(537.0, 437.0));
-        pointArrayList.add(new matahaModel(545.0, 432.0));
-        pointArrayList.add(new matahaModel(550.0, 426.0));
-        pointArrayList.add(new matahaModel(557.0, 421.0));
-        pointArrayList.add(new matahaModel(561.0, 417.0));
-        pointArrayList.add(new matahaModel(565.0, 413.0));
-        pointArrayList.add(new matahaModel(569.0, 413.0));
-        pointArrayList.add(new matahaModel(571.0, 413.0));
-        pointArrayList.add(new matahaModel(571.0, 414.0));
-        pointArrayList.add(new matahaModel(571.0, 418.0));
-        pointArrayList.add(new matahaModel(569.0, 422.0));
-        pointArrayList.add(new matahaModel(566.0, 426.0));
-        pointArrayList.add(new matahaModel(566.0, 434.0));
-        pointArrayList.add(new matahaModel(562.0, 440.0));
-        pointArrayList.add(new matahaModel(559.0, 447.0));
-        pointArrayList.add(new matahaModel(557.0, 454.0));
-        pointArrayList.add(new matahaModel(555.0, 460.0));
-        pointArrayList.add(new matahaModel(553.0, 466.0));
-        pointArrayList.add(new matahaModel(550.0, 471.0));
-        pointArrayList.add(new matahaModel(547.0, 478.0));
-        pointArrayList.add(new matahaModel(546.0, 484.0));
-        pointArrayList.add(new matahaModel(544.0, 490.0));
-        pointArrayList.add(new matahaModel(541.0, 496.0));
-        pointArrayList.add(new matahaModel(538.0, 500.0));
-        pointArrayList.add(new matahaModel(537.0, 504.0));
-        pointArrayList.add(new matahaModel(535.0, 511.0));
-        pointArrayList.add(new matahaModel(535.0, 515.0));
-        pointArrayList.add(new matahaModel(533.0, 519.0));
-        pointArrayList.add(new matahaModel(532.0, 523.0));
-        pointArrayList.add(new matahaModel(531.0, 527.0));
-        pointArrayList.add(new matahaModel(530.0, 532.0));
-        pointArrayList.add(new matahaModel(530.0, 537.0));
-        pointArrayList.add(new matahaModel(530.0, 541.0));
-        pointArrayList.add(new matahaModel(530.0, 545.0));
-        pointArrayList.add(new matahaModel(530.0, 549.0));
-        pointArrayList.add(new matahaModel(530.0, 553.0));
-        pointArrayList.add(new matahaModel(532.0, 553.0));
-        pointArrayList.add(new matahaModel(534.0, 554.0));
-        pointArrayList.add(new matahaModel(536.0, 552.0));
-        pointArrayList.add(new matahaModel(539.0, 550.0));
-        pointArrayList.add(new matahaModel(543.0, 546.0));
-        pointArrayList.add(new matahaModel(546.0, 542.0));
-        pointArrayList.add(new matahaModel(555.0, 534.0));
-        pointArrayList.add(new matahaModel(561.0, 526.0));
-        pointArrayList.add(new matahaModel(566.0, 519.0));
-        pointArrayList.add(new matahaModel(572.0, 513.0));
-        pointArrayList.add(new matahaModel(577.0, 507.0));
-        pointArrayList.add(new matahaModel(582.0, 500.0));
-        pointArrayList.add(new matahaModel(588.0, 491.0));
-        pointArrayList.add(new matahaModel(594.0, 486.0));
-        pointArrayList.add(new matahaModel(599.0, 482.0));
-        pointArrayList.add(new matahaModel(603.0, 478.0));
-        pointArrayList.add(new matahaModel(610.0, 475.0));
-        pointArrayList.add(new matahaModel(619.0, 470.0));
-        pointArrayList.add(new matahaModel(626.0, 466.0));
-        pointArrayList.add(new matahaModel(633.0, 462.0));
-        pointArrayList.add(new matahaModel(639.0, 461.0));
-        pointArrayList.add(new matahaModel(643.0, 460.0));
-        pointArrayList.add(new matahaModel(647.0, 460.0));
-        pointArrayList.add(new matahaModel(649.0, 463.0));
-        pointArrayList.add(new matahaModel(650.0, 467.0));
-        pointArrayList.add(new matahaModel(649.0, 471.0));
-        pointArrayList.add(new matahaModel(646.0, 478.0));
-        pointArrayList.add(new matahaModel(643.0, 484.0));
-        pointArrayList.add(new matahaModel(641.0, 489.0));
-        pointArrayList.add(new matahaModel(640.0, 496.0));
-        pointArrayList.add(new matahaModel(638.0, 504.0));
-        pointArrayList.add(new matahaModel(637.0, 509.0));
-        pointArrayList.add(new matahaModel(636.0, 515.0));
-        pointArrayList.add(new matahaModel(635.0, 521.0));
-        pointArrayList.add(new matahaModel(635.0, 524.0));
-        pointArrayList.add(new matahaModel(634.0, 530.0));
-        pointArrayList.add(new matahaModel(634.0, 536.0));
-        pointArrayList.add(new matahaModel(634.0, 543.0));
-        pointArrayList.add(new matahaModel(633.0, 547.0));
-        pointArrayList.add(new matahaModel(633.0, 551.0));
-        pointArrayList.add(new matahaModel(633.0, 555.0));
-        pointArrayList.add(new matahaModel(633.0, 559.0));
-        pointArrayList.add(new matahaModel(633.0, 563.0));
-        pointArrayList.add(new matahaModel(633.0, 565.0));
-        pointArrayList.add(new matahaModel(634.0, 565.0));
-        pointArrayList.add(new matahaModel(635.0, 566.0));
-        pointArrayList.add(new matahaModel(638.0, 566.0));
-        pointArrayList.add(new matahaModel(640.0, 568.0));
-        pointArrayList.add(new matahaModel(644.0, 563.0));
-        pointArrayList.add(new matahaModel(648.0, 559.0));
-        pointArrayList.add(new matahaModel(653.0, 552.0));
-        pointArrayList.add(new matahaModel(660.0, 543.0));
-        pointArrayList.add(new matahaModel(666.0, 536.0));
-        pointArrayList.add(new matahaModel(674.0, 527.0));
-        pointArrayList.add(new matahaModel(683.0, 520.0));
-        pointArrayList.add(new matahaModel(691.0, 513.0));
-        pointArrayList.add(new matahaModel(698.0, 505.0));
-        pointArrayList.add(new matahaModel(706.0, 497.0));
-        pointArrayList.add(new matahaModel(714.0, 490.0));
-        pointArrayList.add(new matahaModel(720.0, 482.0));
-        pointArrayList.add(new matahaModel(724.0, 477.0));
-        pointArrayList.add(new matahaModel(728.0, 475.0));
-        pointArrayList.add(new matahaModel(732.0, 475.0));
-        pointArrayList.add(new matahaModel(734.0, 475.0));
-        pointArrayList.add(new matahaModel(735.0, 475.0));
-        pointArrayList.add(new matahaModel(736.0, 476.0));
-        pointArrayList.add(new matahaModel(736.0, 480.0));
-        pointArrayList.add(new matahaModel(734.0, 483.0));
-        pointArrayList.add(new matahaModel(730.0, 490.0));
-        pointArrayList.add(new matahaModel(726.0, 499.0));
-        pointArrayList.add(new matahaModel(725.0, 505.0));
-        pointArrayList.add(new matahaModel(722.0, 512.0));
-        pointArrayList.add(new matahaModel(720.0, 517.0));
-        pointArrayList.add(new matahaModel(719.0, 523.0));
-        pointArrayList.add(new matahaModel(718.0, 528.0));
-        pointArrayList.add(new matahaModel(718.0, 532.0));
-        pointArrayList.add(new matahaModel(718.0, 537.0));
-        pointArrayList.add(new matahaModel(717.0, 542.0));
-        pointArrayList.add(new matahaModel(716.0, 548.0));
-        pointArrayList.add(new matahaModel(715.0, 554.0));
-        pointArrayList.add(new matahaModel(715.0, 558.0));
-        pointArrayList.add(new matahaModel(715.0, 563.0));
-        pointArrayList.add(new matahaModel(715.0, 569.0));
-        pointArrayList.add(new matahaModel(716.0, 574.0));
-        pointArrayList.add(new matahaModel(717.0, 578.0));
-        pointArrayList.add(new matahaModel(718.0, 578.0));
-        pointArrayList.add(new matahaModel(721.0, 579.0));
-        pointArrayList.add(new matahaModel(723.0, 580.0));
-        pointArrayList.add(new matahaModel(727.0, 579.0));
-        pointArrayList.add(new matahaModel(731.0, 575.0));
-        pointArrayList.add(new matahaModel(737.0, 571.0));
-        pointArrayList.add(new matahaModel(743.0, 567.0));
-        pointArrayList.add(new matahaModel(751.0, 560.0));
-        pointArrayList.add(new matahaModel(759.0, 556.0));
-        pointArrayList.add(new matahaModel(767.0, 552.0));
-        pointArrayList.add(new matahaModel(774.0, 546.0));
-        pointArrayList.add(new matahaModel(782.0, 540.0));
-        pointArrayList.add(new matahaModel(788.0, 537.0));
-        pointArrayList.add(new matahaModel(795.0, 532.0));
-        pointArrayList.add(new matahaModel(802.0, 528.0));
-        pointArrayList.add(new matahaModel(808.0, 524.0));
-        pointArrayList.add(new matahaModel(815.0, 519.0));
-        pointArrayList.add(new matahaModel(819.0, 518.0));
-        pointArrayList.add(new matahaModel(822.0, 517.0));
-        pointArrayList.add(new matahaModel(822.0, 518.0));
-        pointArrayList.add(new matahaModel(822.0, 520.0));
-        pointArrayList.add(new matahaModel(821.0, 524.0));
-        pointArrayList.add(new matahaModel(818.0, 529.0));
-        pointArrayList.add(new matahaModel(817.0, 533.0));
-        pointArrayList.add(new matahaModel(814.0, 537.0));
-        pointArrayList.add(new matahaModel(813.0, 540.0));
-        pointArrayList.add(new matahaModel(811.0, 548.0));
-        pointArrayList.add(new matahaModel(810.0, 553.0));
-        pointArrayList.add(new matahaModel(808.0, 557.0));
-        pointArrayList.add(new matahaModel(805.0, 565.0));
-        pointArrayList.add(new matahaModel(805.0, 569.0));
-        pointArrayList.add(new matahaModel(807.0, 573.0));
-        pointArrayList.add(new matahaModel(807.0, 577.0));
-        pointArrayList.add(new matahaModel(810.0, 581.0));
-        pointArrayList.add(new matahaModel(811.0, 585.0));
-        pointArrayList.add(new matahaModel(812.0, 587.0));
-        pointArrayList.add(new matahaModel(812.0, 590.0));
-        pointArrayList.add(new matahaModel(814.0, 592.0));
-        pointArrayList.add(new matahaModel(814.0, 593.0));
-        pointArrayList.add(new matahaModel(816.0, 597.0));
-        pointArrayList.add(new matahaModel(818.0, 597.0));
-        pointArrayList.add(new matahaModel(820.0, 597.0));
-        pointArrayList.add(new matahaModel(823.0, 597.0));
-        pointArrayList.add(new matahaModel(825.0, 595.0));
-        pointArrayList.add(new matahaModel(829.0, 592.0));
-        pointArrayList.add(new matahaModel(833.0, 588.0));
-        pointArrayList.add(new matahaModel(837.0, 581.0));
-        pointArrayList.add(new matahaModel(846.0, 571.0));
-        pointArrayList.add(new matahaModel(850.0, 566.0));
-        pointArrayList.add(new matahaModel(854.0, 559.0));
-        pointArrayList.add(new matahaModel(857.0, 554.0));
-        pointArrayList.add(new matahaModel(860.0, 548.0));
-        pointArrayList.add(new matahaModel(864.0, 541.0));
-        pointArrayList.add(new matahaModel(870.0, 535.0));
-        pointArrayList.add(new matahaModel(877.0, 530.0));
-        pointArrayList.add(new matahaModel(882.0, 525.0));
-        pointArrayList.add(new matahaModel(887.0, 520.0));
-        pointArrayList.add(new matahaModel(891.0, 516.0));
-        pointArrayList.add(new matahaModel(895.0, 514.0));
-        pointArrayList.add(new matahaModel(899.0, 513.0));
-        pointArrayList.add(new matahaModel(901.0, 513.0));
-        pointArrayList.add(new matahaModel(902.0, 513.0));
-        pointArrayList.add(new matahaModel(903.0, 517.0));
-        pointArrayList.add(new matahaModel(903.0, 520.0));
-        pointArrayList.add(new matahaModel(903.0, 525.0));
-        pointArrayList.add(new matahaModel(900.0, 529.0));
-        pointArrayList.add(new matahaModel(899.0, 533.0));
-        pointArrayList.add(new matahaModel(896.0, 537.0));
-        pointArrayList.add(new matahaModel(895.0, 543.0));
-        pointArrayList.add(new matahaModel(894.0, 550.0));
-        pointArrayList.add(new matahaModel(894.0, 557.0));
-        pointArrayList.add(new matahaModel(894.0, 561.0));
-        pointArrayList.add(new matahaModel(895.0, 568.0));
-        pointArrayList.add(new matahaModel(897.0, 575.0));
-        pointArrayList.add(new matahaModel(898.0, 581.0));
-        pointArrayList.add(new matahaModel(901.0, 585.0));
-        pointArrayList.add(new matahaModel(904.0, 590.0));
-        pointArrayList.add(new matahaModel(906.0, 594.0));
-        pointArrayList.add(new matahaModel(910.0, 597.0));
-        pointArrayList.add(new matahaModel(914.0, 599.0));
-        pointArrayList.add(new matahaModel(916.0, 599.0));
-        pointArrayList.add(new matahaModel(920.0, 599.0));
-        pointArrayList.add(new matahaModel(922.0, 599.0));
-        pointArrayList.add(new matahaModel(928.0, 594.0));
-        pointArrayList.add(new matahaModel(933.0, 588.0));
-        pointArrayList.add(new matahaModel(940.0, 582.0));
-        pointArrayList.add(new matahaModel(946.0, 578.0));
-        pointArrayList.add(new matahaModel(953.0, 572.0));
-        pointArrayList.add(new matahaModel(959.0, 565.0));
-        pointArrayList.add(new matahaModel(966.0, 555.0));
-        pointArrayList.add(new matahaModel(974.0, 549.0));
-        pointArrayList.add(new matahaModel(982.0, 540.0));
-        pointArrayList.add(new matahaModel(986.0, 533.0));
-        pointArrayList.add(new matahaModel(994.0, 525.0));
-        pointArrayList.add(new matahaModel(1001.0, 518.0));
-        pointArrayList.add(new matahaModel(1010.0, 509.0));
-        pointArrayList.add(new matahaModel(1017.0, 501.0));
-        pointArrayList.add(new matahaModel(1021.0, 497.0));
-        pointArrayList.add(new matahaModel(1022.0, 495.0));
-        pointArrayList.add(new matahaModel(1022.0, 495.0));
-        pointArrayList.add(new matahaModel(1022.0, 499.0));
-        pointArrayList.add(new matahaModel(1022.0, 503.0));
-        pointArrayList.add(new matahaModel(1022.0, 506.0));
-        pointArrayList.add(new matahaModel(1020.0, 511.0));
-        pointArrayList.add(new matahaModel(1018.0, 514.0));
-        pointArrayList.add(new matahaModel(1017.0, 519.0));
-        pointArrayList.add(new matahaModel(1014.0, 523.0));
-        pointArrayList.add(new matahaModel(1013.0, 526.0));
-        pointArrayList.add(new matahaModel(1012.0, 531.0));
-        pointArrayList.add(new matahaModel(1012.0, 534.0));
-        pointArrayList.add(new matahaModel(1012.0, 541.0));
-        pointArrayList.add(new matahaModel(1013.0, 548.0));
-        pointArrayList.add(new matahaModel(1015.0, 553.0));
-        pointArrayList.add(new matahaModel(1016.0, 559.0));
-        pointArrayList.add(new matahaModel(1017.0, 565.0));
-        pointArrayList.add(new matahaModel(1020.0, 573.0));
-        pointArrayList.add(new matahaModel(1023.0, 578.0));
-        pointArrayList.add(new matahaModel(1025.0, 582.0));
-        pointArrayList.add(new matahaModel(1028.0, 587.0));
-        pointArrayList.add(new matahaModel(1031.0, 593.0));
-        pointArrayList.add(new matahaModel(1033.0, 599.0));
-        pointArrayList.add(new matahaModel(1035.0, 604.0));
-        pointArrayList.add(new matahaModel(1038.0, 607.0));
-        pointArrayList.add(new matahaModel(1039.0, 608.0));
-        pointArrayList.add(new matahaModel(1042.0, 608.0));
-        pointArrayList.add(new matahaModel(1045.0, 607.0));
-        pointArrayList.add(new matahaModel(1049.0, 603.0));
-        pointArrayList.add(new matahaModel(1052.0, 600.0));
-        pointArrayList.add(new matahaModel(1052.0, 600.0));
-        pointArrayList.add(new matahaModel(1052.0, 597.0));
-        pointArrayList.add(new matahaModel(1056.0, 593.0));
-        pointArrayList.add(new matahaModel(1059.0, 589.0));
-        pointArrayList.add(new matahaModel(1063.0, 585.0));
-        pointArrayList.add(new matahaModel(1067.0, 581.0));
-        pointArrayList.add(new matahaModel(1071.0, 577.0));
-        pointArrayList.add(new matahaModel(1076.0, 570.0));
-        pointArrayList.add(new matahaModel(1100.0, 542.0));
-        pointArrayList.add(new matahaModel(1104.0, 537.0));
-        pointArrayList.add(new matahaModel(1107.0, 532.0));
-        pointArrayList.add(new matahaModel(1112.0, 525.0));
-        pointArrayList.add(new matahaModel(1114.0, 523.0));
-        pointArrayList.add(new matahaModel(1118.0, 519.0));
-        pointArrayList.add(new matahaModel(1122.0, 515.0));
-        pointArrayList.add(new matahaModel(1126.0, 511.0));
-        pointArrayList.add(new matahaModel(1129.0, 507.0));
-        pointArrayList.add(new matahaModel(1129.0, 506.0));
-        pointArrayList.add(new matahaModel(1129.0, 506.0));
-        pointArrayList.add(new matahaModel(1129.0, 510.0));
-        pointArrayList.add(new matahaModel(1129.0, 514.0));
-        pointArrayList.add(new matahaModel(1129.0, 518.0));
-        pointArrayList.add(new matahaModel(1129.0, 522.0));
-        pointArrayList.add(new matahaModel(1129.0, 525.0));
-        pointArrayList.add(new matahaModel(1129.0, 529.0));
-        pointArrayList.add(new matahaModel(1129.0, 533.0));
-        pointArrayList.add(new matahaModel(1129.0, 537.0));
-        pointArrayList.add(new matahaModel(1128.0, 550.0));
-        pointArrayList.add(new matahaModel(1128.0, 564.0));
-        pointArrayList.add(new matahaModel(1130.0, 575.0));
-        pointArrayList.add(new matahaModel(1133.0, 587.0));
-        pointArrayList.add(new matahaModel(1136.0, 597.0));
-        pointArrayList.add(new matahaModel(1139.0, 604.0));
-        pointArrayList.add(new matahaModel(1141.0, 610.0));
-        pointArrayList.add(new matahaModel(1145.0, 614.0));
-        pointArrayList.add(new matahaModel(1148.0, 616.0));
-        pointArrayList.add(new matahaModel(1152.0, 616.0));
-        pointArrayList.add(new matahaModel(1156.0, 616.0));
-        pointArrayList.add(new matahaModel(1160.0, 615.0));
-        pointArrayList.add(new matahaModel(1164.0, 611.0));
-        pointArrayList.add(new matahaModel(1168.0, 606.0));
-        pointArrayList.add(new matahaModel(1168.0, 606.0));
-        pointArrayList.add(new matahaModel(1168.0, 603.0));
-        pointArrayList.add(new matahaModel(1170.0, 600.0));
-        pointArrayList.add(new matahaModel(1173.0, 596.0));
-        pointArrayList.add(new matahaModel(1177.0, 592.0));
-        pointArrayList.add(new matahaModel(1180.0, 588.0));
-        pointArrayList.add(new matahaModel(1184.0, 584.0));
-        pointArrayList.add(new matahaModel(1188.0, 580.0));
-        pointArrayList.add(new matahaModel(1195.0, 567.0));
-        pointArrayList.add(new matahaModel(1203.0, 553.0));
-        pointArrayList.add(new matahaModel(1211.0, 544.0));
-        pointArrayList.add(new matahaModel(1215.0, 536.0));
-        pointArrayList.add(new matahaModel(1218.0, 531.0));
-        pointArrayList.add(new matahaModel(1223.0, 525.0));
-        pointArrayList.add(new matahaModel(1227.0, 521.0));
-        pointArrayList.add(new matahaModel(1230.0, 517.0));
-        pointArrayList.add(new matahaModel(1233.0, 516.0));
-        pointArrayList.add(new matahaModel(1233.0, 514.0));
-        pointArrayList.add(new matahaModel(1233.0, 514.0));
-        pointArrayList.add(new matahaModel(1234.0, 515.0));
-        pointArrayList.add(new matahaModel(1234.0, 515.0));
-        pointArrayList.add(new matahaModel(1234.0, 519.0));
-        pointArrayList.add(new matahaModel(1234.0, 523.0));
-        pointArrayList.add(new matahaModel(1234.0, 534.0));
-        pointArrayList.add(new matahaModel(1234.0, 538.0));
-        pointArrayList.add(new matahaModel(1234.0, 542.0));
-        pointArrayList.add(new matahaModel(1234.0, 546.0));
-        pointArrayList.add(new matahaModel(1234.0, 550.0));
-        pointArrayList.add(new matahaModel(1234.0, 553.0));
-        pointArrayList.add(new matahaModel(1234.0, 557.0));
-        pointArrayList.add(new matahaModel(1234.0, 561.0));
-        pointArrayList.add(new matahaModel(1234.0, 567.0));
-        pointArrayList.add(new matahaModel(1234.0, 575.0));
-        pointArrayList.add(new matahaModel(1241.0, 596.0));
-        pointArrayList.add(new matahaModel(1247.0, 609.0));
-        pointArrayList.add(new matahaModel(1251.0, 617.0));
-        pointArrayList.add(new matahaModel(1254.0, 621.0));
-        pointArrayList.add(new matahaModel(1256.0, 624.0));
-        pointArrayList.add(new matahaModel(1258.0, 626.0));
-        pointArrayList.add(new matahaModel(1259.0, 627.0));
-        pointArrayList.add(new matahaModel(1259.0, 627.0));
-        pointArrayList.add(new matahaModel(1262.0, 623.0));
-        pointArrayList.add(new matahaModel(1265.0, 619.0));
-        pointArrayList.add(new matahaModel(1272.0, 611.0));
-        pointArrayList.add(new matahaModel(1276.0, 607.0));
-        pointArrayList.add(new matahaModel(1287.0, 593.0));
-        pointArrayList.add(new matahaModel(1296.0, 578.0));
-        pointArrayList.add(new matahaModel(1305.0, 567.0));
-        pointArrayList.add(new matahaModel(1326.0, 532.0));
-        pointArrayList.add(new matahaModel(1333.0, 517.0));
-        pointArrayList.add(new matahaModel(1341.0, 508.0));
-        pointArrayList.add(new matahaModel(1349.0, 500.0));
-        pointArrayList.add(new matahaModel(1353.0, 497.0));
-        pointArrayList.add(new matahaModel(1353.0, 497.0));
-        pointArrayList.add(new matahaModel(1353.0, 497.0));
-        pointArrayList.add(new matahaModel(1353.0, 501.0));
-        pointArrayList.add(new matahaModel(1353.0, 505.0));
-        pointArrayList.add(new matahaModel(1353.0, 509.0));
-        pointArrayList.add(new matahaModel(1353.0, 513.0));
-        pointArrayList.add(new matahaModel(1352.0, 517.0));
-        pointArrayList.add(new matahaModel(1352.0, 521.0));
-        pointArrayList.add(new matahaModel(1352.0, 525.0));
-        pointArrayList.add(new matahaModel(1352.0, 528.0));
-        pointArrayList.add(new matahaModel(1352.0, 532.0));
-        pointArrayList.add(new matahaModel(1350.0, 539.0));
-        pointArrayList.add(new matahaModel(1347.0, 558.0));
-        pointArrayList.add(new matahaModel(1347.0, 570.0));
-        pointArrayList.add(new matahaModel(1347.0, 582.0));
-        pointArrayList.add(new matahaModel(1348.0, 592.0));
-        pointArrayList.add(new matahaModel(1352.0, 600.0));
-        pointArrayList.add(new matahaModel(1355.0, 604.0));
-        pointArrayList.add(new matahaModel(1357.0, 610.0));
-        pointArrayList.add(new matahaModel(1360.0, 614.0));
-        pointArrayList.add(new matahaModel(1364.0, 618.0));
-        pointArrayList.add(new matahaModel(1368.0, 622.0));
-        pointArrayList.add(new matahaModel(1372.0, 626.0));
-        pointArrayList.add(new matahaModel(1376.0, 626.0));
-        pointArrayList.add(new matahaModel(1379.0, 626.0));
-        pointArrayList.add(new matahaModel(1382.0, 622.0));
-        pointArrayList.add(new matahaModel(1386.0, 618.0));
-        pointArrayList.add(new matahaModel(1390.0, 614.0));
-        pointArrayList.add(new matahaModel(1394.0, 608.0));
-        pointArrayList.add(new matahaModel(1397.0, 601.0));
-        pointArrayList.add(new matahaModel(1401.0, 593.0));
-        pointArrayList.add(new matahaModel(1408.0, 584.0));
-        pointArrayList.add(new matahaModel(1419.0, 570.0));
-        pointArrayList.add(new matahaModel(1427.0, 562.0));
-        pointArrayList.add(new matahaModel(1434.0, 556.0));
-        pointArrayList.add(new matahaModel(1442.0, 548.0));
-        pointArrayList.add(new matahaModel(1449.0, 539.0));
-        pointArrayList.add(new matahaModel(1454.0, 531.0));
-        pointArrayList.add(new matahaModel(1458.0, 521.0));
-        pointArrayList.add(new matahaModel(1460.0, 514.0));
-        pointArrayList.add(new matahaModel(1464.0, 510.0));
-        pointArrayList.add(new matahaModel(1467.0, 507.0));
-        pointArrayList.add(new matahaModel(1467.0, 506.0));
-        pointArrayList.add(new matahaModel(1467.0, 506.0));
-        pointArrayList.add(new matahaModel(1467.0, 508.0));
-        pointArrayList.add(new matahaModel(1467.0, 512.0));
-        pointArrayList.add(new matahaModel(1467.0, 515.0));
-        pointArrayList.add(new matahaModel(1470.0, 527.0));
-        pointArrayList.add(new matahaModel(1470.0, 537.0));
-        pointArrayList.add(new matahaModel(1470.0, 545.0));
-        pointArrayList.add(new matahaModel(1470.0, 553.0));
-        pointArrayList.add(new matahaModel(1470.0, 560.0));
-        pointArrayList.add(new matahaModel(1470.0, 568.0));
-        pointArrayList.add(new matahaModel(1471.0, 583.0));
-        pointArrayList.add(new matahaModel(1472.0, 592.0));
-        pointArrayList.add(new matahaModel(1472.0, 596.0));
-        pointArrayList.add(new matahaModel(1472.0, 599.0));
-        pointArrayList.add(new matahaModel(1472.0, 603.0));
-        pointArrayList.add(new matahaModel(1472.0, 607.0));
-        pointArrayList.add(new matahaModel(1472.0, 611.0));
-        pointArrayList.add(new matahaModel(1472.0, 615.0));
-        pointArrayList.add(new matahaModel(1472.0, 619.0));
-        pointArrayList.add(new matahaModel(1476.0, 622.0));
-        pointArrayList.add(new matahaModel(1485.0, 626.0));
-        pointArrayList.add(new matahaModel(1490.0, 623.0));
-        pointArrayList.add(new matahaModel(1493.0, 620.0));
-        pointArrayList.add(new matahaModel(1496.0, 617.0));
-        pointArrayList.add(new matahaModel(1496.0, 617.0));
-        pointArrayList.add(new matahaModel(1500.0, 614.0));
-        pointArrayList.add(new matahaModel(1504.0, 610.0));
-        pointArrayList.add(new matahaModel(1507.0, 607.0));
-        pointArrayList.add(new matahaModel(1511.0, 603.0));
-        pointArrayList.add(new matahaModel(1515.0, 598.0));
-        pointArrayList.add(new matahaModel(1519.0, 590.0));
-        pointArrayList.add(new matahaModel(1528.0, 573.0));
-        pointArrayList.add(new matahaModel(1568.0, 501.0));
-        pointArrayList.add(new matahaModel(1582.0, 483.0));
-        pointArrayList.add(new matahaModel(1586.0, 477.0));
-        pointArrayList.add(new matahaModel(1586.0, 473.0));
-        pointArrayList.add(new matahaModel(1586.0, 473.0));
-        pointArrayList.add(new matahaModel(1586.0, 475.0));
-        pointArrayList.add(new matahaModel(1586.0, 476.0));
-        pointArrayList.add(new matahaModel(1586.0, 477.0));
-        pointArrayList.add(new matahaModel(1586.0, 477.0));
-        pointArrayList.add(new matahaModel(1586.0, 481.0));
-        pointArrayList.add(new matahaModel(1586.0, 485.0));
-        pointArrayList.add(new matahaModel(1586.0, 489.0));
-        pointArrayList.add(new matahaModel(1586.0, 493.0));
-        pointArrayList.add(new matahaModel(1586.0, 497.0));
-        pointArrayList.add(new matahaModel(1586.0, 500.0));
-        pointArrayList.add(new matahaModel(1586.0, 504.0));
-        pointArrayList.add(new matahaModel(1586.0, 512.0));
-        pointArrayList.add(new matahaModel(1586.0, 520.0));
-        pointArrayList.add(new matahaModel(1586.0, 528.0));
-        pointArrayList.add(new matahaModel(1586.0, 539.0));
-        pointArrayList.add(new matahaModel(1586.0, 550.0));
-        pointArrayList.add(new matahaModel(1586.0, 562.0));
-        pointArrayList.add(new matahaModel(1586.0, 574.0));
-        pointArrayList.add(new matahaModel(1590.0, 607.0));
-        pointArrayList.add(new matahaModel(1593.0, 626.0));
-        pointArrayList.add(new matahaModel(1597.0, 637.0));
-        pointArrayList.add(new matahaModel(1600.0, 642.0));
-        pointArrayList.add(new matahaModel(1602.0, 642.0));
-        pointArrayList.add(new matahaModel(1605.0, 641.0));
-        pointArrayList.add(new matahaModel(1608.0, 637.0));
-        pointArrayList.add(new matahaModel(1611.0, 632.0));
-        pointArrayList.add(new matahaModel(1615.0, 628.0));
-        pointArrayList.add(new matahaModel(1617.0, 627.0));
-        pointArrayList.add(new matahaModel(1620.0, 622.0));
-        pointArrayList.add(new matahaModel(1622.0, 619.0));
-        pointArrayList.add(new matahaModel(1625.0, 616.0));
-        pointArrayList.add(new matahaModel(1629.0, 612.0));
-        pointArrayList.add(new matahaModel(1633.0, 606.0));
-        pointArrayList.add(new matahaModel(1637.0, 598.0));
-        pointArrayList.add(new matahaModel(1641.0, 590.0));
-        pointArrayList.add(new matahaModel(1645.0, 579.0));
-        pointArrayList.add(new matahaModel(1674.0, 522.0));
-        pointArrayList.add(new matahaModel(1686.0, 504.0));
-        pointArrayList.add(new matahaModel(1690.0, 498.0));
-        pointArrayList.add(new matahaModel(1693.0, 496.0));
-        pointArrayList.add(new matahaModel(1695.0, 495.0));
-        pointArrayList.add(new matahaModel(1697.0, 495.0));
-        pointArrayList.add(new matahaModel(1698.0, 495.0));
-        pointArrayList.add(new matahaModel(1698.0, 496.0));
-        pointArrayList.add(new matahaModel(1698.0, 500.0));
-        pointArrayList.add(new matahaModel(1699.0, 503.0));
-        pointArrayList.add(new matahaModel(1700.0, 507.0));
-        pointArrayList.add(new matahaModel(1700.0, 513.0));
-        pointArrayList.add(new matahaModel(1700.0, 520.0));
-        pointArrayList.add(new matahaModel(1700.0, 525.0));
-        pointArrayList.add(new matahaModel(1703.0, 537.0));
-        pointArrayList.add(new matahaModel(1704.0, 546.0));
-        pointArrayList.add(new matahaModel(1708.0, 556.0));
-        pointArrayList.add(new matahaModel(1708.0, 560.0));
-        pointArrayList.add(new matahaModel(1709.0, 564.0));
-        pointArrayList.add(new matahaModel(1713.0, 572.0));
-        pointArrayList.add(new matahaModel(1717.0, 580.0));
-        pointArrayList.add(new matahaModel(1721.0, 588.0));
-        pointArrayList.add(new matahaModel(1725.0, 596.0));
-        pointArrayList.add(new matahaModel(1729.0, 603.0));
-        pointArrayList.add(new matahaModel(1732.0, 606.0));
-        pointArrayList.add(new matahaModel(1734.0, 610.0));
-        pointArrayList.add(new matahaModel(1736.0, 614.0));
-        pointArrayList.add(new matahaModel(1743.0, 620.0));
-        pointArrayList.add(new matahaModel(1749.0, 621.0));
-        pointArrayList.add(new matahaModel(1754.0, 617.0));
-        pointArrayList.add(new matahaModel(1758.0, 614.0));
-        pointArrayList.add(new matahaModel(1760.0, 610.0));
-        pointArrayList.add(new matahaModel(1766.0, 603.0));
-        pointArrayList.add(new matahaModel(1771.0, 589.0));
-        pointArrayList.add(new matahaModel(1777.0, 578.0));
-        pointArrayList.add(new matahaModel(1784.0, 564.0));
-        pointArrayList.add(new matahaModel(1792.0, 550.0));
-        pointArrayList.add(new matahaModel(1797.0, 537.0));
-        pointArrayList.add(new matahaModel(1803.0, 523.0));
-        pointArrayList.add(new matahaModel(1804.0, 518.0));
-        pointArrayList.add(new matahaModel(1804.0, 513.0));
-        pointArrayList.add(new matahaModel(1804.0, 511.0));
-        pointArrayList.add(new matahaModel(1804.0, 511.0));
-        pointArrayList.add(new matahaModel(1804.0, 511.0));
-        pointArrayList.add(new matahaModel(1804.0, 511.0));
-        pointArrayList.add(new matahaModel(1803.0, 516.0));
-        pointArrayList.add(new matahaModel(1799.0, 520.0));
-        pointArrayList.add(new matahaModel(1796.0, 523.0));
-        pointArrayList.add(new matahaModel(1796.0, 523.0));
-        pointArrayList.add(new matahaModel(1796.0, 523.0));
-        pointArrayList.add(new matahaModel(1797.0, 525.0));
-        pointArrayList.add(new matahaModel(1797.0, 526.0));
-
-
-
-
-
-
-
-
-
-
-
-
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(107.0, 110.0));
-        pointArrayList2.add(new matahaModel(109.0, 112.0));
-        pointArrayList2.add(new matahaModel(111.0, 114.0));
-        pointArrayList2.add(new matahaModel(114.0, 115.0));
-        pointArrayList2.add(new matahaModel(115.0, 116.0));
-        pointArrayList2.add(new matahaModel(116.0, 118.0));
-        pointArrayList2.add(new matahaModel(117.0, 119.0));
-        pointArrayList2.add(new matahaModel(118.0, 119.0));
-        pointArrayList2.add(new matahaModel(118.0, 120.0));
-        pointArrayList2.add(new matahaModel(118.0, 121.0));
-        pointArrayList2.add(new matahaModel(119.0, 121.0));
-        pointArrayList2.add(new matahaModel(120.0, 122.0));
-        pointArrayList2.add(new matahaModel(120.0, 123.0));
-        pointArrayList2.add(new matahaModel(120.0, 123.0));
-        pointArrayList2.add(new matahaModel(120.0, 123.0));
-        pointArrayList2.add(new matahaModel(120.0, 124.0));
-        pointArrayList2.add(new matahaModel(120.0, 125.0));
-        pointArrayList2.add(new matahaModel(121.0, 125.0));
-        pointArrayList2.add(new matahaModel(122.0, 125.0));
-        pointArrayList2.add(new matahaModel(123.0, 125.0));
-        pointArrayList2.add(new matahaModel(124.0, 125.0));
-        pointArrayList2.add(new matahaModel(125.0, 125.0));
-        pointArrayList2.add(new matahaModel(127.0, 125.0));
-        pointArrayList2.add(new matahaModel(128.0, 125.0));
-        pointArrayList2.add(new matahaModel(130.0, 126.0));
-        pointArrayList2.add(new matahaModel(131.0, 127.0));
-        pointArrayList2.add(new matahaModel(133.0, 127.0));
-        pointArrayList2.add(new matahaModel(134.0, 127.0));
-        pointArrayList2.add(new matahaModel(136.0, 127.0));
-        pointArrayList2.add(new matahaModel(137.0, 128.0));
-        pointArrayList2.add(new matahaModel(138.0, 128.0));
-        pointArrayList2.add(new matahaModel(139.0, 128.0));
-        pointArrayList2.add(new matahaModel(140.0, 129.0));
-        pointArrayList2.add(new matahaModel(141.0, 129.0));
-        pointArrayList2.add(new matahaModel(143.0, 129.0));
-        pointArrayList2.add(new matahaModel(145.0, 130.0));
-        pointArrayList2.add(new matahaModel(147.0, 131.0));
-        pointArrayList2.add(new matahaModel(148.0, 131.0));
-        pointArrayList2.add(new matahaModel(149.0, 132.0));
-        pointArrayList2.add(new matahaModel(150.0, 132.0));
-        pointArrayList2.add(new matahaModel(151.0, 132.0));
-        pointArrayList2.add(new matahaModel(152.0, 133.0));
-        pointArrayList2.add(new matahaModel(154.0, 135.0));
-        pointArrayList2.add(new matahaModel(155.0, 136.0));
-        pointArrayList2.add(new matahaModel(157.0, 138.0));
-        pointArrayList2.add(new matahaModel(158.0, 140.0));
-        pointArrayList2.add(new matahaModel(160.0, 141.0));
-        pointArrayList2.add(new matahaModel(162.0, 142.0));
-        pointArrayList2.add(new matahaModel(163.0, 143.0));
-        pointArrayList2.add(new matahaModel(164.0, 144.0));
-        pointArrayList2.add(new matahaModel(166.0, 145.0));
-        pointArrayList2.add(new matahaModel(168.0, 146.0));
-        pointArrayList2.add(new matahaModel(169.0, 147.0));
-        pointArrayList2.add(new matahaModel(171.0, 147.0));
-        pointArrayList2.add(new matahaModel(173.0, 148.0));
-        pointArrayList2.add(new matahaModel(175.0, 150.0));
-        pointArrayList2.add(new matahaModel(177.0, 151.0));
-        pointArrayList2.add(new matahaModel(179.0, 152.0));
-        pointArrayList2.add(new matahaModel(183.0, 152.0));
-        pointArrayList2.add(new matahaModel(185.0, 153.0));
-        pointArrayList2.add(new matahaModel(188.0, 155.0));
-        pointArrayList2.add(new matahaModel(190.0, 155.0));
-        pointArrayList2.add(new matahaModel(192.0, 156.0));
-        pointArrayList2.add(new matahaModel(195.0, 158.0));
-        pointArrayList2.add(new matahaModel(196.0, 159.0));
-        pointArrayList2.add(new matahaModel(198.0, 159.0));
-        pointArrayList2.add(new matahaModel(201.0, 159.0));
-        pointArrayList2.add(new matahaModel(204.0, 160.0));
-        pointArrayList2.add(new matahaModel(207.0, 161.0));
-        pointArrayList2.add(new matahaModel(211.0, 162.0));
-        pointArrayList2.add(new matahaModel(214.0, 162.0));
-        pointArrayList2.add(new matahaModel(215.0, 162.0));
-        pointArrayList2.add(new matahaModel(217.0, 163.0));
-        pointArrayList2.add(new matahaModel(220.0, 163.0));
-        pointArrayList2.add(new matahaModel(222.0, 164.0));
-        pointArrayList2.add(new matahaModel(224.0, 164.0));
-        pointArrayList2.add(new matahaModel(227.0, 165.0));
-        pointArrayList2.add(new matahaModel(229.0, 167.0));
-        pointArrayList2.add(new matahaModel(232.0, 167.0));
-        pointArrayList2.add(new matahaModel(234.0, 168.0));
-        pointArrayList2.add(new matahaModel(237.0, 169.0));
-        pointArrayList2.add(new matahaModel(239.0, 170.0));
-        pointArrayList2.add(new matahaModel(242.0, 170.0));
-        pointArrayList2.add(new matahaModel(244.0, 171.0));
-        pointArrayList2.add(new matahaModel(247.0, 172.0));
-        pointArrayList2.add(new matahaModel(249.0, 172.0));
-        pointArrayList2.add(new matahaModel(251.0, 173.0));
-        pointArrayList2.add(new matahaModel(255.0, 173.0));
-        pointArrayList2.add(new matahaModel(257.0, 175.0));
-        pointArrayList2.add(new matahaModel(260.0, 175.0));
-        pointArrayList2.add(new matahaModel(262.0, 176.0));
-        pointArrayList2.add(new matahaModel(264.0, 176.0));
-        pointArrayList2.add(new matahaModel(268.0, 176.0));
-        pointArrayList2.add(new matahaModel(272.0, 177.0));
-        pointArrayList2.add(new matahaModel(276.0, 177.0));
-        pointArrayList2.add(new matahaModel(278.0, 177.0));
-        pointArrayList2.add(new matahaModel(280.0, 177.0));
-        pointArrayList2.add(new matahaModel(283.0, 179.0));
-        pointArrayList2.add(new matahaModel(286.0, 180.0));
-        pointArrayList2.add(new matahaModel(288.0, 180.0));
-        pointArrayList2.add(new matahaModel(291.0, 180.0));
-        pointArrayList2.add(new matahaModel(293.0, 180.0));
-        pointArrayList2.add(new matahaModel(295.0, 180.0));
-        pointArrayList2.add(new matahaModel(297.0, 181.0));
-        pointArrayList2.add(new matahaModel(299.0, 181.0));
-        pointArrayList2.add(new matahaModel(301.0, 182.0));
-        pointArrayList2.add(new matahaModel(304.0, 182.0));
-        pointArrayList2.add(new matahaModel(306.0, 183.0));
-        pointArrayList2.add(new matahaModel(308.0, 185.0));
-        pointArrayList2.add(new matahaModel(311.0, 185.0));
-        pointArrayList2.add(new matahaModel(313.0, 185.0));
-        pointArrayList2.add(new matahaModel(315.0, 185.0));
-        pointArrayList2.add(new matahaModel(317.0, 185.0));
-        pointArrayList2.add(new matahaModel(320.0, 186.0));
-        pointArrayList2.add(new matahaModel(322.0, 187.0));
-        pointArrayList2.add(new matahaModel(326.0, 187.0));
-        pointArrayList2.add(new matahaModel(330.0, 187.0));
-        pointArrayList2.add(new matahaModel(334.0, 188.0));
-        pointArrayList2.add(new matahaModel(338.0, 188.0));
-        pointArrayList2.add(new matahaModel(342.0, 188.0));
-        pointArrayList2.add(new matahaModel(345.0, 190.0));
-        pointArrayList2.add(new matahaModel(348.0, 190.0));
-        pointArrayList2.add(new matahaModel(350.0, 190.0));
-        pointArrayList2.add(new matahaModel(353.0, 190.0));
-        pointArrayList2.add(new matahaModel(355.0, 190.0));
-        pointArrayList2.add(new matahaModel(358.0, 190.0));
-        pointArrayList2.add(new matahaModel(361.0, 190.0));
-        pointArrayList2.add(new matahaModel(364.0, 190.0));
-        pointArrayList2.add(new matahaModel(368.0, 190.0));
-        pointArrayList2.add(new matahaModel(370.0, 190.0));
-        pointArrayList2.add(new matahaModel(372.0, 190.0));
-        pointArrayList2.add(new matahaModel(375.0, 190.0));
-        pointArrayList2.add(new matahaModel(377.0, 190.0));
-        pointArrayList2.add(new matahaModel(379.0, 190.0));
-        pointArrayList2.add(new matahaModel(382.0, 190.0));
-        pointArrayList2.add(new matahaModel(384.0, 190.0));
-        pointArrayList2.add(new matahaModel(386.0, 190.0));
-        pointArrayList2.add(new matahaModel(389.0, 191.0));
-        pointArrayList2.add(new matahaModel(393.0, 191.0));
-        pointArrayList2.add(new matahaModel(398.0, 191.0));
-        pointArrayList2.add(new matahaModel(402.0, 191.0));
-        pointArrayList2.add(new matahaModel(406.0, 192.0));
-        pointArrayList2.add(new matahaModel(408.0, 192.0));
-        pointArrayList2.add(new matahaModel(411.0, 192.0));
-        pointArrayList2.add(new matahaModel(413.0, 193.0));
-        pointArrayList2.add(new matahaModel(416.0, 193.0));
-        pointArrayList2.add(new matahaModel(418.0, 194.0));
-        pointArrayList2.add(new matahaModel(421.0, 195.0));
-        pointArrayList2.add(new matahaModel(424.0, 195.0));
-        pointArrayList2.add(new matahaModel(427.0, 195.0));
-        pointArrayList2.add(new matahaModel(429.0, 197.0));
-        pointArrayList2.add(new matahaModel(432.0, 197.0));
-        pointArrayList2.add(new matahaModel(434.0, 197.0));
-        pointArrayList2.add(new matahaModel(437.0, 197.0));
-        pointArrayList2.add(new matahaModel(439.0, 198.0));
-        pointArrayList2.add(new matahaModel(442.0, 198.0));
-        pointArrayList2.add(new matahaModel(445.0, 199.0));
-        pointArrayList2.add(new matahaModel(448.0, 199.0));
-        pointArrayList2.add(new matahaModel(451.0, 199.0));
-        pointArrayList2.add(new matahaModel(453.0, 199.0));
-        pointArrayList2.add(new matahaModel(457.0, 199.0));
-        pointArrayList2.add(new matahaModel(461.0, 199.0));
-        pointArrayList2.add(new matahaModel(465.0, 199.0));
-        pointArrayList2.add(new matahaModel(469.0, 199.0));
-        pointArrayList2.add(new matahaModel(473.0, 201.0));
-        pointArrayList2.add(new matahaModel(475.0, 204.0));
-        pointArrayList2.add(new matahaModel(479.0, 205.0));
-        pointArrayList2.add(new matahaModel(481.0, 205.0));
-        pointArrayList2.add(new matahaModel(483.0, 205.0));
-        pointArrayList2.add(new matahaModel(486.0, 205.0));
-        pointArrayList2.add(new matahaModel(489.0, 205.0));
-        pointArrayList2.add(new matahaModel(491.0, 205.0));
-        pointArrayList2.add(new matahaModel(494.0, 205.0));
-        pointArrayList2.add(new matahaModel(497.0, 205.0));
-        pointArrayList2.add(new matahaModel(498.0, 204.0));
-        pointArrayList2.add(new matahaModel(501.0, 203.0));
-        pointArrayList2.add(new matahaModel(504.0, 203.0));
-        pointArrayList2.add(new matahaModel(506.0, 200.0));
-        pointArrayList2.add(new matahaModel(508.0, 200.0));
-        pointArrayList2.add(new matahaModel(511.0, 200.0));
-        pointArrayList2.add(new matahaModel(514.0, 199.0));
-        pointArrayList2.add(new matahaModel(516.0, 197.0));
-        pointArrayList2.add(new matahaModel(517.0, 197.0));
-        pointArrayList2.add(new matahaModel(520.0, 197.0));
-        pointArrayList2.add(new matahaModel(521.0, 197.0));
-        pointArrayList2.add(new matahaModel(525.0, 194.0));
-        pointArrayList2.add(new matahaModel(527.0, 194.0));
-        pointArrayList2.add(new matahaModel(530.0, 194.0));
-        pointArrayList2.add(new matahaModel(534.0, 194.0));
-        pointArrayList2.add(new matahaModel(538.0, 193.0));
-        pointArrayList2.add(new matahaModel(539.0, 192.0));
-        pointArrayList2.add(new matahaModel(541.0, 192.0));
-        pointArrayList2.add(new matahaModel(542.0, 192.0));
-        pointArrayList2.add(new matahaModel(543.0, 190.0));
-        pointArrayList2.add(new matahaModel(545.0, 190.0));
-        pointArrayList2.add(new matahaModel(547.0, 189.0));
-        pointArrayList2.add(new matahaModel(549.0, 189.0));
-        pointArrayList2.add(new matahaModel(550.0, 189.0));
-        pointArrayList2.add(new matahaModel(552.0, 187.0));
-        pointArrayList2.add(new matahaModel(554.0, 188.0));
-        pointArrayList2.add(new matahaModel(556.0, 187.0));
-        pointArrayList2.add(new matahaModel(557.0, 187.0));
-        pointArrayList2.add(new matahaModel(559.0, 187.0));
-        pointArrayList2.add(new matahaModel(560.0, 187.0));
-        pointArrayList2.add(new matahaModel(562.0, 187.0));
-        pointArrayList2.add(new matahaModel(564.0, 186.0));
-        pointArrayList2.add(new matahaModel(566.0, 185.0));
-        pointArrayList2.add(new matahaModel(568.0, 185.0));
-        pointArrayList2.add(new matahaModel(570.0, 185.0));
-        pointArrayList2.add(new matahaModel(572.0, 184.0));
-        pointArrayList2.add(new matahaModel(574.0, 184.0));
-        pointArrayList2.add(new matahaModel(576.0, 182.0));
-        pointArrayList2.add(new matahaModel(578.0, 182.0));
-        pointArrayList2.add(new matahaModel(580.0, 182.0));
-        pointArrayList2.add(new matahaModel(582.0, 182.0));
-        pointArrayList2.add(new matahaModel(584.0, 182.0));
-        pointArrayList2.add(new matahaModel(585.0, 182.0));
-        pointArrayList2.add(new matahaModel(588.0, 182.0));
-        pointArrayList2.add(new matahaModel(590.0, 182.0));
-        pointArrayList2.add(new matahaModel(593.0, 181.0));
-        pointArrayList2.add(new matahaModel(596.0, 181.0));
-        pointArrayList2.add(new matahaModel(599.0, 181.0));
-        pointArrayList2.add(new matahaModel(602.0, 181.0));
-        pointArrayList2.add(new matahaModel(605.0, 179.0));
-        pointArrayList2.add(new matahaModel(606.0, 180.0));
-        pointArrayList2.add(new matahaModel(608.0, 180.0));
-        pointArrayList2.add(new matahaModel(610.0, 180.0));
-        pointArrayList2.add(new matahaModel(612.0, 179.0));
-        pointArrayList2.add(new matahaModel(615.0, 179.0));
-        pointArrayList2.add(new matahaModel(616.0, 179.0));
-        pointArrayList2.add(new matahaModel(619.0, 179.0));
-        pointArrayList2.add(new matahaModel(620.0, 178.0));
-        pointArrayList2.add(new matahaModel(623.0, 178.0));
-        pointArrayList2.add(new matahaModel(625.0, 177.0));
-        pointArrayList2.add(new matahaModel(627.0, 176.0));
-        pointArrayList2.add(new matahaModel(629.0, 176.0));
-        pointArrayList2.add(new matahaModel(631.0, 176.0));
-        pointArrayList2.add(new matahaModel(632.0, 175.0));
-        pointArrayList2.add(new matahaModel(634.0, 175.0));
-        pointArrayList2.add(new matahaModel(636.0, 175.0));
-        pointArrayList2.add(new matahaModel(638.0, 173.0));
-        pointArrayList2.add(new matahaModel(640.0, 174.0));
-        pointArrayList2.add(new matahaModel(642.0, 174.0));
-        pointArrayList2.add(new matahaModel(644.0, 174.0));
-        pointArrayList2.add(new matahaModel(647.0, 174.0));
-        pointArrayList2.add(new matahaModel(649.0, 173.0));
-        pointArrayList2.add(new matahaModel(651.0, 172.0));
-        pointArrayList2.add(new matahaModel(654.0, 172.0));
-        pointArrayList2.add(new matahaModel(656.0, 171.0));
-        pointArrayList2.add(new matahaModel(658.0, 171.0));
-        pointArrayList2.add(new matahaModel(661.0, 171.0));
-        pointArrayList2.add(new matahaModel(665.0, 171.0));
-        pointArrayList2.add(new matahaModel(669.0, 171.0));
-        pointArrayList2.add(new matahaModel(672.0, 171.0));
-        pointArrayList2.add(new matahaModel(674.0, 171.0));
-        pointArrayList2.add(new matahaModel(677.0, 171.0));
-        pointArrayList2.add(new matahaModel(679.0, 171.0));
-        pointArrayList2.add(new matahaModel(681.0, 171.0));
-        pointArrayList2.add(new matahaModel(683.0, 172.0));
-        pointArrayList2.add(new matahaModel(685.0, 171.0));
-        pointArrayList2.add(new matahaModel(688.0, 170.0));
-        pointArrayList2.add(new matahaModel(690.0, 170.0));
-        pointArrayList2.add(new matahaModel(693.0, 170.0));
-        pointArrayList2.add(new matahaModel(694.0, 170.0));
-        pointArrayList2.add(new matahaModel(696.0, 170.0));
-        pointArrayList2.add(new matahaModel(698.0, 170.0));
-        pointArrayList2.add(new matahaModel(700.0, 170.0));
-        pointArrayList2.add(new matahaModel(702.0, 170.0));
-        pointArrayList2.add(new matahaModel(704.0, 170.0));
-        pointArrayList2.add(new matahaModel(706.0, 170.0));
-        pointArrayList2.add(new matahaModel(708.0, 170.0));
-        pointArrayList2.add(new matahaModel(710.0, 170.0));
-        pointArrayList2.add(new matahaModel(712.0, 168.0));
-        pointArrayList2.add(new matahaModel(714.0, 169.0));
-        pointArrayList2.add(new matahaModel(716.0, 169.0));
-        pointArrayList2.add(new matahaModel(717.0, 169.0));
-        pointArrayList2.add(new matahaModel(719.0, 169.0));
-        pointArrayList2.add(new matahaModel(722.0, 169.0));
-        pointArrayList2.add(new matahaModel(724.0, 169.0));
-        pointArrayList2.add(new matahaModel(727.0, 169.0));
-        pointArrayList2.add(new matahaModel(730.0, 169.0));
-        pointArrayList2.add(new matahaModel(732.0, 169.0));
-        pointArrayList2.add(new matahaModel(736.0, 169.0));
-        pointArrayList2.add(new matahaModel(739.0, 169.0));
-        pointArrayList2.add(new matahaModel(741.0, 169.0));
-        pointArrayList2.add(new matahaModel(742.0, 169.0));
-        pointArrayList2.add(new matahaModel(744.0, 169.0));
-        pointArrayList2.add(new matahaModel(745.0, 169.0));
-        pointArrayList2.add(new matahaModel(748.0, 168.0));
-        pointArrayList2.add(new matahaModel(750.0, 168.0));
-        pointArrayList2.add(new matahaModel(751.0, 168.0));
-        pointArrayList2.add(new matahaModel(753.0, 168.0));
-        pointArrayList2.add(new matahaModel(756.0, 168.0));
-        pointArrayList2.add(new matahaModel(758.0, 168.0));
-        pointArrayList2.add(new matahaModel(760.0, 168.0));
-        pointArrayList2.add(new matahaModel(761.0, 168.0));
-        pointArrayList2.add(new matahaModel(762.0, 168.0));
-        pointArrayList2.add(new matahaModel(764.0, 168.0));
-        pointArrayList2.add(new matahaModel(766.0, 168.0));
-        pointArrayList2.add(new matahaModel(767.0, 168.0));
-        pointArrayList2.add(new matahaModel(769.0, 168.0));
-        pointArrayList2.add(new matahaModel(771.0, 168.0));
-        pointArrayList2.add(new matahaModel(772.0, 168.0));
-        pointArrayList2.add(new matahaModel(774.0, 169.0));
-        pointArrayList2.add(new matahaModel(775.0, 169.0));
-        pointArrayList2.add(new matahaModel(776.0, 170.0));
-        pointArrayList2.add(new matahaModel(778.0, 170.0));
-        pointArrayList2.add(new matahaModel(779.0, 170.0));
-        pointArrayList2.add(new matahaModel(781.0, 171.0));
-        pointArrayList2.add(new matahaModel(783.0, 172.0));
-        pointArrayList2.add(new matahaModel(784.0, 172.0));
-        pointArrayList2.add(new matahaModel(786.0, 173.0));
-        pointArrayList2.add(new matahaModel(787.0, 173.0));
-        pointArrayList2.add(new matahaModel(789.0, 174.0));
-        pointArrayList2.add(new matahaModel(790.0, 175.0));
-        pointArrayList2.add(new matahaModel(793.0, 178.0));
-        pointArrayList2.add(new matahaModel(795.0, 178.0));
-        pointArrayList2.add(new matahaModel(799.0, 178.0));
-        pointArrayList2.add(new matahaModel(801.0, 178.0));
-        pointArrayList2.add(new matahaModel(803.0, 179.0));
-        pointArrayList2.add(new matahaModel(805.0, 179.0));
-        pointArrayList2.add(new matahaModel(807.0, 180.0));
-        pointArrayList2.add(new matahaModel(808.0, 181.0));
-        pointArrayList2.add(new matahaModel(810.0, 181.0));
-        pointArrayList2.add(new matahaModel(810.0, 182.0));
-        pointArrayList2.add(new matahaModel(812.0, 184.0));
-        pointArrayList2.add(new matahaModel(813.0, 185.0));
-        pointArrayList2.add(new matahaModel(813.0, 186.0));
-        pointArrayList2.add(new matahaModel(814.0, 187.0));
-        pointArrayList2.add(new matahaModel(814.0, 188.0));
-        pointArrayList2.add(new matahaModel(815.0, 189.0));
-        pointArrayList2.add(new matahaModel(816.0, 189.0));
-        pointArrayList2.add(new matahaModel(816.0, 190.0));
-        pointArrayList2.add(new matahaModel(816.0, 191.0));
-        pointArrayList2.add(new matahaModel(817.0, 193.0));
-        pointArrayList2.add(new matahaModel(817.0, 193.0));
-        pointArrayList2.add(new matahaModel(818.0, 195.0));
-        pointArrayList2.add(new matahaModel(819.0, 199.0));
-        pointArrayList2.add(new matahaModel(820.0, 202.0));
-        pointArrayList2.add(new matahaModel(821.0, 202.0));
-        pointArrayList2.add(new matahaModel(822.0, 202.0));
-        pointArrayList2.add(new matahaModel(823.0, 203.0));
-        pointArrayList2.add(new matahaModel(824.0, 205.0));
-        pointArrayList2.add(new matahaModel(825.0, 206.0));
-        pointArrayList2.add(new matahaModel(826.0, 207.0));
-        pointArrayList2.add(new matahaModel(827.0, 208.0));
-        pointArrayList2.add(new matahaModel(828.0, 209.0));
-        pointArrayList2.add(new matahaModel(828.0, 210.0));
-        pointArrayList2.add(new matahaModel(829.0, 211.0));
-        pointArrayList2.add(new matahaModel(830.0, 212.0));
-        pointArrayList2.add(new matahaModel(831.0, 213.0));
-        pointArrayList2.add(new matahaModel(831.0, 214.0));
-        pointArrayList2.add(new matahaModel(831.0, 215.0));
-        pointArrayList2.add(new matahaModel(832.0, 217.0));
-        pointArrayList2.add(new matahaModel(832.0, 218.0));
-        pointArrayList2.add(new matahaModel(832.0, 220.0));
-        pointArrayList2.add(new matahaModel(832.0, 222.0));
-        pointArrayList2.add(new matahaModel(832.0, 223.0));
-        pointArrayList2.add(new matahaModel(832.0, 224.0));
-        pointArrayList2.add(new matahaModel(832.0, 226.0));
-        pointArrayList2.add(new matahaModel(832.0, 226.0));
-        pointArrayList2.add(new matahaModel(832.0, 227.0));
-        pointArrayList2.add(new matahaModel(832.0, 227.0));
-        pointArrayList2.add(new matahaModel(832.0, 229.0));
-        pointArrayList2.add(new matahaModel(832.0, 230.0));
-        pointArrayList2.add(new matahaModel(832.0, 231.0));
-        pointArrayList2.add(new matahaModel(832.0, 232.0));
-        pointArrayList2.add(new matahaModel(832.0, 233.0));
-        pointArrayList2.add(new matahaModel(832.0, 234.0));
-        pointArrayList2.add(new matahaModel(830.0, 235.0));
-        pointArrayList2.add(new matahaModel(830.0, 237.0));
-        pointArrayList2.add(new matahaModel(829.0, 237.0));
-        pointArrayList2.add(new matahaModel(829.0, 239.0));
-        pointArrayList2.add(new matahaModel(829.0, 240.0));
-        pointArrayList2.add(new matahaModel(827.0, 242.0));
-        pointArrayList2.add(new matahaModel(828.0, 243.0));
-        pointArrayList2.add(new matahaModel(828.0, 245.0));
-        pointArrayList2.add(new matahaModel(828.0, 248.0));
-        pointArrayList2.add(new matahaModel(828.0, 249.0));
-        pointArrayList2.add(new matahaModel(828.0, 250.0));
-        pointArrayList2.add(new matahaModel(828.0, 251.0));
-        pointArrayList2.add(new matahaModel(828.0, 252.0));
-        pointArrayList2.add(new matahaModel(828.0, 255.0));
-        pointArrayList2.add(new matahaModel(828.0, 258.0));
-        pointArrayList2.add(new matahaModel(828.0, 260.0));
-        pointArrayList2.add(new matahaModel(828.0, 261.0));
-        pointArrayList2.add(new matahaModel(828.0, 263.0));
-        pointArrayList2.add(new matahaModel(828.0, 265.0));
-        pointArrayList2.add(new matahaModel(828.0, 267.0));
-        pointArrayList2.add(new matahaModel(828.0, 268.0));
-        pointArrayList2.add(new matahaModel(828.0, 270.0));
-        pointArrayList2.add(new matahaModel(827.0, 270.0));
-        pointArrayList2.add(new matahaModel(827.0, 273.0));
-        pointArrayList2.add(new matahaModel(827.0, 275.0));
-        pointArrayList2.add(new matahaModel(826.0, 277.0));
-        pointArrayList2.add(new matahaModel(826.0, 279.0));
-        pointArrayList2.add(new matahaModel(826.0, 280.0));
-        pointArrayList2.add(new matahaModel(826.0, 282.0));
-        pointArrayList2.add(new matahaModel(825.0, 285.0));
-        pointArrayList2.add(new matahaModel(825.0, 286.0));
-        pointArrayList2.add(new matahaModel(824.0, 287.0));
-        pointArrayList2.add(new matahaModel(824.0, 289.0));
-        pointArrayList2.add(new matahaModel(824.0, 290.0));
-        pointArrayList2.add(new matahaModel(824.0, 292.0));
-        pointArrayList2.add(new matahaModel(824.0, 294.0));
-        pointArrayList2.add(new matahaModel(824.0, 295.0));
-        pointArrayList2.add(new matahaModel(824.0, 297.0));
-        pointArrayList2.add(new matahaModel(824.0, 298.0));
-        pointArrayList2.add(new matahaModel(822.0, 299.0));
-        pointArrayList2.add(new matahaModel(822.0, 300.0));
-        pointArrayList2.add(new matahaModel(820.0, 302.0));
-        pointArrayList2.add(new matahaModel(819.0, 303.0));
-        pointArrayList2.add(new matahaModel(820.0, 304.0));
-        pointArrayList2.add(new matahaModel(820.0, 306.0));
-        pointArrayList2.add(new matahaModel(819.0, 308.0));
-        pointArrayList2.add(new matahaModel(818.0, 308.0));
-        pointArrayList2.add(new matahaModel(817.0, 309.0));
-        pointArrayList2.add(new matahaModel(817.0, 310.0));
-        pointArrayList2.add(new matahaModel(815.0, 311.0));
-        pointArrayList2.add(new matahaModel(816.0, 312.0));
-        pointArrayList2.add(new matahaModel(816.0, 314.0));
-        pointArrayList2.add(new matahaModel(815.0, 318.0));
-        pointArrayList2.add(new matahaModel(815.0, 319.0));
-        pointArrayList2.add(new matahaModel(815.0, 319.0));
-        pointArrayList2.add(new matahaModel(815.0, 320.0));
-        pointArrayList2.add(new matahaModel(815.0, 322.0));
-        pointArrayList2.add(new matahaModel(815.0, 322.0));
-        pointArrayList2.add(new matahaModel(815.0, 324.0));
-        pointArrayList2.add(new matahaModel(815.0, 326.0));
-        pointArrayList2.add(new matahaModel(815.0, 327.0));
-        pointArrayList2.add(new matahaModel(815.0, 328.0));
-        pointArrayList2.add(new matahaModel(815.0, 329.0));
-        pointArrayList2.add(new matahaModel(815.0, 331.0));
-        pointArrayList2.add(new matahaModel(815.0, 334.0));
-        pointArrayList2.add(new matahaModel(815.0, 337.0));
-        pointArrayList2.add(new matahaModel(815.0, 340.0));
-        pointArrayList2.add(new matahaModel(816.0, 342.0));
-        pointArrayList2.add(new matahaModel(816.0, 343.0));
-        pointArrayList2.add(new matahaModel(817.0, 346.0));
-        pointArrayList2.add(new matahaModel(820.0, 347.0));
-        pointArrayList2.add(new matahaModel(822.0, 347.0));
-        pointArrayList2.add(new matahaModel(822.0, 348.0));
-        pointArrayList2.add(new matahaModel(823.0, 349.0));
-        pointArrayList2.add(new matahaModel(823.0, 351.0));
-        pointArrayList2.add(new matahaModel(825.0, 351.0));
-        pointArrayList2.add(new matahaModel(826.0, 354.0));
-        pointArrayList2.add(new matahaModel(828.0, 354.0));
-        pointArrayList2.add(new matahaModel(830.0, 354.0));
-        pointArrayList2.add(new matahaModel(832.0, 355.0));
-        pointArrayList2.add(new matahaModel(835.0, 357.0));
-        pointArrayList2.add(new matahaModel(836.0, 359.0));
-        pointArrayList2.add(new matahaModel(838.0, 359.0));
-        pointArrayList2.add(new matahaModel(839.0, 359.0));
-        pointArrayList2.add(new matahaModel(841.0, 361.0));
-        pointArrayList2.add(new matahaModel(843.0, 363.0));
-        pointArrayList2.add(new matahaModel(846.0, 363.0));
-        pointArrayList2.add(new matahaModel(848.0, 365.0));
-        pointArrayList2.add(new matahaModel(849.0, 366.0));
-        pointArrayList2.add(new matahaModel(850.0, 367.0));
-        pointArrayList2.add(new matahaModel(851.0, 368.0));
-        pointArrayList2.add(new matahaModel(852.0, 368.0));
-        pointArrayList2.add(new matahaModel(853.0, 369.0));
-        pointArrayList2.add(new matahaModel(855.0, 371.0));
-        pointArrayList2.add(new matahaModel(856.0, 371.0));
-        pointArrayList2.add(new matahaModel(857.0, 372.0));
-        pointArrayList2.add(new matahaModel(858.0, 372.0));
-        pointArrayList2.add(new matahaModel(859.0, 373.0));
-        pointArrayList2.add(new matahaModel(860.0, 374.0));
-        pointArrayList2.add(new matahaModel(862.0, 374.0));
-        pointArrayList2.add(new matahaModel(863.0, 375.0));
-        pointArrayList2.add(new matahaModel(865.0, 378.0));
-        pointArrayList2.add(new matahaModel(866.0, 378.0));
-        pointArrayList2.add(new matahaModel(868.0, 380.0));
-        pointArrayList2.add(new matahaModel(869.0, 380.0));
-        pointArrayList2.add(new matahaModel(871.0, 383.0));
-        pointArrayList2.add(new matahaModel(873.0, 384.0));
-        pointArrayList2.add(new matahaModel(876.0, 384.0));
-        pointArrayList2.add(new matahaModel(879.0, 385.0));
-        pointArrayList2.add(new matahaModel(881.0, 386.0));
-        pointArrayList2.add(new matahaModel(882.0, 386.0));
-        pointArrayList2.add(new matahaModel(884.0, 386.0));
-        pointArrayList2.add(new matahaModel(886.0, 387.0));
-        pointArrayList2.add(new matahaModel(888.0, 387.0));
-        pointArrayList2.add(new matahaModel(890.0, 387.0));
-        pointArrayList2.add(new matahaModel(891.0, 388.0));
-        pointArrayList2.add(new matahaModel(893.0, 389.0));
-        pointArrayList2.add(new matahaModel(895.0, 389.0));
-        pointArrayList2.add(new matahaModel(896.0, 389.0));
-        pointArrayList2.add(new matahaModel(898.0, 390.0));
-        pointArrayList2.add(new matahaModel(900.0, 390.0));
-        pointArrayList2.add(new matahaModel(901.0, 390.0));
-        pointArrayList2.add(new matahaModel(903.0, 390.0));
-        pointArrayList2.add(new matahaModel(905.0, 391.0));
-        pointArrayList2.add(new matahaModel(906.0, 391.0));
-        pointArrayList2.add(new matahaModel(908.0, 391.0));
-        pointArrayList2.add(new matahaModel(910.0, 392.0));
-        pointArrayList2.add(new matahaModel(912.0, 392.0));
-        pointArrayList2.add(new matahaModel(914.0, 393.0));
-        pointArrayList2.add(new matahaModel(916.0, 393.0));
-        pointArrayList2.add(new matahaModel(917.0, 393.0));
-        pointArrayList2.add(new matahaModel(919.0, 393.0));
-        pointArrayList2.add(new matahaModel(922.0, 393.0));
-        pointArrayList2.add(new matahaModel(923.0, 395.0));
-        pointArrayList2.add(new matahaModel(926.0, 395.0));
-        pointArrayList2.add(new matahaModel(928.0, 395.0));
-        pointArrayList2.add(new matahaModel(930.0, 395.0));
-        pointArrayList2.add(new matahaModel(933.0, 396.0));
-        pointArrayList2.add(new matahaModel(936.0, 396.0));
-        pointArrayList2.add(new matahaModel(940.0, 396.0));
-        pointArrayList2.add(new matahaModel(942.0, 396.0));
-        pointArrayList2.add(new matahaModel(943.0, 396.0));
-        pointArrayList2.add(new matahaModel(945.0, 396.0));
-        pointArrayList2.add(new matahaModel(947.0, 396.0));
-        pointArrayList2.add(new matahaModel(950.0, 396.0));
-        pointArrayList2.add(new matahaModel(953.0, 396.0));
-        pointArrayList2.add(new matahaModel(955.0, 396.0));
-        pointArrayList2.add(new matahaModel(957.0, 396.0));
-        pointArrayList2.add(new matahaModel(959.0, 396.0));
-        pointArrayList2.add(new matahaModel(961.0, 396.0));
-        pointArrayList2.add(new matahaModel(963.0, 396.0));
-        pointArrayList2.add(new matahaModel(966.0, 396.0));
-        pointArrayList2.add(new matahaModel(968.0, 396.0));
-        pointArrayList2.add(new matahaModel(969.0, 396.0));
-        pointArrayList2.add(new matahaModel(972.0, 396.0));
-        pointArrayList2.add(new matahaModel(974.0, 396.0));
-        pointArrayList2.add(new matahaModel(976.0, 396.0));
-        pointArrayList2.add(new matahaModel(978.0, 396.0));
-        pointArrayList2.add(new matahaModel(980.0, 396.0));
-        pointArrayList2.add(new matahaModel(982.0, 396.0));
-        pointArrayList2.add(new matahaModel(984.0, 396.0));
-        pointArrayList2.add(new matahaModel(987.0, 397.0));
-        pointArrayList2.add(new matahaModel(989.0, 397.0));
-        pointArrayList2.add(new matahaModel(993.0, 398.0));
-        pointArrayList2.add(new matahaModel(996.0, 398.0));
-        pointArrayList2.add(new matahaModel(1000.0, 398.0));
-        pointArrayList2.add(new matahaModel(1003.0, 398.0));
-        pointArrayList2.add(new matahaModel(1006.0, 398.0));
-        pointArrayList2.add(new matahaModel(1009.0, 397.0));
-        pointArrayList2.add(new matahaModel(1011.0, 397.0));
-        pointArrayList2.add(new matahaModel(1013.0, 397.0));
-        pointArrayList2.add(new matahaModel(1016.0, 397.0));
-        pointArrayList2.add(new matahaModel(1018.0, 397.0));
-        pointArrayList2.add(new matahaModel(1020.0, 397.0));
-        pointArrayList2.add(new matahaModel(1023.0, 397.0));
-        pointArrayList2.add(new matahaModel(1024.0, 397.0));
-        pointArrayList2.add(new matahaModel(1026.0, 397.0));
-        pointArrayList2.add(new matahaModel(1028.0, 397.0));
-        pointArrayList2.add(new matahaModel(1030.0, 397.0));
-        pointArrayList2.add(new matahaModel(1032.0, 397.0));
-        pointArrayList2.add(new matahaModel(1034.0, 397.0));
-        pointArrayList2.add(new matahaModel(1037.0, 397.0));
-        pointArrayList2.add(new matahaModel(1040.0, 397.0));
-        pointArrayList2.add(new matahaModel(1041.0, 397.0));
-        pointArrayList2.add(new matahaModel(1044.0, 397.0));
-        pointArrayList2.add(new matahaModel(1045.0, 397.0));
-        pointArrayList2.add(new matahaModel(1048.0, 396.0));
-        pointArrayList2.add(new matahaModel(1049.0, 396.0));
-        pointArrayList2.add(new matahaModel(1051.0, 395.0));
-        pointArrayList2.add(new matahaModel(1053.0, 395.0));
-        pointArrayList2.add(new matahaModel(1056.0, 394.0));
-        pointArrayList2.add(new matahaModel(1058.0, 394.0));
-        pointArrayList2.add(new matahaModel(1062.0, 394.0));
-        pointArrayList2.add(new matahaModel(1064.0, 394.0));
-        pointArrayList2.add(new matahaModel(1068.0, 394.0));
-        pointArrayList2.add(new matahaModel(1071.0, 394.0));
-        pointArrayList2.add(new matahaModel(1074.0, 392.0));
-        pointArrayList2.add(new matahaModel(1076.0, 390.0));
-        pointArrayList2.add(new matahaModel(1079.0, 390.0));
-        pointArrayList2.add(new matahaModel(1080.0, 390.0));
-        pointArrayList2.add(new matahaModel(1082.0, 389.0));
-        pointArrayList2.add(new matahaModel(1085.0, 389.0));
-        pointArrayList2.add(new matahaModel(1088.0, 387.0));
-        pointArrayList2.add(new matahaModel(1090.0, 387.0));
-        pointArrayList2.add(new matahaModel(1092.0, 386.0));
-        pointArrayList2.add(new matahaModel(1094.0, 386.0));
-        pointArrayList2.add(new matahaModel(1096.0, 386.0));
-        pointArrayList2.add(new matahaModel(1098.0, 385.0));
-        pointArrayList2.add(new matahaModel(1100.0, 384.0));
-        pointArrayList2.add(new matahaModel(1102.0, 384.0));
-        pointArrayList2.add(new matahaModel(1104.0, 383.0));
-        pointArrayList2.add(new matahaModel(1105.0, 380.0));
-        pointArrayList2.add(new matahaModel(1108.0, 380.0));
-        pointArrayList2.add(new matahaModel(1110.0, 378.0));
-        pointArrayList2.add(new matahaModel(1112.0, 377.0));
-        pointArrayList2.add(new matahaModel(1114.0, 375.0));
-        pointArrayList2.add(new matahaModel(1116.0, 376.0));
-        pointArrayList2.add(new matahaModel(1118.0, 376.0));
-        pointArrayList2.add(new matahaModel(1119.0, 374.0));
-        pointArrayList2.add(new matahaModel(1121.0, 375.0));
-        pointArrayList2.add(new matahaModel(1125.0, 374.0));
-        pointArrayList2.add(new matahaModel(1127.0, 374.0));
-        pointArrayList2.add(new matahaModel(1130.0, 374.0));
-        pointArrayList2.add(new matahaModel(1133.0, 374.0));
-        pointArrayList2.add(new matahaModel(1137.0, 374.0));
-        pointArrayList2.add(new matahaModel(1140.0, 374.0));
-        pointArrayList2.add(new matahaModel(1141.0, 374.0));
-        pointArrayList2.add(new matahaModel(1144.0, 374.0));
-        pointArrayList2.add(new matahaModel(1146.0, 374.0));
-        pointArrayList2.add(new matahaModel(1148.0, 374.0));
-        pointArrayList2.add(new matahaModel(1150.0, 374.0));
-        pointArrayList2.add(new matahaModel(1151.0, 374.0));
-        pointArrayList2.add(new matahaModel(1154.0, 373.0));
-        pointArrayList2.add(new matahaModel(1156.0, 373.0));
-        pointArrayList2.add(new matahaModel(1158.0, 373.0));
-        pointArrayList2.add(new matahaModel(1160.0, 373.0));
-        pointArrayList2.add(new matahaModel(1162.0, 373.0));
-        pointArrayList2.add(new matahaModel(1164.0, 373.0));
-        pointArrayList2.add(new matahaModel(1166.0, 373.0));
-        pointArrayList2.add(new matahaModel(1168.0, 372.0));
-        pointArrayList2.add(new matahaModel(1170.0, 371.0));
-        pointArrayList2.add(new matahaModel(1173.0, 371.0));
-        pointArrayList2.add(new matahaModel(1175.0, 371.0));
-        pointArrayList2.add(new matahaModel(1177.0, 371.0));
-        pointArrayList2.add(new matahaModel(1179.0, 371.0));
-        pointArrayList2.add(new matahaModel(1181.0, 369.0));
-        pointArrayList2.add(new matahaModel(1183.0, 370.0));
-        pointArrayList2.add(new matahaModel(1185.0, 370.0));
-        pointArrayList2.add(new matahaModel(1187.0, 370.0));
-        pointArrayList2.add(new matahaModel(1191.0, 370.0));
-        pointArrayList2.add(new matahaModel(1195.0, 368.0));
-        pointArrayList2.add(new matahaModel(1197.0, 369.0));
-        pointArrayList2.add(new matahaModel(1200.0, 369.0));
-        pointArrayList2.add(new matahaModel(1204.0, 369.0));
-        pointArrayList2.add(new matahaModel(1207.0, 369.0));
-        pointArrayList2.add(new matahaModel(1209.0, 368.0));
-        pointArrayList2.add(new matahaModel(1211.0, 368.0));
-        pointArrayList2.add(new matahaModel(1213.0, 368.0));
-        pointArrayList2.add(new matahaModel(1215.0, 368.0));
-        pointArrayList2.add(new matahaModel(1217.0, 367.0));
-        pointArrayList2.add(new matahaModel(1219.0, 367.0));
-        pointArrayList2.add(new matahaModel(1221.0, 367.0));
-        pointArrayList2.add(new matahaModel(1223.0, 367.0));
-        pointArrayList2.add(new matahaModel(1225.0, 367.0));
-        pointArrayList2.add(new matahaModel(1227.0, 367.0));
-        pointArrayList2.add(new matahaModel(1229.0, 366.0));
-        pointArrayList2.add(new matahaModel(1232.0, 365.0));
-        pointArrayList2.add(new matahaModel(1234.0, 364.0));
-        pointArrayList2.add(new matahaModel(1237.0, 364.0));
-        pointArrayList2.add(new matahaModel(1239.0, 364.0));
-        pointArrayList2.add(new matahaModel(1241.0, 363.0));
-        pointArrayList2.add(new matahaModel(1244.0, 363.0));
-        pointArrayList2.add(new matahaModel(1246.0, 363.0));
-        pointArrayList2.add(new matahaModel(1248.0, 363.0));
-        pointArrayList2.add(new matahaModel(1250.0, 363.0));
-        pointArrayList2.add(new matahaModel(1252.0, 362.0));
-        pointArrayList2.add(new matahaModel(1254.0, 360.0));
-        pointArrayList2.add(new matahaModel(1256.0, 360.0));
-        pointArrayList2.add(new matahaModel(1260.0, 359.0));
-        pointArrayList2.add(new matahaModel(1264.0, 359.0));
-        pointArrayList2.add(new matahaModel(1268.0, 358.0));
-        pointArrayList2.add(new matahaModel(1271.0, 358.0));
-        pointArrayList2.add(new matahaModel(1273.0, 357.0));
-        pointArrayList2.add(new matahaModel(1276.0, 356.0));
-        pointArrayList2.add(new matahaModel(1278.0, 355.0));
-        pointArrayList2.add(new matahaModel(1281.0, 355.0));
-        pointArrayList2.add(new matahaModel(1283.0, 355.0));
-        pointArrayList2.add(new matahaModel(1285.0, 355.0));
-        pointArrayList2.add(new matahaModel(1288.0, 352.0));
-        pointArrayList2.add(new matahaModel(1290.0, 353.0));
-        pointArrayList2.add(new matahaModel(1293.0, 351.0));
-        pointArrayList2.add(new matahaModel(1295.0, 351.0));
-        pointArrayList2.add(new matahaModel(1297.0, 351.0));
-        pointArrayList2.add(new matahaModel(1299.0, 350.0));
-        pointArrayList2.add(new matahaModel(1301.0, 349.0));
-        pointArrayList2.add(new matahaModel(1303.0, 349.0));
-        pointArrayList2.add(new matahaModel(1305.0, 349.0));
-        pointArrayList2.add(new matahaModel(1307.0, 347.0));
-        pointArrayList2.add(new matahaModel(1309.0, 347.0));
-        pointArrayList2.add(new matahaModel(1311.0, 347.0));
-        pointArrayList2.add(new matahaModel(1312.0, 346.0));
-        pointArrayList2.add(new matahaModel(1314.0, 345.0));
-        pointArrayList2.add(new matahaModel(1316.0, 345.0));
-        pointArrayList2.add(new matahaModel(1318.0, 344.0));
-        pointArrayList2.add(new matahaModel(1321.0, 344.0));
-        pointArrayList2.add(new matahaModel(1324.0, 344.0));
-        pointArrayList2.add(new matahaModel(1327.0, 343.0));
-        pointArrayList2.add(new matahaModel(1329.0, 343.0));
-        pointArrayList2.add(new matahaModel(1332.0, 342.0));
-        pointArrayList2.add(new matahaModel(1333.0, 341.0));
-        pointArrayList2.add(new matahaModel(1337.0, 340.0));
-        pointArrayList2.add(new matahaModel(1340.0, 340.0));
-        pointArrayList2.add(new matahaModel(1342.0, 339.0));
-        pointArrayList2.add(new matahaModel(1345.0, 339.0));
-        pointArrayList2.add(new matahaModel(1347.0, 337.0));
-        pointArrayList2.add(new matahaModel(1349.0, 337.0));
-        pointArrayList2.add(new matahaModel(1351.0, 337.0));
-        pointArrayList2.add(new matahaModel(1353.0, 336.0));
-        pointArrayList2.add(new matahaModel(1356.0, 335.0));
-        pointArrayList2.add(new matahaModel(1358.0, 335.0));
-        pointArrayList2.add(new matahaModel(1361.0, 335.0));
-        pointArrayList2.add(new matahaModel(1363.0, 335.0));
-        pointArrayList2.add(new matahaModel(1365.0, 335.0));
-        pointArrayList2.add(new matahaModel(1366.0, 335.0));
-        pointArrayList2.add(new matahaModel(1369.0, 334.0));
-        pointArrayList2.add(new matahaModel(1371.0, 334.0));
-        pointArrayList2.add(new matahaModel(1374.0, 333.0));
-        pointArrayList2.add(new matahaModel(1377.0, 333.0));
-        pointArrayList2.add(new matahaModel(1379.0, 333.0));
-        pointArrayList2.add(new matahaModel(1382.0, 333.0));
-        pointArrayList2.add(new matahaModel(1384.0, 333.0));
-        pointArrayList2.add(new matahaModel(1386.0, 333.0));
-        pointArrayList2.add(new matahaModel(1389.0, 333.0));
-        pointArrayList2.add(new matahaModel(1393.0, 332.0));
-        pointArrayList2.add(new matahaModel(1397.0, 332.0));
-        pointArrayList2.add(new matahaModel(1401.0, 332.0));
-        pointArrayList2.add(new matahaModel(1405.0, 332.0));
-        pointArrayList2.add(new matahaModel(1408.0, 332.0));
-        pointArrayList2.add(new matahaModel(1411.0, 331.0));
-        pointArrayList2.add(new matahaModel(1413.0, 331.0));
-        pointArrayList2.add(new matahaModel(1415.0, 331.0));
-        pointArrayList2.add(new matahaModel(1418.0, 331.0));
-        pointArrayList2.add(new matahaModel(1421.0, 331.0));
-        pointArrayList2.add(new matahaModel(1423.0, 331.0));
-        pointArrayList2.add(new matahaModel(1426.0, 331.0));
-        pointArrayList2.add(new matahaModel(1427.0, 331.0));
-        pointArrayList2.add(new matahaModel(1430.0, 331.0));
-        pointArrayList2.add(new matahaModel(1432.0, 329.0));
-        pointArrayList2.add(new matahaModel(1434.0, 330.0));
-        pointArrayList2.add(new matahaModel(1436.0, 330.0));
-        pointArrayList2.add(new matahaModel(1438.0, 330.0));
-        pointArrayList2.add(new matahaModel(1441.0, 330.0));
-        pointArrayList2.add(new matahaModel(1443.0, 329.0));
-        pointArrayList2.add(new matahaModel(1446.0, 329.0));
-        pointArrayList2.add(new matahaModel(1449.0, 329.0));
-        pointArrayList2.add(new matahaModel(1450.0, 329.0));
-        pointArrayList2.add(new matahaModel(1453.0, 329.0));
-        pointArrayList2.add(new matahaModel(1456.0, 329.0));
-        pointArrayList2.add(new matahaModel(1460.0, 329.0));
-        pointArrayList2.add(new matahaModel(1462.0, 329.0));
-        pointArrayList2.add(new matahaModel(1466.0, 329.0));
-        pointArrayList2.add(new matahaModel(1470.0, 329.0));
-        pointArrayList2.add(new matahaModel(1474.0, 329.0));
-        pointArrayList2.add(new matahaModel(1476.0, 329.0));
-        pointArrayList2.add(new matahaModel(1480.0, 329.0));
-        pointArrayList2.add(new matahaModel(1481.0, 329.0));
-        pointArrayList2.add(new matahaModel(1484.0, 329.0));
-        pointArrayList2.add(new matahaModel(1487.0, 329.0));
-        pointArrayList2.add(new matahaModel(1489.0, 329.0));
-        pointArrayList2.add(new matahaModel(1492.0, 329.0));
-        pointArrayList2.add(new matahaModel(1493.0, 329.0));
-        pointArrayList2.add(new matahaModel(1496.0, 329.0));
-        pointArrayList2.add(new matahaModel(1497.0, 329.0));
-        pointArrayList2.add(new matahaModel(1500.0, 329.0));
-        pointArrayList2.add(new matahaModel(1502.0, 329.0));
-        pointArrayList2.add(new matahaModel(1505.0, 329.0));
-        pointArrayList2.add(new matahaModel(1507.0, 329.0));
-        pointArrayList2.add(new matahaModel(1509.0, 329.0));
-        pointArrayList2.add(new matahaModel(1511.0, 329.0));
-        pointArrayList2.add(new matahaModel(1513.0, 329.0));
-        pointArrayList2.add(new matahaModel(1516.0, 329.0));
-        pointArrayList2.add(new matahaModel(1518.0, 329.0));
-        pointArrayList2.add(new matahaModel(1519.0, 328.0));
-        pointArrayList2.add(new matahaModel(1523.0, 328.0));
-        pointArrayList2.add(new matahaModel(1525.0, 328.0));
-        pointArrayList2.add(new matahaModel(1529.0, 328.0));
-        pointArrayList2.add(new matahaModel(1532.0, 328.0));
-        pointArrayList2.add(new matahaModel(1535.0, 328.0));
-        pointArrayList2.add(new matahaModel(1539.0, 328.0));
-        pointArrayList2.add(new matahaModel(1542.0, 328.0));
-        pointArrayList2.add(new matahaModel(1543.0, 328.0));
-        pointArrayList2.add(new matahaModel(1545.0, 327.0));
-        pointArrayList2.add(new matahaModel(1548.0, 327.0));
-        pointArrayList2.add(new matahaModel(1551.0, 327.0));
-        pointArrayList2.add(new matahaModel(1552.0, 327.0));
-        pointArrayList2.add(new matahaModel(1554.0, 327.0));
-        pointArrayList2.add(new matahaModel(1556.0, 327.0));
-        pointArrayList2.add(new matahaModel(1558.0, 327.0));
-        pointArrayList2.add(new matahaModel(1561.0, 327.0));
-        pointArrayList2.add(new matahaModel(1563.0, 327.0));
-        pointArrayList2.add(new matahaModel(1565.0, 327.0));
-        pointArrayList2.add(new matahaModel(1567.0, 327.0));
-        pointArrayList2.add(new matahaModel(1570.0, 327.0));
-        pointArrayList2.add(new matahaModel(1572.0, 327.0));
-        pointArrayList2.add(new matahaModel(1574.0, 327.0));
-        pointArrayList2.add(new matahaModel(1577.0, 327.0));
-        pointArrayList2.add(new matahaModel(1580.0, 324.0));
-        pointArrayList2.add(new matahaModel(1583.0, 325.0));
-        pointArrayList2.add(new matahaModel(1585.0, 325.0));
-        pointArrayList2.add(new matahaModel(1587.0, 325.0));
-        pointArrayList2.add(new matahaModel(1589.0, 325.0));
-        pointArrayList2.add(new matahaModel(1593.0, 325.0));
-        pointArrayList2.add(new matahaModel(1596.0, 323.0));
-        pointArrayList2.add(new matahaModel(1600.0, 323.0));
-        pointArrayList2.add(new matahaModel(1604.0, 323.0));
-        pointArrayList2.add(new matahaModel(1608.0, 323.0));
-        pointArrayList2.add(new matahaModel(1612.0, 323.0));
-        pointArrayList2.add(new matahaModel(1614.0, 323.0));
-        pointArrayList2.add(new matahaModel(1616.0, 323.0));
-        pointArrayList2.add(new matahaModel(1619.0, 323.0));
-        pointArrayList2.add(new matahaModel(1621.0, 323.0));
-        pointArrayList2.add(new matahaModel(1623.0, 323.0));
-        pointArrayList2.add(new matahaModel(1626.0, 323.0));
-        pointArrayList2.add(new matahaModel(1628.0, 323.0));
-        pointArrayList2.add(new matahaModel(1631.0, 322.0));
-        pointArrayList2.add(new matahaModel(1634.0, 322.0));
-        pointArrayList2.add(new matahaModel(1635.0, 322.0));
-        pointArrayList2.add(new matahaModel(1638.0, 322.0));
-        pointArrayList2.add(new matahaModel(1640.0, 321.0));
-        pointArrayList2.add(new matahaModel(1642.0, 320.0));
-        pointArrayList2.add(new matahaModel(1644.0, 318.0));
-        pointArrayList2.add(new matahaModel(1646.0, 317.0));
-        pointArrayList2.add(new matahaModel(1647.0, 315.0));
-        pointArrayList2.add(new matahaModel(1649.0, 315.0));
-        pointArrayList2.add(new matahaModel(1651.0, 315.0));
-        pointArrayList2.add(new matahaModel(1653.0, 315.0));
-        pointArrayList2.add(new matahaModel(1656.0, 315.0));
-        pointArrayList2.add(new matahaModel(1660.0, 317.0));
-        pointArrayList2.add(new matahaModel(1663.0, 316.0));
-        pointArrayList2.add(new matahaModel(1663.0, 316.0));
-        pointArrayList2.add(new matahaModel(1666.0, 317.0));
-        pointArrayList2.add(new matahaModel(1670.0, 317.0));
-        pointArrayList2.add(new matahaModel(1672.0, 317.0));
-        pointArrayList2.add(new matahaModel(1672.0, 317.0));
-        pointArrayList2.add(new matahaModel(1672.0, 315.0));
-        pointArrayList2.add(new matahaModel(1674.0, 315.0));
-        pointArrayList2.add(new matahaModel(1674.0, 316.0));
-        pointArrayList2.add(new matahaModel(1674.0, 317.0));
-        pointArrayList2.add(new matahaModel(1674.0, 316.0));
-        pointArrayList2.add(new matahaModel(1674.0, 316.0));
-        pointArrayList2.add(new matahaModel(1673.0, 316.0));
-        pointArrayList2.add(new matahaModel(1670.0, 316.0));
-        pointArrayList2.add(new matahaModel(1668.0, 316.0));
-        pointArrayList2.add(new matahaModel(1665.0, 316.0));
-        pointArrayList2.add(new matahaModel(1663.0, 316.0));
-        pointArrayList2.add(new matahaModel(1661.0, 316.0));
-        pointArrayList2.add(new matahaModel(1659.0, 316.0));
-        pointArrayList2.add(new matahaModel(1655.0, 316.0));
-        pointArrayList2.add(new matahaModel(1655.0, 316.0));
-        pointArrayList2.add(new matahaModel(1654.0, 318.0));
-        pointArrayList2.add(new matahaModel(1652.0, 318.0));
-        pointArrayList2.add(new matahaModel(1651.0, 318.0));
-        pointArrayList2.add(new matahaModel(1651.0, 318.0));
-        pointArrayList2.add(new matahaModel(1650.0, 318.0));
-        pointArrayList2.add(new matahaModel(1650.0, 318.0));
-
-
-
-        pointArrayList3.add(new matahaModel(-135.0, 444.0));
-        pointArrayList3.add(new matahaModel(-135.0, 444.0));
-        pointArrayList3.add(new matahaModel(-135.0, 444.0));
-        pointArrayList3.add(new matahaModel(-135.0, 442.0));
-        pointArrayList3.add(new matahaModel(-134.0, 438.0));
-        pointArrayList3.add(new matahaModel(-134.0, 435.0));
-        pointArrayList3.add(new matahaModel(-134.0, 432.0));
-        pointArrayList3.add(new matahaModel(-134.0, 430.0));
-        pointArrayList3.add(new matahaModel(-134.0, 428.0));
-        pointArrayList3.add(new matahaModel(-134.0, 425.0));
-        pointArrayList3.add(new matahaModel(-134.0, 424.0));
-        pointArrayList3.add(new matahaModel(-134.0, 422.0));
-        pointArrayList3.add(new matahaModel(-134.0, 421.0));
-        pointArrayList3.add(new matahaModel(-135.0, 419.0));
-        pointArrayList3.add(new matahaModel(-135.0, 419.0));
-        pointArrayList3.add(new matahaModel(-135.0, 417.0));
-        pointArrayList3.add(new matahaModel(-135.0, 416.0));
-        pointArrayList3.add(new matahaModel(-135.0, 415.0));
-        pointArrayList3.add(new matahaModel(-135.0, 413.0));
-        pointArrayList3.add(new matahaModel(-135.0, 412.0));
-        pointArrayList3.add(new matahaModel(-135.0, 410.0));
-        pointArrayList3.add(new matahaModel(-135.0, 409.0));
-        pointArrayList3.add(new matahaModel(-135.0, 407.0));
-        pointArrayList3.add(new matahaModel(-135.0, 406.0));
-        pointArrayList3.add(new matahaModel(-135.0, 403.0));
-        pointArrayList3.add(new matahaModel(-135.0, 401.0));
-        pointArrayList3.add(new matahaModel(-133.0, 400.0));
-        pointArrayList3.add(new matahaModel(-133.0, 396.0));
-        pointArrayList3.add(new matahaModel(-133.0, 392.0));
-        pointArrayList3.add(new matahaModel(-132.0, 389.0));
-        pointArrayList3.add(new matahaModel(-131.0, 385.0));
-        pointArrayList3.add(new matahaModel(-129.0, 381.0));
-        pointArrayList3.add(new matahaModel(-128.0, 377.0));
-        pointArrayList3.add(new matahaModel(-127.0, 373.0));
-        pointArrayList3.add(new matahaModel(-127.0, 370.0));
-        pointArrayList3.add(new matahaModel(-125.0, 367.0));
-        pointArrayList3.add(new matahaModel(-124.0, 364.0));
-        pointArrayList3.add(new matahaModel(-122.0, 361.0));
-        pointArrayList3.add(new matahaModel(-120.0, 359.0));
-        pointArrayList3.add(new matahaModel(-118.0, 355.0));
-        pointArrayList3.add(new matahaModel(-116.0, 352.0));
-        pointArrayList3.add(new matahaModel(-115.0, 348.0));
-        pointArrayList3.add(new matahaModel(-114.0, 345.0));
-        pointArrayList3.add(new matahaModel(-112.0, 342.0));
-        pointArrayList3.add(new matahaModel(-110.0, 338.0));
-        pointArrayList3.add(new matahaModel(-109.0, 334.0));
-        pointArrayList3.add(new matahaModel(-109.0, 330.0));
-        pointArrayList3.add(new matahaModel(-108.0, 326.0));
-        pointArrayList3.add(new matahaModel(-108.0, 322.0));
-        pointArrayList3.add(new matahaModel(-108.0, 318.0));
-        pointArrayList3.add(new matahaModel(-107.0, 314.0));
-        pointArrayList3.add(new matahaModel(-106.0, 310.0));
-        pointArrayList3.add(new matahaModel(-106.0, 306.0));
-        pointArrayList3.add(new matahaModel(-104.0, 302.0));
-        pointArrayList3.add(new matahaModel(-102.0, 298.0));
-        pointArrayList3.add(new matahaModel(-100.0, 294.0));
-        pointArrayList3.add(new matahaModel(-100.0, 290.0));
-        pointArrayList3.add(new matahaModel(-99.0, 285.0));
-        pointArrayList3.add(new matahaModel(-99.0, 279.0));
-        pointArrayList3.add(new matahaModel(-99.0, 273.0));
-        pointArrayList3.add(new matahaModel(-99.0, 268.0));
-        pointArrayList3.add(new matahaModel(-98.0, 264.0));
-        pointArrayList3.add(new matahaModel(-98.0, 260.0));
-        pointArrayList3.add(new matahaModel(-97.0, 255.0));
-        pointArrayList3.add(new matahaModel(-97.0, 249.0));
-        pointArrayList3.add(new matahaModel(-96.0, 244.0));
-        pointArrayList3.add(new matahaModel(-93.0, 239.0));
-        pointArrayList3.add(new matahaModel(-90.0, 233.0));
-        pointArrayList3.add(new matahaModel(-89.0, 228.0));
-        pointArrayList3.add(new matahaModel(-88.0, 222.0));
-        pointArrayList3.add(new matahaModel(-86.0, 216.0));
-        pointArrayList3.add(new matahaModel(-83.0, 211.0));
-        pointArrayList3.add(new matahaModel(-81.0, 206.0));
-        pointArrayList3.add(new matahaModel(-78.0, 200.0));
-        pointArrayList3.add(new matahaModel(-74.0, 195.0));
-        pointArrayList3.add(new matahaModel(-70.0, 190.0));
-        pointArrayList3.add(new matahaModel(-66.0, 185.0));
-        pointArrayList3.add(new matahaModel(-62.0, 181.0));
-        pointArrayList3.add(new matahaModel(-58.0, 176.0));
-        pointArrayList3.add(new matahaModel(-55.0, 171.0));
-        pointArrayList3.add(new matahaModel(-52.0, 165.0));
-        pointArrayList3.add(new matahaModel(-48.0, 160.0));
-        pointArrayList3.add(new matahaModel(-44.0, 154.0));
-        pointArrayList3.add(new matahaModel(-40.0, 150.0));
-        pointArrayList3.add(new matahaModel(-35.0, 146.0));
-        pointArrayList3.add(new matahaModel(-30.0, 141.0));
-        pointArrayList3.add(new matahaModel(-22.0, 137.0));
-        pointArrayList3.add(new matahaModel(-15.0, 133.0));
-        pointArrayList3.add(new matahaModel(-7.0, 129.0));
-        pointArrayList3.add(new matahaModel(-1.0, 125.0));
-        pointArrayList3.add(new matahaModel(1.0, 121.0));
-        pointArrayList3.add(new matahaModel(6.0, 117.0));
-        pointArrayList3.add(new matahaModel(10.0, 113.0));
-        pointArrayList3.add(new matahaModel(14.0, 109.0));
-        pointArrayList3.add(new matahaModel(18.0, 105.0));
-        pointArrayList3.add(new matahaModel(22.0, 101.0));
-        pointArrayList3.add(new matahaModel(24.0, 98.0));
-        pointArrayList3.add(new matahaModel(27.0, 95.0));
-        pointArrayList3.add(new matahaModel(28.0, 93.0));
-        pointArrayList3.add(new matahaModel(29.0, 90.0));
-        pointArrayList3.add(new matahaModel(31.0, 89.0));
-        pointArrayList3.add(new matahaModel(31.0, 86.0));
-        pointArrayList3.add(new matahaModel(33.0, 84.0));
-        pointArrayList3.add(new matahaModel(35.0, 82.0));
-        pointArrayList3.add(new matahaModel(37.0, 80.0));
-        pointArrayList3.add(new matahaModel(40.0, 79.0));
-        pointArrayList3.add(new matahaModel(42.0, 78.0));
-        pointArrayList3.add(new matahaModel(44.0, 76.0));
-        pointArrayList3.add(new matahaModel(47.0, 76.0));
-        pointArrayList3.add(new matahaModel(50.0, 75.0));
-        pointArrayList3.add(new matahaModel(54.0, 74.0));
-        pointArrayList3.add(new matahaModel(58.0, 73.0));
-        pointArrayList3.add(new matahaModel(62.0, 73.0));
-        pointArrayList3.add(new matahaModel(66.0, 73.0));
-        pointArrayList3.add(new matahaModel(70.0, 73.0));
-        pointArrayList3.add(new matahaModel(74.0, 73.0));
-        pointArrayList3.add(new matahaModel(78.0, 73.0));
-        pointArrayList3.add(new matahaModel(82.0, 73.0));
-        pointArrayList3.add(new matahaModel(86.0, 72.0));
-        pointArrayList3.add(new matahaModel(90.0, 71.0));
-        pointArrayList3.add(new matahaModel(94.0, 70.0));
-        pointArrayList3.add(new matahaModel(98.0, 70.0));
-        pointArrayList3.add(new matahaModel(101.0, 70.0));
-        pointArrayList3.add(new matahaModel(103.0, 67.0));
-        pointArrayList3.add(new matahaModel(107.0, 66.0));
-        pointArrayList3.add(new matahaModel(111.0, 63.0));
-        pointArrayList3.add(new matahaModel(114.0, 62.0));
-        pointArrayList3.add(new matahaModel(118.0, 62.0));
-        pointArrayList3.add(new matahaModel(121.0, 62.0));
-        pointArrayList3.add(new matahaModel(124.0, 61.0));
-        pointArrayList3.add(new matahaModel(126.0, 61.0));
-        pointArrayList3.add(new matahaModel(129.0, 61.0));
-        pointArrayList3.add(new matahaModel(131.0, 61.0));
-        pointArrayList3.add(new matahaModel(132.0, 61.0));
-        pointArrayList3.add(new matahaModel(133.0, 61.0));
-        pointArrayList3.add(new matahaModel(135.0, 61.0));
-        pointArrayList3.add(new matahaModel(136.0, 61.0));
-        pointArrayList3.add(new matahaModel(137.0, 61.0));
-        pointArrayList3.add(new matahaModel(139.0, 61.0));
-        pointArrayList3.add(new matahaModel(140.0, 61.0));
-        pointArrayList3.add(new matahaModel(141.0, 61.0));
-        pointArrayList3.add(new matahaModel(143.0, 62.0));
-        pointArrayList3.add(new matahaModel(143.0, 62.0));
-        pointArrayList3.add(new matahaModel(144.0, 62.0));
-        pointArrayList3.add(new matahaModel(146.0, 62.0));
-        pointArrayList3.add(new matahaModel(147.0, 62.0));
-        pointArrayList3.add(new matahaModel(148.0, 62.0));
-        pointArrayList3.add(new matahaModel(150.0, 62.0));
-        pointArrayList3.add(new matahaModel(151.0, 62.0));
-        pointArrayList3.add(new matahaModel(152.0, 62.0));
-        pointArrayList3.add(new matahaModel(153.0, 62.0));
-        pointArrayList3.add(new matahaModel(154.0, 62.0));
-        pointArrayList3.add(new matahaModel(155.0, 63.0));
-        pointArrayList3.add(new matahaModel(156.0, 63.0));
-        pointArrayList3.add(new matahaModel(158.0, 63.0));
-        pointArrayList3.add(new matahaModel(159.0, 64.0));
-        pointArrayList3.add(new matahaModel(160.0, 64.0));
-        pointArrayList3.add(new matahaModel(162.0, 65.0));
-        pointArrayList3.add(new matahaModel(162.0, 68.0));
-        pointArrayList3.add(new matahaModel(163.0, 70.0));
-        pointArrayList3.add(new matahaModel(164.0, 70.0));
-        pointArrayList3.add(new matahaModel(165.0, 70.0));
-        pointArrayList3.add(new matahaModel(166.0, 70.0));
-        pointArrayList3.add(new matahaModel(166.0, 70.0));
-        pointArrayList3.add(new matahaModel(167.0, 70.0));
-        pointArrayList3.add(new matahaModel(169.0, 70.0));
-        pointArrayList3.add(new matahaModel(170.0, 70.0));
-        pointArrayList3.add(new matahaModel(171.0, 71.0));
-        pointArrayList3.add(new matahaModel(172.0, 71.0));
-        pointArrayList3.add(new matahaModel(173.0, 71.0));
-        pointArrayList3.add(new matahaModel(173.0, 71.0));
-        pointArrayList3.add(new matahaModel(174.0, 71.0));
-        pointArrayList3.add(new matahaModel(175.0, 71.0));
-        pointArrayList3.add(new matahaModel(176.0, 71.0));
-        pointArrayList3.add(new matahaModel(177.0, 71.0));
-        pointArrayList3.add(new matahaModel(178.0, 71.0));
-        pointArrayList3.add(new matahaModel(179.0, 71.0));
-        pointArrayList3.add(new matahaModel(181.0, 71.0));
-        pointArrayList3.add(new matahaModel(182.0, 71.0));
-        pointArrayList3.add(new matahaModel(184.0, 71.0));
-        pointArrayList3.add(new matahaModel(186.0, 71.0));
-        pointArrayList3.add(new matahaModel(189.0, 71.0));
-        pointArrayList3.add(new matahaModel(190.0, 71.0));
-        pointArrayList3.add(new matahaModel(192.0, 71.0));
-        pointArrayList3.add(new matahaModel(193.0, 71.0));
-        pointArrayList3.add(new matahaModel(195.0, 71.0));
-        pointArrayList3.add(new matahaModel(196.0, 71.0));
-        pointArrayList3.add(new matahaModel(199.0, 71.0));
-        pointArrayList3.add(new matahaModel(200.0, 71.0));
-        pointArrayList3.add(new matahaModel(201.0, 71.0));
-        pointArrayList3.add(new matahaModel(202.0, 71.0));
-        pointArrayList3.add(new matahaModel(204.0, 72.0));
-        pointArrayList3.add(new matahaModel(205.0, 72.0));
-        pointArrayList3.add(new matahaModel(206.0, 73.0));
-        pointArrayList3.add(new matahaModel(208.0, 73.0));
-        pointArrayList3.add(new matahaModel(210.0, 76.0));
-        pointArrayList3.add(new matahaModel(211.0, 77.0));
-        pointArrayList3.add(new matahaModel(214.0, 79.0));
-        pointArrayList3.add(new matahaModel(216.0, 81.0));
-        pointArrayList3.add(new matahaModel(218.0, 81.0));
-        pointArrayList3.add(new matahaModel(220.0, 81.0));
-        pointArrayList3.add(new matahaModel(222.0, 82.0));
-        pointArrayList3.add(new matahaModel(223.0, 83.0));
-        pointArrayList3.add(new matahaModel(225.0, 83.0));
-        pointArrayList3.add(new matahaModel(226.0, 84.0));
-        pointArrayList3.add(new matahaModel(227.0, 84.0));
-        pointArrayList3.add(new matahaModel(227.0, 85.0));
-        pointArrayList3.add(new matahaModel(228.0, 86.0));
-        pointArrayList3.add(new matahaModel(229.0, 86.0));
-        pointArrayList3.add(new matahaModel(230.0, 86.0));
-        pointArrayList3.add(new matahaModel(231.0, 87.0));
-        pointArrayList3.add(new matahaModel(232.0, 87.0));
-        pointArrayList3.add(new matahaModel(234.0, 87.0));
-        pointArrayList3.add(new matahaModel(235.0, 88.0));
-        pointArrayList3.add(new matahaModel(236.0, 88.0));
-        pointArrayList3.add(new matahaModel(237.0, 89.0));
-        pointArrayList3.add(new matahaModel(239.0, 91.0));
-        pointArrayList3.add(new matahaModel(241.0, 93.0));
-        pointArrayList3.add(new matahaModel(244.0, 94.0));
-        pointArrayList3.add(new matahaModel(246.0, 97.0));
-        pointArrayList3.add(new matahaModel(248.0, 99.0));
-        pointArrayList3.add(new matahaModel(250.0, 101.0));
-        pointArrayList3.add(new matahaModel(252.0, 103.0));
-        pointArrayList3.add(new matahaModel(255.0, 107.0));
-        pointArrayList3.add(new matahaModel(257.0, 110.0));
-        pointArrayList3.add(new matahaModel(260.0, 113.0));
-        pointArrayList3.add(new matahaModel(261.0, 116.0));
-        pointArrayList3.add(new matahaModel(262.0, 119.0));
-        pointArrayList3.add(new matahaModel(262.0, 121.0));
-        pointArrayList3.add(new matahaModel(263.0, 124.0));
-        pointArrayList3.add(new matahaModel(263.0, 126.0));
-        pointArrayList3.add(new matahaModel(265.0, 129.0));
-        pointArrayList3.add(new matahaModel(265.0, 131.0));
-        pointArrayList3.add(new matahaModel(266.0, 132.0));
-        pointArrayList3.add(new matahaModel(267.0, 134.0));
-        pointArrayList3.add(new matahaModel(268.0, 135.0));
-        pointArrayList3.add(new matahaModel(269.0, 138.0));
-        pointArrayList3.add(new matahaModel(270.0, 140.0));
-        pointArrayList3.add(new matahaModel(274.0, 142.0));
-        pointArrayList3.add(new matahaModel(278.0, 145.0));
-        pointArrayList3.add(new matahaModel(279.0, 147.0));
-        pointArrayList3.add(new matahaModel(280.0, 149.0));
-        pointArrayList3.add(new matahaModel(281.0, 151.0));
-        pointArrayList3.add(new matahaModel(282.0, 155.0));
-        pointArrayList3.add(new matahaModel(282.0, 159.0));
-        pointArrayList3.add(new matahaModel(282.0, 163.0));
-        pointArrayList3.add(new matahaModel(282.0, 166.0));
-        pointArrayList3.add(new matahaModel(282.0, 168.0));
-        pointArrayList3.add(new matahaModel(282.0, 171.0));
-        pointArrayList3.add(new matahaModel(282.0, 172.0));
-        pointArrayList3.add(new matahaModel(278.0, 174.0));
-        pointArrayList3.add(new matahaModel(274.0, 175.0));
-        pointArrayList3.add(new matahaModel(270.0, 175.0));
-        pointArrayList3.add(new matahaModel(269.0, 177.0));
-        pointArrayList3.add(new matahaModel(269.0, 180.0));
-        pointArrayList3.add(new matahaModel(269.0, 183.0));
-        pointArrayList3.add(new matahaModel(268.0, 187.0));
-        pointArrayList3.add(new matahaModel(264.0, 190.0));
-        pointArrayList3.add(new matahaModel(261.0, 192.0));
-        pointArrayList3.add(new matahaModel(258.0, 193.0));
-        pointArrayList3.add(new matahaModel(256.0, 194.0));
-        pointArrayList3.add(new matahaModel(254.0, 195.0));
-        pointArrayList3.add(new matahaModel(251.0, 196.0));
-        pointArrayList3.add(new matahaModel(248.0, 197.0));
-        pointArrayList3.add(new matahaModel(245.0, 197.0));
-        pointArrayList3.add(new matahaModel(242.0, 199.0));
-        pointArrayList3.add(new matahaModel(241.0, 200.0));
-        pointArrayList3.add(new matahaModel(240.0, 202.0));
-        pointArrayList3.add(new matahaModel(240.0, 204.0));
-        pointArrayList3.add(new matahaModel(240.0, 207.0));
-        pointArrayList3.add(new matahaModel(240.0, 209.0));
-        pointArrayList3.add(new matahaModel(238.0, 210.0));
-        pointArrayList3.add(new matahaModel(239.0, 211.0));
-        pointArrayList3.add(new matahaModel(238.0, 213.0));
-        pointArrayList3.add(new matahaModel(238.0, 215.0));
-        pointArrayList3.add(new matahaModel(238.0, 217.0));
-        pointArrayList3.add(new matahaModel(236.0, 219.0));
-        pointArrayList3.add(new matahaModel(234.0, 221.0));
-        pointArrayList3.add(new matahaModel(233.0, 223.0));
-        pointArrayList3.add(new matahaModel(233.0, 227.0));
-        pointArrayList3.add(new matahaModel(233.0, 229.0));
-        pointArrayList3.add(new matahaModel(233.0, 232.0));
-        pointArrayList3.add(new matahaModel(232.0, 233.0));
-        pointArrayList3.add(new matahaModel(231.0, 235.0));
-        pointArrayList3.add(new matahaModel(231.0, 236.0));
-        pointArrayList3.add(new matahaModel(227.0, 237.0));
-        pointArrayList3.add(new matahaModel(224.0, 238.0));
-        pointArrayList3.add(new matahaModel(222.0, 238.0));
-        pointArrayList3.add(new matahaModel(220.0, 238.0));
-        pointArrayList3.add(new matahaModel(217.0, 239.0));
-        pointArrayList3.add(new matahaModel(214.0, 239.0));
-        pointArrayList3.add(new matahaModel(213.0, 239.0));
-        pointArrayList3.add(new matahaModel(210.0, 239.0));
-        pointArrayList3.add(new matahaModel(208.0, 239.0));
-        pointArrayList3.add(new matahaModel(206.0, 239.0));
-        pointArrayList3.add(new matahaModel(202.0, 239.0));
-        pointArrayList3.add(new matahaModel(200.0, 240.0));
-        pointArrayList3.add(new matahaModel(198.0, 241.0));
-        pointArrayList3.add(new matahaModel(195.0, 244.0));
-        pointArrayList3.add(new matahaModel(194.0, 245.0));
-        pointArrayList3.add(new matahaModel(191.0, 247.0));
-        pointArrayList3.add(new matahaModel(189.0, 249.0));
-        pointArrayList3.add(new matahaModel(187.0, 251.0));
-        pointArrayList3.add(new matahaModel(185.0, 253.0));
-        pointArrayList3.add(new matahaModel(182.0, 254.0));
-        pointArrayList3.add(new matahaModel(178.0, 256.0));
-        pointArrayList3.add(new matahaModel(174.0, 256.0));
-        pointArrayList3.add(new matahaModel(172.0, 254.0));
-        pointArrayList3.add(new matahaModel(171.0, 252.0));
-        pointArrayList3.add(new matahaModel(168.0, 251.0));
-        pointArrayList3.add(new matahaModel(165.0, 250.0));
-        pointArrayList3.add(new matahaModel(162.0, 249.0));
-        pointArrayList3.add(new matahaModel(159.0, 248.0));
-        pointArrayList3.add(new matahaModel(156.0, 246.0));
-        pointArrayList3.add(new matahaModel(154.0, 247.0));
-        pointArrayList3.add(new matahaModel(152.0, 247.0));
-        pointArrayList3.add(new matahaModel(149.0, 247.0));
-        pointArrayList3.add(new matahaModel(148.0, 247.0));
-        pointArrayList3.add(new matahaModel(146.0, 247.0));
-        pointArrayList3.add(new matahaModel(145.0, 247.0));
-        pointArrayList3.add(new matahaModel(142.0, 247.0));
-        pointArrayList3.add(new matahaModel(140.0, 247.0));
-        pointArrayList3.add(new matahaModel(138.0, 247.0));
-        pointArrayList3.add(new matahaModel(136.0, 248.0));
-        pointArrayList3.add(new matahaModel(133.0, 248.0));
-        pointArrayList3.add(new matahaModel(129.0, 249.0));
-        pointArrayList3.add(new matahaModel(127.0, 250.0));
-        pointArrayList3.add(new matahaModel(125.0, 250.0));
-        pointArrayList3.add(new matahaModel(122.0, 250.0));
-        pointArrayList3.add(new matahaModel(121.0, 252.0));
-        pointArrayList3.add(new matahaModel(118.0, 253.0));
-        pointArrayList3.add(new matahaModel(116.0, 253.0));
-        pointArrayList3.add(new matahaModel(112.0, 253.0));
-        pointArrayList3.add(new matahaModel(110.0, 253.0));
-        pointArrayList3.add(new matahaModel(107.0, 253.0));
-        pointArrayList3.add(new matahaModel(105.0, 253.0));
-        pointArrayList3.add(new matahaModel(102.0, 253.0));
-        pointArrayList3.add(new matahaModel(100.0, 253.0));
-        pointArrayList3.add(new matahaModel(99.0, 252.0));
-        pointArrayList3.add(new matahaModel(97.0, 249.0));
-        pointArrayList3.add(new matahaModel(94.0, 249.0));
-        pointArrayList3.add(new matahaModel(91.0, 247.0));
-        pointArrayList3.add(new matahaModel(89.0, 248.0));
-        pointArrayList3.add(new matahaModel(86.0, 248.0));
-        pointArrayList3.add(new matahaModel(83.0, 248.0));
-        pointArrayList3.add(new matahaModel(82.0, 248.0));
-        pointArrayList3.add(new matahaModel(79.0, 248.0));
-        pointArrayList3.add(new matahaModel(77.0, 248.0));
-        pointArrayList3.add(new matahaModel(74.0, 248.0));
-        pointArrayList3.add(new matahaModel(72.0, 248.0));
-        pointArrayList3.add(new matahaModel(69.0, 248.0));
-        pointArrayList3.add(new matahaModel(67.0, 249.0));
-        pointArrayList3.add(new matahaModel(65.0, 249.0));
-        pointArrayList3.add(new matahaModel(63.0, 249.0));
-        pointArrayList3.add(new matahaModel(62.0, 250.0));
-        pointArrayList3.add(new matahaModel(61.0, 251.0));
-        pointArrayList3.add(new matahaModel(59.0, 252.0));
-        pointArrayList3.add(new matahaModel(57.0, 253.0));
-        pointArrayList3.add(new matahaModel(54.0, 254.0));
-        pointArrayList3.add(new matahaModel(52.0, 255.0));
-        pointArrayList3.add(new matahaModel(51.0, 255.0));
-        pointArrayList3.add(new matahaModel(49.0, 257.0));
-        pointArrayList3.add(new matahaModel(46.0, 260.0));
-        pointArrayList3.add(new matahaModel(44.0, 260.0));
-        pointArrayList3.add(new matahaModel(40.0, 263.0));
-        pointArrayList3.add(new matahaModel(37.0, 265.0));
-        pointArrayList3.add(new matahaModel(33.0, 266.0));
-        pointArrayList3.add(new matahaModel(33.0, 267.0));
-        pointArrayList3.add(new matahaModel(30.0, 269.0));
-        pointArrayList3.add(new matahaModel(29.0, 270.0));
-        pointArrayList3.add(new matahaModel(27.0, 271.0));
-        pointArrayList3.add(new matahaModel(26.0, 272.0));
-        pointArrayList3.add(new matahaModel(26.0, 273.0));
-        pointArrayList3.add(new matahaModel(26.0, 275.0));
-        pointArrayList3.add(new matahaModel(26.0, 276.0));
-        pointArrayList3.add(new matahaModel(26.0, 278.0));
-        pointArrayList3.add(new matahaModel(27.0, 279.0));
-        pointArrayList3.add(new matahaModel(30.0, 280.0));
-        pointArrayList3.add(new matahaModel(32.0, 283.0));
-        pointArrayList3.add(new matahaModel(34.0, 285.0));
-        pointArrayList3.add(new matahaModel(35.0, 289.0));
-        pointArrayList3.add(new matahaModel(35.0, 293.0));
-        pointArrayList3.add(new matahaModel(35.0, 296.0));
-        pointArrayList3.add(new matahaModel(35.0, 299.0));
-        pointArrayList3.add(new matahaModel(36.0, 303.0));
-        pointArrayList3.add(new matahaModel(38.0, 307.0));
-        pointArrayList3.add(new matahaModel(40.0, 311.0));
-        pointArrayList3.add(new matahaModel(40.0, 315.0));
-        pointArrayList3.add(new matahaModel(40.0, 319.0));
-        pointArrayList3.add(new matahaModel(40.0, 323.0));
-        pointArrayList3.add(new matahaModel(40.0, 326.0));
-        pointArrayList3.add(new matahaModel(40.0, 330.0));
-        pointArrayList3.add(new matahaModel(39.0, 333.0));
-        pointArrayList3.add(new matahaModel(38.0, 335.0));
-        pointArrayList3.add(new matahaModel(35.0, 338.0));
-        pointArrayList3.add(new matahaModel(35.0, 340.0));
-        pointArrayList3.add(new matahaModel(33.0, 343.0));
-        pointArrayList3.add(new matahaModel(33.0, 344.0));
-        pointArrayList3.add(new matahaModel(32.0, 347.0));
-        pointArrayList3.add(new matahaModel(30.0, 350.0));
-        pointArrayList3.add(new matahaModel(29.0, 352.0));
-        pointArrayList3.add(new matahaModel(28.0, 355.0));
-        pointArrayList3.add(new matahaModel(25.0, 359.0));
-        pointArrayList3.add(new matahaModel(24.0, 363.0));
-        pointArrayList3.add(new matahaModel(23.0, 365.0));
-        pointArrayList3.add(new matahaModel(23.0, 369.0));
-        pointArrayList3.add(new matahaModel(23.0, 372.0));
-        pointArrayList3.add(new matahaModel(23.0, 374.0));
-        pointArrayList3.add(new matahaModel(23.0, 378.0));
-        pointArrayList3.add(new matahaModel(23.0, 382.0));
-        pointArrayList3.add(new matahaModel(24.0, 386.0));
-        pointArrayList3.add(new matahaModel(26.0, 390.0));
-        pointArrayList3.add(new matahaModel(29.0, 394.0));
-        pointArrayList3.add(new matahaModel(32.0, 400.0));
-        pointArrayList3.add(new matahaModel(34.0, 406.0));
-        pointArrayList3.add(new matahaModel(37.0, 414.0));
-        pointArrayList3.add(new matahaModel(39.0, 420.0));
-        pointArrayList3.add(new matahaModel(41.0, 426.0));
-        pointArrayList3.add(new matahaModel(44.0, 434.0));
-        pointArrayList3.add(new matahaModel(47.0, 439.0));
-        pointArrayList3.add(new matahaModel(49.0, 445.0));
-        pointArrayList3.add(new matahaModel(52.0, 449.0));
-        pointArrayList3.add(new matahaModel(54.0, 453.0));
-        pointArrayList3.add(new matahaModel(56.0, 457.0));
-        pointArrayList3.add(new matahaModel(58.0, 461.0));
-        pointArrayList3.add(new matahaModel(61.0, 463.0));
-        pointArrayList3.add(new matahaModel(63.0, 465.0));
-        pointArrayList3.add(new matahaModel(65.0, 465.0));
-        pointArrayList3.add(new matahaModel(67.0, 466.0));
-        pointArrayList3.add(new matahaModel(71.0, 466.0));
-        pointArrayList3.add(new matahaModel(75.0, 466.0));
-        pointArrayList3.add(new matahaModel(78.0, 466.0));
-        pointArrayList3.add(new matahaModel(81.0, 466.0));
-        pointArrayList3.add(new matahaModel(84.0, 466.0));
-        pointArrayList3.add(new matahaModel(86.0, 466.0));
-        pointArrayList3.add(new matahaModel(90.0, 465.0));
-        pointArrayList3.add(new matahaModel(94.0, 465.0));
-        pointArrayList3.add(new matahaModel(98.0, 463.0));
-        pointArrayList3.add(new matahaModel(102.0, 462.0));
-        pointArrayList3.add(new matahaModel(105.0, 462.0));
-        pointArrayList3.add(new matahaModel(107.0, 462.0));
-        pointArrayList3.add(new matahaModel(110.0, 462.0));
-        pointArrayList3.add(new matahaModel(113.0, 461.0));
-        pointArrayList3.add(new matahaModel(116.0, 459.0));
-        pointArrayList3.add(new matahaModel(119.0, 458.0));
-        pointArrayList3.add(new matahaModel(123.0, 457.0));
-        pointArrayList3.add(new matahaModel(127.0, 457.0));
-        pointArrayList3.add(new matahaModel(131.0, 457.0));
-        pointArrayList3.add(new matahaModel(135.0, 457.0));
-        pointArrayList3.add(new matahaModel(139.0, 457.0));
-        pointArrayList3.add(new matahaModel(146.0, 457.0));
-        pointArrayList3.add(new matahaModel(152.0, 457.0));
-        pointArrayList3.add(new matahaModel(158.0, 457.0));
-        pointArrayList3.add(new matahaModel(163.0, 457.0));
-        pointArrayList3.add(new matahaModel(169.0, 457.0));
-        pointArrayList3.add(new matahaModel(173.0, 458.0));
-        pointArrayList3.add(new matahaModel(177.0, 459.0));
-        pointArrayList3.add(new matahaModel(181.0, 459.0));
-        pointArrayList3.add(new matahaModel(185.0, 460.0));
-        pointArrayList3.add(new matahaModel(189.0, 460.0));
-        pointArrayList3.add(new matahaModel(193.0, 460.0));
-        pointArrayList3.add(new matahaModel(197.0, 460.0));
-        pointArrayList3.add(new matahaModel(200.0, 460.0));
-        pointArrayList3.add(new matahaModel(204.0, 458.0));
-        pointArrayList3.add(new matahaModel(208.0, 458.0));
-        pointArrayList3.add(new matahaModel(212.0, 457.0));
-        pointArrayList3.add(new matahaModel(216.0, 457.0));
-        pointArrayList3.add(new matahaModel(221.0, 457.0));
-        pointArrayList3.add(new matahaModel(225.0, 457.0));
-        pointArrayList3.add(new matahaModel(229.0, 457.0));
-        pointArrayList3.add(new matahaModel(233.0, 457.0));
-        pointArrayList3.add(new matahaModel(237.0, 457.0));
-        pointArrayList3.add(new matahaModel(241.0, 457.0));
-        pointArrayList3.add(new matahaModel(245.0, 456.0));
-        pointArrayList3.add(new matahaModel(251.0, 455.0));
-        pointArrayList3.add(new matahaModel(259.0, 454.0));
-        pointArrayList3.add(new matahaModel(267.0, 454.0));
-        pointArrayList3.add(new matahaModel(275.0, 454.0));
-        pointArrayList3.add(new matahaModel(279.0, 454.0));
-        pointArrayList3.add(new matahaModel(283.0, 454.0));
-        pointArrayList3.add(new matahaModel(288.0, 454.0));
-        pointArrayList3.add(new matahaModel(294.0, 455.0));
-        pointArrayList3.add(new matahaModel(299.0, 456.0));
-        pointArrayList3.add(new matahaModel(304.0, 459.0));
-        pointArrayList3.add(new matahaModel(311.0, 459.0));
-        pointArrayList3.add(new matahaModel(316.0, 461.0));
-        pointArrayList3.add(new matahaModel(322.0, 461.0));
-        pointArrayList3.add(new matahaModel(328.0, 461.0));
-        pointArrayList3.add(new matahaModel(336.0, 462.0));
-        pointArrayList3.add(new matahaModel(343.0, 463.0));
-        pointArrayList3.add(new matahaModel(350.0, 465.0));
-        pointArrayList3.add(new matahaModel(357.0, 467.0));
-        pointArrayList3.add(new matahaModel(363.0, 470.0));
-        pointArrayList3.add(new matahaModel(370.0, 470.0));
-        pointArrayList3.add(new matahaModel(376.0, 472.0));
-        pointArrayList3.add(new matahaModel(381.0, 474.0));
-        pointArrayList3.add(new matahaModel(388.0, 476.0));
-        pointArrayList3.add(new matahaModel(396.0, 478.0));
-        pointArrayList3.add(new matahaModel(403.0, 482.0));
-        pointArrayList3.add(new matahaModel(410.0, 486.0));
-        pointArrayList3.add(new matahaModel(416.0, 490.0));
-        pointArrayList3.add(new matahaModel(421.0, 490.0));
-        pointArrayList3.add(new matahaModel(425.0, 490.0));
-        pointArrayList3.add(new matahaModel(429.0, 490.0));
-        pointArrayList3.add(new matahaModel(433.0, 490.0));
-        pointArrayList3.add(new matahaModel(437.0, 490.0));
-        pointArrayList3.add(new matahaModel(441.0, 490.0));
-        pointArrayList3.add(new matahaModel(445.0, 490.0));
-        pointArrayList3.add(new matahaModel(448.0, 489.0));
-        pointArrayList3.add(new matahaModel(451.0, 487.0));
-        pointArrayList3.add(new matahaModel(455.0, 483.0));
-        pointArrayList3.add(new matahaModel(460.0, 481.0));
-        pointArrayList3.add(new matahaModel(466.0, 480.0));
-        pointArrayList3.add(new matahaModel(472.0, 480.0));
-        pointArrayList3.add(new matahaModel(477.0, 478.0));
-        pointArrayList3.add(new matahaModel(481.0, 475.0));
-        pointArrayList3.add(new matahaModel(486.0, 474.0));
-        pointArrayList3.add(new matahaModel(490.0, 472.0));
-        pointArrayList3.add(new matahaModel(494.0, 472.0));
-        pointArrayList3.add(new matahaModel(498.0, 472.0));
-        pointArrayList3.add(new matahaModel(504.0, 471.0));
-        pointArrayList3.add(new matahaModel(509.0, 471.0));
-        pointArrayList3.add(new matahaModel(516.0, 469.0));
-        pointArrayList3.add(new matahaModel(521.0, 468.0));
-        pointArrayList3.add(new matahaModel(529.0, 466.0));
-        pointArrayList3.add(new matahaModel(535.0, 465.0));
-        pointArrayList3.add(new matahaModel(540.0, 464.0));
-        pointArrayList3.add(new matahaModel(545.0, 464.0));
-        pointArrayList3.add(new matahaModel(549.0, 463.0));
-        pointArrayList3.add(new matahaModel(553.0, 463.0));
-        pointArrayList3.add(new matahaModel(558.0, 463.0));
-        pointArrayList3.add(new matahaModel(562.0, 463.0));
-        pointArrayList3.add(new matahaModel(569.0, 463.0));
-        pointArrayList3.add(new matahaModel(575.0, 462.0));
-        pointArrayList3.add(new matahaModel(581.0, 462.0));
-        pointArrayList3.add(new matahaModel(587.0, 462.0));
-        pointArrayList3.add(new matahaModel(595.0, 461.0));
-        pointArrayList3.add(new matahaModel(599.0, 460.0));
-        pointArrayList3.add(new matahaModel(604.0, 459.0));
-        pointArrayList3.add(new matahaModel(608.0, 459.0));
-        pointArrayList3.add(new matahaModel(613.0, 459.0));
-        pointArrayList3.add(new matahaModel(618.0, 459.0));
-        pointArrayList3.add(new matahaModel(623.0, 459.0));
-        pointArrayList3.add(new matahaModel(627.0, 459.0));
-        pointArrayList3.add(new matahaModel(632.0, 459.0));
-        pointArrayList3.add(new matahaModel(638.0, 459.0));
-        pointArrayList3.add(new matahaModel(646.0, 459.0));
-        pointArrayList3.add(new matahaModel(653.0, 459.0));
-        pointArrayList3.add(new matahaModel(661.0, 458.0));
-        pointArrayList3.add(new matahaModel(666.0, 458.0));
-        pointArrayList3.add(new matahaModel(670.0, 458.0));
-        pointArrayList3.add(new matahaModel(674.0, 458.0));
-        pointArrayList3.add(new matahaModel(679.0, 458.0));
-        pointArrayList3.add(new matahaModel(684.0, 458.0));
-        pointArrayList3.add(new matahaModel(689.0, 458.0));
-        pointArrayList3.add(new matahaModel(694.0, 458.0));
-        pointArrayList3.add(new matahaModel(700.0, 458.0));
-        pointArrayList3.add(new matahaModel(706.0, 458.0));
-        pointArrayList3.add(new matahaModel(714.0, 459.0));
-        pointArrayList3.add(new matahaModel(722.0, 460.0));
-        pointArrayList3.add(new matahaModel(730.0, 460.0));
-        pointArrayList3.add(new matahaModel(735.0, 461.0));
-        pointArrayList3.add(new matahaModel(740.0, 462.0));
-        pointArrayList3.add(new matahaModel(746.0, 464.0));
-        pointArrayList3.add(new matahaModel(751.0, 466.0));
-        pointArrayList3.add(new matahaModel(756.0, 468.0));
-        pointArrayList3.add(new matahaModel(762.0, 470.0));
-        pointArrayList3.add(new matahaModel(767.0, 471.0));
-        pointArrayList3.add(new matahaModel(773.0, 475.0));
-        pointArrayList3.add(new matahaModel(780.0, 477.0));
-        pointArrayList3.add(new matahaModel(787.0, 479.0));
-        pointArrayList3.add(new matahaModel(792.0, 481.0));
-        pointArrayList3.add(new matahaModel(797.0, 482.0));
-        pointArrayList3.add(new matahaModel(801.0, 484.0));
-        pointArrayList3.add(new matahaModel(807.0, 485.0));
-        pointArrayList3.add(new matahaModel(812.0, 487.0));
-        pointArrayList3.add(new matahaModel(817.0, 489.0));
-        pointArrayList3.add(new matahaModel(822.0, 491.0));
-        pointArrayList3.add(new matahaModel(827.0, 491.0));
-        pointArrayList3.add(new matahaModel(832.0, 492.0));
-        pointArrayList3.add(new matahaModel(837.0, 494.0));
-        pointArrayList3.add(new matahaModel(843.0, 495.0));
-        pointArrayList3.add(new matahaModel(849.0, 495.0));
-        pointArrayList3.add(new matahaModel(857.0, 495.0));
-        pointArrayList3.add(new matahaModel(861.0, 496.0));
-        pointArrayList3.add(new matahaModel(867.0, 498.0));
-        pointArrayList3.add(new matahaModel(872.0, 499.0));
-        pointArrayList3.add(new matahaModel(877.0, 500.0));
-        pointArrayList3.add(new matahaModel(883.0, 501.0));
-        pointArrayList3.add(new matahaModel(888.0, 503.0));
-        pointArrayList3.add(new matahaModel(893.0, 504.0));
-        pointArrayList3.add(new matahaModel(899.0, 506.0));
-        pointArrayList3.add(new matahaModel(905.0, 507.0));
-        pointArrayList3.add(new matahaModel(912.0, 508.0));
-        pointArrayList3.add(new matahaModel(920.0, 509.0));
-        pointArrayList3.add(new matahaModel(926.0, 509.0));
-        pointArrayList3.add(new matahaModel(931.0, 509.0));
-        pointArrayList3.add(new matahaModel(935.0, 510.0));
-        pointArrayList3.add(new matahaModel(939.0, 510.0));
-        pointArrayList3.add(new matahaModel(944.0, 513.0));
-        pointArrayList3.add(new matahaModel(948.0, 513.0));
-        pointArrayList3.add(new matahaModel(952.0, 513.0));
-        pointArrayList3.add(new matahaModel(956.0, 513.0));
-        pointArrayList3.add(new matahaModel(961.0, 514.0));
-        pointArrayList3.add(new matahaModel(965.0, 515.0));
-        pointArrayList3.add(new matahaModel(969.0, 515.0));
-        pointArrayList3.add(new matahaModel(974.0, 515.0));
-        pointArrayList3.add(new matahaModel(978.0, 515.0));
-        pointArrayList3.add(new matahaModel(984.0, 515.0));
-        pointArrayList3.add(new matahaModel(990.0, 515.0));
-        pointArrayList3.add(new matahaModel(994.0, 515.0));
-        pointArrayList3.add(new matahaModel(998.0, 515.0));
-        pointArrayList3.add(new matahaModel(1001.0, 515.0));
-        pointArrayList3.add(new matahaModel(1005.0, 515.0));
-        pointArrayList3.add(new matahaModel(1009.0, 515.0));
-        pointArrayList3.add(new matahaModel(1013.0, 515.0));
-        pointArrayList3.add(new matahaModel(1017.0, 515.0));
-        pointArrayList3.add(new matahaModel(1021.0, 515.0));
-        pointArrayList3.add(new matahaModel(1025.0, 514.0));
-        pointArrayList3.add(new matahaModel(1029.0, 514.0));
-        pointArrayList3.add(new matahaModel(1035.0, 513.0));
-        pointArrayList3.add(new matahaModel(1039.0, 512.0));
-        pointArrayList3.add(new matahaModel(1044.0, 512.0));
-        pointArrayList3.add(new matahaModel(1051.0, 510.0));
-        pointArrayList3.add(new matahaModel(1057.0, 509.0));
-        pointArrayList3.add(new matahaModel(1061.0, 508.0));
-        pointArrayList3.add(new matahaModel(1066.0, 505.0));
-        pointArrayList3.add(new matahaModel(1072.0, 503.0));
-        pointArrayList3.add(new matahaModel(1078.0, 501.0));
-        pointArrayList3.add(new matahaModel(1085.0, 497.0));
-        pointArrayList3.add(new matahaModel(1092.0, 493.0));
-        pointArrayList3.add(new matahaModel(1099.0, 490.0));
-        pointArrayList3.add(new matahaModel(1110.0, 485.0));
-        pointArrayList3.add(new matahaModel(1122.0, 479.0));
-        pointArrayList3.add(new matahaModel(1132.0, 474.0));
-        pointArrayList3.add(new matahaModel(1138.0, 469.0));
-        pointArrayList3.add(new matahaModel(1144.0, 462.0));
-        pointArrayList3.add(new matahaModel(1150.0, 457.0));
-        pointArrayList3.add(new matahaModel(1155.0, 451.0));
-        pointArrayList3.add(new matahaModel(1158.0, 444.0));
-        pointArrayList3.add(new matahaModel(1161.0, 438.0));
-        pointArrayList3.add(new matahaModel(1163.0, 432.0));
-        pointArrayList3.add(new matahaModel(1165.0, 428.0));
-        pointArrayList3.add(new matahaModel(1168.0, 424.0));
-        pointArrayList3.add(new matahaModel(1170.0, 420.0));
-        pointArrayList3.add(new matahaModel(1172.0, 416.0));
-        pointArrayList3.add(new matahaModel(1174.0, 411.0));
-        pointArrayList3.add(new matahaModel(1176.0, 407.0));
-        pointArrayList3.add(new matahaModel(1177.0, 403.0));
-        pointArrayList3.add(new matahaModel(1180.0, 399.0));
-        pointArrayList3.add(new matahaModel(1183.0, 395.0));
-        pointArrayList3.add(new matahaModel(1186.0, 390.0));
-        pointArrayList3.add(new matahaModel(1190.0, 386.0));
-        pointArrayList3.add(new matahaModel(1191.0, 382.0));
-        pointArrayList3.add(new matahaModel(1192.0, 378.0));
-        pointArrayList3.add(new matahaModel(1193.0, 374.0));
-        pointArrayList3.add(new matahaModel(1194.0, 370.0));
-        pointArrayList3.add(new matahaModel(1196.0, 366.0));
-        pointArrayList3.add(new matahaModel(1197.0, 362.0));
-        pointArrayList3.add(new matahaModel(1198.0, 359.0));
-        pointArrayList3.add(new matahaModel(1198.0, 356.0));
-        pointArrayList3.add(new matahaModel(1198.0, 354.0));
-        pointArrayList3.add(new matahaModel(1198.0, 351.0));
-        pointArrayList3.add(new matahaModel(1195.0, 350.0));
-        pointArrayList3.add(new matahaModel(1195.0, 347.0));
-        pointArrayList3.add(new matahaModel(1194.0, 345.0));
-        pointArrayList3.add(new matahaModel(1191.0, 343.0));
-        pointArrayList3.add(new matahaModel(1190.0, 342.0));
-        pointArrayList3.add(new matahaModel(1190.0, 339.0));
-        pointArrayList3.add(new matahaModel(1189.0, 337.0));
-        pointArrayList3.add(new matahaModel(1189.0, 336.0));
-        pointArrayList3.add(new matahaModel(1188.0, 334.0));
-        pointArrayList3.add(new matahaModel(1187.0, 333.0));
-        pointArrayList3.add(new matahaModel(1185.0, 331.0));
-        pointArrayList3.add(new matahaModel(1183.0, 330.0));
-        pointArrayList3.add(new matahaModel(1183.0, 329.0));
-        pointArrayList3.add(new matahaModel(1180.0, 328.0));
-        pointArrayList3.add(new matahaModel(1179.0, 328.0));
-        pointArrayList3.add(new matahaModel(1176.0, 326.0));
-        pointArrayList3.add(new matahaModel(1174.0, 325.0));
-        pointArrayList3.add(new matahaModel(1170.0, 324.0));
-        pointArrayList3.add(new matahaModel(1166.0, 322.0));
-        pointArrayList3.add(new matahaModel(1162.0, 321.0));
-        pointArrayList3.add(new matahaModel(1160.0, 318.0));
-        pointArrayList3.add(new matahaModel(1158.0, 318.0));
-        pointArrayList3.add(new matahaModel(1157.0, 315.0));
-        pointArrayList3.add(new matahaModel(1156.0, 312.0));
-        pointArrayList3.add(new matahaModel(1156.0, 308.0));
-        pointArrayList3.add(new matahaModel(1156.0, 305.0));
-        pointArrayList3.add(new matahaModel(1156.0, 304.0));
-        pointArrayList3.add(new matahaModel(1156.0, 301.0));
-        pointArrayList3.add(new matahaModel(1155.0, 299.0));
-        pointArrayList3.add(new matahaModel(1154.0, 297.0));
-        pointArrayList3.add(new matahaModel(1153.0, 295.0));
-        pointArrayList3.add(new matahaModel(1153.0, 292.0));
-        pointArrayList3.add(new matahaModel(1151.0, 289.0));
-        pointArrayList3.add(new matahaModel(1151.0, 286.0));
-        pointArrayList3.add(new matahaModel(1150.0, 286.0));
-        pointArrayList3.add(new matahaModel(1150.0, 285.0));
-        pointArrayList3.add(new matahaModel(1149.0, 284.0));
-        pointArrayList3.add(new matahaModel(1147.0, 282.0));
-        pointArrayList3.add(new matahaModel(1147.0, 282.0));
-        pointArrayList3.add(new matahaModel(1146.0, 280.0));
-        pointArrayList3.add(new matahaModel(1145.0, 277.0));
-        pointArrayList3.add(new matahaModel(1145.0, 276.0));
-        pointArrayList3.add(new matahaModel(1145.0, 274.0));
-        pointArrayList3.add(new matahaModel(1143.0, 275.0));
-        pointArrayList3.add(new matahaModel(1143.0, 274.0));
-        pointArrayList3.add(new matahaModel(1142.0, 274.0));
-        pointArrayList3.add(new matahaModel(1140.0, 274.0));
-        pointArrayList3.add(new matahaModel(1139.0, 274.0));
-        pointArrayList3.add(new matahaModel(1139.0, 273.0));
-        pointArrayList3.add(new matahaModel(1138.0, 273.0));
-        pointArrayList3.add(new matahaModel(1137.0, 273.0));
-        pointArrayList3.add(new matahaModel(1137.0, 273.0));
-        pointArrayList3.add(new matahaModel(1136.0, 273.0));
-        pointArrayList3.add(new matahaModel(1135.0, 273.0));
-        pointArrayList3.add(new matahaModel(1134.0, 273.0));
-        pointArrayList3.add(new matahaModel(1132.0, 274.0));
-        pointArrayList3.add(new matahaModel(1130.0, 274.0));
-        pointArrayList3.add(new matahaModel(1129.0, 274.0));
-        pointArrayList3.add(new matahaModel(1127.0, 274.0));
-        pointArrayList3.add(new matahaModel(1126.0, 274.0));
-        pointArrayList3.add(new matahaModel(1124.0, 274.0));
-        pointArrayList3.add(new matahaModel(1123.0, 274.0));
-        pointArrayList3.add(new matahaModel(1121.0, 274.0));
-        pointArrayList3.add(new matahaModel(1119.0, 274.0));
-        pointArrayList3.add(new matahaModel(1117.0, 274.0));
-        pointArrayList3.add(new matahaModel(1115.0, 274.0));
-        pointArrayList3.add(new matahaModel(1113.0, 274.0));
-        pointArrayList3.add(new matahaModel(1110.0, 274.0));
-        pointArrayList3.add(new matahaModel(1108.0, 274.0));
-        pointArrayList3.add(new matahaModel(1106.0, 274.0));
-        pointArrayList3.add(new matahaModel(1103.0, 274.0));
-        pointArrayList3.add(new matahaModel(1099.0, 275.0));
-        pointArrayList3.add(new matahaModel(1097.0, 275.0));
-        pointArrayList3.add(new matahaModel(1093.0, 276.0));
-        pointArrayList3.add(new matahaModel(1090.0, 278.0));
-        pointArrayList3.add(new matahaModel(1087.0, 278.0));
-        pointArrayList3.add(new matahaModel(1084.0, 279.0));
-        pointArrayList3.add(new matahaModel(1081.0, 279.0));
-        pointArrayList3.add(new matahaModel(1079.0, 279.0));
-        pointArrayList3.add(new matahaModel(1075.0, 279.0));
-        pointArrayList3.add(new matahaModel(1071.0, 279.0));
-        pointArrayList3.add(new matahaModel(1068.0, 279.0));
-        pointArrayList3.add(new matahaModel(1064.0, 277.0));
-        pointArrayList3.add(new matahaModel(1061.0, 276.0));
-        pointArrayList3.add(new matahaModel(1058.0, 275.0));
-        pointArrayList3.add(new matahaModel(1055.0, 275.0));
-        pointArrayList3.add(new matahaModel(1054.0, 275.0));
-        pointArrayList3.add(new matahaModel(1051.0, 272.0));
-        pointArrayList3.add(new matahaModel(1048.0, 273.0));
-        pointArrayList3.add(new matahaModel(1046.0, 273.0));
-        pointArrayList3.add(new matahaModel(1045.0, 271.0));
-        pointArrayList3.add(new matahaModel(1042.0, 271.0));
-        pointArrayList3.add(new matahaModel(1038.0, 271.0));
-        pointArrayList3.add(new matahaModel(1034.0, 271.0));
-        pointArrayList3.add(new matahaModel(1030.0, 270.0));
-        pointArrayList3.add(new matahaModel(1026.0, 270.0));
-        pointArrayList3.add(new matahaModel(1022.0, 270.0));
-        pointArrayList3.add(new matahaModel(1018.0, 270.0));
-        pointArrayList3.add(new matahaModel(1016.0, 270.0));
-        pointArrayList3.add(new matahaModel(1013.0, 270.0));
-        pointArrayList3.add(new matahaModel(1010.0, 270.0));
-        pointArrayList3.add(new matahaModel(1007.0, 270.0));
-        pointArrayList3.add(new matahaModel(1004.0, 270.0));
-        pointArrayList3.add(new matahaModel(1001.0, 270.0));
-        pointArrayList3.add(new matahaModel(998.0, 271.0));
-        pointArrayList3.add(new matahaModel(996.0, 271.0));
-        pointArrayList3.add(new matahaModel(993.0, 271.0));
-        pointArrayList3.add(new matahaModel(991.0, 271.0));
-        pointArrayList3.add(new matahaModel(988.0, 271.0));
-        pointArrayList3.add(new matahaModel(986.0, 271.0));
-        pointArrayList3.add(new matahaModel(983.0, 271.0));
-        pointArrayList3.add(new matahaModel(980.0, 271.0));
-        pointArrayList3.add(new matahaModel(977.0, 271.0));
-        pointArrayList3.add(new matahaModel(975.0, 271.0));
-        pointArrayList3.add(new matahaModel(971.0, 272.0));
-        pointArrayList3.add(new matahaModel(967.0, 272.0));
-        pointArrayList3.add(new matahaModel(963.0, 272.0));
-        pointArrayList3.add(new matahaModel(959.0, 272.0));
-        pointArrayList3.add(new matahaModel(956.0, 272.0));
-        pointArrayList3.add(new matahaModel(952.0, 272.0));
-        pointArrayList3.add(new matahaModel(950.0, 272.0));
-        pointArrayList3.add(new matahaModel(947.0, 272.0));
-        pointArrayList3.add(new matahaModel(944.0, 272.0));
-        pointArrayList3.add(new matahaModel(940.0, 272.0));
-        pointArrayList3.add(new matahaModel(937.0, 272.0));
-        pointArrayList3.add(new matahaModel(935.0, 272.0));
-        pointArrayList3.add(new matahaModel(932.0, 272.0));
-        pointArrayList3.add(new matahaModel(929.0, 272.0));
-        pointArrayList3.add(new matahaModel(926.0, 272.0));
-        pointArrayList3.add(new matahaModel(923.0, 272.0));
-        pointArrayList3.add(new matahaModel(919.0, 272.0));
-        pointArrayList3.add(new matahaModel(915.0, 272.0));
-        pointArrayList3.add(new matahaModel(912.0, 272.0));
-        pointArrayList3.add(new matahaModel(909.0, 272.0));
-        pointArrayList3.add(new matahaModel(906.0, 272.0));
-        pointArrayList3.add(new matahaModel(902.0, 272.0));
-        pointArrayList3.add(new matahaModel(896.0, 272.0));
-        pointArrayList3.add(new matahaModel(892.0, 272.0));
-        pointArrayList3.add(new matahaModel(888.0, 272.0));
-        pointArrayList3.add(new matahaModel(884.0, 272.0));
-        pointArrayList3.add(new matahaModel(880.0, 272.0));
-        pointArrayList3.add(new matahaModel(876.0, 272.0));
-        pointArrayList3.add(new matahaModel(872.0, 274.0));
-        pointArrayList3.add(new matahaModel(869.0, 274.0));
-        pointArrayList3.add(new matahaModel(866.0, 274.0));
-        pointArrayList3.add(new matahaModel(863.0, 274.0));
-        pointArrayList3.add(new matahaModel(859.0, 274.0));
-        pointArrayList3.add(new matahaModel(856.0, 274.0));
-        pointArrayList3.add(new matahaModel(852.0, 274.0));
-        pointArrayList3.add(new matahaModel(848.0, 274.0));
-        pointArrayList3.add(new matahaModel(845.0, 275.0));
-        pointArrayList3.add(new matahaModel(842.0, 276.0));
-        pointArrayList3.add(new matahaModel(839.0, 276.0));
-        pointArrayList3.add(new matahaModel(836.0, 277.0));
-        pointArrayList3.add(new matahaModel(831.0, 278.0));
-        pointArrayList3.add(new matahaModel(827.0, 280.0));
-        pointArrayList3.add(new matahaModel(823.0, 280.0));
-        pointArrayList3.add(new matahaModel(820.0, 280.0));
-        pointArrayList3.add(new matahaModel(817.0, 281.0));
-        pointArrayList3.add(new matahaModel(814.0, 281.0));
-        pointArrayList3.add(new matahaModel(811.0, 281.0));
-        pointArrayList3.add(new matahaModel(809.0, 283.0));
-        pointArrayList3.add(new matahaModel(806.0, 283.0));
-        pointArrayList3.add(new matahaModel(804.0, 283.0));
-        pointArrayList3.add(new matahaModel(800.0, 283.0));
-        pointArrayList3.add(new matahaModel(799.0, 283.0));
-        pointArrayList3.add(new matahaModel(795.0, 283.0));
-        pointArrayList3.add(new matahaModel(792.0, 283.0));
-        pointArrayList3.add(new matahaModel(790.0, 283.0));
-        pointArrayList3.add(new matahaModel(786.0, 283.0));
-        pointArrayList3.add(new matahaModel(782.0, 283.0));
-        pointArrayList3.add(new matahaModel(780.0, 283.0));
-        pointArrayList3.add(new matahaModel(776.0, 283.0));
-        pointArrayList3.add(new matahaModel(772.0, 283.0));
-        pointArrayList3.add(new matahaModel(768.0, 283.0));
-        pointArrayList3.add(new matahaModel(764.0, 283.0));
-        pointArrayList3.add(new matahaModel(760.0, 283.0));
-        pointArrayList3.add(new matahaModel(756.0, 283.0));
-        pointArrayList3.add(new matahaModel(752.0, 283.0));
-        pointArrayList3.add(new matahaModel(748.0, 283.0));
-        pointArrayList3.add(new matahaModel(744.0, 283.0));
-        pointArrayList3.add(new matahaModel(740.0, 283.0));
-        pointArrayList3.add(new matahaModel(736.0, 283.0));
-        pointArrayList3.add(new matahaModel(732.0, 283.0));
-        pointArrayList3.add(new matahaModel(728.0, 283.0));
-        pointArrayList3.add(new matahaModel(724.0, 283.0));
-        pointArrayList3.add(new matahaModel(720.0, 283.0));
-        pointArrayList3.add(new matahaModel(716.0, 283.0));
-        pointArrayList3.add(new matahaModel(712.0, 283.0));
-        pointArrayList3.add(new matahaModel(708.0, 283.0));
-        pointArrayList3.add(new matahaModel(706.0, 283.0));
-        pointArrayList3.add(new matahaModel(700.0, 285.0));
-        pointArrayList3.add(new matahaModel(696.0, 285.0));
-        pointArrayList3.add(new matahaModel(692.0, 285.0));
-        pointArrayList3.add(new matahaModel(688.0, 286.0));
-        pointArrayList3.add(new matahaModel(684.0, 286.0));
-        pointArrayList3.add(new matahaModel(680.0, 286.0));
-        pointArrayList3.add(new matahaModel(678.0, 286.0));
-        pointArrayList3.add(new matahaModel(675.0, 286.0));
-        pointArrayList3.add(new matahaModel(672.0, 286.0));
-        pointArrayList3.add(new matahaModel(670.0, 286.0));
-        pointArrayList3.add(new matahaModel(667.0, 286.0));
-        pointArrayList3.add(new matahaModel(664.0, 286.0));
-        pointArrayList3.add(new matahaModel(661.0, 286.0));
-        pointArrayList3.add(new matahaModel(658.0, 285.0));
-        pointArrayList3.add(new matahaModel(655.0, 284.0));
-        pointArrayList3.add(new matahaModel(652.0, 283.0));
-        pointArrayList3.add(new matahaModel(649.0, 281.0));
-        pointArrayList3.add(new matahaModel(646.0, 279.0));
-        pointArrayList3.add(new matahaModel(645.0, 277.0));
-        pointArrayList3.add(new matahaModel(643.0, 275.0));
-        pointArrayList3.add(new matahaModel(640.0, 273.0));
-        pointArrayList3.add(new matahaModel(640.0, 269.0));
-        pointArrayList3.add(new matahaModel(639.0, 266.0));
-        pointArrayList3.add(new matahaModel(638.0, 262.0));
-        pointArrayList3.add(new matahaModel(636.0, 260.0));
-        pointArrayList3.add(new matahaModel(634.0, 256.0));
-        pointArrayList3.add(new matahaModel(633.0, 252.0));
-        pointArrayList3.add(new matahaModel(631.0, 248.0));
-        pointArrayList3.add(new matahaModel(629.0, 243.0));
-        pointArrayList3.add(new matahaModel(628.0, 237.0));
-        pointArrayList3.add(new matahaModel(626.0, 232.0));
-        pointArrayList3.add(new matahaModel(626.0, 227.0));
-        pointArrayList3.add(new matahaModel(626.0, 223.0));
-        pointArrayList3.add(new matahaModel(626.0, 219.0));
-        pointArrayList3.add(new matahaModel(627.0, 215.0));
-        pointArrayList3.add(new matahaModel(628.0, 211.0));
-        pointArrayList3.add(new matahaModel(630.0, 207.0));
-        pointArrayList3.add(new matahaModel(632.0, 202.0));
-        pointArrayList3.add(new matahaModel(634.0, 196.0));
-        pointArrayList3.add(new matahaModel(636.0, 191.0));
-        pointArrayList3.add(new matahaModel(640.0, 186.0));
-        pointArrayList3.add(new matahaModel(642.0, 182.0));
-        pointArrayList3.add(new matahaModel(644.0, 178.0));
-        pointArrayList3.add(new matahaModel(644.0, 174.0));
-        pointArrayList3.add(new matahaModel(646.0, 169.0));
-        pointArrayList3.add(new matahaModel(647.0, 165.0));
-        pointArrayList3.add(new matahaModel(648.0, 161.0));
-        pointArrayList3.add(new matahaModel(649.0, 157.0));
-        pointArrayList3.add(new matahaModel(651.0, 153.0));
-        pointArrayList3.add(new matahaModel(653.0, 149.0));
-        pointArrayList3.add(new matahaModel(655.0, 145.0));
-        pointArrayList3.add(new matahaModel(657.0, 141.0));
-        pointArrayList3.add(new matahaModel(660.0, 137.0));
-        pointArrayList3.add(new matahaModel(661.0, 133.0));
-        pointArrayList3.add(new matahaModel(663.0, 129.0));
-        pointArrayList3.add(new matahaModel(664.0, 125.0));
-        pointArrayList3.add(new matahaModel(665.0, 121.0));
-        pointArrayList3.add(new matahaModel(666.0, 118.0));
-        pointArrayList3.add(new matahaModel(668.0, 114.0));
-        pointArrayList3.add(new matahaModel(669.0, 110.0));
-        pointArrayList3.add(new matahaModel(671.0, 106.0));
-        pointArrayList3.add(new matahaModel(673.0, 102.0));
-        pointArrayList3.add(new matahaModel(675.0, 98.0));
-        pointArrayList3.add(new matahaModel(677.0, 96.0));
-        pointArrayList3.add(new matahaModel(680.0, 95.0));
-        pointArrayList3.add(new matahaModel(683.0, 94.0));
-        pointArrayList3.add(new matahaModel(687.0, 93.0));
-        pointArrayList3.add(new matahaModel(691.0, 92.0));
-        pointArrayList3.add(new matahaModel(695.0, 92.0));
-        pointArrayList3.add(new matahaModel(699.0, 90.0));
-        pointArrayList3.add(new matahaModel(707.0, 89.0));
-        pointArrayList3.add(new matahaModel(713.0, 89.0));
-        pointArrayList3.add(new matahaModel(719.0, 88.0));
-        pointArrayList3.add(new matahaModel(724.0, 87.0));
-        pointArrayList3.add(new matahaModel(729.0, 85.0));
-        pointArrayList3.add(new matahaModel(735.0, 84.0));
-        pointArrayList3.add(new matahaModel(740.0, 82.0));
-        pointArrayList3.add(new matahaModel(746.0, 80.0));
-        pointArrayList3.add(new matahaModel(752.0, 80.0));
-        pointArrayList3.add(new matahaModel(757.0, 78.0));
-        pointArrayList3.add(new matahaModel(763.0, 76.0));
-        pointArrayList3.add(new matahaModel(768.0, 72.0));
-        pointArrayList3.add(new matahaModel(775.0, 70.0));
-        pointArrayList3.add(new matahaModel(779.0, 67.0));
-        pointArrayList3.add(new matahaModel(783.0, 66.0));
-        pointArrayList3.add(new matahaModel(787.0, 62.0));
-        pointArrayList3.add(new matahaModel(791.0, 59.0));
-        pointArrayList3.add(new matahaModel(795.0, 56.0));
-        pointArrayList3.add(new matahaModel(799.0, 54.0));
-        pointArrayList3.add(new matahaModel(802.0, 53.0));
-        pointArrayList3.add(new matahaModel(806.0, 51.0));
-        pointArrayList3.add(new matahaModel(808.0, 50.0));
-        pointArrayList3.add(new matahaModel(811.0, 49.0));
-        pointArrayList3.add(new matahaModel(814.0, 49.0));
-        pointArrayList3.add(new matahaModel(816.0, 48.0));
-        pointArrayList3.add(new matahaModel(818.0, 48.0));
-        pointArrayList3.add(new matahaModel(820.0, 48.0));
-        pointArrayList3.add(new matahaModel(822.0, 48.0));
-        pointArrayList3.add(new matahaModel(824.0, 48.0));
-        pointArrayList3.add(new matahaModel(826.0, 48.0));
-        pointArrayList3.add(new matahaModel(830.0, 48.0));
-        pointArrayList3.add(new matahaModel(834.0, 49.0));
-        pointArrayList3.add(new matahaModel(837.0, 51.0));
-        pointArrayList3.add(new matahaModel(839.0, 53.0));
-        pointArrayList3.add(new matahaModel(842.0, 55.0));
-        pointArrayList3.add(new matahaModel(846.0, 57.0));
-        pointArrayList3.add(new matahaModel(850.0, 60.0));
-        pointArrayList3.add(new matahaModel(854.0, 61.0));
-        pointArrayList3.add(new matahaModel(857.0, 64.0));
-        pointArrayList3.add(new matahaModel(860.0, 66.0));
-        pointArrayList3.add(new matahaModel(862.0, 68.0));
-        pointArrayList3.add(new matahaModel(866.0, 71.0));
-        pointArrayList3.add(new matahaModel(868.0, 73.0));
-        pointArrayList3.add(new matahaModel(871.0, 74.0));
-        pointArrayList3.add(new matahaModel(875.0, 74.0));
-        pointArrayList3.add(new matahaModel(877.0, 75.0));
-        pointArrayList3.add(new matahaModel(880.0, 75.0));
-        pointArrayList3.add(new matahaModel(883.0, 77.0));
-        pointArrayList3.add(new matahaModel(886.0, 78.0));
-        pointArrayList3.add(new matahaModel(889.0, 79.0));
-        pointArrayList3.add(new matahaModel(892.0, 79.0));
-        pointArrayList3.add(new matahaModel(895.0, 79.0));
-        pointArrayList3.add(new matahaModel(899.0, 79.0));
-        pointArrayList3.add(new matahaModel(902.0, 80.0));
-        pointArrayList3.add(new matahaModel(905.0, 80.0));
-        pointArrayList3.add(new matahaModel(909.0, 80.0));
-        pointArrayList3.add(new matahaModel(913.0, 80.0));
-        pointArrayList3.add(new matahaModel(917.0, 80.0));
-        pointArrayList3.add(new matahaModel(921.0, 79.0));
-        pointArrayList3.add(new matahaModel(925.0, 78.0));
-        pointArrayList3.add(new matahaModel(929.0, 78.0));
-        pointArrayList3.add(new matahaModel(933.0, 78.0));
-        pointArrayList3.add(new matahaModel(937.0, 77.0));
-        pointArrayList3.add(new matahaModel(941.0, 77.0));
-        pointArrayList3.add(new matahaModel(945.0, 77.0));
-        pointArrayList3.add(new matahaModel(949.0, 76.0));
-        pointArrayList3.add(new matahaModel(953.0, 76.0));
-        pointArrayList3.add(new matahaModel(957.0, 76.0));
-        pointArrayList3.add(new matahaModel(960.0, 76.0));
-        pointArrayList3.add(new matahaModel(963.0, 76.0));
-        pointArrayList3.add(new matahaModel(964.0, 76.0));
-        pointArrayList3.add(new matahaModel(967.0, 76.0));
-        pointArrayList3.add(new matahaModel(969.0, 76.0));
-        pointArrayList3.add(new matahaModel(971.0, 76.0));
-        pointArrayList3.add(new matahaModel(972.0, 77.0));
-        pointArrayList3.add(new matahaModel(974.0, 77.0));
-        pointArrayList3.add(new matahaModel(975.0, 77.0));
-        pointArrayList3.add(new matahaModel(978.0, 77.0));
-        pointArrayList3.add(new matahaModel(981.0, 78.0));
-        pointArrayList3.add(new matahaModel(983.0, 79.0));
-        pointArrayList3.add(new matahaModel(986.0, 79.0));
-        pointArrayList3.add(new matahaModel(989.0, 79.0));
-        pointArrayList3.add(new matahaModel(990.0, 79.0));
-        pointArrayList3.add(new matahaModel(990.0, 80.0));
-        pointArrayList3.add(new matahaModel(991.0, 81.0));
-        pointArrayList3.add(new matahaModel(995.0, 81.0));
-        pointArrayList3.add(new matahaModel(999.0, 81.0));
-        pointArrayList3.add(new matahaModel(1007.0, 83.0));
-        pointArrayList3.add(new matahaModel(1015.0, 84.0));
-        pointArrayList3.add(new matahaModel(1023.0, 85.0));
-        pointArrayList3.add(new matahaModel(1035.0, 87.0));
-        pointArrayList3.add(new matahaModel(1045.0, 87.0));
-        pointArrayList3.add(new matahaModel(1053.0, 87.0));
-        pointArrayList3.add(new matahaModel(1058.0, 88.0));
-        pointArrayList3.add(new matahaModel(1062.0, 89.0));
-        pointArrayList3.add(new matahaModel(1066.0, 90.0));
-        pointArrayList3.add(new matahaModel(1070.0, 92.0));
-        pointArrayList3.add(new matahaModel(1074.0, 93.0));
-        pointArrayList3.add(new matahaModel(1078.0, 93.0));
-        pointArrayList3.add(new matahaModel(1082.0, 95.0));
-        pointArrayList3.add(new matahaModel(1086.0, 96.0));
-        pointArrayList3.add(new matahaModel(1091.0, 97.0));
-        pointArrayList3.add(new matahaModel(1095.0, 100.0));
-        pointArrayList3.add(new matahaModel(1105.0, 102.0));
-        pointArrayList3.add(new matahaModel(1112.0, 103.0));
-        pointArrayList3.add(new matahaModel(1118.0, 104.0));
-        pointArrayList3.add(new matahaModel(1123.0, 106.0));
-        pointArrayList3.add(new matahaModel(1127.0, 110.0));
-        pointArrayList3.add(new matahaModel(1132.0, 112.0));
-        pointArrayList3.add(new matahaModel(1136.0, 113.0));
-        pointArrayList3.add(new matahaModel(1140.0, 114.0));
-        pointArrayList3.add(new matahaModel(1145.0, 115.0));
-        pointArrayList3.add(new matahaModel(1149.0, 117.0));
-        pointArrayList3.add(new matahaModel(1153.0, 119.0));
-        pointArrayList3.add(new matahaModel(1158.0, 121.0));
-        pointArrayList3.add(new matahaModel(1162.0, 122.0));
-        pointArrayList3.add(new matahaModel(1168.0, 124.0));
-        pointArrayList3.add(new matahaModel(1174.0, 125.0));
-        pointArrayList3.add(new matahaModel(1179.0, 126.0));
-        pointArrayList3.add(new matahaModel(1183.0, 127.0));
-        pointArrayList3.add(new matahaModel(1187.0, 128.0));
-        pointArrayList3.add(new matahaModel(1191.0, 131.0));
-        pointArrayList3.add(new matahaModel(1195.0, 132.0));
-        pointArrayList3.add(new matahaModel(1198.0, 132.0));
-        pointArrayList3.add(new matahaModel(1202.0, 134.0));
-        pointArrayList3.add(new matahaModel(1206.0, 135.0));
-        pointArrayList3.add(new matahaModel(1210.0, 135.0));
-        pointArrayList3.add(new matahaModel(1214.0, 136.0));
-        pointArrayList3.add(new matahaModel(1218.0, 137.0));
-        pointArrayList3.add(new matahaModel(1222.0, 137.0));
-        pointArrayList3.add(new matahaModel(1226.0, 138.0));
-        pointArrayList3.add(new matahaModel(1230.0, 138.0));
-        pointArrayList3.add(new matahaModel(1234.0, 138.0));
-        pointArrayList3.add(new matahaModel(1239.0, 138.0));
-        pointArrayList3.add(new matahaModel(1245.0, 138.0));
-        pointArrayList3.add(new matahaModel(1249.0, 135.0));
-        pointArrayList3.add(new matahaModel(1253.0, 132.0));
-        pointArrayList3.add(new matahaModel(1257.0, 129.0));
-        pointArrayList3.add(new matahaModel(1261.0, 127.0));
-        pointArrayList3.add(new matahaModel(1265.0, 126.0));
-        pointArrayList3.add(new matahaModel(1269.0, 125.0));
-        pointArrayList3.add(new matahaModel(1273.0, 125.0));
-        pointArrayList3.add(new matahaModel(1277.0, 125.0));
-        pointArrayList3.add(new matahaModel(1280.0, 124.0));
-        pointArrayList3.add(new matahaModel(1283.0, 123.0));
-        pointArrayList3.add(new matahaModel(1287.0, 123.0));
-        pointArrayList3.add(new matahaModel(1290.0, 123.0));
-        pointArrayList3.add(new matahaModel(1294.0, 123.0));
-        pointArrayList3.add(new matahaModel(1298.0, 123.0));
-        pointArrayList3.add(new matahaModel(1304.0, 124.0));
-        pointArrayList3.add(new matahaModel(1311.0, 125.0));
-        pointArrayList3.add(new matahaModel(1317.0, 126.0));
-        pointArrayList3.add(new matahaModel(1322.0, 128.0));
-        pointArrayList3.add(new matahaModel(1326.0, 128.0));
-        pointArrayList3.add(new matahaModel(1331.0, 129.0));
-        pointArrayList3.add(new matahaModel(1335.0, 131.0));
-        pointArrayList3.add(new matahaModel(1340.0, 131.0));
-        pointArrayList3.add(new matahaModel(1344.0, 132.0));
-        pointArrayList3.add(new matahaModel(1348.0, 133.0));
-        pointArrayList3.add(new matahaModel(1351.0, 134.0));
-        pointArrayList3.add(new matahaModel(1355.0, 134.0));
-        pointArrayList3.add(new matahaModel(1359.0, 135.0));
-        pointArrayList3.add(new matahaModel(1363.0, 136.0));
-        pointArrayList3.add(new matahaModel(1367.0, 137.0));
-        pointArrayList3.add(new matahaModel(1375.0, 137.0));
-        pointArrayList3.add(new matahaModel(1383.0, 138.0));
-        pointArrayList3.add(new matahaModel(1391.0, 138.0));
-        pointArrayList3.add(new matahaModel(1398.0, 138.0));
-        pointArrayList3.add(new matahaModel(1406.0, 138.0));
-        pointArrayList3.add(new matahaModel(1412.0, 138.0));
-        pointArrayList3.add(new matahaModel(1418.0, 138.0));
-        pointArrayList3.add(new matahaModel(1422.0, 138.0));
-        pointArrayList3.add(new matahaModel(1427.0, 138.0));
-        pointArrayList3.add(new matahaModel(1431.0, 139.0));
-        pointArrayList3.add(new matahaModel(1435.0, 139.0));
-        pointArrayList3.add(new matahaModel(1439.0, 141.0));
-        pointArrayList3.add(new matahaModel(1444.0, 141.0));
-        pointArrayList3.add(new matahaModel(1448.0, 142.0));
-        pointArrayList3.add(new matahaModel(1452.0, 143.0));
-        pointArrayList3.add(new matahaModel(1456.0, 145.0));
-        pointArrayList3.add(new matahaModel(1460.0, 146.0));
-        pointArrayList3.add(new matahaModel(1464.0, 147.0));
-        pointArrayList3.add(new matahaModel(1468.0, 150.0));
-        pointArrayList3.add(new matahaModel(1469.0, 152.0));
-        pointArrayList3.add(new matahaModel(1471.0, 154.0));
-        pointArrayList3.add(new matahaModel(1473.0, 155.0));
-        pointArrayList3.add(new matahaModel(1475.0, 158.0));
-        pointArrayList3.add(new matahaModel(1476.0, 161.0));
-        pointArrayList3.add(new matahaModel(1476.0, 165.0));
-        pointArrayList3.add(new matahaModel(1476.0, 169.0));
-        pointArrayList3.add(new matahaModel(1476.0, 171.0));
-        pointArrayList3.add(new matahaModel(1476.0, 174.0));
-        pointArrayList3.add(new matahaModel(1476.0, 176.0));
-        pointArrayList3.add(new matahaModel(1476.0, 180.0));
-        pointArrayList3.add(new matahaModel(1476.0, 184.0));
-        pointArrayList3.add(new matahaModel(1476.0, 187.0));
-        pointArrayList3.add(new matahaModel(1476.0, 190.0));
-        pointArrayList3.add(new matahaModel(1476.0, 194.0));
-        pointArrayList3.add(new matahaModel(1475.0, 198.0));
-        pointArrayList3.add(new matahaModel(1475.0, 200.0));
-        pointArrayList3.add(new matahaModel(1475.0, 203.0));
-        pointArrayList3.add(new matahaModel(1475.0, 205.0));
-        pointArrayList3.add(new matahaModel(1475.0, 207.0));
-        pointArrayList3.add(new matahaModel(1475.0, 209.0));
-        pointArrayList3.add(new matahaModel(1475.0, 213.0));
-        pointArrayList3.add(new matahaModel(1475.0, 216.0));
-        pointArrayList3.add(new matahaModel(1475.0, 221.0));
-        pointArrayList3.add(new matahaModel(1475.0, 225.0));
-        pointArrayList3.add(new matahaModel(1476.0, 229.0));
-        pointArrayList3.add(new matahaModel(1476.0, 233.0));
-        pointArrayList3.add(new matahaModel(1477.0, 237.0));
-        pointArrayList3.add(new matahaModel(1477.0, 241.0));
-        pointArrayList3.add(new matahaModel(1477.0, 243.0));
-        pointArrayList3.add(new matahaModel(1478.0, 247.0));
-        pointArrayList3.add(new matahaModel(1479.0, 251.0));
-        pointArrayList3.add(new matahaModel(1480.0, 255.0));
-        pointArrayList3.add(new matahaModel(1481.0, 259.0));
-        pointArrayList3.add(new matahaModel(1482.0, 263.0));
-        pointArrayList3.add(new matahaModel(1483.0, 265.0));
-        pointArrayList3.add(new matahaModel(1484.0, 268.0));
-        pointArrayList3.add(new matahaModel(1487.0, 270.0));
-        pointArrayList3.add(new matahaModel(1489.0, 272.0));
-        pointArrayList3.add(new matahaModel(1491.0, 276.0));
-        pointArrayList3.add(new matahaModel(1491.0, 279.0));
-        pointArrayList3.add(new matahaModel(1492.0, 283.0));
-        pointArrayList3.add(new matahaModel(1493.0, 287.0));
-        pointArrayList3.add(new matahaModel(1493.0, 290.0));
-        pointArrayList3.add(new matahaModel(1494.0, 292.0));
-        pointArrayList3.add(new matahaModel(1497.0, 295.0));
-        pointArrayList3.add(new matahaModel(1498.0, 297.0));
-        pointArrayList3.add(new matahaModel(1501.0, 301.0));
-        pointArrayList3.add(new matahaModel(1504.0, 305.0));
-        pointArrayList3.add(new matahaModel(1507.0, 309.0));
-        pointArrayList3.add(new matahaModel(1510.0, 313.0));
-        pointArrayList3.add(new matahaModel(1512.0, 317.0));
-        pointArrayList3.add(new matahaModel(1514.0, 321.0));
-        pointArrayList3.add(new matahaModel(1516.0, 325.0));
-        pointArrayList3.add(new matahaModel(1519.0, 329.0));
-        pointArrayList3.add(new matahaModel(1521.0, 333.0));
-        pointArrayList3.add(new matahaModel(1523.0, 335.0));
-        pointArrayList3.add(new matahaModel(1524.0, 338.0));
-        pointArrayList3.add(new matahaModel(1525.0, 341.0));
-        pointArrayList3.add(new matahaModel(1528.0, 345.0));
-        pointArrayList3.add(new matahaModel(1529.0, 348.0));
-        pointArrayList3.add(new matahaModel(1532.0, 349.0));
-        pointArrayList3.add(new matahaModel(1535.0, 349.0));
-        pointArrayList3.add(new matahaModel(1538.0, 351.0));
-        pointArrayList3.add(new matahaModel(1540.0, 352.0));
-        pointArrayList3.add(new matahaModel(1544.0, 353.0));
-        pointArrayList3.add(new matahaModel(1547.0, 353.0));
-        pointArrayList3.add(new matahaModel(1551.0, 353.0));
-        pointArrayList3.add(new matahaModel(1554.0, 354.0));
-        pointArrayList3.add(new matahaModel(1558.0, 354.0));
-        pointArrayList3.add(new matahaModel(1562.0, 354.0));
-        pointArrayList3.add(new matahaModel(1566.0, 354.0));
-        pointArrayList3.add(new matahaModel(1570.0, 355.0));
-        pointArrayList3.add(new matahaModel(1574.0, 355.0));
-        pointArrayList3.add(new matahaModel(1579.0, 356.0));
-        pointArrayList3.add(new matahaModel(1583.0, 356.0));
-        pointArrayList3.add(new matahaModel(1587.0, 356.0));
-        pointArrayList3.add(new matahaModel(1591.0, 356.0));
-        pointArrayList3.add(new matahaModel(1594.0, 356.0));
-        pointArrayList3.add(new matahaModel(1597.0, 356.0));
-        pointArrayList3.add(new matahaModel(1599.0, 356.0));
-        pointArrayList3.add(new matahaModel(1601.0, 356.0));
-        pointArrayList3.add(new matahaModel(1603.0, 356.0));
-        pointArrayList3.add(new matahaModel(1606.0, 356.0));
-        pointArrayList3.add(new matahaModel(1608.0, 356.0));
-        pointArrayList3.add(new matahaModel(1609.0, 356.0));
-        pointArrayList3.add(new matahaModel(1611.0, 356.0));
-        pointArrayList3.add(new matahaModel(1612.0, 356.0));
-        pointArrayList3.add(new matahaModel(1613.0, 356.0));
-        pointArrayList3.add(new matahaModel(1613.0, 356.0));
-        pointArrayList3.add(new matahaModel(1615.0, 356.0));
-        pointArrayList3.add(new matahaModel(1615.0, 356.0));
-
-
         img = findViewById(R.id.btn);
         initView();
-        playVideo(path);
+        playVideo(path, false);
 
 
         double tolerance = Math.sqrt(
@@ -2812,56 +84,51 @@ public class MovingActivity extends AppCompatActivity {
                         .setDuration(2200)
                         .start();            }
         });*/
-       /* moviLinear.setOnTouchListener(new View.OnTouchListener() {
+        moviLinear.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-                PointF StartPT = new PointF();
-                img.setX((int) (StartPT.x + motionEvent.getX() - DownPT.x));
-                img.setY((int) (StartPT.y + motionEvent.getY() - DownPT.y));
-                //StartPT.set(img.getX(), img.getY());
 
-                if (isPointOnLine(new PointF(pointArrayList23.get(0).x , pointArrayList23.get(0).y), new PointF(pointArrayList23.get(pointArrayList23.size() - 1).x, pointArrayList23.get(pointArrayList23.size() - 1).y), new PointF(img.getX(), img.getY()))) {
-                    fResult.setText("شااااااااااطر");
-                    img.animate()
-                            .x(img.getX())
-                            .y( img.getY())
-                            .setDuration(2200)
-                            .start();
-                    Log.d("TAG", "onTouch:ffff hhhhhhhhh ");
-                } else {
-                    fResult.setText("حاااااااول تاااانى");
-                }
+                Log.d("TAG", "onTouch: points  x=  " + motionEvent.getX() + " y = " + motionEvent.getY());
 
-
-                if (motionEvent.getAction() == MotionEvent.ACTION_BUTTON_PRESS){
-
-
-                }
-                return true;
+                return false;
             }
-        });*/
+        });
 
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                next.setVisibility(View.INVISIBLE);
+                repeat.setVisibility(View.INVISIBLE);
+                index++;
+                if (index == 3) index = 0;
+                if (index == 0) {
+                    moviLinear.setBackgroundResource(R.drawable.mataha1);
+                    moveingRabbitIndex1();
+                } else if (index == 1) {
+                    moviLinear.setBackgroundResource(R.drawable.mataha2);
+                    moveingRabbitIndex2();
+
+                } else if (index == 2) {
+                    moviLinear.setBackgroundResource(R.drawable.mataha3);
+                    moveingRabbitIndex3();
+
+                }
+                playVideo("android.resource://" + getPackageName() + "/" + startList[index], false);
+
+            }
+        });
 
     }
 
 
     @SuppressLint("ClickableViewAccessibility")
     void moveingRabbitIndex1() {
-        width = 100;
-        moviLinear.setBackgroundResource(R.drawable.mataha1);
-        latLngsArrayListy.clear();
-        for (int x = 0; x < pointArrayList.size(); x++) {
-            latLngsArrayListy.add(new LatLng(pointArrayList.get(x).x, pointArrayList.get(x).y));
-            /*if (pointArrayList23.get(x).x<= tolerance && pointArrayList23.get(x).y<= tolerance){
-                toleranceArrayListx.add(pointArrayList23.get(x).x);
-                toleranceArrayListy.add(pointArrayList23.get(x).y);
-            }*/
 
-        }
+
         img.animate()
-                .x((float) pointArrayList.get(0).x)
-                .y((float) pointArrayList.get(0).y)
+                .x((float) 410)
+                .y((float) 397)
                 .setDuration(2200)
                 .start();
 
@@ -2879,54 +146,52 @@ public class MovingActivity extends AppCompatActivity {
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
 
-/*
-                        boolean inside = PolyUtil.containsLocation(new LatLng(img.getX(), img.getY()), latLngsArrayListy, true);
-                        if (inside) {
-                            fResult.setText("شااااااااااطر");
-
-                        } else {
-                            fResult.setText("حاااااااول تاااانى");
-                        }*/
-
-
-                       /* if (pointArrayList.contains(img.getX()) &&pointArrayList.contains(img.getY()) ){
-                            fResult.setText("شااااااااااطررررررررر");
-
-                        }else {
-                            fResult.setText("حاااااااول تاااانى");
-
-
-                        }*/
 
 
 
-                        for (int x = 0; x < pointArrayList.size(); x++) {
-                            if ((float)(pointArrayList.get(x).x ) >= img.getX() && ( 410.0F <= img.getY() &&  img.getY() <= 650.0F)  ){
-                                fResult.setText("شااااااااااطررررررررر");
 
-                            }else {
+                        Log.d("TAG", "onTouch:y  y = " + img.getY() + " max = " + img.getMaxHeight() + " min " + img.getMinimumHeight());
+                        Log.d("TAG", "onTouch:x  x = " + img.getX());
+                        if (img.getX() < 852) {
+                            if (img.getY() > 300 && img.getY() < 560) {
+                                fResult.setText("شااااااااااطر");
+                            } else {
+                                isWalkRight=false;
+
                                 fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 852 && img.getX() < 2000) {
+                            if (img.getY() > 400 && img.getY() < 590) {
+                                fResult.setText("شااااااااااطر");
+                                if (img.getX() > 1675 && img.getX() < 2000 && isWalkRight) {
+                                    playVideo("android.resource://" + getPackageName() + "/" + endtList[index], true);
 
+                                }
 
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
                             }
                         }
-                       /* if (isPointOnLine(new PointF(pointArrayList.get(0).x, pointArrayList.get(0).y), new PointF(pointArrayList.get(pointArrayList.size() - 1).x, pointArrayList.get(pointArrayList.size() - 1).y), new PointF(img.getX(), img.getY()))) {
-                            fResult.setText("شااااااااااطر");
-
-                        } else {
-                            fResult.setText("حاااااااول تاااانى");
-                        }*/
 
 
                         break;
                     case MotionEvent.ACTION_DOWN:
                         DownPT.set(event.getX(), event.getY());
                         StartPT.set(img.getX(), img.getY());
-                        Log.d("hassan", "pointArrayList.add(new matahaModel(" + img.getX() + ", " + img.getY() + "));");
 
                         break;
                     case MotionEvent.ACTION_UP:
-
+                        if (isWalkRight==false){
+                            img.animate()
+                                    .x((float) 410)
+                                    .y((float) 397)
+                                    .setDuration(2200)
+                                    .start();
+                            isWalkRight = true;
+                            fResult.setText("حاااااااول تاااانى");
+                        }
                         break;
                     default:
                         break;
@@ -2936,18 +201,14 @@ public class MovingActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     void moveingRabbitIndex2() {
-        moviLinear.setBackgroundResource(R.drawable.mataha2);
         width = 120;
         latLngsArrayListy.clear();
-        for (int x = 0; x < pointArrayList2.size(); x++) {
-            latLngsArrayListy.add(new LatLng(pointArrayList2.get(x).x, pointArrayList.get(x).y));
 
-
-        }
         img.animate()
-                .x((float) pointArrayList2.get(0).x)
-                .y((float) pointArrayList2.get(0).y)
+                .x((float) 314)
+                .y((float) 323)
                 .setDuration(2200)
                 .start();
 
@@ -2965,24 +226,74 @@ public class MovingActivity extends AppCompatActivity {
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
 
-/*
-                        boolean inside = PolyUtil.containsLocation(new LatLng(img.getX(), img.getY()), latLngsArrayListy, true);
-                        if (inside) {
-                            fResult.setText("شااااااااااطر");
+                        Log.d("TAG", "onTouch:y  y = " + img.getY() );
+                        Log.d("TAG", "onTouch:x  x= " + img.getX() );
 
-                        } else {
-                            fResult.setText("حاااااااول تاااانى");
-                        }*/
 
-                        if (isPointOnLine(new PointF(pointArrayList2.get(0).x, pointArrayList2.get(0).y), new PointF(pointArrayList2.get(pointArrayList2.size() - 1).x, pointArrayList2.get(pointArrayList2.size() - 1).y), new PointF(img.getX(), img.getY()))) {
-                            fResult.setText("شااااااااااطر");
+                        if (img.getX() < 800) {
+                            if (img.getY() > 268 && img.getY() < 419) {
+                                fResult.setText("شااااااااااطر");
+                            } else {
+                                isWalkRight=false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 800 && img.getX() < 940) {
+                            if (img.getY() > 260 && img.getY() < 373) {
+                                fResult.setText("شااااااااااطر");
 
-                        } else {
-                            fResult.setText("حاااااااول تاااانى");
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 900&& img.getX() < 1188) {
+                            if (img.getY() > 270 && img.getY() < 612) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+
+                                isWalkRight=false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1188 && img.getX() < 1392) {
+                            if (img.getY() > 463 && img.getY() < 625) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1392 && img.getX() < 1695) {
+                            if (img.getY() > 433 && img.getY() < 590) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1695 && img.getX() < 1952) {
+                            if (img.getY() > 420 && img.getY() < 570) {
+                                fResult.setText("شااااااااااطر");
+                                if (img.getX() > 1766 && img.getX() < 2008 && isWalkRight) {
+                                    playVideo("android.resource://" + getPackageName() + "/" + endtList[index], true);
+
+                                }
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
                         }
 
 
-                        Log.d("hassan", "pointArrayList23.add(new matahaModel(" + img.getX() + ", " + img.getY() + "));");
+
                         break;
                     case MotionEvent.ACTION_DOWN:
                         DownPT.set(event.getX(), event.getY());
@@ -2990,6 +301,15 @@ public class MovingActivity extends AppCompatActivity {
                         break;
                     case MotionEvent.ACTION_UP:
 
+                        if (isWalkRight==false){
+                            img.animate()
+                                    .x((float) 314)
+                                    .y((float) 323)
+                                    .setDuration(2200)
+                                    .start();
+                            isWalkRight = true;
+                            fResult.setText("حاااااااول تاااانى");
+                        }
                         break;
                     default:
                         break;
@@ -2999,21 +319,13 @@ public class MovingActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     void moveingRabbitIndex3() {
-        moviLinear.setBackgroundResource(R.drawable.mataha3);
-        width = 250;
-        latLngsArrayListy.clear();
-        for (int x = 0; x < pointArrayList3.size(); x++) {
-            latLngsArrayListy.add(new LatLng(pointArrayList3.get(x).x, pointArrayList3.get(x).y));
-            /*if (pointArrayList23.get(x).x<= tolerance && pointArrayList23.get(x).y<= tolerance){
-                toleranceArrayListx.add(pointArrayList23.get(x).x);
-                toleranceArrayListy.add(pointArrayList23.get(x).y);
-            }*/
 
-        }
+
         img.animate()
-                .x((float) pointArrayList3.get(0).x)
-                .y((float) pointArrayList3.get(0).y)
+                .x(304)
+                .y(274)
                 .setDuration(2200)
                 .start();
 
@@ -3031,31 +343,151 @@ public class MovingActivity extends AppCompatActivity {
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
 
-/*
-                        boolean inside = PolyUtil.containsLocation(new LatLng(img.getX(), img.getY()), latLngsArrayListy, true);
-                        if (inside) {
-                            fResult.setText("شااااااااااطر");
 
-                        } else {
-                            fResult.setText("حاااااااول تاااانى");
-                        }*/
+                        Log.d("TAG", "onTouch:y  y = " + img.getY() );
+                        Log.d("TAG", "onTouch:x  x = " + img.getX() );
 
-                        if (isPointOnLine(new PointF(pointArrayList3.get(0).x, pointArrayList3.get(0).y), new PointF(pointArrayList3.get(pointArrayList3.size() - 1).x, pointArrayList3.get(pointArrayList3.size() - 1).y), new PointF(img.getX(), img.getY()))) {
-                            fResult.setText("شااااااااااطر");
 
-                        } else {
-                            fResult.setText("حاااااااول تاااانى");
+                        if (img.getX() < 450) {
+                            if (img.getY() > 231 && img.getY() < 457) {
+                                fResult.setText("شااااااااااطر");
+                            } else {
+                                isWalkRight=false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 250 && img.getX() < 450) {
+                            if (img.getY() > 317 && img.getY() < 612) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 97&& img.getX() < 250) {
+                            if (img.getY() > 304 && img.getY() < 619) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+
+                                isWalkRight=false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 250 && img.getX() < 735) {
+                            if (img.getY() > 510 && img.getY() < 642) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 735 && img.getX() < 1212) {
+                            if (img.getY() > 560 && img.getY() < 694) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1212 && img.getX() < 1410) {
+                            if (img.getY() > 385 && img.getY() < 673) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 950 && img.getX() < 1271 &&img.getY() < 450 ) {
+                            if (img.getY() > 359 && img.getY() < 490) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 787 && img.getX() < 950) {
+                            if (img.getY() > 133 && img.getY() < 467) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 950 && img.getX() < 1202) {
+                            if (img.getY() > 276 && img.getY() < 137) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1202 && img.getX() < 1445) {
+                            if (img.getY() > 168 && img.getY() < 327) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1445 && img.getX() < 1717) {
+                            if (img.getY() > 186 && img.getY() < 576) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1545 && img.getX() < 1953) {
+                            if (img.getY() > 383 && img.getY() < 608) {
+                                fResult.setText("شااااااااااطر");
+                                if (img.getX() > 1545 && img.getX() < 1545 && isWalkRight) {
+                                    playVideo("android.resource://" + getPackageName() + "/" + endtList[index], true);
+
+                                }
+
+
+                            } else {
+                                isWalkRight=false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
                         }
 
 
-                        Log.d("hassan", "pointArrayList23.add(new matahaModel(" + img.getX() + ", " + img.getY() + "));");
+
                         break;
                     case MotionEvent.ACTION_DOWN:
                         DownPT.set(event.getX(), event.getY());
                         StartPT.set(img.getX(), img.getY());
                         break;
                     case MotionEvent.ACTION_UP:
-
+                        if (!isWalkRight){
+                            img.animate()
+                                    .x((float) 314)
+                                    .y((float) 323)
+                                    .setDuration(2200)
+                                    .start();
+                            isWalkRight = true;
+                            fResult.setText("حاااااااول تاااانى");
+                        }
                         break;
                     default:
                         break;
@@ -3104,13 +536,14 @@ public class MovingActivity extends AppCompatActivity {
         moviLinear = findViewById(R.id.moviLinearv);
 
 
+        VideoView = (VideoView) findViewById(R.id.VideoView);
+        moviLinearv = (LinearLayout) findViewById(R.id.moviLinearv);
+        btn = (ImageView) findViewById(R.id.btn);
+        repeat = (MaterialButton) findViewById(R.id.repeat);
+        next = (MaterialButton) findViewById(R.id.next);
     }
 
-    public void playVideo(String path) {
-        videoView.setVisibility(View.VISIBLE);
-        moviLinear.setVisibility(View.INVISIBLE);
-        videoView.setVisibility(View.VISIBLE);
-
+    public void playVideo(String path, boolean isSuccess) {
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
 
@@ -3118,16 +551,19 @@ public class MovingActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
 
-                moviLinear.setVisibility(View.VISIBLE);
-                videoView.setVisibility(View.INVISIBLE);
-                if (index == 0) {
-                    moveingRabbitIndex1();
-                } else if (index == 1) {
-                    moveingRabbitIndex2();
-                } else if (index == 2) {
-                    moveingRabbitIndex3();
-                }
 
+                if (isSuccess) {
+                    next.setVisibility(View.VISIBLE);
+                    repeat.setVisibility(View.VISIBLE);
+                } else {
+                    if (index == 0) {
+                        moveingRabbitIndex1();
+                    } else if (index == 1) {
+                        moveingRabbitIndex2();
+                    } else if (index == 2) {
+                        moveingRabbitIndex3();
+                    }
+                }
 
             }
         });
