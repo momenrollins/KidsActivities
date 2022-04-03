@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mataha3"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".MovingActivity">
 
@@ -27,27 +27,30 @@
         android:id="@+id/moviLinearv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
+        <TextView
+            android:id="@+id/f_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="شاطر"
+            android:textSize="30dp" />
 
-
-    <TextView
-        android:id="@+id/f_result"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="شاطر"/>
-    <ImageView
-        android:id="@+id/btn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/bunny_rabbit" />
+        <ImageView
+            android:id="@+id/btn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/bunny_rabbit" />
 
     </LinearLayout>
 
