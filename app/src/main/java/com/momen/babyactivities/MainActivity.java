@@ -51,15 +51,23 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,};
 
-    int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start, R.raw.selectappal1, R.raw.bana_app1, R.raw.duck1, R.raw.duckdog1,
+    int[] startList = {R.raw.lvl1_1_start, R.raw.lvl1_2_start,
+            R.raw.selectappal1, R.raw.bana_app1, R.raw.duck1, R.raw.duckdog1,
             R.raw.lion1, R.raw.lion_gr1, R.raw.red1, R.raw.black_red1, R.raw.v12_1, R.raw.apple_banana1, R.raw.v14_1,
             R.raw.duck_dog1, R.raw.v16_1, R.raw.lion_grf1, R.raw.v18_1, R.raw.red_black1, R.raw.v20_1, R.raw.ap_bana1, R.raw.v22_1, R.raw.duck_dog_1,
             R.raw.v24_1, R.raw.lion_grf_1, R.raw.v26_1, R.raw.red_black_1};
 
-    int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success, R.raw.selectappal3, R.raw.bana_app3, R.raw.duck3, R.raw.duckdog3,
-            R.raw.lion3, R.raw.lion_gr3, R.raw.red3, R.raw.black_red2, R.raw.v12_3, R.raw.apple_banana2, R.raw.v14_3,
-            R.raw.duck_dog2, R.raw.v16_3, R.raw.lion_grf2, R.raw.v18_3, R.raw.red_black2, R.raw.v20_3, R.raw.ap_bana2,
-            R.raw.v22_3, R.raw.duck_dog_2, R.raw.v24_3, R.raw.lion_grf_2, R.raw.v26_3, R.raw.red_black_2};
+    int[] successList = {R.raw.lvl1_1_success, R.raw.lvl1_2_success,
+            R.raw.selectappal3, R.raw.bana_app3,
+            R.raw.duck3, R.raw.duckdog3,
+            R.raw.lion3, R.raw.lion_gr3, R.raw.red3,
+            R.raw.black_red2, R.raw.v12_3, R.raw.apple_banana2,
+            R.raw.v14_3,
+            R.raw.duck_dog2, R.raw.v16_3, R.raw.lion_grf2,
+            R.raw.v18_3, R.raw.red_black2, R.raw.v20_3,
+            R.raw.ap_bana2,
+            R.raw.v22_3, R.raw.duck_dog_2, R.raw.v24_3,
+            R.raw.lion_grf_2, R.raw.v26_3, R.raw.red_black_2};
 
     int[] failedList = {R.raw.lvl1_1_failed, R.raw.lvl1_2_failed, R.raw.selectappal2, R.raw.bana_app2, R.raw.duck2, R.raw.duckdog2,
             R.raw.lion2, R.raw.lion_gr2, R.raw.red2, R.raw.black_red3,
@@ -355,6 +363,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (viewFail != null)
                     viewFail.setVisibility(View.GONE);
+                viewSuccess.setVisibility(View.GONE);
+                arrowTrue.setVisibility(View.GONE);
          /*       view.setVisibility(View.GONE);
                 view2.setVisibility(View.GONE);*/
                 playVideo(path, true);

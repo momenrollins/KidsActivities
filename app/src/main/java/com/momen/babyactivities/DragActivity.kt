@@ -508,7 +508,25 @@ class DragActivity : AppCompatActivity() {
             ) / 10
             checkAction(tolerance, event, view, shape0000008X, shape0000008Y, "Sh0000008")
         })
+        startLevel(index)
 
+        backBtn.setOnClickListener {
+            if (index > 0) {
+            index--
+                startLevel(index)
+            }
+        }
+        replayBtn.setOnClickListener { startLevel(index) }
+        nextBtn.setOnClickListener {
+            if (index < 6) {
+                index++
+                startLevel(index)
+            }
+        }
+    }
+
+    private fun startLevel(index: Int) {
+        options.visibility = GONE
         path = "android.resource://" + packageName + "/" + startList[index]
         playVideo(path, false)
     }
@@ -1050,6 +1068,8 @@ class DragActivity : AppCompatActivity() {
                     shape0000007.visibility = VISIBLE
                     shape0000008.visibility = VISIBLE
                 }
+            }else{
+                options.visibility= VISIBLE
             }
         }
     }
