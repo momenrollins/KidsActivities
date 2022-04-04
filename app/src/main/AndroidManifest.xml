@@ -14,11 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BabyActivities">
         <activity
-            android:name=".ShapsActivity_46"
+            android:name=".BressBall_L49"
             android:exported="true"
             android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".ShapsActivity_46"
+            android:exported="true"
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".BoyandGirl_45"
             android:exported="true"
@@ -33,7 +41,6 @@
             android:name=".RabbitJump"
             android:exported="true"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".ColorActivity"
             android:exported="true"
@@ -73,8 +80,6 @@
             android:name=".MovingActivity"
             android:exported="true"
             android:screenOrientation="landscape">
-
-
         </activity>
 
         <activity

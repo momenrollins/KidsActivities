@@ -19,6 +19,5 @@ class PlayVideoActivity : AppCompatActivity() {
         videoView.setVideoURI(Uri.parse(path))
         videoView.start()
         videoView.setOnCompletionListener { finishBtn.visibility = VISIBLE }
-
     }
 }
