@@ -30,11 +30,19 @@
         <activity
             android:name=".BoyandGirl_45"
             android:exported="true"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape">
+
+        </activity>
+
+            android:name=".PlayVideoActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".RabbitJump"
             android:exported="true"
             android:screenOrientation="landscape" />
+
+
         <activity
             android:name=".ColorActivity"
             android:exported="true"
@@ -53,7 +61,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".VideoCapture"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".ActivitiesActivity"
             android:exported="false"
@@ -68,6 +77,7 @@
             android:screenOrientation="landscape">
 
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -29,14 +29,12 @@ public class ChooseLevelActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         int lvl;
-        if (view == lvl1) {lvl = 1;
+        if (view == lvl1) {
+            lvl = 1;
             startActivity(new Intent(this, ActivitiesActivity.class).putExtra("lvl", lvl));
-        }
-        else if (view == lvl2) {
+        } else if (view == lvl2) {
             lvl = 2;
-//            startActivity(new Intent(this,VideoCapture.class));
-
-        }
-        else lvl = 3;
+            startActivity(new Intent(this, ActivitiesActivity.class).putExtra("lvl", lvl));
+        } else lvl = 3;
     }
 }
