@@ -37,98 +37,90 @@ public class BoyandGirl_45 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boyand_girl45);
         initView();
-        runnable = new Runnable() {
-            @Override
-            public void run() {
+        index = getIntent().getIntExtra("actvtyNum", 0);
+        if (index == 0)
+            runnable = new Runnable() {
+                @Override
+                public void run() {
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, false, false);
 
-                playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, false, false);
 
-
-            }
-        };
+                }
+            };
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (boyTurn || girlTurn)
                     playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
 
+
             }
         });
         boy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (boyTurn) {
-                    basketBall.animate()
-                            .x((float) 1489)
-                            .y((float) 189)
-                            .setDuration(2200)
-                            .start();
-                    handler.postDelayed(runnable, 2200);
-                    boyTurn = false;
-                    girlTurn = true;
-                }
+                if (index == 0) {
+                    if (boyTurn) {
+                        basketBall.animate()
+                                .x((float) 1489)
+                                .y((float) 189)
+                                .setDuration(2200)
+                                .start();
+                        handler.postDelayed(runnable, 2200);
+                        boyTurn = false;
+                        girlTurn = true;
+                    }
+                } else {
+                    if (boyTurn) {
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookright, true, false);
 
+                        boyTurn = false;
+                        girlTurn = true;
+                    }
+                }
             }
         });
         girl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (girlTurn) {
-                    {
-                        basketBall.animate()
-                                .x((float) 414)
-                                .y((float) 210)
-                                .setDuration(2200)
-                                .start();
-                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true,true);
+                if (index == 0) {
+                    if (girlTurn) {
+                        {
+                            basketBall.animate()
+                                    .x((float) 414)
+                                    .y((float) 210)
+                                    .setDuration(2200)
+                                    .start();
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
+                            girlTurn = false;
+                        }
+                    }
+                } else {
+                    if (girlTurn) {
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
                         girlTurn = false;
                     }
                 }
             }
         });
-
-        basketBall.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        basketBall.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        basketBall.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(basketBall.getX(), basketBall.getY());
-                        Log.d("TAG", "onTouch:y  y = " + basketBall.getY());
-                        Log.d("TAG", "onTouch:x  x= " + basketBall.getX());
-
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(basketBall.getX(), basketBall.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
-                }
-                return true;
-            }
-        });
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        playVideo("android.resource://" + getPackageName() + "/" + R.raw.bassket_boy, true,false);
+        if (index == 0)
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.bassket_boy, true, false);
+        else {
+            videoView.setBackground(null);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookleft, true, false);
+            boy.setImageResource(R.drawable.left_tree);
 
+            girl.setImageResource(R.drawable.right_tree);
+            basketBall.setVisibility(View.GONE);
+        }
     }
 
-    public void playVideo(String path, boolean isBoy,boolean finish) {
+    public void playVideo(String path, boolean isBoy, boolean finish) {
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

@@ -52,7 +52,8 @@ public class ActivitiesActivity extends AppCompatActivity {
                             .putExtra("lvl", lvl).putExtra("actvtyNum", 1));
             } else if (lvl == 2) {
                 if (position == 0) startActivity(new Intent(this, RabbitJump.class));
-                else if (position == 1) startActivity(new Intent(this, BoyandGirl_45.class));
+                else if (position == 1) startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 0));
+                else  startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 1));
             }
         });
     }
