@@ -20,8 +20,8 @@ public class BressBall_L49 extends AppCompatActivity {
     private ImageView shape;
     private MaterialButton repeat;
     private MaterialButton next;
-    int[] startList = {R.raw.bress_ball_l49_start, R.raw.l50_start, R.raw.l51_start, R.raw.l46_ball_start, R.raw.l46_start, R.raw.l46_maka3b_start};
-    int[] successList = {R.raw.ta3zeez_l49, R.raw.l50_ta3zeez, R.raw.l51_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez};
+    int[] startList = {R.raw.bress_ball_l49_start, R.raw.l50_start, R.raw.l51_start, R.raw.l46_ball_start, R.raw.l46_start, R.raw.l46_maka3b_start, R.raw.l47_mawa7a_start, R.raw.l47__noor_start};
+    int[] successList = {R.raw.ta3zeez_l49, R.raw.l50_ta3zeez, R.raw.l51_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l47_ta3zeez, R.raw.l47_ta3zeez};
     int[] faildList = {R.raw.bress_ball_l49_faild, R.raw.l50_faild};
     int index = 0;
     Handler handler = new Handler();
@@ -36,7 +36,7 @@ public class BressBall_L49 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 index++;
-                if (index == 6) index = 0;
+                if (index == 8) index = 0;
                 shape.setVisibility(View.VISIBLE);
 
                 next.setVisibility(View.GONE);
@@ -63,6 +63,14 @@ public class BressBall_L49 extends AppCompatActivity {
 
                 } else if (index == 5) {
                     shape.setImageResource(R.drawable.moka3b);
+
+                } else if (index == 6) {
+                    shape.setImageResource(R.drawable.marwa7a);
+                    shape.animate()
+                            .x((float) 1768)
+                            .y((float) 138)
+                            .setDuration(2200)
+                            .start();
 
                 }
                 playVideo("android.resource://" + getPackageName() + "/" + startList[index], false);
@@ -103,7 +111,37 @@ public class BressBall_L49 extends AppCompatActivity {
 
             }
         };
+       /*shape.setOnTouchListener(new View.OnTouchListener() {
+            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
+            PointF StartPT = new PointF(); // Record Start Position of 'img'
 
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_MOVE:
+                        shape.setX((int) (StartPT.x + event.getX() - DownPT.x));
+                        shape.setY((int) (StartPT.y + event.getY() - DownPT.y));
+                        StartPT.set(shape.getX(), shape.getY());
+                        Log.d("TAG", "onTouch:y  y = " + shape.getY());
+                        Log.d("TAG", "onTouch:x  x= " + shape.getX());
+
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        DownPT.set(event.getX(), event.getY());
+                        StartPT.set(shape.getX(), shape.getY());
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });*/
 
     }
 
