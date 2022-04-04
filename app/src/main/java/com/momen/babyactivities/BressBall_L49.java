@@ -98,7 +98,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
 
                 } else if (numActivity == 51) {
-                    shape.setImageResource(R.drawable.basket_baal);
+                    shape.setVisibility(View.GONE);
 
                     playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
 
@@ -297,8 +297,10 @@ public class BressBall_L49 extends AppCompatActivity {
                     .start();
             playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
         }
-        else if (numActivity == 51)
+        else if (numActivity == 51) {
+            shape.setVisibility(View.GONE);
             playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
+        }
 
 
     }
