@@ -37,7 +37,7 @@ public class MovingActivity extends AppCompatActivity {
     private TextView fResult;
     private LinearLayout moviLinear;
     private VideoView videoView;
-    int index = 2;
+    int index = 0;
     int[] startList = {R.raw.mataha_l1_v1, R.raw.mataha_l2_v1, R.raw.mataha_l3_1};
     int[] endtList = {R.raw.mataha_l11_v2, R.raw.mataha_l11_v2, R.raw.mataha_l3_v2};
     String path = "";
@@ -89,7 +89,8 @@ public class MovingActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
-                Log.d("TAG", "onTouch: points  x=  " + motionEvent.getX() + " y = " + motionEvent.getY());
+
+                Log.d("TAG", "onTouch: pointsmoviLinear "+ moviLinear.getWidth() +" h = "+moviLinear.getHeight());
 
                 return false;
             }
@@ -103,6 +104,27 @@ public class MovingActivity extends AppCompatActivity {
                 repeat.setVisibility(View.INVISIBLE);
                 index++;
                 if (index == 3) index = 0;
+                if (index == 0) {
+                    moviLinear.setBackgroundResource(R.drawable.mataha1);
+                    moveingRabbitIndex1();
+                } else if (index == 1) {
+                    moviLinear.setBackgroundResource(R.drawable.mataha2);
+                    moveingRabbitIndex2();
+
+                } else if (index == 2) {
+                    moviLinear.setBackgroundResource(R.drawable.mataha3);
+                    moveingRabbitIndex3();
+
+                }
+                playVideo("android.resource://" + getPackageName() + "/" + startList[index], false);
+
+            }
+        });
+        repeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                next.setVisibility(View.INVISIBLE);
+                repeat.setVisibility(View.INVISIBLE);
                 if (index == 0) {
                     moviLinear.setBackgroundResource(R.drawable.mataha1);
                     moveingRabbitIndex1();
@@ -235,7 +257,7 @@ public class MovingActivity extends AppCompatActivity {
                                 isWalkRight = false;
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 800 && img.getX() < 940) {
+                        } else if (img.getX() > 800 && img.getX() < 830) {
                             if (img.getY() > 260 && img.getY() < 373) {
                                 fResult.setText("شااااااااااطر");
 
@@ -245,7 +267,8 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 900 && img.getX() < 1188) {
+                        }else if (img.getX() > 830&& img.getX() < 1188) {
+
                             if (img.getY() > 270 && img.getY() < 612) {
                                 fResult.setText("شااااااااااطر");
 
@@ -345,35 +368,15 @@ public class MovingActivity extends AppCompatActivity {
                         Log.d("TAG", "onTouch:x  x = " + img.getX());
 
 
-                        if (img.getX() < 450) {
-                            if (img.getY() > 231 && img.getY() < 457) {
+                        if (img.getX() > 70 &&img.getX() < 558) {
+                            if (img.getY() > 179 && img.getY() < 643) {
                                 fResult.setText("شااااااااااطر");
                             } else {
                                 isWalkRight = false;
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 250 && img.getX() < 450) {
-                            if (img.getY() > 317 && img.getY() < 612) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 97 && img.getX() < 250) {
-                            if (img.getY() > 304 && img.getY() < 619) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-
-                                isWalkRight = false;
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 250 && img.getX() < 735) {
-                            if (img.getY() > 510 && img.getY() < 642) {
+                        } else if (img.getX() > 558 && img.getX() < 802 ) {
+                            if (img.getY() > 507 && img.getY() < 674) {
                                 fResult.setText("شااااااااااطر");
 
 
@@ -382,8 +385,20 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 735 && img.getX() < 1212) {
-                            if (img.getY() > 560 && img.getY() < 694) {
+                        }else if (img.getX() > 802&& img.getX() < 1418  ) {
+                            if (img.getY() > 126 && img.getY() < 704) {
+
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+
+                                isWalkRight = false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }else if (img.getX() > 1418 && img.getX() < 1730) {
+                            if (img.getY() > 172 && img.getY() < 593.0) {
+
                                 fResult.setText("شااااااااااطر");
 
 
@@ -392,74 +407,14 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 1212 && img.getX() < 1410) {
-                            if (img.getY() > 385 && img.getY() < 673) {
+                        }else if (img.getX() > 1730 && img.getX() < 1900) {
+                            if (img.getY() > 173 && img.getY() < 595) {
+
                                 fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 950 && img.getX() < 1271 && img.getY() < 450) {
-                            if (img.getY() > 359 && img.getY() < 490) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 787 && img.getX() < 950) {
-                            if (img.getY() > 133 && img.getY() < 467) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 950 && img.getX() < 1202) {
-                            if (img.getY() > 276 && img.getY() < 137) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 1202 && img.getX() < 1445) {
-                            if (img.getY() > 168 && img.getY() < 327) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 1445 && img.getX() < 1717) {
-                            if (img.getY() > 186 && img.getY() < 576) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 1545 && img.getX() < 1953) {
-                            if (img.getY() > 383 && img.getY() < 608) {
-                                fResult.setText("شااااااااااطر");
-                                if (img.getX() > 1545 && img.getX() < 1545 && isWalkRight) {
+                                if (img.getX() > 1724 && isWalkRight) {
                                     playVideo("android.resource://" + getPackageName() + "/" + endtList[index], true);
 
                                 }
-
 
                             } else {
                                 isWalkRight = false;
@@ -573,6 +528,22 @@ public class MovingActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (index == 0) {
+            moviLinear.setBackgroundResource(R.drawable.mataha1);
+            moveingRabbitIndex1();
+        } else if (index == 1) {
+            moviLinear.setBackgroundResource(R.drawable.mataha2);
+            moveingRabbitIndex2();
+
+        } else if (index == 2) {
+            moviLinear.setBackgroundResource(R.drawable.mataha3);
+            moveingRabbitIndex3();
+
+        }
+    }
 
     private class matahaModel {
         double x;
