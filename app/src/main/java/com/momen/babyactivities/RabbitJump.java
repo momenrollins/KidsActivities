@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.VideoView;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class RabbitJump extends AppCompatActivity {
 
     private ImageView rabbit;
+    private Button finishBtn;
     Handler handler = new Handler();
     Runnable runnable;
     ArrayList<pointModel> pointList = new ArrayList();
@@ -30,7 +32,7 @@ public class RabbitJump extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rabbit_jump);
         initView();
-        playVideo("android.resource://" + getPackageName() + "/" + R.raw.rabbit_j_start);
+        playVideo("android.resource://" + getPackageName() + "/" + R.raw.rabbit_j_start, false);
         pointList.add(new pointModel(554, 342));
         pointList.add(new pointModel(803, 461));
         pointList.add(new pointModel(1020, 357));
@@ -49,7 +51,8 @@ public class RabbitJump extends AppCompatActivity {
                     index++;
                     handler.postDelayed(runnable, 1000);
                 } else {
-                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.rabbit_j_success);
+                    videoView.setBackground(null);
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.rabbit_j_success, true);
                     handler.removeCallbacks(runnable);
                 }
 
@@ -65,7 +68,7 @@ public class RabbitJump extends AppCompatActivity {
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild);
+                playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
 
             }
         });
@@ -74,18 +77,26 @@ public class RabbitJump extends AppCompatActivity {
     private void initView() {
         rabbit = (ImageView) findViewById(R.id.rabbit);
         videoView = (VideoView) findViewById(R.id.videoView);
+        finishBtn = findViewById(R.id.finishBtn);
         container = (ConstraintLayout) findViewById(R.id.container);
     }
 
-    public void playVideo(String path) {
+    public void playVideo(String path, boolean finish) {
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
 
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-
-
+                if (finish) {
+                    finishBtn.setVisibility(View.VISIBLE);
+                    finishBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            RabbitJump.super.onBackPressed();
+                        }
+                    });
+                }
             }
         });
     }

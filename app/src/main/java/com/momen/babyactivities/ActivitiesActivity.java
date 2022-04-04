@@ -25,30 +25,35 @@ public class ActivitiesActivity extends AppCompatActivity {
         recyclerView.setAdapter(activitiesAdapter);
         activitiesAdapter.setOnItemClickListener(position ->
         {
-            if (position == 2)
-                startActivity(new Intent(this, PlayVideoActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", 0));
-            else if (position <= 26)
-                startActivity(new Intent(this, MainActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else if (position <= 33)
-                startActivity(new Intent(this, DragActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else if (position <= 36)
-                startActivity(new Intent(this, MovingActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else if (position <= 39)
-                startActivity(new Intent(this, TasneefActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else if (position <= 40)
-                startActivity(new Intent(this, ColorActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else if (position <= 41)
-                startActivity(new Intent(this, CollectSquaresActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", position));
-            else
-                startActivity(new Intent(this, PlayVideoActivity.class)
-                        .putExtra("lvl", lvl).putExtra("actvtyNum", 1));
+            if (lvl == 1) {
+                if (position == 2)
+                    startActivity(new Intent(this, PlayVideoActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", 0));
+                else if (position <= 26)
+                    startActivity(new Intent(this, MainActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+                else if (position <= 33)
+                    startActivity(new Intent(this, DragActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+                else if (position <= 36)
+                    startActivity(new Intent(this, MovingActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+                else if (position <= 39)
+                    startActivity(new Intent(this, TasneefActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+                else if (position <= 40)
+                    startActivity(new Intent(this, ColorActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+                else if (position <= 41)
+                    startActivity(new Intent(this, CollectSquaresActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", position));
+                else
+                    startActivity(new Intent(this, PlayVideoActivity.class)
+                            .putExtra("lvl", lvl).putExtra("actvtyNum", 1));
+            } else if (lvl == 2) {
+                if (position == 0) startActivity(new Intent(this, RabbitJump.class));
+                else if (position == 1) startActivity(new Intent(this, BoyandGirl_45.class));
+            }
         });
     }
 }

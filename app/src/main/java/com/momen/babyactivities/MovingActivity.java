@@ -39,9 +39,8 @@ public class MovingActivity extends AppCompatActivity {
     private VideoView videoView;
     int index = 0;
     int[] startList = {R.raw.mataha_l1_v1, R.raw.mataha_l2_v1, R.raw.mataha_l3_1};
-    int[] endtList = {R.raw.mataha_l11_v2, R.raw.mataha_l11_v2, R.raw.mataha_l3_v2};
+    int[] endtList = {R.raw.mataha_l11_v2, R.raw.mataha_l12_v2, R.raw.mataha_l3_v2};
     String path = "";
-    private android.widget.VideoView VideoView;
     private LinearLayout moviLinearv;
     private ImageView btn;
     private MaterialButton repeat;
@@ -487,8 +486,6 @@ public class MovingActivity extends AppCompatActivity {
         moviLinear = findViewById(R.id.moviLinearv);
 
 
-        VideoView = (VideoView) findViewById(R.id.VideoView);
-        moviLinearv = (LinearLayout) findViewById(R.id.moviLinearv);
         btn = (ImageView) findViewById(R.id.btn);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
@@ -532,14 +529,14 @@ public class MovingActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (index == 0) {
-            moviLinear.setBackgroundResource(R.drawable.mataha1);
+//            moviLinear.setBackgroundResource(R.drawable.mataha1);
             moveingRabbitIndex1();
         } else if (index == 1) {
-            moviLinear.setBackgroundResource(R.drawable.mataha2);
+//            moviLinear.setBackgroundResource(R.drawable.mataha2);
             moveingRabbitIndex2();
 
         } else if (index == 2) {
-            moviLinear.setBackgroundResource(R.drawable.mataha3);
+//            moviLinear.setBackgroundResource(R.drawable.mataha3);
             moveingRabbitIndex3();
 
         }
