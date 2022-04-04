@@ -44,15 +44,13 @@ public class RabbitJump extends AppCompatActivity {
                     rabbit.animate()
                             .x((float) pointList.get(index).x)
                             .y((float) pointList.get(index).y)
-                            .setDuration(2200)
+                            .setDuration(1000)
                             .start();
                     index++;
-                    handler.postDelayed(runnable, 2200);
+                    handler.postDelayed(runnable, 1000);
                 } else {
                     playVideo("android.resource://" + getPackageName() + "/" + R.raw.rabbit_j_success);
-
                     handler.removeCallbacks(runnable);
-
                 }
 
             }

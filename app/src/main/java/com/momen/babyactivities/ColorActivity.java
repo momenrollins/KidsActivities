@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.VideoView;
 
@@ -20,6 +21,7 @@ public class ColorActivity extends AppCompatActivity {
     private ImageView circleImage;
     private ImageView ivRedPin;
     private ImageView ivYellowPin;
+    private Button finishBtn;
     int index = 0;
     private VideoView videoView;
 
@@ -187,6 +189,13 @@ public class ColorActivity extends AppCompatActivity {
 
 
                     }else  if (index == 3){
+                        finishBtn.setVisibility(View.VISIBLE);
+                        finishBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                ColorActivity.super.onBackPressed();
+                            }
+                        });
                         index=0;
                         positionImage(ivRedPin,  1683.0f , 765.0f);
 
@@ -198,11 +207,6 @@ public class ColorActivity extends AppCompatActivity {
     }
 
     public void positionImage(View view ,float x,float y) {
-
-
-
-
-
 
         view.animate()
                 .x(x)
@@ -217,5 +221,6 @@ public class ColorActivity extends AppCompatActivity {
         ivRedPin = (ImageView) findViewById(R.id.iv_red_pin);
         ivYellowPin = (ImageView) findViewById(R.id.iv_yellow_pin);
         videoView = (VideoView) findViewById(R.id.videoView);
+        finishBtn =  findViewById(R.id.finishBtn);
     }
 }

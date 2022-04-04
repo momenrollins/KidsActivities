@@ -1,5 +1,6 @@
 package com.momen.babyactivities;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.AdapterViewHolder> {
     OnItemClickListener mListener;
+
+    int lvl = 1;
+
+    public ActivitiesAdapter(int lvl) {
+        this.lvl = lvl;
+    }
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -26,6 +33,7 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ad
         return new AdapterViewHolder(view, mListener);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AdapterViewHolder holder, int position) {
         holder.activityTitle.setText("نشاط " + (position + 1));
@@ -33,8 +41,8 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ad
 
     @Override
     public int getItemCount() {
-        return 33;
-
+        if (lvl == 1) return 43;
+        else return 10;
     }
 
     public class AdapterViewHolder extends RecyclerView.ViewHolder {
