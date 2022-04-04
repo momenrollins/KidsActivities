@@ -53,6 +53,11 @@ public class ActivitiesActivity extends AppCompatActivity {
             } else if (lvl == 2) {
                 if (position == 0) startActivity(new Intent(this, RabbitJump.class));
                 else if (position == 1) startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 0));
+                else if (position == 2) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 46));
+                else if (position == 3) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 47));
+                else if (position == 5) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 49));
+                else if (position == 6) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 50));
+                else if (position == 7) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 51.));
                 else  startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 1));
             }
         });

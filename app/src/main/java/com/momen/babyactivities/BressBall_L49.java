@@ -4,9 +4,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.VideoView;
 
@@ -20,60 +19,91 @@ public class BressBall_L49 extends AppCompatActivity {
     private ImageView shape;
     private MaterialButton repeat;
     private MaterialButton next;
-    int[] startList = {R.raw.bress_ball_l49_start, R.raw.l50_start, R.raw.l51_start, R.raw.l46_ball_start, R.raw.l46_start, R.raw.l46_maka3b_start, R.raw.l47_mawa7a_start, R.raw.l47__noor_start};
-    int[] successList = {R.raw.ta3zeez_l49, R.raw.l50_ta3zeez, R.raw.l51_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l47_ta3zeez, R.raw.l47_ta3zeez};
-    int[] faildList = {R.raw.bress_ball_l49_faild, R.raw.l50_faild};
+    int[] startListL46 = {R.raw.l46_ball_start, R.raw.l46_start, R.raw.l46_maka3b_start};
+    int[] startListL47 = {R.raw.l47_mawa7a_start, R.raw.l47__noor_start};
+    int[] startListL49 = {R.raw.bress_ball_l49_start};
+    int[] startListL50 = {R.raw.l50_start};
+    int[] startListL51 = {R.raw.l51_start};
+    int[] successList46 = {R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez};
+    int[] successList47 = {R.raw.l47_ta3zeez, R.raw.l47_ta3zeez};
+    int[] successList49 = {R.raw.ta3zeez_l49};
+    int[] successList50 = {R.raw.l50_ta3zeez};
+    int[] successList51 = {R.raw.l51_ta3zeez};
+    int[] faildList49 = {R.raw.bress_ball_l49_faild};
+    int[] faildList50 = { R.raw.l50_faild};
     int index = 0;
+    int numActivity = 0;
     Handler handler = new Handler();
     Runnable runnable;
+    private Button finishBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bress_ball_l49);
+        numActivity = getIntent().getIntExtra("actvtyNum", 0);
+
         initView();
+        finishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BressBall_L49.super.onBackPressed();
+            }
+        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 index++;
-                if (index == 8) index = 0;
                 shape.setVisibility(View.VISIBLE);
 
                 next.setVisibility(View.GONE);
                 repeat.setVisibility(View.GONE);
-                if (index == 0) {
-                    shape.setImageResource(R.drawable.basket_baal);
-                    shape.animate()
-                            .x((float) 1560)
-                            .y((float) 499)
-                            .setDuration(2200)
-                            .start();
-                } else if (index == 1) {
-                    shape.animate()
-                            .x((float) 772)
-                            .y((float) 466)
-                            .setDuration(2200)
-                            .start();
-                } else if (index == 2) {
-                    shape.setVisibility(View.GONE);
-                } else if (index == 3) {
-                    shape.setImageResource(R.drawable.basket_baal);
-                } else if (index == 4) {
-                    shape.setImageResource(R.drawable.car_46);
 
-                } else if (index == 5) {
-                    shape.setImageResource(R.drawable.moka3b);
+                if (numActivity == 46) {
+                    if (index == 0) {
+                        shape.setImageResource(R.drawable.basket_baal);
 
-                } else if (index == 6) {
-                    shape.setImageResource(R.drawable.marwa7a);
-                    shape.animate()
-                            .x((float) 1768)
-                            .y((float) 138)
-                            .setDuration(2200)
-                            .start();
+                    } else if (index == 1) {
+                        shape.setImageResource(R.drawable.car_46);
+                        /*shape.animate()
+                                .x((float) 1768)
+                                .y((float) 138)
+                                .setDuration(2200)
+                                .start();*/
+
+                    }else if (index == 2) {
+                        shape.setImageResource(R.drawable.moka3b);
+                        /*shape.animate()
+                                .x((float) 1768)
+                                .y((float) 138)
+                                .setDuration(2200)
+                                .start();*/
+
+                    }
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+
+                } else if (numActivity == 47) {
+
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false);
+
+                }  else if (numActivity == 49) {
+                    shape.setImageResource(R.drawable.basket_baal);
+
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false);
+
+                } else if (numActivity == 50) {
+                    shape.setImageResource(R.drawable.basket_baal);
+
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
+
+                } else if (numActivity == 51) {
+                    shape.setImageResource(R.drawable.basket_baal);
+
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
 
                 }
-                playVideo("android.resource://" + getPackageName() + "/" + startList[index], false);
+
 
             }
         });
@@ -82,22 +112,45 @@ public class BressBall_L49 extends AppCompatActivity {
             public void onClick(View view) {
                 next.setVisibility(View.GONE);
                 repeat.setVisibility(View.GONE);
-                playVideo("android.resource://" + getPackageName() + "/" + startList[index], false);
+                if (numActivity == 46)
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+                else if (numActivity == 47)
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false);
+                else if (numActivity == 49)
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false);
+                else if (numActivity == 50)
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
+                else if (numActivity == 51)
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
+
 
             }
         });
         shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                playVideo("android.resource://" + getPackageName() + "/" + successList[index], true);
+
+                if (numActivity == 46)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
+                else if (numActivity == 47)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList47[index], true);
+                else if (numActivity == 49)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList49[index], true);
+                else if (numActivity == 50)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList50[index], true);
+                else if (numActivity == 51)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList51[index], true);
+
 
             }
         });
         videoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (index == 0 || index == 1)
-                    playVideo("android.resource://" + getPackageName() + "/" + faildList[index], false);
+                if (numActivity == 49 )
+                    playVideo("android.resource://" + getPackageName() + "/" + faildList49[index], false);
+
+                else if ( numActivity == 50) playVideo("android.resource://" + getPackageName() + "/" + faildList50[index], false);
 
             }
         });
@@ -106,7 +159,12 @@ public class BressBall_L49 extends AppCompatActivity {
             @Override
             public void run() {
 
-                playVideo("android.resource://" + getPackageName() + "/" + successList[index], true);
+                if (numActivity == 46)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
+                else if (numActivity == 47)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList47[index], true);
+                else if (numActivity == 51)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList51[index], true);
 
 
             }
@@ -154,12 +212,42 @@ public class BressBall_L49 extends AppCompatActivity {
             public void onCompletion(MediaPlayer mp) {
 
                 if (isSuccess) {
-                    next.setVisibility(View.VISIBLE);
-                    repeat.setVisibility(View.VISIBLE);
 
+
+                    if (numActivity == 46)
+                        if (index == 2) finishBtn.setVisibility(View.VISIBLE);
+                        else {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        }
+
+                    else if (numActivity == 47)
+                        if (index == 1) finishBtn.setVisibility(View.VISIBLE);
+                        else {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        }
+                    else if (numActivity == 49)
+                        if (index == 0) finishBtn.setVisibility(View.VISIBLE);
+                        else {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        }
+                    else if (numActivity == 50)
+                        if (index == 0) finishBtn.setVisibility(View.VISIBLE);
+                        else {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        }
+                    else if (numActivity == 51)
+                        if (index == 0) finishBtn.setVisibility(View.VISIBLE);
+                        else {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        }
 
                 } else {
-                    if (index > 1) {
+                    if (numActivity != 49 && numActivity != 50) {
                         handler.postDelayed(runnable, 2200);
 
                     }
@@ -175,7 +263,43 @@ public class BressBall_L49 extends AppCompatActivity {
         super.onResume();
         next.setVisibility(View.GONE);
         repeat.setVisibility(View.GONE);
-        playVideo("android.resource://" + getPackageName() + "/" + startList[index], false);
+        if (numActivity == 46) {
+            shape.animate()
+                    .x((float) 772)
+                    .y((float) 466)
+                    .setDuration(2200)
+                    .start();
+            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+        }
+        else if (numActivity == 47) {
+            shape.setImageResource(R.drawable.marwa7a);
+            shape.animate()
+                    .x((float) 1768)
+                    .y((float) 138)
+                    .setDuration(2200)
+                    .start();
+            playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false);
+        }
+        else if (numActivity == 49) {
+            shape.setImageResource(R.drawable.basket_baal);
+            shape.animate()
+                    .x((float) 1560)
+                    .y((float) 499)
+                    .setDuration(2200)
+                    .start();
+            playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false);
+        }
+        else if (numActivity == 50) {
+            shape.animate()
+                    .x((float) 772)
+                    .y((float) 466)
+                    .setDuration(2200)
+                    .start();
+            playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
+        }
+        else if (numActivity == 51)
+            playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
+
 
     }
 
@@ -184,5 +308,6 @@ public class BressBall_L49 extends AppCompatActivity {
         shape = (ImageView) findViewById(R.id.shape);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
+        finishBtn = (Button) findViewById(R.id.finishBtn);
     }
 }
