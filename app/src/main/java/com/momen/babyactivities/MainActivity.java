@@ -26,7 +26,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     LinearLayout iv, resultContainer;
 
-    Button next, repeat;
+    Button next, repeat, finish;
     ImageView select_ivRight;
     ImageView select_ivLeft;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.appal2, R.drawable.banana,
             R.drawable.duck, R.drawable.dog,
             R.drawable.lion, R.drawable.lion,
-            R.drawable.red, R.drawable.red,
+            R.drawable.red, R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red,
             R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red, R.drawable.red,
@@ -87,13 +87,16 @@ public class MainActivity extends AppCompatActivity {
         ballImg = findViewById(R.id.ballImg);
 
         next = findViewById(R.id.next);
+        finish = findViewById(R.id.finishBtn);
         repeat = findViewById(R.id.repeat);
         resultContainer = findViewById(R.id.resultContainer);
 
         select_ivRight = findViewById(R.id.selectImage1);
         select_ivLeft = findViewById(R.id.selectImage2);
 
-        activityPosition = getIntent().getIntExtra("actvtyNum", 0);
+        activityPosition = getIntent().getIntExtra("actvtyNum", 0) - 1;
+        if (activityPosition == 0 || activityPosition == -1)
+            activityPosition++;
         nextIndex = activityPosition;
 
         Log.d(TAG, "onCreate:activityPosition  " + imgList.length);
@@ -411,7 +414,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 if (isSuccess) {
-                    resultContainer.setVisibility(View.VISIBLE);
+                    finish.setVisibility(View.VISIBLE);
+                    finish.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            MainActivity.super.onBackPressed();
+                        }
+                    });
+//                    resultContainer.setVisibility(View.VISIBLE);
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

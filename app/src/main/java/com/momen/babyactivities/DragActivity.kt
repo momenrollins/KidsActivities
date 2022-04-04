@@ -242,7 +242,7 @@ class DragActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag)
-        index = intent.getIntExtra("actvtyNum", 0) - 26
+        index = intent.getIntExtra("actvtyNum", 0) - 27
 
         shape1!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
@@ -512,7 +512,7 @@ class DragActivity : AppCompatActivity() {
 
         backBtn.setOnClickListener {
             if (index > 0) {
-            index--
+                index--
                 startLevel(index)
             }
         }
@@ -1068,8 +1068,10 @@ class DragActivity : AppCompatActivity() {
                     shape0000007.visibility = VISIBLE
                     shape0000008.visibility = VISIBLE
                 }
-            }else{
-                options.visibility= VISIBLE
+            } else {
+//                options.visibility = VISIBLE
+                finishBtn.visibility = VISIBLE
+                finishBtn.setOnClickListener { super.onBackPressed() }
             }
         }
     }

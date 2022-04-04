@@ -11,6 +11,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -41,6 +42,7 @@ public class TasneefActivity extends AppCompatActivity {
     private TextView txtRight;
     private MaterialButton repeat;
     private MaterialButton next;
+    private Button finishBtn;
     int index = 0;
 
     int[] tasnefl1A_images = {R.drawable.tasneefl1_hours, R.drawable.dog, R.drawable.tasneefl1_cat, R.drawable.tasneefl1_cow};
@@ -57,61 +59,71 @@ public class TasneefActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasneef);
         initView();
+        index = getIntent().getIntExtra("actvtyNum", 0) - 37;
         setData(index);
 
-        ivA1.setOnClickListener(new View.OnClickListener() {
+        ivA1.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
 
-        ivA2.setOnClickListener(new View.OnClickListener() {
+        ivA2.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivA3.setOnClickListener(new View.OnClickListener() {
+        ivA3.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivA4.setOnClickListener(new View.OnClickListener() {
+        ivA4.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivF1.setOnClickListener(new View.OnClickListener() {
+        ivF1.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivF2.setOnClickListener(new View.OnClickListener() {
+        ivF2.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivA1.setOnClickListener(new View.OnClickListener() {
+        ivA1.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivF3.setOnClickListener(new View.OnClickListener() {
+        ivF3.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
-        ivF4.setOnClickListener(new View.OnClickListener() {
+        ivF4.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
-            public void onClick(View view) {
-                action(view);
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return action(view, motionEvent);
             }
         });
 
@@ -131,11 +143,16 @@ public class TasneefActivity extends AppCompatActivity {
 
             }
         });
-
+        finishBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TasneefActivity.super.onBackPressed();
+            }
+        });
 
     }
 
-    void setData(int index){
+    void setData(int index) {
 
         if (index == 0) {
             ivA1.setImageResource(tasnefl1A_images[0]);
@@ -148,7 +165,7 @@ public class TasneefActivity extends AppCompatActivity {
             ivF4.setImageResource(tasnefl1F_images[3]);
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
-            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1,false);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1, false);
             txtRight.setText("ضع الحيوانات على اليمين");
             txtLeft.setText("ضع الفاكهة على اليسار");
 
@@ -163,12 +180,11 @@ public class TasneefActivity extends AppCompatActivity {
             ivF4.setImageResource(tasnefl2C_images[3]);
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
-            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2,false);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2, false);
             txtRight.setText("ضع الخضار على اليمين");
             txtLeft.setText("ضع لالوان على اليسار");
 
-        }
-        else if (index == 2) {
+        } else if (index == 2) {
             ivA1.setImageResource(tasnefl3T_images[0]);
             ivA2.setImageResource(tasnefl3T_images[1]);
             ivA3.setImageResource(tasnefl3T_images[2]);
@@ -179,12 +195,12 @@ public class TasneefActivity extends AppCompatActivity {
             ivF4.setImageResource(tasnefl3B_images[3]);
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
-            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3,false);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3, false);
 
             txtRight.setText("ضع وسايل الموصلات على اليمين");
             txtLeft.setText("ضع الطيور على اليسار");
         }
-        for (int d=0; d<8 ;d++){
+        for (int d = 0; d < 8; d++) {
 
         }
         positionImage(ivA1);
@@ -198,7 +214,7 @@ public class TasneefActivity extends AppCompatActivity {
 
     }
 
-    public void playVideo(String path , boolean isSuccess) {
+    public void playVideo(String path, boolean isSuccess) {
 
         VideoView.setVideoURI(Uri.parse(path));
         VideoView.start();
@@ -207,10 +223,12 @@ public class TasneefActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
 
-                if (isSuccess){
-                    next.setVisibility(View.VISIBLE);
-                    repeat.setVisibility(View.VISIBLE);
-                }else {
+                if (isSuccess) {
+
+                    finishBtn.setVisibility(View.VISIBLE);
+                    /*next.setVisibility(View.VISIBLE);
+                    repeat.setVisibility(View.VISIBLE);*/
+                } else {
                     next.setVisibility(View.INVISIBLE);
                     repeat.setVisibility(View.INVISIBLE);
                 }
@@ -221,7 +239,7 @@ public class TasneefActivity extends AppCompatActivity {
     }
 
 
-    public void number(int num_v,Context ctx) {
+    public void number(int num_v, Context ctx) {
         final AssetFileDescriptor afd = ctx.getResources().openRawResourceFd(tasnefStartVideos[num_v]);
         final FileDescriptor fileDescriptor = afd.getFileDescriptor();
         MediaPlayer player = new MediaPlayer();
@@ -237,48 +255,50 @@ public class TasneefActivity extends AppCompatActivity {
         }
     }
 
-    void action(View view) {
-        view.setOnTouchListener(new View.OnTouchListener() {
-            PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
-            PointF StartPT = new PointF(); // Record Start Position of 'img'
+    float dX = 0f, dY = 0f;
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+    boolean action(View view, MotionEvent event) {
+        PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
+        PointF StartPT = new PointF(); // Record Start Position of 'img'
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_MOVE:
+                view.animate()
+                        .x(event.getRawX() + dX)
+                        .y(event.getRawY() + dY)
+                        .setDuration(0)
+                        .start();
+                break;
+            case MotionEvent.ACTION_DOWN:
+                DownPT.set(event.getX(), event.getY());
+                StartPT.set(view.getX(), view.getY());
+
+                dX = view.getX() - event.getRawX();
+                dY = view.getY() - event.getRawY();
+                break;
+            case MotionEvent.ACTION_UP:
+
+                view.setX((int) (StartPT.x + event.getX() - DownPT.x));
+                view.setY((int) (StartPT.y + event.getY() - DownPT.y));
+                StartPT.set(view.getX(), view.getY());
+                if (ivA1.getX() > container.getWidth() / 2 &&
+                        ivA2.getX() > container.getWidth() / 2 &&
+                        ivA3.getX() > container.getWidth() / 2 &&
+                        ivA4.getX() > container.getWidth() / 2 &&
+                        ivF1.getX() < container.getWidth() / 2 &&
+                        ivF2.getX() < container.getWidth() / 2 &&
+                        ivF3.getX() < container.getWidth() / 2 &&
+                        ivF4.getX() < container.getWidth() / 2
 
 
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        view.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        view.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(view.getX(), view.getY());
-                        if (ivA1.getX() > container.getWidth() / 2 &&
-                                ivA2.getX() > container.getWidth() / 2 &&
-                                ivA3.getX() > container.getWidth() / 2 &&
-                                ivA4.getX() > container.getWidth() / 2 &&
-                                ivF1.getX() < container.getWidth() / 2 &&
-                                ivF2.getX() < container.getWidth() / 2 &&
-                                ivF3.getX() < container.getWidth() / 2 &&
-                                ivF4.getX() < container.getWidth() / 2
-
-
-                        ) {
-                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez,true);
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(view.getX(), view.getY());
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-                    default:
-                        break;
+                ) {
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
                 }
-                return true;
-            }
-        });
+                break;
+            default:
+                break;
+        }
+        return true;
 
     }
 
@@ -286,14 +306,13 @@ public class TasneefActivity extends AppCompatActivity {
     public void positionImage(View view) {
 
 
-
         int DeviceTotalWidth = container.getWidth();
         int DeviceTotalHeight = container.getHeight();
 
 
         Random random = new Random();
-        float randX = random.nextInt(1500 );
-        float randY = random.nextInt(700 );
+        float randX = random.nextInt(1500);
+        float randY = random.nextInt(700);
         view.animate()
                 .x(randX)
                 .y(randY)
@@ -303,13 +322,13 @@ public class TasneefActivity extends AppCompatActivity {
 
     public float getRandomPositionX(float deviceTotalWidth) {
         Random random = new Random();
-        float randX = random.nextInt((int) deviceTotalWidth  );
+        float randX = random.nextInt((int) deviceTotalWidth);
         return randX;
     }
 
     public float getRandomPositionY(float DeviceTotalHeight) {
         Random random = new Random();
-        float randY = random.nextInt((int) DeviceTotalHeight );
+        float randY = random.nextInt((int) DeviceTotalHeight);
         return randY;
     }
 
@@ -343,5 +362,7 @@ public class TasneefActivity extends AppCompatActivity {
         txtRight = (TextView) findViewById(R.id.txt_right);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
+        finishBtn =  findViewById(R.id.finishBtn);
+
     }
 }
