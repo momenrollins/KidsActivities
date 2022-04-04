@@ -8,7 +8,9 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +21,11 @@ public class BoyandGirl_45 extends AppCompatActivity {
     private VideoView videoView;
     private ImageView boy;
     private ImageView girl;
+    private Button finishBtn;
     private ImageView basketBall;
     int index = 0;
+    boolean girlTurn = false;
+    boolean boyTurn = true;
     int[] startList = {R.raw.bassket_boy, R.raw.basket_girl};
     Handler handler = new Handler();
     Runnable runnable;
@@ -36,7 +41,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
             @Override
             public void run() {
 
-                playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, false);
+                playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, false, false);
 
 
             }
@@ -44,32 +49,41 @@ public class BoyandGirl_45 extends AppCompatActivity {
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true);
+                if (boyTurn || girlTurn)
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
 
             }
         });
         boy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                basketBall.animate()
-                        .x((float) 1489)
-                        .y((float) 189)
-                        .setDuration(2200)
-                        .start();
-                handler.postDelayed(runnable, 2200);
+                if (boyTurn) {
+                    basketBall.animate()
+                            .x((float) 1489)
+                            .y((float) 189)
+                            .setDuration(2200)
+                            .start();
+                    handler.postDelayed(runnable, 2200);
+                    boyTurn = false;
+                    girlTurn = true;
+                }
 
             }
         });
         girl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                basketBall.animate()
-                        .x((float) 414)
-                        .y((float) 210)
-                        .setDuration(2200)
-                        .start();
-                playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
-
+                if (girlTurn) {
+                    {
+                        basketBall.animate()
+                                .x((float) 414)
+                                .y((float) 210)
+                                .setDuration(2200)
+                                .start();
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true,true);
+                        girlTurn = false;
+                    }
+                }
             }
         });
 
@@ -110,19 +124,24 @@ public class BoyandGirl_45 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        playVideo("android.resource://" + getPackageName() + "/" + R.raw.bassket_boy, true);
+        playVideo("android.resource://" + getPackageName() + "/" + R.raw.bassket_boy, true,false);
 
     }
 
-    public void playVideo(String path, boolean isBoy) {
+    public void playVideo(String path, boolean isBoy,boolean finish) {
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
-
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                if (!isBoy) {
-
+                if (finish) {
+                    finishBtn.setVisibility(View.VISIBLE);
+                    finishBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            BoyandGirl_45.super.onBackPressed();
+                        }
+                    });
                 }
 
             }
@@ -132,6 +151,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
     private void initView() {
         videoView = (VideoView) findViewById(R.id.videoView);
         boy = (ImageView) findViewById(R.id.boy);
+        finishBtn = findViewById(R.id.finishBtn);
         girl = (ImageView) findViewById(R.id.girl);
         basketBall = (ImageView) findViewById(R.id.basket_ball);
         container = (ConstraintLayout) findViewById(R.id.container);
