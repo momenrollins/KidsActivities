@@ -212,7 +212,7 @@ public class BressBall_L49 extends AppCompatActivity {
 
             }
         };
-       shape.setOnTouchListener(new View.OnTouchListener() {
+     /*  shape.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
             PointF StartPT = new PointF(); // Record Start Position of 'img'
 
@@ -243,7 +243,7 @@ public class BressBall_L49 extends AppCompatActivity {
                 return true;
             }
         });
-
+*/
     }
 
     public void playVideo(String path, boolean isSuccess) {

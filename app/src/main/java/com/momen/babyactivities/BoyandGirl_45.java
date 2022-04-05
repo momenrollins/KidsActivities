@@ -104,7 +104,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                         girlTurn = false;
                     }
                 } else {
-                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, true);
+                    if (girlTurn)     playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, true);
                 }
             }
         });
@@ -119,14 +119,21 @@ public class BoyandGirl_45 extends AppCompatActivity {
             videoView.setBackground(null);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookleft, true, false);
             boy.setImageResource(R.drawable.left_tree);
+            boy.getLayoutParams().height = 750;
+            boy.getLayoutParams().width = 630;
+            boy.setScaleType( ImageView.ScaleType.FIT_XY);
 
             girl.setImageResource(R.drawable.right_tree);
+            girl.getLayoutParams().height = 750;
+            girl.setScaleType( ImageView.ScaleType.FIT_XY);
+            girl.getLayoutParams().width = 630;
+
             basketBall.setVisibility(View.GONE);
         } else {
             videoView.setBackground(null);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile1, true, false);
             boy.setImageResource(R.drawable.smile);
-
+            girlTurn=true;
             girl.setImageResource(R.drawable.sad);
             basketBall.setVisibility(View.GONE);
         }
