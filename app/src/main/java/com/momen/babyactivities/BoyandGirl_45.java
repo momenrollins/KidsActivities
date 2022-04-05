@@ -39,19 +39,15 @@ public class BoyandGirl_45 extends AppCompatActivity {
         initView();
         index = getIntent().getIntExtra("actvtyNum", 0);
         if (index == 0)
-            runnable = new Runnable() {
-                @Override
-                public void run() {
-                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, false, false);
-
-
-                }
-            };
+            runnable = () -> playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, false, false);
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (boyTurn || girlTurn)
-                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
+                    if (index < 2)
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
+                    else
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, false);
 
 
             }
@@ -70,12 +66,19 @@ public class BoyandGirl_45 extends AppCompatActivity {
                         boyTurn = false;
                         girlTurn = true;
                     }
-                } else {
+                } else if (index == 1) {
                     if (boyTurn) {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookright, true, false);
 
                         boyTurn = false;
                         girlTurn = true;
+                    }
+                } else {
+                    if (boyTurn) {
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile3, true, true);
+
+                        boyTurn = false;
+                        girlTurn = false;
                     }
                 }
             }
@@ -95,11 +98,13 @@ public class BoyandGirl_45 extends AppCompatActivity {
                             girlTurn = false;
                         }
                     }
-                } else {
+                } else if (index == 1) {
                     if (girlTurn) {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
                         girlTurn = false;
                     }
+                } else {
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, true);
                 }
             }
         });
@@ -110,12 +115,19 @@ public class BoyandGirl_45 extends AppCompatActivity {
         super.onResume();
         if (index == 0)
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.bassket_boy, true, false);
-        else {
+        else if (index == 1) {
             videoView.setBackground(null);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookleft, true, false);
             boy.setImageResource(R.drawable.left_tree);
 
             girl.setImageResource(R.drawable.right_tree);
+            basketBall.setVisibility(View.GONE);
+        } else {
+            videoView.setBackground(null);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile1, true, false);
+            boy.setImageResource(R.drawable.smile);
+
+            girl.setImageResource(R.drawable.sad);
             basketBall.setVisibility(View.GONE);
         }
     }

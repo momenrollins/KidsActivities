@@ -60,6 +60,10 @@ public class ActivitiesActivity extends AppCompatActivity {
                 else if (position == 7) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 51));
                 else if (position == 9) startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 53));
                 else  startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 1));
+         /*       else if (position == 1)
+                    startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 0));
+//                else startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 1));
+                else startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 2));*/
             }
         });
     }
