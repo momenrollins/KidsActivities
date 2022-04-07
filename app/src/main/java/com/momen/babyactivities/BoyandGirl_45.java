@@ -58,7 +58,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                 if (index == 0) {
                     if (boyTurn) {
                         basketBall.animate()
-                                .x((float) 1489)
+                                .rotationBy(360).x((float) 1489)
                                 .y((float) 189)
                                 .setDuration(2200)
                                 .start();
@@ -89,7 +89,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                 if (index == 0) {
                     if (girlTurn) {
                         {
-                            basketBall.animate()
+                            basketBall.animate().rotationBy(-360)
                                     .x((float) 414)
                                     .y((float) 210)
                                     .setDuration(2200)
@@ -104,7 +104,8 @@ public class BoyandGirl_45 extends AppCompatActivity {
                         girlTurn = false;
                     }
                 } else {
-                    if (girlTurn)     playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, true);
+                    if (girlTurn)
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, true);
                 }
             }
         });
@@ -121,11 +122,11 @@ public class BoyandGirl_45 extends AppCompatActivity {
             boy.setImageResource(R.drawable.left_tree);
             boy.getLayoutParams().height = 750;
             boy.getLayoutParams().width = 630;
-            boy.setScaleType( ImageView.ScaleType.FIT_XY);
+            boy.setScaleType(ImageView.ScaleType.FIT_XY);
 
             girl.setImageResource(R.drawable.right_tree);
             girl.getLayoutParams().height = 750;
-            girl.setScaleType( ImageView.ScaleType.FIT_XY);
+            girl.setScaleType(ImageView.ScaleType.FIT_XY);
             girl.getLayoutParams().width = 630;
 
             basketBall.setVisibility(View.GONE);
@@ -133,7 +134,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
             videoView.setBackground(null);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile1, true, false);
             boy.setImageResource(R.drawable.smile);
-            girlTurn=true;
+            girlTurn = true;
             girl.setImageResource(R.drawable.sad);
             basketBall.setVisibility(View.GONE);
         }

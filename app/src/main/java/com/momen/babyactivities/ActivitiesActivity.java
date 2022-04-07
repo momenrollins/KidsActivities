@@ -68,9 +68,8 @@ public class ActivitiesActivity extends AppCompatActivity {
                     startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 51));
                 else if (position == 8)
                     startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 2));
-                else if (position == 9)
+                else
                     startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 53));
-                else startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 1));
             } else {
                 startActivity(new Intent(this, PlayVideoActivity.class)
                         .putExtra("lvl", lvl).putExtra("actvtyNum", position + 2));
