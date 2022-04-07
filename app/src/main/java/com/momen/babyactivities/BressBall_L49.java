@@ -44,7 +44,6 @@ public class BressBall_L49 extends AppCompatActivity {
     /*Handler handler = new Handler();
     Runnable runnable;*/
     private Button finishBtn;
-    private ImageView shape1;
     private ImageView shape2;
     private ImageView shape3;
     MediaPlayer ta3zezSound ;
@@ -255,8 +254,8 @@ public class BressBall_L49 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (index == 1)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
-                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true,stepIndex);
+                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false,stepIndex);
 
             }
         });
@@ -264,8 +263,8 @@ public class BressBall_L49 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (index == 0)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
-                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true,stepIndex);
+                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false,stepIndex);
 
             }
         });
@@ -273,8 +272,8 @@ public class BressBall_L49 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (index == 2)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
-                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true,stepIndex);
+                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false,stepIndex);
 
             }
         });
@@ -417,7 +416,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     .y((float) 466)
                     .setDuration(2200)
                     .start();*/
-            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false,stepIndex);
 
         } else if (numActivity == 47) {
             index=0;
