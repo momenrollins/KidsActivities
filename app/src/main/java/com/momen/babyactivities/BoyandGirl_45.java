@@ -60,7 +60,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                     basketBall.animate().rotationBy(-360)
                             .x((float) 414)
                             .y((float) 210)
-                            .setDuration(2200).rotationBy(360)
+                            .setDuration(1100)
                             .start();
                 }
             }
@@ -128,7 +128,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                                 .setDuration(1100)
                                 .start();
 
-                        handler.postDelayed(runnable, 1050);
+                        handler.postDelayed(runnable, 900);
                         boyTurn = false;
                         girlTurn = true;
                     }
@@ -157,11 +157,11 @@ public class BoyandGirl_45 extends AppCompatActivity {
                         {
 
                             basketBall.animate()
-                                    .rotationBy(360).x((float) 965)
+                                    .rotationBy(-360).x((float) 965)
                                     .y((float) 103)
                                     .setDuration(1100)
                                     .start();
-                            handler.postDelayed(runnable, 1050);
+                            handler.postDelayed(runnable, 1000);
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
                             girlTurn = false;
                         }

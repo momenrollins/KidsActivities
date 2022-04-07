@@ -44,6 +44,7 @@ public class BressBall_L49 extends AppCompatActivity {
     /*Handler handler = new Handler();
     Runnable runnable;*/
     private Button finishBtn;
+    private ImageView shape1;
     private ImageView shape2;
     private ImageView shape3;
     private ImageView shapeTrans;
@@ -493,7 +494,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     .y((float) 466)
                     .setDuration(2200)
                     .start();*/
-            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false,stepIndex);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
 
         } else if (numActivity == 47) {
             index = 0;
