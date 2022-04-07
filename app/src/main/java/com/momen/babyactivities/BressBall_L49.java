@@ -34,7 +34,7 @@ public class BressBall_L49 extends AppCompatActivity {
     int[] successList49 = {R.raw.ta3zeez_l49};
     int[] successList50 = {R.raw.l50_ta3zeez};
     int[] successList51 = {R.raw.l51_ta3zeez};
-    int[] successList53 = {R.raw.ta3zez, R.raw.ta3zez, R.raw.ta3zez, R.raw.ta3zez};
+//    int[] successList53 = {R.raw.ta3zez, R.raw.ta3zez, R.raw.ta3zez, R.raw.ta3zez};
 
     int[] faildList49 = {R.raw.bress_ball_l49_faild};
     int[] faildList50 = {R.raw.l50_faild};
@@ -215,8 +215,10 @@ public class BressBall_L49 extends AppCompatActivity {
                         public void onCompletion(MediaPlayer mediaPlayer) {
                             if (index == 3) finishBtn.setVisibility(View.VISIBLE);
                             else {
-                                next.setVisibility(View.VISIBLE);
-                                repeat.setVisibility(View.VISIBLE);
+                                playVideo("android.resource://" + getPackageName() + "/" + startListL53[++index], false);
+
+                            /*    next.setVisibility(View.VISIBLE);
+                                repeat.setVisibility(View.VISIBLE);*/
                             }
 //                            playVideo("android.resource://" + getPackageName() + "/" + successList53[index], true, stepIndex);
                         }
@@ -235,8 +237,8 @@ public class BressBall_L49 extends AppCompatActivity {
                         ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
                         ta3zez_failed_Sound.start();
                         ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
-                            next.setVisibility(View.VISIBLE);
-                            repeat.setVisibility(View.VISIBLE);
+                            playVideo("android.resource://" + getPackageName() + "/" + startListL53[++index], false);
+
                         });
                     } else {
                         ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
@@ -265,8 +267,8 @@ public class BressBall_L49 extends AppCompatActivity {
                         ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
                         ta3zez_failed_Sound.start();
                         ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
-                            next.setVisibility(View.VISIBLE);
-                            repeat.setVisibility(View.VISIBLE);
+                            playVideo("android.resource://" + getPackageName() + "/" + startListL53[++index], false);
+
                         });
                     } else {
                         ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
@@ -293,7 +295,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     if (index == 4) {
                         finishBtn.setVisibility(View.VISIBLE);
 
-                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.shate_vid, true);
                     /*    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
                         ta3zez_failed_Sound.start();
                         ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
@@ -346,8 +348,8 @@ public class BressBall_L49 extends AppCompatActivity {
                     ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
                     ta3zez_failed_Sound.start();
                     ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
-                        next.setVisibility(View.VISIBLE);
-                        repeat.setVisibility(View.VISIBLE);
+                        playVideo("android.resource://" + getPackageName() + "/" + startListL53[++index], false);
+
 
                     });
                 } else {
@@ -456,6 +458,8 @@ public class BressBall_L49 extends AppCompatActivity {
                             repeat.setVisibility(View.VISIBLE);
                         }
                     else if (numActivity == 53) {
+                        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+                        ta3zez_failed_Sound.start();
                       /*  if (index == 3) finishBtn.setVisibility(View.VISIBLE);
                         else {
                             next.setVisibility(View.VISIBLE);
@@ -536,7 +540,7 @@ public class BressBall_L49 extends AppCompatActivity {
             shape3.setVisibility(View.VISIBLE);
             shape1.animate()
                     .x((float) 1706)
-                    .y((float) 297)
+                    .y((float) 303)
                     .setDuration(1)
                     .start();
             shape2.animate()
