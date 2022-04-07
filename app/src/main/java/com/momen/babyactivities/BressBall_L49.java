@@ -5,6 +5,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,7 +27,7 @@ public class BressBall_L49 extends AppCompatActivity {
     int[] startListL49 = {R.raw.bress_ball_l49_start};
     int[] startListL50 = {R.raw.l50_start};
     int[] startListL51 = {R.raw.l51_start};
-    int[] startListL53 = {R.raw.l53_tree_start, R.raw.l53_plane_start, R.raw.l53_3sfora_start, R.raw.l53_lookme_start};
+    int[] startListL53 = {R.raw.l53_tree_start, R.raw.l53_lookme_start, R.raw.l53_plane_start, R.raw.l53_lookme_start, R.raw.l53_3sfora_start};
 
     int[] successList46 = {R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez};
     int[] successList47 = {R.raw.l47_ta3zeez, R.raw.l47_ta3zeez};
@@ -45,7 +47,8 @@ public class BressBall_L49 extends AppCompatActivity {
     private ImageView shape1;
     private ImageView shape2;
     private ImageView shape3;
-    MediaPlayer ta3zezSound ;
+    private ImageView shapeTrans;
+    MediaPlayer ta3zez_failed_Sound;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -159,33 +162,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
 
                 } else if (numActivity == 53) {
-                    if (index == 0) {
-                        shape.setImageResource(R.drawable.l53_tree);
-                        shape.animate()
-                                .x((float) 1706)
-                                .y((float) 297)
-                                .setDuration(1)
-                                .start();
-                    } else if (index == 1) {
-
-                    /*    shape.setImageResource(R.drawable.l53_plane);
-                        shape.animate()
-                                .x((float) 162)
-                                .y((float) 158)
-                                .setDuration(1)
-                                .start();*/
-                    } else if (index == 2) {
-                        shape.setImageResource(R.drawable.l53_3sfora);
-                        shape.animate()
-                                .x((float) 1768)
-                                .y((float) 138)
-                                .setDuration(1)
-                                .start();
-                    } else if (index == 3) {
-                        shape.setVisibility(View.GONE);
-                    }
                     playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
-
                 }
 
 
@@ -231,9 +208,9 @@ public class BressBall_L49 extends AppCompatActivity {
                     playVideo("android.resource://" + getPackageName() + "/" + successList51[index], true);
                 else if (numActivity == 53) {
 //                    if()
-                  ta3zezSound = MediaPlayer.create(BressBall_L49.this, R.raw.ta3zez);
-                    ta3zezSound.start();
-                    ta3zezSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+                    ta3zez_failed_Sound.start();
+                    ta3zez_failed_Sound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mediaPlayer) {
                             if (index == 3) finishBtn.setVisibility(View.VISIBLE);
@@ -252,28 +229,91 @@ public class BressBall_L49 extends AppCompatActivity {
         shape1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (index == 1)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
-                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
-
+                if (numActivity == 53) {
+                    if (index == 0) {
+                        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+                        ta3zez_failed_Sound.start();
+                        ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        });
+                    } else {
+                        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
+                        ta3zez_failed_Sound.start();
+                        ta3zez_failed_Sound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mediaPlayer) {
+                                playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                            }
+                        });
+                    }
+                } else {
+                    if (index == 1)
+                        playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
+                    else
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                }
             }
         });
         shape2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (index == 0)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
-                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
-
+                if (numActivity == 53) {
+                    if (index == 2) {
+                        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+                        ta3zez_failed_Sound.start();
+                        ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        });
+                    } else {
+                        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
+                        ta3zez_failed_Sound.start();
+                        ta3zez_failed_Sound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mediaPlayer) {
+                                playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                            }
+                        });
+                    }
+                } else {
+                    if (index == 0)
+                        playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
+                    else
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                }
             }
         });
         shape3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (index == 2)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
-                else  playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                if (numActivity == 53) {
+                    if (index == 4) {
+                        finishBtn.setVisibility(View.VISIBLE);
 
+                        playVideo("android.resource://" + getPackageName() + "/" +R.raw.ta3zez, true);
+                    /*    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+                        ta3zez_failed_Sound.start();
+                        ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
+                            next.setVisibility(View.VISIBLE);
+                            repeat.setVisibility(View.VISIBLE);
+                        });*/
+                    } else {
+                        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
+                        ta3zez_failed_Sound.start();
+                        ta3zez_failed_Sound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mediaPlayer) {
+                                playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                            }
+                        });
+                    }
+                } else {
+                    if (index == 2)
+                        playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true);
+                    else
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                }
             }
         });
         videoView.setOnClickListener(new View.OnClickListener() {
@@ -285,9 +325,41 @@ public class BressBall_L49 extends AppCompatActivity {
                 else if (numActivity == 50)
                     playVideo("android.resource://" + getPackageName() + "/" + faildList50[index], false);
 
+                else if (numActivity == 53) {
+                    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
+                    ta3zez_failed_Sound.start();
+                    ta3zez_failed_Sound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                        }
+                    });
+                }
             }
         });
+        shapeTrans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (index == 1 || index == 3 || index == 5) {
+                    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+                    ta3zez_failed_Sound.start();
+                    ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
+                        next.setVisibility(View.VISIBLE);
+                        repeat.setVisibility(View.VISIBLE);
 
+                    });
+                } else {
+                    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.faild);
+                    ta3zez_failed_Sound.start();
+                    ta3zez_failed_Sound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                        }
+                    });
+                }
+            }
+        });
 /*
         runnable = new Runnable() {
             @Override
@@ -307,7 +379,7 @@ public class BressBall_L49 extends AppCompatActivity {
         };
 */
 /*
-        shape.setOnTouchListener(new View.OnTouchListener() {
+        shape2.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
             PointF StartPT = new PointF(); // Record Start Position of 'img'
 
@@ -317,11 +389,11 @@ public class BressBall_L49 extends AppCompatActivity {
 
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_MOVE:
-                        shape.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        shape.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(shape.getX(), shape.getY());
-                        Log.d("TAG", "onTouch:y  y = " + shape.getY());
-                        Log.d("TAG", "onTouch:x  x= " + shape.getX());
+                        shape2.setX((int) (StartPT.x + event.getX() - DownPT.x));
+                        shape2.setY((int) (StartPT.y + event.getY() - DownPT.y));
+                        StartPT.set(shape2.getX(), shape2.getY());
+                        Log.d("TAG", "onTouch:y  y = " + shape2.getY());
+                        Log.d("TAG", "onTouch:x  x= " + shape2.getX());
 
                         break;
                     case MotionEvent.ACTION_DOWN:
@@ -381,12 +453,13 @@ public class BressBall_L49 extends AppCompatActivity {
                             next.setVisibility(View.VISIBLE);
                             repeat.setVisibility(View.VISIBLE);
                         }
-                    else if (numActivity == 53)
-                        if (index == 3) finishBtn.setVisibility(View.VISIBLE);
+                    else if (numActivity == 53) {
+                      /*  if (index == 3) finishBtn.setVisibility(View.VISIBLE);
                         else {
                             next.setVisibility(View.VISIBLE);
                             repeat.setVisibility(View.VISIBLE);
-                        }
+                        }*/
+                    }
 
                 } else {
                     if (numActivity != 49 && numActivity != 50) {
@@ -400,9 +473,13 @@ public class BressBall_L49 extends AppCompatActivity {
         });
     }
 
+    private static final String TAG = "BressBall_L49";
+
     @Override
     protected void onResume() {
         super.onResume();
+        ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
+
         next.setVisibility(View.GONE);
         repeat.setVisibility(View.GONE);
         if (numActivity == 46) {
@@ -418,7 +495,7 @@ public class BressBall_L49 extends AppCompatActivity {
             playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
 
         } else if (numActivity == 47) {
-            index=0;
+            index = 0;
             shape.getLayoutParams().height = 350;
             shape.getLayoutParams().width = 320;
             shape.setImageResource(R.drawable.marwa7a);
@@ -447,11 +524,27 @@ public class BressBall_L49 extends AppCompatActivity {
             shape.setVisibility(View.GONE);
             playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
         } else if (numActivity == 53) {
-            shape.setImageResource(R.drawable.l53_tree);
+            shape.setVisibility(View.GONE);
+            shapeTrans.setVisibility(View.VISIBLE);
+            shape1.setImageResource(R.drawable.l53_tree);
             shape1.setVisibility(View.VISIBLE);
-            shape.animate()
+            shape2.setImageResource(R.drawable.l53_plane);
+            shape2.setVisibility(View.VISIBLE);
+            shape3.setImageResource(R.drawable.l53_3sfora);
+            shape3.setVisibility(View.VISIBLE);
+            shape1.animate()
                     .x((float) 1706)
                     .y((float) 297)
+                    .setDuration(1)
+                    .start();
+            shape2.animate()
+                    .x((float) 301)
+                    .y((float) 164)
+                    .setDuration(1)
+                    .start();
+            shape3.animate()
+                    .x((float) 1606)
+                    .y((float) 127)
                     .setDuration(1)
                     .start();
             playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
@@ -459,14 +552,15 @@ public class BressBall_L49 extends AppCompatActivity {
     }
 
     private void initView() {
-        videoView = (VideoView) findViewById(R.id.videoView);
-        shape = (ImageView) findViewById(R.id.shape);
-        repeat = (MaterialButton) findViewById(R.id.repeat);
-        next = (MaterialButton) findViewById(R.id.next);
-        finishBtn = (Button) findViewById(R.id.finishBtn);
-        shape1 = (ImageView) findViewById(R.id.shape1);
-        shape2 = (ImageView) findViewById(R.id.shape2);
-        shape3 = (ImageView) findViewById(R.id.shape3);
+        videoView = findViewById(R.id.videoView);
+        shape = findViewById(R.id.shape);
+        repeat = findViewById(R.id.repeat);
+        next = findViewById(R.id.next);
+        finishBtn = findViewById(R.id.finishBtn);
+        shape1 = findViewById(R.id.shape1);
+        shape2 = findViewById(R.id.shape2);
+        shape3 = findViewById(R.id.shape3);
+        shapeTrans = findViewById(R.id.shapetrans);
 
     }
 }
