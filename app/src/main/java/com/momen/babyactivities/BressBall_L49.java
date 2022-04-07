@@ -291,7 +291,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     if (index == 4) {
                         finishBtn.setVisibility(View.VISIBLE);
 
-                        playVideo("android.resource://" + getPackageName() + "/" +R.raw.ta3zez, true);
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
                     /*    ta3zez_failed_Sound = MediaPlayer.create(BressBall_L49.this, R.raw.shater);
                         ta3zez_failed_Sound.start();
                         ta3zez_failed_Sound.setOnCompletionListener(mediaPlayer -> {
