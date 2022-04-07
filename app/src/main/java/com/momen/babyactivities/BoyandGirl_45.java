@@ -58,9 +58,9 @@ public class BoyandGirl_45 extends AppCompatActivity {
                 if (index == 0) {
                     if (boyTurn) {
                         basketBall.animate()
-                                .x((float) 1489)
-                                .y((float) 175)
-                                .setDuration(2200).rotationBy(360)
+                                .rotationBy(360).x((float) 1489)
+                                .y((float) 189)
+                                .setDuration(2200)
                                 .start();
 
                         handler.postDelayed(runnable, 2200);
@@ -90,7 +90,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                 if (index == 0) {
                     if (girlTurn) {
                         {
-                            basketBall.animate()
+                            basketBall.animate().rotationBy(-360)
                                     .x((float) 414)
                                     .y((float) 210)
                                     .setDuration(2200).rotationBy(360)

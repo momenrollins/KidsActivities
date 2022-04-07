@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ public class BressBall_L49 extends AppCompatActivity {
 
     private VideoView videoView;
     private ImageView shape;
+    private ImageView shape1;
     private MaterialButton repeat;
     private MaterialButton next;
     int[] startListL46 = {R.raw.l46_ball_start, R.raw.l46_start, R.raw.l46_maka3b_start};
@@ -37,13 +39,15 @@ public class BressBall_L49 extends AppCompatActivity {
     int[] faildList49 = {R.raw.bress_ball_l49_faild};
     int[] faildList50 = {R.raw.l50_faild};
     int index = 0;
+    int stepIndex = 0;
     int numActivity = 0;
-    Handler handler = new Handler();
-    Runnable runnable;
+    /*Handler handler = new Handler();
+    Runnable runnable;*/
     private Button finishBtn;
     private ImageView shape1;
     private ImageView shape2;
     private ImageView shape3;
+    MediaPlayer ta3zezSound ;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -112,7 +116,7 @@ public class BressBall_L49 extends AppCompatActivity {
                         /*shape.animate()
                                 .x((float) 1768)
                                 .y((float) 138)
-                                .setDuration(2200)
+                                .setDuration(1)
                                 .start();*/
 
                     } else if (index == 2) {
@@ -120,11 +124,11 @@ public class BressBall_L49 extends AppCompatActivity {
                         /*shape.animate()
                                 .x((float) 1768)
                                 .y((float) 138)
-                                .setDuration(2200)
+                                .setDuration(1)
                                 .start();*/
 
                     }
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false, stepIndex);
 
                 } else if (numActivity == 47) {
                     if (index == 1) {
@@ -137,51 +141,52 @@ public class BressBall_L49 extends AppCompatActivity {
                                 .y((float) 241)
                                 .setDuration(2200)
                                 .start();
-
                     }
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false, stepIndex);
+
 
                 } else if (numActivity == 49) {
                     shape.setImageResource(R.drawable.basket_baal);
 
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false, stepIndex);
 
                 } else if (numActivity == 50) {
                     shape.setImageResource(R.drawable.basket_baal);
 
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false, stepIndex);
 
                 } else if (numActivity == 51) {
                     shape.setVisibility(View.GONE);
 
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false, stepIndex);
 
                 } else if (numActivity == 53) {
                     if (index == 0) {
                         shape.setImageResource(R.drawable.l53_tree);
                         shape.animate()
-                                .x((float) 1768)
-                                .y((float) 138)
-                                .setDuration(2200)
+                                .x((float) 1706)
+                                .y((float) 297)
+                                .setDuration(1)
                                 .start();
                     } else if (index == 1) {
-                        shape.setImageResource(R.drawable.l53_plane);
+
+                    /*    shape.setImageResource(R.drawable.l53_plane);
                         shape.animate()
                                 .x((float) 162)
                                 .y((float) 158)
-                                .setDuration(2200)
-                                .start();
+                                .setDuration(1)
+                                .start();*/
                     } else if (index == 2) {
                         shape.setImageResource(R.drawable.l53_3sfora);
                         shape.animate()
                                 .x((float) 1768)
                                 .y((float) 138)
-                                .setDuration(2200)
+                                .setDuration(1)
                                 .start();
                     } else if (index == 3) {
                         shape.setVisibility(View.GONE);
                     }
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false, stepIndex);
 
                 }
 
@@ -194,17 +199,17 @@ public class BressBall_L49 extends AppCompatActivity {
                 next.setVisibility(View.GONE);
                 repeat.setVisibility(View.GONE);
                 if (numActivity == 46)
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false, stepIndex);
                 else if (numActivity == 47)
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false, stepIndex);
                 else if (numActivity == 49)
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false, stepIndex);
                 else if (numActivity == 50)
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false, stepIndex);
                 else if (numActivity == 51)
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false, stepIndex);
                 else if (numActivity == 53)
-                    playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false, stepIndex);
 
 
             }
@@ -214,17 +219,34 @@ public class BressBall_L49 extends AppCompatActivity {
         shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (numActivity == 47)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList47[index], true);
-                else if (numActivity == 49)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList49[index], true);
-                else if (numActivity == 50)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList50[index], true);
-                else if (numActivity == 51)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList51[index], true);
-                else if (numActivity == 53)
-                    playVideo("android.resource://" + getPackageName() + "/" + successList53[index], true);
 
+                stepIndex++;
+                if (numActivity == 46)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList46[index], true, stepIndex);
+                else if (numActivity == 47)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList47[index], true, stepIndex);
+                else if (numActivity == 49)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList49[index], true, stepIndex);
+                else if (numActivity == 50)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList50[index], true, stepIndex);
+                else if (numActivity == 51)
+                    playVideo("android.resource://" + getPackageName() + "/" + successList51[index], true, stepIndex);
+                else if (numActivity == 53) {
+//                    if()
+                  ta3zezSound = MediaPlayer.create(BressBall_L49.this, R.raw.ta3zez);
+                    ta3zezSound.start();
+                    ta3zezSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            if (index == 3) finishBtn.setVisibility(View.VISIBLE);
+                            else {
+                                next.setVisibility(View.VISIBLE);
+                                repeat.setVisibility(View.VISIBLE);
+                            }
+//                            playVideo("android.resource://" + getPackageName() + "/" + successList53[index], true, stepIndex);
+                        }
+                    });
+                }
 
             }
         });
@@ -260,14 +282,15 @@ public class BressBall_L49 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (numActivity == 49)
-                    playVideo("android.resource://" + getPackageName() + "/" + faildList49[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + faildList49[index], false, stepIndex);
 
                 else if (numActivity == 50)
-                    playVideo("android.resource://" + getPackageName() + "/" + faildList50[index], false);
+                    playVideo("android.resource://" + getPackageName() + "/" + faildList50[index], false, stepIndex);
 
             }
         });
 
+/*
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -284,7 +307,9 @@ public class BressBall_L49 extends AppCompatActivity {
 
             }
         };
-     /*  shape.setOnTouchListener(new View.OnTouchListener() {
+*/
+/*
+        shape.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
             PointF StartPT = new PointF(); // Record Start Position of 'img'
 
@@ -318,7 +343,7 @@ public class BressBall_L49 extends AppCompatActivity {
 */
     }
 
-    public void playVideo(String path, boolean isSuccess) {
+    public void playVideo(String path, boolean isSuccess, int stepIndex) {
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
 
@@ -327,8 +352,6 @@ public class BressBall_L49 extends AppCompatActivity {
             public void onCompletion(MediaPlayer mp) {
 
                 if (isSuccess) {
-
-
                     if (numActivity == 46)
                         if (index == 2) finishBtn.setVisibility(View.VISIBLE);
                         else {
@@ -395,6 +418,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     .setDuration(2200)
                     .start();*/
             playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
+
         } else if (numActivity == 47) {
             index=0;
             shape.getLayoutParams().height = 350;
@@ -403,38 +427,37 @@ public class BressBall_L49 extends AppCompatActivity {
             shape.animate()
                     .x((float) 1768)
                     .y((float) 138)
-                    .setDuration(2200)
+                    .setDuration(1)
                     .start();
-            playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL47[index], false, stepIndex);
         } else if (numActivity == 49) {
             shape.setImageResource(R.drawable.basket_baal);
             shape.animate()
                     .x((float) 1560)
                     .y((float) 499)
-                    .setDuration(2200)
+                    .setDuration(1)
                     .start();
-            playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL49[index], false, stepIndex);
         } else if (numActivity == 50) {
             shape.animate()
                     .x((float) 772)
                     .y((float) 466)
-                    .setDuration(2200)
+                    .setDuration(1)
                     .start();
-            playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL50[index], false, stepIndex);
         } else if (numActivity == 51) {
             shape.setVisibility(View.GONE);
-            playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL51[index], false, stepIndex);
         } else if (numActivity == 53) {
             shape.setImageResource(R.drawable.l53_tree);
+            shape1.setVisibility(View.VISIBLE);
             shape.animate()
-                    .x((float) 1768)
-                    .y((float) 138)
-                    .setDuration(2200)
+                    .x((float) 1706)
+                    .y((float) 297)
+                    .setDuration(1)
                     .start();
-            playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL53[index], false, stepIndex);
         }
-
-
     }
 
     private void initView() {
@@ -446,5 +469,6 @@ public class BressBall_L49 extends AppCompatActivity {
         shape1 = (ImageView) findViewById(R.id.shape1);
         shape2 = (ImageView) findViewById(R.id.shape2);
         shape3 = (ImageView) findViewById(R.id.shape3);
+
     }
 }
