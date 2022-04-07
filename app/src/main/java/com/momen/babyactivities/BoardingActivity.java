@@ -96,7 +96,7 @@ public class BoardingActivity extends AppCompatActivity {
         secondBoardingItem.setImage(R.drawable.img_intro_2);
 
         OnBoardingItem thirdBoardingItem = new OnBoardingItem();
-        thirdBoardingItem.setImage(R.drawable.img_intro_3);
+        thirdBoardingItem       .setImage(R.drawable.img_intro_3);
         OnBoardingItem fourBoardingItem = new OnBoardingItem();
         fourBoardingItem.setImage(R.drawable.img_intro_4);
 

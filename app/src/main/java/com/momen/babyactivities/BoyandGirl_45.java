@@ -1,16 +1,14 @@
 package com.momen.babyactivities;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +28,8 @@ public class BoyandGirl_45 extends AppCompatActivity {
     Handler handler = new Handler();
     Runnable runnable;
     private ConstraintLayout container;
+    private ImageView boy2;
+    private ImageView girl2;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -52,7 +52,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
 
             }
         });
-        boy.setOnClickListener(new View.OnClickListener() {
+        boy2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (index == 0) {
@@ -62,6 +62,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                                 .y((float) 189)
                                 .setDuration(2200)
                                 .start();
+
                         handler.postDelayed(runnable, 2200);
                         boyTurn = false;
                         girlTurn = true;
@@ -83,7 +84,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                 }
             }
         });
-        girl.setOnClickListener(new View.OnClickListener() {
+        girl2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (index == 0) {
@@ -92,8 +93,9 @@ public class BoyandGirl_45 extends AppCompatActivity {
                             basketBall.animate().rotationBy(-360)
                                     .x((float) 414)
                                     .y((float) 210)
-                                    .setDuration(2200)
+                                    .setDuration(2200).rotationBy(360)
                                     .start();
+
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
                             girlTurn = false;
                         }
@@ -167,5 +169,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
         girl = (ImageView) findViewById(R.id.girl);
         basketBall = (ImageView) findViewById(R.id.basket_ball);
         container = (ConstraintLayout) findViewById(R.id.container);
+        boy2 = (ImageView) findViewById(R.id.boy2);
+        girl2 = (ImageView) findViewById(R.id.girl2);
     }
 }
