@@ -4,9 +4,6 @@ import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +32,7 @@ public class BressBall_L49 extends AppCompatActivity {
     int[] successList50 = {R.raw.l50_ta3zeez};
     int[] successList51 = {R.raw.l51_ta3zeez};
     int[] successList53 = {R.raw.ta3zez, R.raw.ta3zez, R.raw.ta3zez, R.raw.ta3zez};
+    int[] faildList47 = {R.raw.l47_marwa7a_faild,R.raw.l47_noor_faild};
 
     int[] faildList49 = {R.raw.bress_ball_l49_faild};
     int[] faildList50 = {R.raw.l50_faild};
@@ -48,6 +46,8 @@ public class BressBall_L49 extends AppCompatActivity {
     private ImageView shape3;
     private ImageView shapeTrans;
     MediaPlayer ta3zez_failed_Sound;
+    private ImageView shape1;
+    private ImageView shapetrans;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -320,7 +320,10 @@ public class BressBall_L49 extends AppCompatActivity {
         videoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (numActivity == 49)
+                if (numActivity == 47)
+                    playVideo("android.resource://" + getPackageName() + "/" + faildList47[index], false);
+
+             else    if (numActivity == 49)
                     playVideo("android.resource://" + getPackageName() + "/" + faildList49[index], false);
 
                 else if (numActivity == 50)
@@ -493,7 +496,7 @@ public class BressBall_L49 extends AppCompatActivity {
                     .y((float) 466)
                     .setDuration(2200)
                     .start();*/
-            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false,stepIndex);
+            playVideo("android.resource://" + getPackageName() + "/" + startListL46[index], false);
 
         } else if (numActivity == 47) {
             index = 0;
@@ -563,5 +566,7 @@ public class BressBall_L49 extends AppCompatActivity {
         shape3 = findViewById(R.id.shape3);
         shapeTrans = findViewById(R.id.shapetrans);
 
+        shape1 = (ImageView) findViewById(R.id.shape1);
+        shapetrans = (ImageView) findViewById(R.id.shapetrans);
     }
 }
