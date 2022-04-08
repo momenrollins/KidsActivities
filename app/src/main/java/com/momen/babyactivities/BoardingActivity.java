@@ -47,7 +47,7 @@ public class BoardingActivity extends AppCompatActivity {
                 if (onboardingViewPager.getCurrentItem() + 1 < onboardingAdapter.getItemCount()) {
                     onboardingViewPager.setCurrentItem(onboardingViewPager.getCurrentItem() + 1);
                 } else {
-                    startActivity(new Intent(getApplicationContext(), ChooseLevelActivity.class));
+                    startActivity(new Intent(getApplicationContext(), IntroActivity.class));
                     finish();
                 }
             }
@@ -90,20 +90,14 @@ public class BoardingActivity extends AppCompatActivity {
 
     private void setOnboardingItem() {
         List<OnBoardingItem> onBoardingItems = new ArrayList<>();
-        OnBoardingItem firstBoardingItem = new OnBoardingItem();
-        firstBoardingItem.setImage(R.drawable.img_intro_1);
-        OnBoardingItem secondBoardingItem = new OnBoardingItem();
-        secondBoardingItem.setImage(R.drawable.img_intro_2);
+
 
         OnBoardingItem thirdBoardingItem = new OnBoardingItem();
         thirdBoardingItem       .setImage(R.drawable.img_intro_3);
-        OnBoardingItem fourBoardingItem = new OnBoardingItem();
-        fourBoardingItem.setImage(R.drawable.img_intro_4);
 
-        onBoardingItems.add(firstBoardingItem);
-        onBoardingItems.add(secondBoardingItem);
+
+
         onBoardingItems.add(thirdBoardingItem);
-        onBoardingItems.add(fourBoardingItem);
         onboardingAdapter = new OnboardingAdapter(onBoardingItems);
     }
 }
