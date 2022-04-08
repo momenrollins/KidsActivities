@@ -48,8 +48,6 @@ public class BressBall_L49 extends AppCompatActivity {
     private ImageView shape3;
     private ImageView shapeTrans;
     MediaPlayer ta3zez_failed_Sound;
-    private ImageView shape1;
-    private ImageView shapetrans;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -590,6 +588,5 @@ public class BressBall_L49 extends AppCompatActivity {
         shapeTrans = findViewById(R.id.shapetrans);
 
         shape1 = (ImageView) findViewById(R.id.shape1);
-        shapetrans = (ImageView) findViewById(R.id.shapetrans);
     }
 }
