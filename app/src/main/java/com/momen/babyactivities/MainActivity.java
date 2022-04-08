@@ -24,7 +24,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout iv, resultContainer;
+    LinearLayout iv, resultContainer, iv_container;
 
     Button next, repeat, finish;
     ImageView select_ivRight;
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         iv = findViewById(R.id.lvlImg);
+        iv_container = findViewById(R.id.iv_container);
         arwImg = findViewById(R.id.arwImg);
         ballImg = findViewById(R.id.ballImg);
 
@@ -462,11 +463,15 @@ public class MainActivity extends AppCompatActivity {
 //        DisplayMetrics metrics = container.getw;
 //        getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        int DeviceTotalWidth = container.getWidth();
-        int DeviceTotalHeight = container.getHeight();
+        int DeviceTotalWidth = iv_container.getWidth();
+        int DeviceTotalHeight = iv_container.getHeight();
 
         float randX = getRandomPositionX(DeviceTotalWidth);
-        float randY = getRandomPositionY(DeviceTotalHeight);
+        float randY=0;
+        if (arwImg.getVisibility() == View.VISIBLE)
+             randY = getRandomPositionY(400);
+        else  randY = getRandomPositionY(DeviceTotalHeight);
+
 
         Log.d(TAG, "positionImage: totalX: " + DeviceTotalWidth + " totalY: " + DeviceTotalHeight);
         Log.d(TAG, "positionImage: ranX: " + randX + " ranY: " + randY);
@@ -485,7 +490,7 @@ public class MainActivity extends AppCompatActivity {
 
     public float getRandomPositionY(float DeviceTotalHeight) {
         Random random = new Random();
-        float randY = random.nextInt((int) DeviceTotalHeight - (int) getImageSizeinPixels());
+        float randY = random.nextInt((int) DeviceTotalHeight  - (int) getImageSizeinPixels());
         return randY;
     }
 
