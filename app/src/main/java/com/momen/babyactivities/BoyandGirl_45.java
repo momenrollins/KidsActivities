@@ -79,7 +79,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
             }
         });
 
-        /*basketBall.setOnTouchListener(new View.OnTouchListener() {
+        /*girl.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
             PointF StartPT = new PointF(); // Record Start Position of 'img'
 
@@ -89,18 +89,18 @@ public class BoyandGirl_45 extends AppCompatActivity {
 
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_MOVE:
-                        basketBall.setX((int) (StartPT.x + event.getX() - DownPT.x));
-                        basketBall.setY((int) (StartPT.y + event.getY() - DownPT.y));
-                        StartPT.set(basketBall.getX(), basketBall.getY());
+                        girl.setX((int) (StartPT.x + event.getX() - DownPT.x));
+                        girl.setY((int) (StartPT.y + event.getY() - DownPT.y));
+                        StartPT.set(girl.getX(), girl.getY());
 
 
-                        Log.d("TAG", "onTouch:y  y = " + basketBall.getY() +" x = "+ basketBall.getX());
+                        Log.d("TAG", "onTouch:y  y = " + girl.getY() +" x = "+ girl.getX());
 
 
                         break;
                     case MotionEvent.ACTION_DOWN:
                         DownPT.set(event.getX(), event.getY());
-                        StartPT.set(basketBall.getX(), basketBall.getY());
+                        StartPT.set(girl.getX(), girl.getY());
 
                         break;
                     case MotionEvent.ACTION_UP:
@@ -204,8 +204,17 @@ public class BoyandGirl_45 extends AppCompatActivity {
             boy2.getLayoutParams().height = 750;
             boy2.getLayoutParams().width = 630;
             boy2.setScaleType(ImageView.ScaleType.FIT_XY);
+            girl.animate()
+                    .x((float) 1565)
+                    .y((float) 152)
+                    .setDuration(500)
+                    .start();
 
-
+            girl2.animate()
+                    .x((float) 1565)
+                    .y((float) 152)
+                    .setDuration(500)
+                    .start();
             girl.setImageResource(R.drawable.right_tree);
             girl.getLayoutParams().height = 750;
             girl.setScaleType(ImageView.ScaleType.FIT_XY);
