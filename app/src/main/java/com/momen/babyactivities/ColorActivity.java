@@ -24,6 +24,9 @@ public class ColorActivity extends AppCompatActivity {
     private Button finishBtn;
     int index = 0;
     private VideoView videoView;
+    int startList[]={R.raw.blue_square,R.raw.square_yellow,R.raw.square_red};
+
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -41,7 +44,9 @@ public class ColorActivity extends AppCompatActivity {
                 return false;
             }
         });
-//        faild x 198.0 y 487.0
+
+
+
         playVideo("android.resource://" + getPackageName() + "/" + R.raw.blue_square, false);
         ivBluePin.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
@@ -56,16 +61,9 @@ public class ColorActivity extends AppCompatActivity {
                         ivBluePin.setX((int) (StartPT.x + event.getX() - DownPT.x));
                         ivBluePin.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(ivBluePin.getX(), ivBluePin.getY());
-                        if ((ivBluePin.getX() < 1000 && ivBluePin.getX() > 800) &&
-                                (ivBluePin.getY() < 400 && ivBluePin.getY() > 250) &&
-                                index == 0
 
-                        ) {
-                            circleImage.setImageResource(R.drawable.color_blue_image);
-                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
-//                            x 142.0 y 767.0
-                        } else
-                            Log.d("TAG", "onTouch:faild x " + ivBluePin.getX() + " y " + ivBluePin.getY());
+
+                      //  Log.d("TAG", "onTouch:faild x " + ivBluePin.getX() + " y " + ivBluePin.getY());
                         break;
                     case MotionEvent.ACTION_DOWN:
                         DownPT.set(event.getX(), event.getY());
@@ -73,6 +71,19 @@ public class ColorActivity extends AppCompatActivity {
 
                         break;
                     case MotionEvent.ACTION_UP:
+                        if ((ivBluePin.getX() < 500 && ivBluePin.getX() > 100) &&
+                                (ivBluePin.getY() < 590 && ivBluePin.getY() > 100) &&
+                                index == 0
+
+                        ) {
+                            circleImage.setImageResource(R.drawable.color_blue_image);
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
+//                            x 142.0 y 767.0
+                        } else {
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+
+                            positionImage(ivBluePin, 1788, 594);
+                        }
 
                         break;
                     default:
@@ -95,16 +106,8 @@ public class ColorActivity extends AppCompatActivity {
                         ivYellowPin.setX((int) (StartPT.x + event.getX() - DownPT.x));
                         ivYellowPin.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(ivYellowPin.getX(), ivYellowPin.getY());
-                        if ((ivYellowPin.getX() < 1000 && ivYellowPin.getX() > 800) &&
-                                (ivYellowPin.getY() < 400 && ivYellowPin.getY() > 250) &&
-                                index == 1
 
-                        ) {
-                            circleImage.setImageResource(R.drawable.color_yellow_image);
-                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
 
-                        } else
-                            Log.d("TAG", "onTouch:faild x " + ivYellowPin.getX() + " y " + ivYellowPin.getY());
 //                        x 905.0 y 772.0
                         break;
                     case MotionEvent.ACTION_DOWN:
@@ -113,8 +116,19 @@ public class ColorActivity extends AppCompatActivity {
 
                         break;
                     case MotionEvent.ACTION_UP:
+                        if ((ivYellowPin.getX() < 500 && ivYellowPin.getX() > 100) &&
+                                (ivYellowPin.getY() < 590 && ivYellowPin.getY() > 100) &&
+                                index == 1
 
-                        break;
+                        ) {
+                            circleImage.setImageResource(R.drawable.color_yellow_image);
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
+
+                        } else {
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+
+                            positionImage(ivYellowPin, 1778, 412);
+                        }                        break;
                     default:
                         break;
                 }
@@ -134,25 +148,29 @@ public class ColorActivity extends AppCompatActivity {
                         ivRedPin.setX((int) (StartPT.x + event.getX() - DownPT.x));
                         ivRedPin.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(ivRedPin.getX(), ivRedPin.getY());
-                        if ((ivRedPin.getX() < 1000 && ivRedPin.getX() > 800) &&
-                                (ivRedPin.getY() < 400 && ivRedPin.getY() > 250) &&
+
+
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        DownPT.set(event.getX(), event.getY());
+                        StartPT.set(ivRedPin.getX(), ivRedPin.getY());
+
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        if ((ivRedPin.getX() < 500 && ivRedPin.getX() > 100) &&
+                                (ivRedPin.getY() < 590 && ivRedPin.getY() > 100) &&
                                 index == 2
 
                         ) {
                             circleImage.setImageResource(R.drawable.color_red_imag);
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
 //                            x 1683.0 y 765.0
-                        } else
-                            Log.d("TAG", "onTouch:faild x " + ivRedPin.getX() + " y " + ivRedPin.getY());
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        DownPT.set(event.getX(), event.getY());
-                        StartPT.set(ivRedPin.getX(), ivRedPin.getY());
+                        } else {
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
 
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        break;
+                            positionImage(ivRedPin, 1787, 234);
+                        }                        break;
                     default:
                         break;
                 }
@@ -181,12 +199,12 @@ public class ColorActivity extends AppCompatActivity {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.square_yellow, false);
 
                         circleImage.setImageResource(R.drawable.color_out_yellow_image);
-                        positionImage(ivBluePin,142.0f , 767.0f);
+                        positionImage(ivBluePin,  1788 , 594);
                     } else if (index == 2) {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.square_red, false);
 
                         circleImage.setImageResource(R.drawable.color_out_red_image);
-                        positionImage(ivYellowPin, 905.0f , 772.0f);
+                        positionImage(ivYellowPin,  1778 , 412);
 
 
                     }else  if (index == 3){
@@ -198,9 +216,12 @@ public class ColorActivity extends AppCompatActivity {
                             }
                         });
                         index=0;
-                        positionImage(ivRedPin,  1683.0f , 765.0f);
+                        positionImage(ivRedPin,  1787 , 234);
 
                     }
+                }else {
+                    playVideo("android.resource://" + getPackageName() + "/" +startList[index], false);
+
                 }
 
             }

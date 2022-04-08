@@ -26,15 +26,14 @@
             android:id="@+id/circle_image"
             android:layout_width="211dp"
             android:layout_height="183dp"
-            android:layout_marginTop="114dp"
-            android:layout_marginBottom="114dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="128dp"
             android:src="@drawable/color_out_blue_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintHorizontal_bias="0.063"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_blue_pin"
