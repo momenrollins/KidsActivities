@@ -41,6 +41,7 @@ public class ColorActivity extends AppCompatActivity {
                 return false;
             }
         });
+//        faild x 198.0 y 487.0
         playVideo("android.resource://" + getPackageName() + "/" + R.raw.blue_square, false);
         ivBluePin.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down

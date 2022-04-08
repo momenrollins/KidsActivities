@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,6 +48,9 @@ public class MovingActivity extends AppCompatActivity {
     private MaterialButton next;
     private Button finishButton;
     boolean isWalkRight = true;
+    boolean isStarted = false;
+    Handler handler = new Handler();
+    Runnable runnable;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -72,6 +76,16 @@ public class MovingActivity extends AppCompatActivity {
 
         );
 
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                path = "android.resource://" + getPackageName() + "/" + startList[index];
+
+                playVideo(path, false);
+
+            }
+        };
+
 
        /* moviLinear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +98,7 @@ public class MovingActivity extends AppCompatActivity {
                         .setDuration(2200)
                         .start();            }
         });*/
-        moviLinear.setOnTouchListener(new View.OnTouchListener() {
+       /* moviLinear.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -93,7 +107,7 @@ public class MovingActivity extends AppCompatActivity {
 
                 return false;
             }
-        });
+        });*/
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +115,7 @@ public class MovingActivity extends AppCompatActivity {
 
                 next.setVisibility(View.INVISIBLE);
                 repeat.setVisibility(View.INVISIBLE);
+                isStarted = false;
                 index++;
                 if (index == 3) index = 0;
                 if (index == 0) {
@@ -124,6 +139,7 @@ public class MovingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 next.setVisibility(View.INVISIBLE);
                 repeat.setVisibility(View.INVISIBLE);
+                isStarted = false;
                 if (index == 0) {
                     moviLinear.setBackgroundResource(R.drawable.mataha1);
                     moveingRabbitIndex1();
@@ -148,11 +164,12 @@ public class MovingActivity extends AppCompatActivity {
     void moveingRabbitIndex1() {
 
 
-        img.animate()
-                .x((float) 410)
-                .y((float) 397)
-                .setDuration(2200)
-                .start();
+        if (!isStarted)
+            img.animate()
+                    .x((float) 410)
+                    .y((float) 397)
+                    .setDuration(2200)
+                    .start();
 
         img.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
@@ -164,6 +181,8 @@ public class MovingActivity extends AppCompatActivity {
 
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_MOVE:
+                        isStarted = true;
+
                         img.setX((int) (StartPT.x + event.getX() - DownPT.x));
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
@@ -197,18 +216,25 @@ public class MovingActivity extends AppCompatActivity {
 
                         break;
                     case MotionEvent.ACTION_DOWN:
+                        isStarted = true;
+
                         DownPT.set(event.getX(), event.getY());
                         StartPT.set(img.getX(), img.getY());
 
                         break;
                     case MotionEvent.ACTION_UP:
                         if (isWalkRight == false) {
+                            path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
+//                            isStarted=false;
+
+                            playVideo(path, false);
                             img.animate()
                                     .x((float) 410)
                                     .y((float) 397)
                                     .setDuration(2200)
                                     .start();
                             isWalkRight = true;
+
                             fResult.setText("حاااااااول تاااانى");
                         }
                         break;
@@ -224,12 +250,12 @@ public class MovingActivity extends AppCompatActivity {
     void moveingRabbitIndex2() {
         width = 120;
 //        latLngsArrayListy.clear();
-
-        img.animate()
-                .x((float) 314)
-                .y((float) 323)
-                .setDuration(2200)
-                .start();
+        if (!isStarted)
+            img.animate()
+                    .x((float) 314)
+                    .y((float) 323)
+                    .setDuration(2200)
+                    .start();
 
         img.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
@@ -238,9 +264,10 @@ public class MovingActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_MOVE:
+                        isStarted = true;
+
                         img.setX((int) (StartPT.x + event.getX() - DownPT.x));
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
@@ -266,7 +293,7 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        }else if (img.getX() > 830&& img.getX() < 1188) {
+                        } else if (img.getX() > 830 && img.getX() < 1188) {
 
                             if (img.getY() > 270 && img.getY() < 612) {
                                 fResult.setText("شااااااااااطر");
@@ -315,12 +342,18 @@ public class MovingActivity extends AppCompatActivity {
 
                         break;
                     case MotionEvent.ACTION_DOWN:
+                        isStarted = true;
+
                         DownPT.set(event.getX(), event.getY());
                         StartPT.set(img.getX(), img.getY());
                         break;
                     case MotionEvent.ACTION_UP:
 
                         if (isWalkRight == false) {
+                            path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
+//                            isStarted=false;
+
+                            playVideo(path, false);
                             img.animate()
                                     .x((float) 314)
                                     .y((float) 323)
@@ -341,12 +374,12 @@ public class MovingActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     void moveingRabbitIndex3() {
 
-
-        img.animate()
-                .x(304)
-                .y(274)
-                .setDuration(2200)
-                .start();
+        if (!isStarted)
+            img.animate()
+                    .x(304)
+                    .y(274)
+                    .setDuration(2200)
+                    .start();
 
         img.setOnTouchListener(new View.OnTouchListener() {
             PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
@@ -355,9 +388,10 @@ public class MovingActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_MOVE:
+                        isStarted = true;
+
                         img.setX((int) (StartPT.x + event.getX() - DownPT.x));
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
@@ -367,14 +401,14 @@ public class MovingActivity extends AppCompatActivity {
                         Log.d("TAG", "onTouch:x  x = " + img.getX());
 
 
-                        if (img.getX() > 70 &&img.getX() < 558) {
+                        if (img.getX() > 70 && img.getX() < 558) {
                             if (img.getY() > 179 && img.getY() < 643) {
                                 fResult.setText("شااااااااااطر");
                             } else {
                                 isWalkRight = false;
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 558 && img.getX() < 802 ) {
+                        } else if (img.getX() > 558 && img.getX() < 802) {
                             if (img.getY() > 507 && img.getY() < 674) {
                                 fResult.setText("شااااااااااطر");
 
@@ -384,7 +418,7 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        }else if (img.getX() > 802&& img.getX() < 1418  ) {
+                        } else if (img.getX() > 802 && img.getX() < 1418) {
                             if (img.getY() > 126 && img.getY() < 704) {
 
                                 fResult.setText("شااااااااااطر");
@@ -395,7 +429,7 @@ public class MovingActivity extends AppCompatActivity {
                                 isWalkRight = false;
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        }else if (img.getX() > 1418 && img.getX() < 1730) {
+                        } else if (img.getX() > 1418 && img.getX() < 1730) {
                             if (img.getY() > 172 && img.getY() < 593.0) {
 
                                 fResult.setText("شااااااااااطر");
@@ -406,7 +440,7 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        }else if (img.getX() > 1730 && img.getX() < 1900) {
+                        } else if (img.getX() > 1730 && img.getX() < 1900) {
                             if (img.getY() > 173 && img.getY() < 595) {
 
                                 fResult.setText("شااااااااااطر");
@@ -417,7 +451,10 @@ public class MovingActivity extends AppCompatActivity {
 
                             } else {
                                 isWalkRight = false;
+                                path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
+//                            isStarted=false;
 
+                                playVideo(path, false);
                                 fResult.setText("حاااااااول تاااانى");
                             }
                         }
@@ -425,11 +462,15 @@ public class MovingActivity extends AppCompatActivity {
 
                         break;
                     case MotionEvent.ACTION_DOWN:
+                        isStarted = false;
                         DownPT.set(event.getX(), event.getY());
                         StartPT.set(img.getX(), img.getY());
                         break;
                     case MotionEvent.ACTION_UP:
                         if (!isWalkRight) {
+                            path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
+                            isStarted = false;
+                            playVideo(path, false);
                             img.animate()
                                     .x((float) 314)
                                     .y((float) 323)
@@ -489,7 +530,7 @@ public class MovingActivity extends AppCompatActivity {
         btn = (ImageView) findViewById(R.id.btn);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
-        finishButton =  findViewById(R.id.finishBtn);
+        finishButton = findViewById(R.id.finishBtn);
     }
 
     public void playVideo(String path, boolean isSuccess) {
@@ -512,13 +553,16 @@ public class MovingActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    if (index == 0) {
-                        moveingRabbitIndex1();
-                    } else if (index == 1) {
-                        moveingRabbitIndex2();
-                    } else if (index == 2) {
-                        moveingRabbitIndex3();
-                    }
+
+                    if (isStarted) {
+                        if (index == 0) {
+                            moveingRabbitIndex1();
+                        } else if (index == 1) {
+                            moveingRabbitIndex2();
+                        } else if (index == 2) {
+                            moveingRabbitIndex3();
+                        }
+                    } else handler.postDelayed(runnable, 3000);
                 }
 
             }
