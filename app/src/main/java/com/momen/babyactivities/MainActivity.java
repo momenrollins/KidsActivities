@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -39,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout container;
     Button replatAgain;
     int nextIndex = 0;
+    Handler handler2 = new Handler();
+    Runnable runnable2;
+    boolean isStarted = false;
     int[] imgList = {R.drawable.lvl1_1, R.drawable.lvl1_2,
             R.drawable.appal2, R.drawable.banana,
             R.drawable.duck, R.drawable.dog,
@@ -344,6 +346,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+
+        runnable2 = new Runnable() {
+            @Override
+            public void run() {
+
+                if (isStarted)
+                    YoYo.with(Techniques.Pulse)
+                            .repeat(1)
+                            .duration(2000)
+                            .playOn(viewSuccess);
+                else playVideo(path, false);
+
+            }
+        };
+
         if (index == 0 || index == 1) {
             handler.post(runnable);
         }
@@ -363,12 +380,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(MainActivity.this, "viewSuccess", Toast.LENGTH_SHORT).show();
-                path = "android.resource://" + getPackageName() + "/" + successList[index];
 
+
+                isStarted=true;
+                path = "android.resource://" + getPackageName() + "/" + successList[index];
+                handler2.postDelayed(runnable2, 8500);
                 if (viewFail != null)
                     viewFail.setVisibility(View.GONE);
-                viewSuccess.setVisibility(View.GONE);
-                arrowTrue.setVisibility(View.GONE);
+                //viewSuccess.setVisibility(View.GONE);
+                arrowTrue.setVisibility(View.INVISIBLE);
          /*       view.setVisibility(View.GONE);
                 view2.setVisibility(View.GONE);*/
                 playVideo(path, true);
@@ -453,6 +473,8 @@ public class MainActivity extends AppCompatActivity {
                     }*/
 
 //                    replatAgain.setVisibility(View.INVISIBLE);
+                }else {
+                    if (!isStarted) handler2.postDelayed(runnable2, 2000);
                 }
             }
         });
@@ -467,10 +489,10 @@ public class MainActivity extends AppCompatActivity {
         int DeviceTotalHeight = iv_container.getHeight();
 
         float randX = getRandomPositionX(DeviceTotalWidth);
-        float randY=0;
+        float randY = 0;
         if (arwImg.getVisibility() == View.VISIBLE)
-             randY = getRandomPositionY(400);
-        else  randY = getRandomPositionY(DeviceTotalHeight);
+            randY = getRandomPositionY(400);
+        else randY = getRandomPositionY(DeviceTotalHeight);
 
 
         Log.d(TAG, "positionImage: totalX: " + DeviceTotalWidth + " totalY: " + DeviceTotalHeight);
@@ -490,7 +512,7 @@ public class MainActivity extends AppCompatActivity {
 
     public float getRandomPositionY(float DeviceTotalHeight) {
         Random random = new Random();
-        float randY = random.nextInt((int) DeviceTotalHeight  - (int) getImageSizeinPixels());
+        float randY = random.nextInt((int) DeviceTotalHeight - (int) getImageSizeinPixels());
         return randY;
     }
 
