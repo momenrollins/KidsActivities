@@ -32,8 +32,8 @@ public class BoyandGirl_45 extends AppCompatActivity {
     private ConstraintLayout container;
     private ImageView boy2;
     private ImageView girl2;
-    boolean isGirlPlay=false;
-    int count =0;
+    boolean isGirlPlay = false;
+    int count = 0;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -55,7 +55,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                             .setDuration(1100)
                             .start();
                     isGirlPlay = true;
-                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, false, false);
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, false, false);
 
 
                 } else if (isGirlPlay) {
@@ -132,19 +132,22 @@ public class BoyandGirl_45 extends AppCompatActivity {
                         handler.postDelayed(runnable, 900);
                         boyTurn = false;
                         girlTurn = true;
+                    } else {
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
                     }
                 } else if (index == 1) {
                     if (boyTurn) {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, true, false);
 
                         count++;
-                        if (count==4){
+                        if (count == 4) {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
 
                         }
                         boyTurn = false;
                         girlTurn = true;
-                    }else playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
+                    } else
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
 
                 } else {
                     if (boyTurn) {
@@ -172,13 +175,16 @@ public class BoyandGirl_45 extends AppCompatActivity {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
                             girlTurn = false;
                         }
+                    } else {
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
                     }
                 } else if (index == 1) {
                     if (girlTurn) {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, true, false);
                         girlTurn = false;
                         count++;
-                    }else playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
+                    } else
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, true, false);
 
                 } else {
                     if (girlTurn)
@@ -224,7 +230,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
 
             girl2.getLayoutParams().height = 750;
             girl2.getLayoutParams().width = 630;
-            Log.d("TAG", "onResume: x "+girl.getX() +" y "+girl.getY());
+            Log.d("TAG", "onResume: x " + girl.getX() + " y " + girl.getY());
           /*  girl.setX(1664);
             girl2.setX(1664);*/
 
@@ -287,23 +293,22 @@ public class BoyandGirl_45 extends AppCompatActivity {
 
                             }
                         }
-                    }else if (index==1){
-                        if (count==1){
-                                playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookright, true, false);
-
-
-                        }
-                        else if (count==2){
-                            girlTurn=true;
+                    } else if (index == 1) {
+                        if (count == 1) {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookright, true, false);
 
-                        }else if (count==3){
-                            boyTurn=true;
-                            girlTurn=false;
+
+                        } else if (count == 2) {
+                            girlTurn = true;
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookright, true, false);
+
+                        } else if (count == 3) {
+                            boyTurn = true;
+                            girlTurn = false;
 
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookleft, true, false);
 
-                        }else if ( isBoy && count==0){
+                        } else if (isBoy && count == 0) {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookleft, true, false);
 
                         }
