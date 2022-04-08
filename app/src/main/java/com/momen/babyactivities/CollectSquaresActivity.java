@@ -27,6 +27,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
     private VideoView VideoView;
     private Button finishBtn;
     private ConstraintLayout mainContainer;
+    boolean isStarted = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -98,12 +99,13 @@ public class CollectSquaresActivity extends AppCompatActivity {
 
 
     }
+
     float dX = 0f, dY = 0f;
 
     boolean action(View view, MotionEvent event) {
         PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
         PointF StartPT = new PointF(); // Record Start Position of 'img'
-
+        isStarted = true;
         switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
                 view.animate()
@@ -136,7 +138,11 @@ public class CollectSquaresActivity extends AppCompatActivity {
                     playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
 
                     Log.d("TAG", "onTouch:successs  ");
-                } else Log.d("TAG", "onTouch:faild  " + ivS2.getX() + "  y " + ivS2.getY());
+                }
+               /* else {
+                    isStarted=false;
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
+                }*/
                 break;
             default:
                 break;
@@ -154,8 +160,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
         VideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                if (isSuccess)
-                {
+                if (isSuccess) {
                     finishBtn.setVisibility(View.VISIBLE);
                     finishBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -163,7 +168,9 @@ public class CollectSquaresActivity extends AppCompatActivity {
                             CollectSquaresActivity.super.onBackPressed();
                         }
                     });
-                }
+                } else if (!isStarted)
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.collect_square_start, false);
+
             }
         });
     }
@@ -176,7 +183,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
         ivS1 = (ImageView) findViewById(R.id.iv_s_1);
         ivS6 = (ImageView) findViewById(R.id.iv_s_6);
         ivS7 = (ImageView) findViewById(R.id.iv_s_7);
-        finishBtn =  findViewById(R.id.finishBtn);
+        finishBtn = findViewById(R.id.finishBtn);
         ivSContainer = (ImageView) findViewById(R.id.iv_s_container);
         VideoView = (VideoView) findViewById(R.id.VideoView);
         mainContainer = (ConstraintLayout) findViewById(R.id.mainContainer);

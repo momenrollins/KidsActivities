@@ -81,7 +81,8 @@ public class MovingActivity extends AppCompatActivity {
             public void run() {
                 path = "android.resource://" + getPackageName() + "/" + startList[index];
 
-                playVideo(path, false);
+                if (!isStarted)
+                    playVideo(path, false);
 
             }
         };
