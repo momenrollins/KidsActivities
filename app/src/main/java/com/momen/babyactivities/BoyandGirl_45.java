@@ -35,6 +35,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
     boolean isGirlPlay=false;
     int count =0;
 
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
         initView();
         index = getIntent().getIntExtra("actvtyNum", 0);
 
-        runnable=new Runnable() {
+        runnable = new Runnable() {
             @Override
             public void run() {
 
@@ -53,15 +54,15 @@ public class BoyandGirl_45 extends AppCompatActivity {
                             .y((float) 202)
                             .setDuration(1100)
                             .start();
-                    isGirlPlay=true;
+                    isGirlPlay = true;
                     playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, false, false);
 
 
-                }else if (isGirlPlay){
+                } else if (isGirlPlay) {
                     basketBall.animate().rotationBy(-360)
                             .x((float) 414)
                             .y((float) 210)
-                            .setDuration(2200)
+                            .setDuration(1100)
                             .start();
                 }
             }
@@ -117,7 +118,6 @@ public class BoyandGirl_45 extends AppCompatActivity {
         //============================
 
 
-
         boy2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,7 +129,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                                 .setDuration(1100)
                                 .start();
 
-                        handler.postDelayed(runnable, 1050);
+                        handler.postDelayed(runnable, 900);
                         boyTurn = false;
                         girlTurn = true;
                     }
@@ -149,7 +149,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                 } else {
                     if (boyTurn) {
                         playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile3, true, true);
-
+                        girl.setVisibility(View.GONE);
                         boyTurn = false;
                         girlTurn = false;
                     }
@@ -168,7 +168,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
                                     .y((float) 103)
                                     .setDuration(1100)
                                     .start();
-                            handler.postDelayed(runnable, 1050);
+                            handler.postDelayed(runnable, 1000);
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true, true);
                             girlTurn = false;
                         }
@@ -182,7 +182,7 @@ public class BoyandGirl_45 extends AppCompatActivity {
 
                 } else {
                     if (girlTurn)
-                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, true);
+                        playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile2, true, false);
                 }
             }
         });
@@ -195,7 +195,8 @@ public class BoyandGirl_45 extends AppCompatActivity {
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.bassket_boy, true, false);
         else if (index == 1) {
             videoView.setBackground(null);
-            isGirlPlay= Boolean.parseBoolean(null);
+            isGirlPlay = Boolean.parseBoolean(null);
+            playVideo("android.resource://" + getPackageName() + "/" + R.raw.lookleft, true, false);
             boy.setImageResource(R.drawable.left_tree);
             boy.getLayoutParams().height = 750;
             boy.getLayoutParams().width = 630;
@@ -224,14 +225,32 @@ public class BoyandGirl_45 extends AppCompatActivity {
         } else {
             videoView.setBackground(null);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.smile1, true, false);
+
             boy.setImageResource(R.drawable.smile);
-            girlTurn = true;
             girl.setImageResource(R.drawable.sad);
+            boy.setVisibility(View.GONE);
+            girl.setVisibility(View.GONE);
+            boyTurn = false;
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    boy.setVisibility(View.VISIBLE);
+                    girlTurn = true;
+                    boyTurn = true;
+
+                }
+            }, 5500);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    girl.setVisibility(View.VISIBLE);
+                }
+            }, 10000);
             basketBall.setVisibility(View.GONE);
         }
     }
 
-    public void playVideo(String path, boolean isBoy, boolean finish ) {
+    public void playVideo(String path, boolean isBoy, boolean finish) {
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -245,8 +264,8 @@ public class BoyandGirl_45 extends AppCompatActivity {
                             BoyandGirl_45.super.onBackPressed();
                         }
                     });
-                }else {
-                    if (index==0) {
+                } else {
+                    if (index == 0) {
                         if (!isBoy) {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.basket_girl, true, false);
 
