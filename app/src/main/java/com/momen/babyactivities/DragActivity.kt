@@ -1,6 +1,7 @@
 package com.momen.babyactivities
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +20,9 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class DragActivity : AppCompatActivity() {
+    companion object {
+        private const val TAG = "MainActivity"
+    }
 
     //    var videoView: VideoView? = null
     var path: String? = null
@@ -580,27 +584,27 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 1) {
                         when (shape) {
                             "Sh01" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape01!!.animate().x(s01X).y(s01Y).duration = 200
                                 isShape1 = true
                             }
                             "Sh02" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape02!!.animate().x(s02X).y(s02Y).duration = 200
                                 isShape2 = true
                             }
                             "Sh03" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape03!!.animate().x(s03X).y(s03Y).duration = 200
                                 isShape3 = true
                             }
                             "Sh04" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape04!!.animate().x(s04X).y(s04Y).duration = 200
                                 isShape4 = true
                             }
                             else -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape05!!.animate().x(s05X).y(s05Y).duration = 200
                                 isShape5 = true
                             }
@@ -609,37 +613,37 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 2) {
                         when (shape) {
                             "Sh001" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape001!!.animate().x(s001X).y(s001Y).duration = 200
                                 isShape1 = true
                             }
                             "Sh002" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape002!!.animate().x(s002X).y(s002Y).duration = 200
                                 isShape2 = true
                             }
                             "Sh003" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape003!!.animate().x(s003X).y(s003Y).duration = 200
                                 isShape3 = true
                             }
                             "Sh004" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape004!!.animate().x(s004X).y(s004Y).duration = 200
                                 isShape4 = true
                             }
                             "Sh005" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape005!!.animate().x(s005X).y(s005Y).duration = 200
                                 isShape5 = true
                             }
                             "Sh006" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape006!!.animate().x(s006X).y(s006Y).duration = 200
                                 isShape6 = true
                             }
                             else -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape007!!.animate().x(s007X).y(s007Y).duration = 200
                                 isShape7 = true
                             }
@@ -648,47 +652,47 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 3) {
                         when (shape) {
                             "Sh0001" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0001!!.animate().x(s0001X).y(s0001Y).duration = 200
                                 isShape1 = true
                             }
                             "Sh0002" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0002!!.animate().x(s0002X).y(s0002Y).duration = 200
                                 isShape2 = true
                             }
                             "Sh0003" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0003!!.animate().x(s0003X).y(s0003Y).duration = 200
                                 isShape3 = true
                             }
                             "Sh0004" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0004!!.animate().x(s0004X).y(s0004Y).duration = 200
                                 isShape4 = true
                             }
                             "Sh0005" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0005!!.animate().x(s0005X).y(s0005Y).duration = 200
                                 isShape5 = true
                             }
                             "Sh0006" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0006!!.animate().x(s0006X).y(s0006Y).duration = 200
                                 isShape6 = true
                             }
                             "Sh0007" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0007!!.animate().x(s0007X).y(s0007Y).duration = 200
                                 isShape7 = true
                             }
                             "Sh0008" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0008!!.animate().x(s0008X).y(s0008Y).duration = 200
                                 isShape8 = true
                             }
                             else -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape0009!!.animate().x(s0009X).y(s0009Y).duration = 200
                                 isShape9 = true
                             }
@@ -697,22 +701,22 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 4) {
                         when (shape) {
                             "Sh00001" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape00001!!.animate().x(s00001X).y(s00001Y).duration = 200
                                 isShape1 = true
                             }
                             "Sh00002" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape00002!!.animate().x(s00002X).y(s00002Y).duration = 200
                                 isShape2 = true
                             }
                             "Sh00003" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape00003!!.animate().x(s00003X).y(s00003Y).duration = 200
                                 isShape3 = true
                             }
                             else -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape00004!!.animate().x(s00004X).y(s00004Y).duration = 200
                                 isShape4 = true
                             }
@@ -721,32 +725,32 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 5) {
                         when (shape) {
                             "Sh000001" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape000001!!.animate().x(s000001X).y(s000001Y).duration = 200
                                 isShape1 = true
                             }
                             "Sh000002" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape000002!!.animate().x(s000002X).y(s000002Y).duration = 200
                                 isShape2 = true
                             }
                             "Sh000003" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape000003!!.animate().x(s000003X).y(s000003Y).duration = 200
                                 isShape3 = true
                             }
                             "Sh000004" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape000004!!.animate().x(s000004X).y(s000004Y).duration = 200
                                 isShape4 = true
                             }
                             "Sh000005" -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape000005!!.animate().x(s000005X).y(s000005Y).duration = 200
                                 isShape5 = true
                             }
                             else -> {
-                                Toast.makeText(this, "شاطر", Toast.LENGTH_SHORT).show()
+                                MediaPlayer.create(this, R.raw.shater).start()
                                 shape000006!!.animate().x(s000006X).y(s000006Y).duration = 200
                                 isShape6 = true
                             }
@@ -798,6 +802,7 @@ class DragActivity : AppCompatActivity() {
                         checkFinished7()
                     }
                 } else {
+                    MediaPlayer.create(this, R.raw.faild).start()
                     if (index == 0) {
                         when (shape) {
                             "Sh1" -> isShape1 = false
@@ -891,6 +896,11 @@ class DragActivity : AppCompatActivity() {
             shape03!!.visibility = GONE
             shape04!!.visibility = GONE
             shape05!!.visibility = GONE
+            shape01s.visibility = GONE
+            shape02s.visibility = GONE
+            shape03s.visibility = GONE
+            shape04s.visibility = GONE
+            shape05s.visibility = GONE
             playVideo(path, true);
         }
     }
@@ -911,6 +921,13 @@ class DragActivity : AppCompatActivity() {
             shape005.visibility = GONE
             shape006.visibility = GONE
             shape007.visibility = GONE
+            shape001s.visibility = GONE
+            shape002s.visibility = GONE
+            shape003s.visibility = GONE
+            shape004s.visibility = GONE
+            shape005s.visibility = GONE
+            shape006s.visibility = GONE
+            shape007s.visibility = GONE
             playVideo(path, true);
         }
     }
@@ -1016,6 +1033,17 @@ class DragActivity : AppCompatActivity() {
                     shape03.visibility = VISIBLE
                     shape04.visibility = VISIBLE
                     shape05.visibility = VISIBLE
+                    shape01s.visibility = VISIBLE
+                    shape02s.visibility = VISIBLE
+                    shape03s.visibility = VISIBLE
+                    shape04s.visibility = VISIBLE
+                    shape05s.visibility = VISIBLE
+                    shape01s.animate().x(s01X).y(s01Y).duration = 1
+                    shape02s.animate().x(s02X).y(s02Y).duration = 1
+                    shape03s.animate().x(s03X).y(s03Y).duration = 1
+                    shape04s.animate().x(s04X).y(s04Y).duration = 1
+                    shape05s.animate().x(s05X).y(s05Y).duration = 1
+
                 } else if (index == 2) {
                     imgBack.setImageResource(R.drawable.clothes_back)
                     imgBack.visibility = VISIBLE
@@ -1026,6 +1054,20 @@ class DragActivity : AppCompatActivity() {
                     shape005.visibility = VISIBLE
                     shape006.visibility = VISIBLE
                     shape007.visibility = VISIBLE
+                    shape001s.visibility = VISIBLE
+                    shape002s.visibility = VISIBLE
+                    shape003s.visibility = VISIBLE
+                    shape004s.visibility = VISIBLE
+                    shape005s.visibility = VISIBLE
+                    shape006s.visibility = VISIBLE
+                    shape007s.visibility = VISIBLE
+                    shape001s!!.animate().x(s001X).y(s001Y).duration = 1
+                    shape002s!!.animate().x(s002X).y(s002Y).duration = 1
+                    shape003s!!.animate().x(s003X).y(s003Y).duration = 1
+                    shape004s!!.animate().x(s004X).y(s004Y).duration = 1
+                    shape005s!!.animate().x(s005X).y(s005Y).duration = 1
+                    shape006s!!.animate().x(s006X).y(s006Y).duration = 1
+                    shape007s!!.animate().x(s007X).y(s007Y).duration = 1
                 } else if (index == 3) {
                     imgBack.setImageResource(R.drawable.fruit_board)
                     imgBack.visibility = VISIBLE
@@ -1074,9 +1116,5 @@ class DragActivity : AppCompatActivity() {
                 finishBtn.setOnClickListener { super.onBackPressed() }
             }
         }
-    }
-
-    companion object {
-        private const val TAG = "MainActivity"
     }
 }

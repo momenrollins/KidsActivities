@@ -23,7 +23,7 @@ import com.daimajia.androidanimations.library.YoYo;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    LinearLayout iv, resultContainer, iv_container;
+    LinearLayout iv, resultContainer;
 
     Button next, repeat, finish;
     ImageView select_ivRight;
@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         iv = findViewById(R.id.lvlImg);
-        iv_container = findViewById(R.id.iv_container);
         arwImg = findViewById(R.id.arwImg);
         ballImg = findViewById(R.id.ballImg);
 
@@ -353,7 +352,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isStarted)
                     YoYo.with(Techniques.Pulse)
-                            .repeat(1)
+
                             .duration(2000)
                             .playOn(viewSuccess);
                 else playVideo(path, false);
@@ -382,7 +381,7 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this, "viewSuccess", Toast.LENGTH_SHORT).show();
 
 
-                isStarted=true;
+                isStarted = true;
                 path = "android.resource://" + getPackageName() + "/" + successList[index];
                 handler2.postDelayed(runnable2, 8500);
                 if (viewFail != null)
@@ -473,7 +472,7 @@ public class MainActivity extends AppCompatActivity {
                     }*/
 
 //                    replatAgain.setVisibility(View.INVISIBLE);
-                }else {
+                } else {
                     if (!isStarted) handler2.postDelayed(runnable2, 2000);
                 }
             }
@@ -485,14 +484,11 @@ public class MainActivity extends AppCompatActivity {
 //        DisplayMetrics metrics = container.getw;
 //        getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        int DeviceTotalWidth = iv_container.getWidth();
-        int DeviceTotalHeight = iv_container.getHeight();
+        int DeviceTotalWidth = container.getWidth();
+        int DeviceTotalHeight = container.getHeight();
 
         float randX = getRandomPositionX(DeviceTotalWidth);
-        float randY = 0;
-        if (arwImg.getVisibility() == View.VISIBLE)
-            randY = getRandomPositionY(400);
-        else randY = getRandomPositionY(DeviceTotalHeight);
+        float randY = getRandomPositionY(DeviceTotalHeight);
 
 
         Log.d(TAG, "positionImage: totalX: " + DeviceTotalWidth + " totalY: " + DeviceTotalHeight);
@@ -512,7 +508,7 @@ public class MainActivity extends AppCompatActivity {
 
     public float getRandomPositionY(float DeviceTotalHeight) {
         Random random = new Random();
-        float randY = random.nextInt((int) DeviceTotalHeight - (int) getImageSizeinPixels());
+        float randY = random.nextInt((int) DeviceTotalHeight - 200 - (int) getImageSizeinPixels());
         return randY;
     }
 
