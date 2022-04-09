@@ -5,17 +5,13 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.*
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
-import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_drag.*
-import java.util.*
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -219,6 +215,26 @@ class DragActivity : AppCompatActivity() {
     val s0000007Y = 384.0f
     val s0000008X = 837.0f
     val s0000008Y = 683.0f
+
+
+    val oldX1 = 0.0f
+    val oldY1 = 0.0f
+    val oldX2 = 0.0f
+    val oldY2 = 0.0f
+    val oldX3 = 0.0f
+    val oldY3 = 0.0f
+    val oldX4 = 0.0f
+    val oldY4 = 0.0f
+    val oldX5 = 0.0f
+    val oldY5 = 0.0f
+    val oldX6 = 0.0f
+    val oldY6 = 0.0f
+    val oldX7 = 0.0f
+    val oldY7 = 0.0f
+    val oldX8 = 0.0f
+    val oldY8 = 0.0f
+    val oldX9 = 0.0f
+    val oldY9 = 0.0f
 
     var index = 0
 
@@ -568,15 +584,18 @@ class DragActivity : AppCompatActivity() {
                     if (index == 0) {
                         when (shape) {
                             "Sh1" -> {
-                                shape1!!.animate().x(s1X).y(s1Y).duration = 200
+                                shape1!!.animate().x(s1X).y(s1Y).duration = 150
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
                                 isShape1 = true
                             }
                             "Sh2" -> {
-                                shape2!!.animate().x(s2X).y(s2Y).duration = 200
+                                shape2!!.animate().x(s2X).y(s2Y).duration = 150
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
                                 isShape2 = true
                             }
                             else -> {
-                                shape3!!.animate().x(s3X).y(s3Y).duration = 200
+                                shape3!!.animate().x(s3X).y(s3Y).duration = 150
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
                                 isShape3 = true
                             }
                         }
@@ -584,28 +603,28 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 1) {
                         when (shape) {
                             "Sh01" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape01!!.animate().x(s01X).y(s01Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape01!!.animate().x(s01X).y(s01Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh02" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape02!!.animate().x(s02X).y(s02Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape02!!.animate().x(s02X).y(s02Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh03" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape03!!.animate().x(s03X).y(s03Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape03!!.animate().x(s03X).y(s03Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh04" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape04!!.animate().x(s04X).y(s04Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape04!!.animate().x(s04X).y(s04Y).duration = 150
                                 isShape4 = true
                             }
                             else -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape05!!.animate().x(s05X).y(s05Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape05!!.animate().x(s05X).y(s05Y).duration = 150
                                 isShape5 = true
                             }
                         }
@@ -613,38 +632,38 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 2) {
                         when (shape) {
                             "Sh001" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape001!!.animate().x(s001X).y(s001Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape001!!.animate().x(s001X).y(s001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh002" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape002!!.animate().x(s002X).y(s002Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape002!!.animate().x(s002X).y(s002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh003" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape003!!.animate().x(s003X).y(s003Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape003!!.animate().x(s003X).y(s003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh004" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape004!!.animate().x(s004X).y(s004Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape004!!.animate().x(s004X).y(s004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh005" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape005!!.animate().x(s005X).y(s005Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape005!!.animate().x(s005X).y(s005Y).duration = 150
                                 isShape5 = true
                             }
                             "Sh006" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape006!!.animate().x(s006X).y(s006Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape006!!.animate().x(s006X).y(s006Y).duration = 150
                                 isShape6 = true
                             }
                             else -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape007!!.animate().x(s007X).y(s007Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape007!!.animate().x(s007X).y(s007Y).duration = 150
                                 isShape7 = true
                             }
                         }
@@ -652,48 +671,48 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 3) {
                         when (shape) {
                             "Sh0001" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0001!!.animate().x(s0001X).y(s0001Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0001!!.animate().x(s0001X).y(s0001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh0002" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0002!!.animate().x(s0002X).y(s0002Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0002!!.animate().x(s0002X).y(s0002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh0003" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0003!!.animate().x(s0003X).y(s0003Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0003!!.animate().x(s0003X).y(s0003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh0004" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0004!!.animate().x(s0004X).y(s0004Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0004!!.animate().x(s0004X).y(s0004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh0005" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0005!!.animate().x(s0005X).y(s0005Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0005!!.animate().x(s0005X).y(s0005Y).duration = 150
                                 isShape5 = true
                             }
                             "Sh0006" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0006!!.animate().x(s0006X).y(s0006Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0006!!.animate().x(s0006X).y(s0006Y).duration = 150
                                 isShape6 = true
                             }
                             "Sh0007" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0007!!.animate().x(s0007X).y(s0007Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0007!!.animate().x(s0007X).y(s0007Y).duration = 150
                                 isShape7 = true
                             }
                             "Sh0008" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0008!!.animate().x(s0008X).y(s0008Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0008!!.animate().x(s0008X).y(s0008Y).duration = 150
                                 isShape8 = true
                             }
                             else -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape0009!!.animate().x(s0009X).y(s0009Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0009!!.animate().x(s0009X).y(s0009Y).duration = 150
                                 isShape9 = true
                             }
                         }
@@ -701,23 +720,23 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 4) {
                         when (shape) {
                             "Sh00001" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape00001!!.animate().x(s00001X).y(s00001Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape00001!!.animate().x(s00001X).y(s00001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh00002" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape00002!!.animate().x(s00002X).y(s00002Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape00002!!.animate().x(s00002X).y(s00002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh00003" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape00003!!.animate().x(s00003X).y(s00003Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape00003!!.animate().x(s00003X).y(s00003Y).duration = 150
                                 isShape3 = true
                             }
                             else -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape00004!!.animate().x(s00004X).y(s00004Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape00004!!.animate().x(s00004X).y(s00004Y).duration = 150
                                 isShape4 = true
                             }
                         }
@@ -725,33 +744,33 @@ class DragActivity : AppCompatActivity() {
                     } else if (index == 5) {
                         when (shape) {
                             "Sh000001" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape000001!!.animate().x(s000001X).y(s000001Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape000001!!.animate().x(s000001X).y(s000001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh000002" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape000002!!.animate().x(s000002X).y(s000002Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape000002!!.animate().x(s000002X).y(s000002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh000003" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape000003!!.animate().x(s000003X).y(s000003Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape000003!!.animate().x(s000003X).y(s000003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh000004" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape000004!!.animate().x(s000004X).y(s000004Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape000004!!.animate().x(s000004X).y(s000004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh000005" -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape000005!!.animate().x(s000005X).y(s000005Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape000005!!.animate().x(s000005X).y(s000005Y).duration = 150
                                 isShape5 = true
                             }
                             else -> {
-                                MediaPlayer.create(this, R.raw.shater).start()
-                                shape000006!!.animate().x(s000006X).y(s000006Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape000006!!.animate().x(s000006X).y(s000006Y).duration = 150
                                 isShape6 = true
                             }
                         }
@@ -759,43 +778,43 @@ class DragActivity : AppCompatActivity() {
                     } else {
                         when (shape) {
                             "Sh0000001" -> {
-                                Toast.makeText(this, "شاطر1", Toast.LENGTH_SHORT).show()
-                                shape0000001!!.animate().x(s0000001X).y(s0000001Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000001!!.animate().x(s0000001X).y(s0000001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh0000002" -> {
-                                Toast.makeText(this, "شاطر2", Toast.LENGTH_SHORT).show()
-                                shape0000002!!.animate().x(s0000002X).y(s0000002Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000002!!.animate().x(s0000002X).y(s0000002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh0000003" -> {
-                                Toast.makeText(this, "3شاطر", Toast.LENGTH_SHORT).show()
-                                shape0000003!!.animate().x(s0000003X).y(s0000003Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000003!!.animate().x(s0000003X).y(s0000003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh0000004" -> {
-                                Toast.makeText(this, "شاطر4", Toast.LENGTH_SHORT).show()
-                                shape0000004!!.animate().x(s0000004X).y(s0000004Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000004!!.animate().x(s0000004X).y(s0000004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh0000005" -> {
-                                Toast.makeText(this, "شاطر5", Toast.LENGTH_SHORT).show()
-                                shape0000005!!.animate().x(s0000005X).y(s0000005Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000005!!.animate().x(s0000005X).y(s0000005Y).duration = 150
                                 isShape5 = true
                             }
                             "Sh0000006" -> {
-                                Toast.makeText(this, "شاطر6", Toast.LENGTH_SHORT).show()
-                                shape0000006!!.animate().x(s0000006X).y(s0000006Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000006!!.animate().x(s0000006X).y(s0000006Y).duration = 150
                                 isShape6 = true
                             }
                             "Sh0000007" -> {
-                                Toast.makeText(this, "شاطر7", Toast.LENGTH_SHORT).show()
-                                shape0000007!!.animate().x(s0000007X).y(s0000007Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000007!!.animate().x(s0000007X).y(s0000007Y).duration = 150
                                 isShape7 = true
                             }
                             else -> {
-                                Toast.makeText(this, "8شاطر", Toast.LENGTH_SHORT).show()
-                                shape0000008!!.animate().x(s0000008X).y(s0000008Y).duration = 200
+                                MediaPlayer.create(this, R.raw.puzz_sound).start()
+                                shape0000008!!.animate().x(s0000008X).y(s0000008Y).duration = 150
                                 isShape8 = true
                             }
                         }
@@ -950,6 +969,15 @@ class DragActivity : AppCompatActivity() {
             shape0007.visibility = GONE
             shape0008.visibility = GONE
             shape0009.visibility = GONE
+            shape0001s.visibility = GONE
+            shape0002s.visibility = GONE
+            shape0003s.visibility = GONE
+            shape0004s.visibility = GONE
+            shape0005s.visibility = GONE
+            shape0006s.visibility = GONE
+            shape0007s.visibility = GONE
+            shape0008s.visibility = GONE
+            shape0009s.visibility = GONE
             playVideo(path, true);
         }
     }
@@ -1080,6 +1108,25 @@ class DragActivity : AppCompatActivity() {
                     shape0007.visibility = VISIBLE
                     shape0008.visibility = VISIBLE
                     shape0009.visibility = VISIBLE
+                    shape0001s.visibility = VISIBLE
+                    shape0002s.visibility = VISIBLE
+                    shape0003s.visibility = VISIBLE
+                    shape0004s.visibility = VISIBLE
+                    shape0005s.visibility = VISIBLE
+                    shape0006s.visibility = VISIBLE
+                    shape0007s.visibility = VISIBLE
+                    shape0008s.visibility = VISIBLE
+                    shape0009s.visibility = VISIBLE
+                    shape0001s.animate().x(s0001X).y(s0001Y).duration = 1
+                    shape0002s.animate().x(s0002X).y(s0002Y).duration = 1
+                    shape0003s.animate().x(s0003X).y(s0003Y).duration = 1
+                    shape0004s.animate().x(s0004X).y(s0004Y).duration = 1
+                    shape0005s.animate().x(s0005X).y(s0005Y).duration = 1
+                    shape0006s.animate().x(s0006X).y(s0006Y).duration = 1
+                    shape0007s.animate().x(s0007X).y(s0007Y).duration = 1
+                    shape0008s.animate().x(s0008X).y(s0008Y).duration = 1
+                    shape0009s.animate().x(s0009X).y(s0009Y).duration = 1
+
                 } else if (index == 4) {
                     imgBack.setImageResource(R.drawable.horse_back)
                     imgBack.visibility = VISIBLE
