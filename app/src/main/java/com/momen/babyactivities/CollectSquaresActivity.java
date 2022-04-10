@@ -76,10 +76,8 @@ public class CollectSquaresActivity extends AppCompatActivity {
                                 playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, false);
 
                             } else if (items.size() == 9) {
-
                                 VideoView.setBackground(null);
                                 playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
-
                             }
                             Log.d("TAG", "onTouch:successs  ");
                         } else {
