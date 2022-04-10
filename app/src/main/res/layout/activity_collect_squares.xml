@@ -16,112 +16,129 @@
         />
 
 
-
-
     <ImageView
         android:id="@+id/iv_s_container"
-        android:layout_width="286dp"
-        android:layout_height="168dp"
+        android:layout_width="258dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginBottom="-20dp"
         android:src="@drawable/sqiar_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:id="@+id/mainContainer">
-
-
-        <ImageView
+    <ImageView
             android:id="@+id/iv_s_2"
-            android:layout_width="62dp"
-            android:layout_height="54dp"
+            android:layout_width="48dp"
+            android:layout_height="44dp"
             android:src="@drawable/sqiar_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
+            app:layout_constraintHorizontal_bias="0.603"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.183" />
+            app:layout_constraintVertical_bias="0.782" />
 
-    <ImageView
-        android:id="@+id/iv_s_3"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/sqiar_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.688"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        <ImageView
+            android:id="@+id/iv_s_3"
+            android:layout_width="49dp"
+            android:layout_height="44dp"
+            android:src="@drawable/sqiar_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.733"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.956" />
 
-    <ImageView
-        android:id="@+id/iv_s_4"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/sqiar_3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        <ImageView
+            android:id="@+id/iv_s_4"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:src="@drawable/sqiar_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.853"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.902" />
 
-    <ImageView
-        android:id="@+id/iv_s_5"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/sqiar_4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.531" />
+        <ImageView
+            android:id="@+id/iv_s_5"
+            android:layout_width="53dp"
+            android:layout_height="45dp"
+            android:src="@drawable/sqiar_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.713"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.803" />
 
-    <ImageView
-        android:id="@+id/iv_s_1"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/sqiar_5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
+        <ImageView
+            android:id="@+id/iv_s_1"
+            android:layout_width="41dp"
+            android:layout_height="42dp"
+            android:src="@drawable/sqiar_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.968"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.875" />
 
-    <ImageView
-        android:id="@+id/iv_s_6"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/sqiar_6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.906"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
+        <ImageView
+            android:id="@+id/iv_s_6"
+            android:layout_width="53dp"
+            android:layout_height="42dp"
+            android:src="@drawable/sqiar_6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.942"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.718" />
 
-    <ImageView
-        android:id="@+id/iv_s_7"
+        <ImageView
+            android:id="@+id/iv_s_7"
 
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/sqiar_7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.659"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.157" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_width="52dp"
+            android:layout_height="43dp"
+            android:src="@drawable/sqiar_7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.586"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.953" />
+
+        <ImageView
+            android:id="@+id/iv_s_8"
+
+            android:layout_width="52dp"
+            android:layout_height="43dp"
+            android:src="@drawable/sqiar_7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.808"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.779" />
+
+        <ImageView
+            android:id="@+id/iv_s_9"
+
+            android:layout_width="52dp"
+            android:layout_height="43dp"
+            android:src="@drawable/sqiar_7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.956" />
 
     <Button
         android:id="@+id/finishBtn"
