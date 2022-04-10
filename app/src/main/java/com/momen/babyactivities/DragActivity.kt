@@ -1,6 +1,7 @@
 package com.momen.babyactivities
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -9,7 +10,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.View.*
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_drag.*
 import kotlin.math.pow
@@ -264,6 +264,37 @@ class DragActivity : AppCompatActivity() {
         setContentView(R.layout.activity_drag)
         index = intent.getIntExtra("actvtyNum", 0) - 27
 
+        backBtn.setOnClickListener {
+            if (index == 0)
+                startActivity(
+                    Intent(this, MainActivity::class.java)
+                        .putExtra("actvtyNum", 26)
+                )
+            else startActivity(
+                Intent(this, DragActivity::class.java)
+                    .putExtra("actvtyNum", --index + 27)
+            )
+            finish()
+        }
+        replayBtn.setOnClickListener {
+            startActivity(
+                Intent(this, DragActivity::class.java)
+                    .putExtra("actvtyNum", index + 27)
+            )
+            finish()
+        }
+        nextBtn.setOnClickListener {
+            if (index == 6)
+                startActivity(
+                    Intent(this, MovingActivity::class.java)
+                        .putExtra("actvtyNum", 34)
+                )
+            else startActivity(
+                Intent(this, DragActivity::class.java)
+                    .putExtra("actvtyNum", ++index + 27)
+            )
+            finish()
+        }
         shape1!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.1) + view.height.toDouble().pow(2.1)
@@ -529,24 +560,10 @@ class DragActivity : AppCompatActivity() {
             checkAction(tolerance, event, view, shape0000008X, shape0000008Y, "Sh0000008")
         })
         startLevel(index)
-
-        backBtn.setOnClickListener {
-            if (index > 0) {
-                index--
-                startLevel(index)
-            }
-        }
-        replayBtn.setOnClickListener { startLevel(index) }
-        nextBtn.setOnClickListener {
-            if (index < 6) {
-                index++
-                startLevel(index)
-            }
-        }
     }
 
     private fun startLevel(index: Int) {
-        options.visibility = GONE
+//        options.visibility = GONE
         path = "android.resource://" + packageName + "/" + startList[index]
         playVideo(path, false)
     }
@@ -1158,9 +1175,7 @@ class DragActivity : AppCompatActivity() {
                     shape0000008.visibility = VISIBLE
                 }
             } else {
-//                options.visibility = VISIBLE
-                finishBtn.visibility = VISIBLE
-                finishBtn.setOnClickListener { super.onBackPressed() }
+                options.visibility = VISIBLE
             }
         }
     }

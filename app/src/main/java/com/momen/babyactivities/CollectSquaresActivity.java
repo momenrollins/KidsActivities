@@ -1,6 +1,7 @@
 package com.momen.babyactivities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,7 +9,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,11 +29,14 @@ public class CollectSquaresActivity extends AppCompatActivity {
     private ImageView ivS7;
     private ImageView ivSContainer;
     private VideoView VideoView;
-    private Button finishBtn;
     boolean isStarted = false;
     private ImageView ivS8;
     private ImageView ivS9;
     ArrayList<String> items = new ArrayList<>();
+    private LinearLayout options;
+    private ImageButton nextBtn;
+    private ImageButton replayBtn;
+    private ImageButton backBtn;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -40,7 +46,31 @@ public class CollectSquaresActivity extends AppCompatActivity {
 
 
         initView();
-
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CollectSquaresActivity.this, ColorActivity.class)
+                       .putExtra("actvtyNum", 40));
+                finish();
+            }
+        });
+        replayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                        new Intent(CollectSquaresActivity.this, CollectSquaresActivity.class)
+                );
+                finish();
+            }
+        });
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CollectSquaresActivity.this, PlayVideoActivity.class)
+                        .putExtra("lvl", 1).putExtra("actvtyNum", 1));
+                finish();
+            }
+        });
         playVideo("android.resource://" + getPackageName() + "/" + R.raw.collect_square_start, false);
 
         ivS1.setOnTouchListener(new View.OnTouchListener() {
@@ -628,13 +658,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 if (isSuccess) {
-                    finishBtn.setVisibility(View.VISIBLE);
-                    finishBtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            CollectSquaresActivity.super.onBackPressed();
-                        }
-                    });
+                    options.setVisibility(View.VISIBLE);
                 } else if (!isStarted)
                     playVideo("android.resource://" + getPackageName() + "/" + R.raw.collect_square_start, false);
 
@@ -650,7 +674,10 @@ public class CollectSquaresActivity extends AppCompatActivity {
         ivS1 = (ImageView) findViewById(R.id.iv_s_1);
         ivS6 = (ImageView) findViewById(R.id.iv_s_6);
         ivS7 = (ImageView) findViewById(R.id.iv_s_7);
-        finishBtn = findViewById(R.id.finishBtn);
+        nextBtn = findViewById(R.id.nextBtn);
+        backBtn = findViewById(R.id.backBtn);
+        replayBtn = findViewById(R.id.replayBtn);
+        options = findViewById(R.id.options);
         ivSContainer = (ImageView) findViewById(R.id.iv_s_container);
         VideoView = (VideoView) findViewById(R.id.VideoView);
         ivS8 = (ImageView) findViewById(R.id.iv_s_8);

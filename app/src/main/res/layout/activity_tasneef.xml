@@ -31,28 +31,30 @@
             android:id="@+id/txt_left"
             android:layout_width="80dp"
             android:layout_height="65dp"
-            android:layout_marginEnd="528dp"
+            android:layout_marginStart="100dp"
             android:gravity="center"
             android:text="🍎 \n ⬇ "
-            android:textSize="20dp"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041" />
-
-        <TextView
-            android:id="@+id/txt_right"
-            android:gravity="center"
-            android:layout_width="80dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="516dp"
-            android:text="🦁 \n ⬇"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041" />
+            app:layout_constraintVertical_bias="0.04" />
+
+        <TextView
+            android:id="@+id/txt_right"
+            android:layout_width="80dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="100dp"
+            android:gravity="center"
+            android:text="🦁 \n ⬇"
+            android:textColor="@color/black"
+
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.046" />
 
         <ImageView
             android:id="@+id/iv_a_1"
@@ -189,16 +191,39 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/finishBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="انهاء"
-        android:textSize="18sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/options"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/VideoView">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_before_24" />
+
+        <ImageButton
+            android:id="@+id/replayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_replay_24" />
+
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_next_24" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

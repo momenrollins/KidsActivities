@@ -2,6 +2,7 @@ package com.momen.babyactivities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.media.MediaPlayer;
@@ -12,7 +13,9 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -44,7 +47,10 @@ public class TasneefActivity extends AppCompatActivity {
     private TextView txtRight;
     private MaterialButton repeat;
     private MaterialButton next;
-    private Button finishBtn;
+    private LinearLayout options;
+    private ImageButton nextBtn;
+    private ImageButton replayBtn;
+    private ImageButton backBtn;
     int index = 0;
 
     int[] tasnefl1A_images = {R.drawable.tasneefl1_hours, R.drawable.dog, R.drawable.tasneefl1_cat, R.drawable.tasneefl1_cow};
@@ -145,10 +151,35 @@ public class TasneefActivity extends AppCompatActivity {
 
             }
         });
-        finishBtn.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TasneefActivity.super.onBackPressed();
+                if (index == 0)
+                    startActivity(new Intent(TasneefActivity.this, MovingActivity.class)
+                            .putExtra("actvtyNum", 36));
+              else  startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
+                        .putExtra("actvtyNum", --index + 37));
+                finish();
+            }
+        });
+        replayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
+                        .putExtra("actvtyNum", index + 37));
+                finish();
+            }
+        });
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (index == 2)
+                    startActivity(new Intent(TasneefActivity.this, ColorActivity.class)
+                            .putExtra("actvtyNum", 40));
+                else
+                    startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
+                            .putExtra("actvtyNum", ++index + 37));
+                finish();
             }
         });
 
@@ -179,7 +210,6 @@ public class TasneefActivity extends AppCompatActivity {
             txtLeft.setText("\uD83C\uDF4E\uD83C\uDF4A\uD83C\uDF47 \n ⬇ ");
 
 
-
         } else if (index == 1) {
             ivA1.setImageResource(tasnefl2G_images[0]);
             ivA2.setImageResource(tasnefl2G_images[1]);
@@ -195,7 +225,7 @@ public class TasneefActivity extends AppCompatActivity {
             txtRight.setText("\uD83C\uDF45\uD83E\uDD52 \n ⬇ ");
             txtLeft.setText("\uD83D\uDFE8\uD83D\uDFE5\uD83D\uDD35 \n ⬇ ");
 
-    } else if (index == 2) {
+        } else if (index == 2) {
             ivA1.setImageResource(tasnefl3T_images[0]);
             ivA2.setImageResource(tasnefl3T_images[1]);
             ivA3.setImageResource(tasnefl3T_images[2]);
@@ -208,8 +238,8 @@ public class TasneefActivity extends AppCompatActivity {
             repeat.setVisibility(View.GONE);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3, false);
 
-            txtRight.setText("\uD83D\uDEFB\uD83D\uDE81 \n ⬇ ");
-            txtLeft.setText("\uD83D\uDC13  \n ⬇ ");
+            txtRight.setText("🚗🚲 \n ⬇ ");
+            txtLeft.setText("🐓🦜  \n ⬇ ");
         }
 
         positionImage(ivA1);
@@ -234,7 +264,7 @@ public class TasneefActivity extends AppCompatActivity {
 
                 if (isSuccess) {
 
-                    finishBtn.setVisibility(View.VISIBLE);
+                    options.setVisibility(View.VISIBLE);
                     /*next.setVisibility(View.VISIBLE);
                     repeat.setVisibility(View.VISIBLE);*/
                 } else {
@@ -377,7 +407,9 @@ public class TasneefActivity extends AppCompatActivity {
         txtRight = (TextView) findViewById(R.id.txt_right);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
-        finishBtn = findViewById(R.id.finishBtn);
-
+        nextBtn = findViewById(R.id.nextBtn);
+        backBtn = findViewById(R.id.backBtn);
+        replayBtn = findViewById(R.id.replayBtn);
+        options = findViewById(R.id.options);
     }
 }
