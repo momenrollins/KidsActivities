@@ -77,7 +77,7 @@ public class ColorActivity extends AppCompatActivity {
 
                         ) {
                             circleImage.setImageResource(R.drawable.color_blue_image);
-                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, true);
 //                            x 142.0 y 767.0
                         } else {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
@@ -122,7 +122,7 @@ public class ColorActivity extends AppCompatActivity {
 
                         ) {
                             circleImage.setImageResource(R.drawable.color_yellow_image);
-                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
+                            playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, true);
 
                         } else {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
@@ -164,6 +164,7 @@ public class ColorActivity extends AppCompatActivity {
 
                         ) {
                             circleImage.setImageResource(R.drawable.color_red_imag);
+                            videoView.setBackgroundResource(0);
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
 //                            x 1683.0 y 765.0
                         } else {

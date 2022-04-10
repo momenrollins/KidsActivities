@@ -19,6 +19,8 @@ import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.button.MaterialButton;
 
 import java.io.FileDescriptor;
@@ -153,7 +155,14 @@ public class TasneefActivity extends AppCompatActivity {
     }
 
     void setData(int index) {
-
+        YoYo.with(Techniques.Pulse)
+                .repeat(YoYo.INFINITE)
+                .duration(1300)
+                .playOn(txtRight);
+        YoYo.with(Techniques.Pulse)
+                .repeat(YoYo.INFINITE)
+                .duration(1300)
+                .playOn(txtLeft);
         if (index == 0) {
             ivA1.setImageResource(tasnefl1A_images[0]);
             ivA2.setImageResource(tasnefl1A_images[1]);
@@ -166,8 +175,10 @@ public class TasneefActivity extends AppCompatActivity {
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1, false);
-            txtRight.setText("ضع الحيوانات على اليمين");
-            txtLeft.setText("ضع الفاكهة على اليسار");
+            txtRight.setText("\uD83D\uDC08\uD83D\uDC15\uD83D\uDC05 \n ⬇ ");
+            txtLeft.setText("\uD83C\uDF4E\uD83C\uDF4A\uD83C\uDF47 \n ⬇ ");
+
+
 
         } else if (index == 1) {
             ivA1.setImageResource(tasnefl2G_images[0]);
@@ -181,10 +192,10 @@ public class TasneefActivity extends AppCompatActivity {
             next.setVisibility(View.GONE);
             repeat.setVisibility(View.GONE);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2, false);
-            txtRight.setText("ضع الخضار على اليمين");
-            txtLeft.setText("ضع لالوان على اليسار");
+            txtRight.setText("\uD83C\uDF45\uD83E\uDD52 \n ⬇ ");
+            txtLeft.setText("\uD83D\uDFE8\uD83D\uDFE5\uD83D\uDD35 \n ⬇ ");
 
-        } else if (index == 2) {
+    } else if (index == 2) {
             ivA1.setImageResource(tasnefl3T_images[0]);
             ivA2.setImageResource(tasnefl3T_images[1]);
             ivA3.setImageResource(tasnefl3T_images[2]);
@@ -197,12 +208,10 @@ public class TasneefActivity extends AppCompatActivity {
             repeat.setVisibility(View.GONE);
             playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3, false);
 
-            txtRight.setText("ضع وسايل الموصلات على اليمين");
-            txtLeft.setText("ضع الطيور على اليسار");
+            txtRight.setText("\uD83D\uDEFB\uD83D\uDE81 \n ⬇ ");
+            txtLeft.setText("\uD83D\uDC13  \n ⬇ ");
         }
-        for (int d = 0; d < 8; d++) {
 
-        }
         positionImage(ivA1);
         positionImage(ivA2);
         positionImage(ivA3);
@@ -281,6 +290,9 @@ public class TasneefActivity extends AppCompatActivity {
                 view.setX((int) (StartPT.x + event.getX() - DownPT.x));
                 view.setY((int) (StartPT.y + event.getY() - DownPT.y));
                 StartPT.set(view.getX(), view.getY());
+
+                view.animate().x(view.getX()).y(view.getY()).start();
+
                 if (ivA1.getX() > container.getWidth() / 2 &&
                         ivA2.getX() > container.getWidth() / 2 &&
                         ivA3.getX() > container.getWidth() / 2 &&
@@ -362,7 +374,7 @@ public class TasneefActivity extends AppCompatActivity {
         txtRight = (TextView) findViewById(R.id.txt_right);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
-        finishBtn =  findViewById(R.id.finishBtn);
+        finishBtn = findViewById(R.id.finishBtn);
 
     }
 }
