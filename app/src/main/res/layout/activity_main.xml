@@ -123,49 +123,37 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/resultContainer"
+        android:id="@+id/options"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:padding="15dp"
-        android:visibility="gone">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/repeat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:text="إعادة"
-            android:textStyle="bold"
-            app:backgroundTint="#1385DF"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_baseline_replay_24" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            app:backgroundTint="#00BC44"
-            android:text="التالى"
-            android:textStyle="bold"
-            app:cornerRadius="20dp"
-            app:icon="@drawable/ic_baseline_navigate_next_24" />
-
-    </LinearLayout>
-    <Button
-        android:id="@+id/finishBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
-        android:text="انهاء"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:visibility="gone" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_before_24" />
+
+        <ImageButton
+            android:id="@+id/replayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_replay_24" />
+
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_next_24" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.momen.babyactivities
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View.GONE
@@ -33,21 +34,33 @@ class PlayVideoActivity : AppCompatActivity() {
 
         finishBtn.setOnClickListener { super.onBackPressed() }
         backBtn.setOnClickListener {
-            index--
-            action(index)
+            if (index == 0) {
+                startActivity(
+                    Intent(this, MainActivity::class.java)
+                        .putExtra("actvtyNum", 1)
+                )
+                finish()
+            } else
+                action(--index)
         }
         replayBtn.setOnClickListener {
             action(index)
         }
         nextBtn.setOnClickListener {
-            index++
-            action(index)
+            if (index == 0) {
+                startActivity(
+                    Intent(this, MainActivity::class.java)
+                        .putExtra("actvtyNum", 3)
+                )
+                finish()
+            } else
+            action(++index)
         }
     }
 
     private fun action(index: Int) {
         finishBtn.visibility = GONE
-        options.visibility = GONE
+//        options.visibility = GONE
         nextBtn.visibility = VISIBLE
         backBtn.visibility = VISIBLE
 
@@ -55,9 +68,7 @@ class PlayVideoActivity : AppCompatActivity() {
         videoView.setVideoURI(Uri.parse(path))
         videoView.start()
         videoView.setOnCompletionListener {
-            if (index < 2)
-                finishBtn.visibility = VISIBLE
-            else if (index == 2) {
+            if (index == 2) {
                 options.visibility = VISIBLE
                 backBtn.visibility = GONE
             } else if (index == videos.lastIndex) {
