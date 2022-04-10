@@ -2,6 +2,7 @@ package com.momen.babyactivities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +48,10 @@ public class MovingActivity extends AppCompatActivity {
     private ImageView btn;
     private MaterialButton repeat;
     private MaterialButton next;
-    private Button finishButton;
+    private LinearLayout options;
+    private ImageButton nextBtn;
+    private ImageButton replayBtn;
+    private ImageButton backBtn;
     boolean isWalkRight = true;
     boolean isStarted = false;
     Handler handler = new Handler();
@@ -65,6 +70,38 @@ public class MovingActivity extends AppCompatActivity {
         img = findViewById(R.id.btn);
         initView();
 
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (index == 0)
+                    startActivity(new Intent(MovingActivity.this, DragActivity.class)
+                            .putExtra("actvtyNum", 33));
+                else  startActivity(new Intent(MovingActivity.this, MovingActivity.class)
+                        .putExtra("actvtyNum", --index + 34));
+                finish();
+            }
+        });
+        replayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MovingActivity.this, MovingActivity.class)
+                        .putExtra("actvtyNum", index + 34));
+                finish();
+            }
+        });
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (index == 2)
+                    startActivity(new Intent(MovingActivity.this,  TasneefActivity.class)
+                        .putExtra("actvtyNum", 37));
+                else
+                    startActivity(new Intent(MovingActivity.this, MovingActivity.class)
+                            .putExtra("actvtyNum", ++index + 34));
+                finish();
+            }
+        });
+        playVideo(path, false);
 
 
         double tolerance = Math.sqrt(
@@ -530,8 +567,10 @@ public class MovingActivity extends AppCompatActivity {
         btn = (ImageView) findViewById(R.id.btn);
         repeat = (MaterialButton) findViewById(R.id.repeat);
         next = (MaterialButton) findViewById(R.id.next);
-        finishButton = findViewById(R.id.finishBtn);
-    }
+        nextBtn = findViewById(R.id.nextBtn);
+        backBtn = findViewById(R.id.backBtn);
+        replayBtn = findViewById(R.id.replayBtn);
+        options = findViewById(R.id.options);    }
 
     public void playVideo(String path, boolean isSuccess) {
         videoView.setVideoURI(Uri.parse(path));
@@ -545,13 +584,8 @@ public class MovingActivity extends AppCompatActivity {
                 if (isSuccess) {
                    /* next.setVisibility(View.VISIBLE);
                     repeat.setVisibility(View.VISIBLE);*/
-                    finishButton.setVisibility(View.VISIBLE);
-                    finishButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            MovingActivity.super.onBackPressed();
-                        }
-                    });
+                    options.setVisibility(View.VISIBLE);
+                    
                 } else {
 
                     if (isStarted) {

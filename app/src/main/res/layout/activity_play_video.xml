@@ -34,7 +34,7 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:visibility="visible"
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <ImageButton

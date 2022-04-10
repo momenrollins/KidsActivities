@@ -40,6 +40,12 @@ class PlayVideoActivity : AppCompatActivity() {
                         .putExtra("actvtyNum", 1)
                 )
                 finish()
+            } else if (index == 1) {
+                startActivity(
+                    Intent(this, CollectSquaresActivity::class.java)
+                        .putExtra("actvtyNum", 41)
+                )
+                finish()
             } else
                 action(--index)
         }
@@ -54,13 +60,13 @@ class PlayVideoActivity : AppCompatActivity() {
                 )
                 finish()
             } else
-            action(++index)
+                action(++index)
         }
     }
 
     private fun action(index: Int) {
         finishBtn.visibility = GONE
-//        options.visibility = GONE
+        options.visibility = GONE
         nextBtn.visibility = VISIBLE
         backBtn.visibility = VISIBLE
 
@@ -71,7 +77,7 @@ class PlayVideoActivity : AppCompatActivity() {
             if (index == 2) {
                 options.visibility = VISIBLE
                 backBtn.visibility = GONE
-            } else if (index == videos.lastIndex) {
+            } else if (index == videos.lastIndex || index == 1) {
                 options.visibility = VISIBLE
                 nextBtn.visibility = GONE
             } else options.visibility = VISIBLE

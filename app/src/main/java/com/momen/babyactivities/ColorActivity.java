@@ -1,6 +1,7 @@
 package com.momen.babyactivities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,10 +9,14 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.Random;
 
@@ -21,7 +26,10 @@ public class ColorActivity extends AppCompatActivity {
     private ImageView circleImage;
     private ImageView ivRedPin;
     private ImageView ivYellowPin;
-    private Button finishBtn;
+    private LinearLayout options;
+    private ImageButton nextBtn;
+    private ImageButton replayBtn;
+    private ImageButton backBtn;
     int index = 0;
     private VideoView videoView;
     int startList[]={R.raw.blue_square,R.raw.square_yellow,R.raw.square_red};
@@ -42,6 +50,34 @@ public class ColorActivity extends AppCompatActivity {
 
                 Log.d("TAG", "onTouch: x = " + motionEvent.getX() + " y = " + motionEvent.getY());
                 return false;
+            }
+        });
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                     new Intent(ColorActivity.this, TasneefActivity.class)
+                    .putExtra("actvtyNum", 39)
+            );
+                finish();
+            }
+        });
+        replayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                     new Intent(ColorActivity.this, ColorActivity.class)
+            );
+                finish();
+            }
+        });
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(
+                     new Intent(ColorActivity.this, CollectSquaresActivity.class)
+            );
+                finish();
             }
         });
 
@@ -209,13 +245,7 @@ public class ColorActivity extends AppCompatActivity {
 
 
                     }else  if (index == 3){
-                        finishBtn.setVisibility(View.VISIBLE);
-                        finishBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                ColorActivity.super.onBackPressed();
-                            }
-                        });
+                        options.setVisibility(View.VISIBLE);
                         index=0;
                         positionImage(ivRedPin,  1787 , 234);
 
@@ -244,6 +274,9 @@ public class ColorActivity extends AppCompatActivity {
         ivRedPin = (ImageView) findViewById(R.id.iv_red_pin);
         ivYellowPin = (ImageView) findViewById(R.id.iv_yellow_pin);
         videoView = (VideoView) findViewById(R.id.videoView);
-        finishBtn =  findViewById(R.id.finishBtn);
+        options =  findViewById(R.id.options);
+        nextBtn =  findViewById(R.id.nextBtn);
+        backBtn =  findViewById(R.id.backBtn);
+        replayBtn =  findViewById(R.id.replayBtn);
     }
 }

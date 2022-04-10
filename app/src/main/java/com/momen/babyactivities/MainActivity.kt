@@ -195,6 +195,11 @@ class MainActivity : AppCompatActivity() {
                     Intent(this, PlayVideoActivity::class.java)
                         .putExtra("lvl", 1).putExtra("actvtyNum", 0)
                 )
+            } else if (activityPosition == 25) {
+                startActivity(
+                    Intent(this, DragActivity::class.java)
+                       .putExtra("actvtyNum", 27)
+                )
             } else {
                 startActivity(
                     Intent(this, MainActivity::class.java)
