@@ -290,8 +290,11 @@ public class TasneefActivity extends AppCompatActivity {
                 view.setX((int) (StartPT.x + event.getX() - DownPT.x));
                 view.setY((int) (StartPT.y + event.getY() - DownPT.y));
                 StartPT.set(view.getX(), view.getY());
-
-                view.animate().x(view.getX()).y(view.getY()).start();
+                view.animate()
+                        .x(event.getRawX() + dX)
+                        .y(event.getRawY() + dY)
+                        .setDuration(0)
+                        .start();
 
                 if (ivA1.getX() > container.getWidth() / 2 &&
                         ivA2.getX() > container.getWidth() / 2 &&
