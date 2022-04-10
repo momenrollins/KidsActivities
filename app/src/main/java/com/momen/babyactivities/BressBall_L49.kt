@@ -31,8 +31,8 @@ class BressBall_L49 : AppCompatActivity() {
         R.raw.l53_lookme_start,
         R.raw.l53_3sfora_start
     )
-    var successList46 = intArrayOf(R.raw.l46_ta3zeez, R.raw.l46_ta3zeez, R.raw.l46_ta3zeez)
-    var successList47 = intArrayOf(R.raw.l47_ta3zeez, R.raw.l47_ta3zeez)
+    var successList46 = intArrayOf(R.raw.shater, R.raw.shater, R.raw.l46_ta3zeez)
+    var successList47 = intArrayOf(R.raw.shater, R.raw.l47_ta3zeez)
     var successList49 = intArrayOf(R.raw.ta3zeez_l49)
     var successList50 = intArrayOf(R.raw.l50_ta3zeez)
     var successList51 = intArrayOf(R.raw.l51_ta3zeez)

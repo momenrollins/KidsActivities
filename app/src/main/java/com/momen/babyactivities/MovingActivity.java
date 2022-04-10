@@ -60,12 +60,11 @@ public class MovingActivity extends AppCompatActivity {
         index = getIntent().getIntExtra("actvtyNum", 0) - 34;
 
         Log.d("TAG", "onCreate: " + Environment.getExternalStorageDirectory());
-        path = "android.resource://" + getPackageName() + "/" + startList[index];
 
 
         img = findViewById(R.id.btn);
         initView();
-        playVideo(path, false);
+
 
 
         double tolerance = Math.sqrt(
@@ -557,11 +556,11 @@ public class MovingActivity extends AppCompatActivity {
 
                     if (isStarted) {
                         if (index == 0) {
-                            moveingRabbitIndex1();
+//                            moveingRabbitIndex1();
                         } else if (index == 1) {
-                            moveingRabbitIndex2();
+//                            moveingRabbitIndex2();
                         } else if (index == 2) {
-                            moveingRabbitIndex3();
+//                            moveingRabbitIndex3();
                         }
                     } else handler.postDelayed(runnable, 3000);
                 }
@@ -573,6 +572,8 @@ public class MovingActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        path = "android.resource://" + getPackageName() + "/" + startList[index];
+        playVideo(path, false);
         if (index == 0) {
 //            moviLinear.setBackgroundResource(R.drawable.mataha1);
             moveingRabbitIndex1();

@@ -149,6 +149,7 @@ class BoyandGirl_45 : AppCompatActivity() {
                                 .setDuration(1100)
                                 .start()
                             handler.postDelayed(runnable!!, 1000)
+                            videoView!!.setBackgroundResource(0);
                             playVideo(
                                 "android.resource://" + packageName + "/" + R.raw.ta3zez,
                                 true,
