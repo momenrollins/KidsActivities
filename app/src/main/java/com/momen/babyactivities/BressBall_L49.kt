@@ -65,6 +65,8 @@ class BressBall_L49 : AppCompatActivity() {
                 startActivity(Intent(this, BoyandGirl_45::class.java).putExtra("actvtyNum", 0))
             else if (numActivity == 49)
                 startActivity(Intent(this, BoyandGirl_45::class.java).putExtra("actvtyNum", 1))
+            else if (numActivity == 53)
+                startActivity(Intent(this, BoyandGirl_45::class.java).putExtra("actvtyNum", 2))
             else startActivity(
                 Intent(this, BressBall_L49::class.java).putExtra(
                     "actvtyNum",
