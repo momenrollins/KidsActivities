@@ -9,21 +9,21 @@
     tools:context=".TasneefActivity">
 
     <VideoView
-        android:id="@+id/VideoView"
-        android:layout_width="wrap_content"
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/background"
+
         tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inner_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
         tools:layout_editor_absoluteX="-74dp"
         tools:layout_editor_absoluteY="52dp">
 

@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -41,7 +42,7 @@ public class TasneefActivity extends AppCompatActivity {
     private ImageView ivF2;
     private ImageView ivF3;
     private ImageView ivF4;
-    private VideoView VideoView;
+    private VideoView videoView;
     private ConstraintLayout innerContainer;
     private TextView txtLeft;
     private TextView txtRight;
@@ -52,6 +53,8 @@ public class TasneefActivity extends AppCompatActivity {
     private ImageButton replayBtn;
     private ImageButton backBtn;
     int index = 0;
+    Handler handler=new Handler();
+    Runnable runnable;
 
     int[] tasnefl1A_images = {R.drawable.tasneefl1_hours, R.drawable.dog, R.drawable.tasneefl1_cat, R.drawable.tasneefl1_cow};
     int[] tasnefl1F_images = {R.drawable.tasneefl1_ornage, R.drawable.tasneefl1_mango, R.drawable.banana, R.drawable.appal2};
@@ -70,6 +73,15 @@ public class TasneefActivity extends AppCompatActivity {
         index = getIntent().getIntExtra("actvtyNum", 0) - 37;
         setData(index);
 
+        runnable=new Runnable() {
+            @Override
+            public void run() {
+                if (index==0) playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1, false);
+                if (index==1) playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2, false);
+                if (index==2) playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3, false);
+
+            }
+        };
         ivA1.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
@@ -255,10 +267,10 @@ public class TasneefActivity extends AppCompatActivity {
 
     public void playVideo(String path, boolean isSuccess) {
 
-        VideoView.setVideoURI(Uri.parse(path));
-        VideoView.start();
+        videoView.setVideoURI(Uri.parse(path));
+        videoView.start();
 
-        VideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
 
@@ -268,6 +280,7 @@ public class TasneefActivity extends AppCompatActivity {
                     /*next.setVisibility(View.VISIBLE);
                     repeat.setVisibility(View.VISIBLE);*/
                 } else {
+                    handler.postDelayed(runnable,2000);
                     next.setVisibility(View.INVISIBLE);
                     repeat.setVisibility(View.INVISIBLE);
                 }
@@ -299,6 +312,7 @@ public class TasneefActivity extends AppCompatActivity {
     boolean action(View view, MotionEvent event) {
         PointF DownPT = new PointF(); // Record Mouse Position When Pressed Down
         PointF StartPT = new PointF(); // Record Start Position of 'img'
+        handler.removeCallbacks(runnable);
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
@@ -337,6 +351,7 @@ public class TasneefActivity extends AppCompatActivity {
 
 
                 ) {
+                    videoView.setBackgroundResource(0);
                     playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
                 }
                 break;
@@ -401,7 +416,7 @@ public class TasneefActivity extends AppCompatActivity {
         ivF2 = (ImageView) findViewById(R.id.iv_f_2);
         ivF3 = (ImageView) findViewById(R.id.iv_f_3);
         ivF4 = (ImageView) findViewById(R.id.iv_f_4);
-        VideoView = (VideoView) findViewById(R.id.VideoView);
+        videoView = (VideoView) findViewById(R.id.videoView);
         innerContainer = (ConstraintLayout) findViewById(R.id.inner_container);
         txtLeft = (TextView) findViewById(R.id.txt_left);
         txtRight = (TextView) findViewById(R.id.txt_right);
