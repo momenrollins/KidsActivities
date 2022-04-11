@@ -86,14 +86,14 @@ class DragActivity : AppCompatActivity() {
     val shape0009X = 1451.0f
     val shape0009Y = 335.0f
 
-    val shape00001X = 1561.0f
-    val shape00001Y = 425.0f
-    val shape00002X = 1227.0f
-    val shape00002Y = 590.0f
+    val shape00001X = 1451.0f
+    val shape00001Y = 312.0f
+    val shape00002X = 1205.0f
+    val shape00002Y = 512.0f
     val shape00003X = 1329.0f
-    val shape00003Y = 859.0f
-    val shape00004X = 1060.0f
-    val shape00004Y = 725.0f
+    val shape00003Y = 824.0f
+    val shape00004X = 926.0f
+    val shape00004Y = 665.0f
 
     val shape000001X = 1695.0f
     val shape000001Y = 655.0f
@@ -177,14 +177,14 @@ class DragActivity : AppCompatActivity() {
     val s0009X = 1274.0f
     val s0009Y = 191.0f
 
-    val s00001X = 1221.0f
-    val s00001Y = 132.0f
-    val s00002X = 888.0f
-    val s00002Y = 213.0f
-    val s00003X = 1083.0f
-    val s00003Y = 434.0f
-    val s00004X = 707.0f
-    val s00004Y = 346.0f
+    val s00001X = 1200.0f
+    val s00001Y = 71.0f
+    val s00002X = 793.0f
+    val s00002Y = 141.0f
+    val s00003X = 1055.0f
+    val s00003Y = 417.0f
+    val s00004X = 593.0f
+    val s00004Y = 316.0f
 
     val s000001X = 1268.0f
     val s000001Y = 252.0f
@@ -296,7 +296,6 @@ class DragActivity : AppCompatActivity() {
             )
             finish()
         }
-        var isShape = false
         shape1!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.1) + view.height.toDouble().pow(2.1)
@@ -319,31 +318,31 @@ class DragActivity : AppCompatActivity() {
             val tolerance = Math.sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape01X, shape01Y, "Sh01", isShape)
+            checkAction(tolerance, event, view, shape01X, shape01Y, "Sh01", isShape1)
         })
         shape02!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = Math.sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape02X, shape02Y, "Sh02", isShape)
+            checkAction(tolerance, event, view, shape02X, shape02Y, "Sh02", isShape2)
         })
         shape03!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = Math.sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape03X, shape03Y, "Sh03", isShape)
+            checkAction(tolerance, event, view, shape03X, shape03Y, "Sh03", isShape3)
         })
         shape04!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = Math.sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape04X, shape04Y, "Sh04", isShape)
+            checkAction(tolerance, event, view, shape04X, shape04Y, "Sh04", isShape4)
         })
         shape05!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = Math.sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape05X, shape05Y, "Sh05", isShape)
+            checkAction(tolerance, event, view, shape05X, shape05Y, "Sh05", isShape5)
         })
 
         shape001!!.setOnTouchListener(OnTouchListener { view, event ->
@@ -393,55 +392,55 @@ class DragActivity : AppCompatActivity() {
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0001X, shape0001Y, "Sh0001", isShape)
+            checkAction(tolerance, event, view, shape0001X, shape0001Y, "Sh0001", isShape1)
         })
         shape0002!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0002X, shape0002Y, "Sh0002", isShape)
+            checkAction(tolerance, event, view, shape0002X, shape0002Y, "Sh0002", isShape2)
         })
         shape0003!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0003X, shape0003Y, "Sh0003", isShape)
+            checkAction(tolerance, event, view, shape0003X, shape0003Y, "Sh0003", isShape3)
         })
         shape0004!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0004X, shape0004Y, "Sh0004", isShape)
+            checkAction(tolerance, event, view, shape0004X, shape0004Y, "Sh0004", isShape4)
         })
         shape0005!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0005X, shape0005Y, "Sh0005", isShape)
+            checkAction(tolerance, event, view, shape0005X, shape0005Y, "Sh0005", isShape5)
         })
         shape0006!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0006X, shape0006Y, "Sh0006", isShape)
+            checkAction(tolerance, event, view, shape0006X, shape0006Y, "Sh0006", isShape6)
         })
         shape0007.setOnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0007X, shape0007Y, "Sh0007", isShape)
+            checkAction(tolerance, event, view, shape0007X, shape0007Y, "Sh0007", isShape7)
         }
         shape0008!!.setOnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0008X, shape0008Y, "Sh0008", isShape)
+            checkAction(tolerance, event, view, shape0008X, shape0008Y, "Sh0008", isShape8)
         }
         shape0009!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0009X, shape0009Y, "Sh0009", isShape)
+            checkAction(tolerance, event, view, shape0009X, shape0009Y, "Sh0009", isShape9)
         })
         shape00001!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
@@ -475,91 +474,91 @@ class DragActivity : AppCompatActivity() {
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape000001X, shape000001Y, "Sh000001", isShape)
+            checkAction(tolerance, event, view, shape000001X, shape000001Y, "Sh000001", isShape1)
         })
 
         shape000002!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape000002X, shape000002Y, "Sh000002", isShape)
+            checkAction(tolerance, event, view, shape000002X, shape000002Y, "Sh000002", isShape2)
         })
 
         shape000003!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape000003X, shape000003Y, "Sh000003", isShape)
+            checkAction(tolerance, event, view, shape000003X, shape000003Y, "Sh000003", isShape3)
         })
 
         shape000004!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape000004X, shape000004Y, "Sh000004", isShape)
+            checkAction(tolerance, event, view, shape000004X, shape000004Y, "Sh000004", isShape4)
         })
 
         shape000005!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape000005X, shape000005Y, "Sh000005", isShape)
+            checkAction(tolerance, event, view, shape000005X, shape000005Y, "Sh000005", isShape5)
         })
 
         shape000006!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape000006X, shape000006Y, "Sh000006", isShape)
+            checkAction(tolerance, event, view, shape000006X, shape000006Y, "Sh000006", isShape6)
         })
 
         shape0000001!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000001X, shape0000001Y, "Sh0000001", isShape)
+            checkAction(tolerance, event, view, shape0000001X, shape0000001Y, "Sh0000001", isShape1)
         })
         shape0000002!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000002X, shape0000002Y, "Sh0000002", isShape)
+            checkAction(tolerance, event, view, shape0000002X, shape0000002Y, "Sh0000002", isShape2)
         })
         shape0000003!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000003X, shape0000003Y, "Sh0000003", isShape)
+            checkAction(tolerance, event, view, shape0000003X, shape0000003Y, "Sh0000003", isShape3)
         })
         shape0000004!!.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000004X, shape0000004Y, "Sh0000004", isShape)
+            checkAction(tolerance, event, view, shape0000004X, shape0000004Y, "Sh0000004", isShape4)
         })
         shape0000005.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000005X, shape0000005Y, "Sh0000005", isShape)
+            checkAction(tolerance, event, view, shape0000005X, shape0000005Y, "Sh0000005", isShape5)
         })
         shape0000006.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000006X, shape0000006Y, "Sh0000006", isShape)
+            checkAction(tolerance, event, view, shape0000006X, shape0000006Y, "Sh0000006", isShape6)
         })
         shape0000007.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000007X, shape0000007Y, "Sh0000007", isShape)
+            checkAction(tolerance, event, view, shape0000007X, shape0000007Y, "Sh0000007", isShape7)
         })
         shape0000008.setOnTouchListener(OnTouchListener { view, event ->
             val tolerance = sqrt(
                 view.width.toDouble().pow(2.5) + view.height.toDouble().pow(2.5)
             ) / 10
-            checkAction(tolerance, event, view, shape0000008X, shape0000008Y, "Sh0000008", isShape)
+            checkAction(tolerance, event, view, shape0000008X, shape0000008Y, "Sh0000008", isShape8)
         })
         startLevel(index)
     }
@@ -594,10 +593,8 @@ class DragActivity : AppCompatActivity() {
             MotionEvent.ACTION_UP -> {
                 Log.d(
                     TAG, "onCreate: SHAPE ${event.rawX} ${event.rawY} == " +
-                            "    ${shape0000001.x} ${shape0000001.y} // ${shape0000002.x} ${shape0000002.y}" +
-                            " // ${shape0000003.x} ${shape0000003.y} // ${shape0000004.x} ${shape0000004.y}" +
-                            " // ${shape0000005.x} ${shape0000005.y} // ${shape0000006.x} ${shape0000006.y}" +
-                            " // ${shape0000007.x} ${shape0000007.y} // ${shape0000008.x} ${shape0000008.y}"
+                            "    ${shape00001.x} ${shape00001.y} // ${shape00002.x} ${shape00002.y}" +
+                            " // ${shape00003.x} ${shape00003.y} // ${shape00004.x} ${shape00004.y}"
                 )
 
                 val xDiff = StrictMath.abs(shapeX - event.rawX)
@@ -629,31 +626,31 @@ class DragActivity : AppCompatActivity() {
                         when (shape) {
                             "Sh01" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 5) MediaPlayer.create(this, R.raw.shater).start()
                                 shape01!!.animate().x(s01X).y(s01Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh02" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 5) MediaPlayer.create(this, R.raw.shater).start()
                                 shape02!!.animate().x(s02X).y(s02Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh03" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 5) MediaPlayer.create(this, R.raw.shater).start()
                                 shape03!!.animate().x(s03X).y(s03Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh04" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 5) MediaPlayer.create(this, R.raw.shater).start()
                                 shape04!!.animate().x(s04X).y(s04Y).duration = 150
                                 isShape4 = true
                             }
                             else -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 5) MediaPlayer.create(this, R.raw.shater).start()
                                 shape05!!.animate().x(s05X).y(s05Y).duration = 150
                                 isShape5 = true
                             }
@@ -709,55 +706,55 @@ class DragActivity : AppCompatActivity() {
                         when (shape) {
                             "Sh0001" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0001!!.animate().x(s0001X).y(s0001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh0002" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0002!!.animate().x(s0002X).y(s0002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh0003" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0003!!.animate().x(s0003X).y(s0003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh0004" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0004!!.animate().x(s0004X).y(s0004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh0005" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0005!!.animate().x(s0005X).y(s0005Y).duration = 150
                                 isShape5 = true
                             }
                             "Sh0006" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0006!!.animate().x(s0006X).y(s0006Y).duration = 150
                                 isShape6 = true
                             }
                             "Sh0007" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0007!!.animate().x(s0007X).y(s0007Y).duration = 150
                                 isShape7 = true
                             }
                             "Sh0008" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0008!!.animate().x(s0008X).y(s0008Y).duration = 150
                                 isShape8 = true
                             }
                             else -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 9) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0009!!.animate().x(s0009X).y(s0009Y).duration = 150
                                 isShape9 = true
                             }
@@ -795,37 +792,37 @@ class DragActivity : AppCompatActivity() {
                         when (shape) {
                             "Sh000001" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 6) MediaPlayer.create(this, R.raw.shater).start()
                                 shape000001!!.animate().x(s000001X).y(s000001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh000002" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 6) MediaPlayer.create(this, R.raw.shater).start()
                                 shape000002!!.animate().x(s000002X).y(s000002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh000003" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 6) MediaPlayer.create(this, R.raw.shater).start()
                                 shape000003!!.animate().x(s000003X).y(s000003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh000004" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 6) MediaPlayer.create(this, R.raw.shater).start()
                                 shape000004!!.animate().x(s000004X).y(s000004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh000005" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 6) MediaPlayer.create(this, R.raw.shater).start()
                                 shape000005!!.animate().x(s000005X).y(s000005Y).duration = 150
                                 isShape5 = true
                             }
                             else -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 6) MediaPlayer.create(this, R.raw.shater).start()
                                 shape000006!!.animate().x(s000006X).y(s000006Y).duration = 150
                                 isShape6 = true
                             }
@@ -835,49 +832,49 @@ class DragActivity : AppCompatActivity() {
                         when (shape) {
                             "Sh0000001" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000001!!.animate().x(s0000001X).y(s0000001Y).duration = 150
                                 isShape1 = true
                             }
                             "Sh0000002" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000002!!.animate().x(s0000002X).y(s0000002Y).duration = 150
                                 isShape2 = true
                             }
                             "Sh0000003" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000003!!.animate().x(s0000003X).y(s0000003Y).duration = 150
                                 isShape3 = true
                             }
                             "Sh0000004" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000004!!.animate().x(s0000004X).y(s0000004Y).duration = 150
                                 isShape4 = true
                             }
                             "Sh0000005" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000005!!.animate().x(s0000005X).y(s0000005Y).duration = 150
                                 isShape5 = true
                             }
                             "Sh0000006" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000006!!.animate().x(s0000006X).y(s0000006Y).duration = 150
                                 isShape6 = true
                             }
                             "Sh0000007" -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000007!!.animate().x(s0000007X).y(s0000007Y).duration = 150
                                 isShape7 = true
                             }
                             else -> {
                                 count++
-                                if (count < 3) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 8) MediaPlayer.create(this, R.raw.shater).start()
                                 shape0000008!!.animate().x(s0000008X).y(s0000008Y).duration = 150
                                 isShape8 = true
                             }
@@ -1193,6 +1190,7 @@ class DragActivity : AppCompatActivity() {
 
                 } else if (index == 4) {
                     imgBack.setImageResource(R.drawable.horse_back)
+                    imgBack.scaleType = ImageView.ScaleType.CENTER_CROP
                     imgBack.visibility = VISIBLE
                     shape00001.visibility = VISIBLE
                     shape00002.visibility = VISIBLE
