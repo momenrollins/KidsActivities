@@ -2,17 +2,23 @@ package com.momen.babyactivities;
 
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
@@ -53,6 +59,7 @@ public class BoardingActivity extends AppCompatActivity {
                 setCurrentOnboardingIndicators(position);
             }
         });
+        openPasswordDialog();
         buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,10 +71,34 @@ public class BoardingActivity extends AppCompatActivity {
                         finish();
                     } else if (sharedPreferences.getString("flag", "no net").equals("no net")) {
                         Toast.makeText(BoardingActivity.this, "برجاء الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(BoardingActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                     }
+                }
+            }
+        });
+    }
+
+    private void openPasswordDialog() {
+        final EditText taskEditText = new EditText(this);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("ادخل الرقم السري")
+                .setView(taskEditText)
+                .setPositiveButton("تم", null).create();
+
+        dialog.setCancelable(false);
+        dialog.show();
+        Button b = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String task = String.valueOf(taskEditText.getText());
+                if (sharedPreferences.getString("password", "no net").equals(task)) {
+                    dialog.dismiss();
+                } else if (sharedPreferences.getString("password", "no net").equals("no net")) {
+                    Toast.makeText(BoardingActivity.this, "برجاء الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BoardingActivity.this, "الرقم السري خاطئ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -81,16 +112,33 @@ public class BoardingActivity extends AppCompatActivity {
         super.onStart();
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("flag");
+        DatabaseReference myRef = database.getReference("kidsApp");
 
         // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.child("flag").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
+                assert value != null;
                 editor.putString("flag", value);
+                editor.commit();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
+        myRef.child("password").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                assert value != null;
+                editor.putString("password", value);
                 editor.commit();
             }
 
@@ -129,7 +177,7 @@ public class BoardingActivity extends AppCompatActivity {
             }
         }
         if (index == onboardingAdapter.getItemCount() - 1) {
-            buttonOnboardingAction.setText("Start");
+            buttonOnboardingAction.setText("البدأ");
         } else {
             buttonOnboardingAction.setText("Next");
         }
