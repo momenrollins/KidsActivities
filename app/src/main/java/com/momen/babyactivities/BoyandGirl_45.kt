@@ -53,6 +53,76 @@ class BoyandGirl_45 : AppCompatActivity() {
                     .start()
             }
         }
+        if (index == 0) {
+            backBtn.setOnClickListener {
+                startActivity(Intent(this, RabbitJump::class.java))
+                finish()
+            }
+            nextBtn.setOnClickListener {
+                startActivity(
+                    Intent(this, BressBall_L49::class.java).putExtra(
+                        "actvtyNum",
+                        46
+                    )
+                )
+                finish()
+            }
+        }
+        else if (index == 1) {
+            backBtn.setOnClickListener {
+                startActivity(
+                    Intent(this, BressBall_L49::class.java).putExtra(
+                        "actvtyNum",
+                        47
+                    )
+                )
+                finish()
+            }
+            nextBtn.setOnClickListener {
+                startActivity(
+                    Intent(this, BressBall_L49::class.java).putExtra(
+                        "actvtyNum",
+                        49
+                    )
+                )
+                finish()
+            }
+        }
+        else if (index == 2) {
+            backBtn.setOnClickListener {
+                startActivity(
+                    Intent(this, BressBall_L49::class.java).putExtra(
+                        "actvtyNum",
+                        51
+                    )
+                )
+
+                finish()
+            }
+            nextBtn.setOnClickListener {
+                startActivity(
+                    Intent(this, BressBall_L49::class.java).putExtra(
+                        "actvtyNum",
+                        53
+                    )
+                )
+                finish()
+            }
+        }
+        replayBtn.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    BoyandGirl_45::class.java
+                ).putExtra("actvtyNum", index)
+            )
+            finish()
+        }
+        homeBtn.setOnClickListener {
+            val gotoScreenVar = Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 2)
+            gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(gotoScreenVar)
+        }
         container!!.setOnClickListener {
             if (boyTurn || girlTurn) if (index < 2) playVideo(
                 "android.resource://" + packageName + "/" + R.raw.faild,
@@ -250,71 +320,7 @@ class BoyandGirl_45 : AppCompatActivity() {
         videoView!!.start()
         videoView!!.setOnCompletionListener {
             if (finish) {
-                if (index == 0) {
-                    backBtn.setOnClickListener {
-                        startActivity(Intent(this, RabbitJump::class.java))
-                        finish()
-                    }
-                    nextBtn.setOnClickListener {
-                        startActivity(
-                            Intent(this, BressBall_L49::class.java).putExtra(
-                                "actvtyNum",
-                                46
-                            )
-                        )
-                        finish()
-                    }
-                }
-                else if (index == 1) {
-                    backBtn.setOnClickListener {
-                        startActivity(
-                            Intent(this, BressBall_L49::class.java).putExtra(
-                                "actvtyNum",
-                                47
-                            )
-                        )
-                        finish()
-                    }
-                    nextBtn.setOnClickListener {
-                        startActivity(
-                            Intent(this, BressBall_L49::class.java).putExtra(
-                                "actvtyNum",
-                                49
-                            )
-                        )
-                        finish()
-                    }
-                }
-                else if (index == 2) {
-                    backBtn.setOnClickListener {
-                        startActivity(
-                            Intent(this, BressBall_L49::class.java).putExtra(
-                                "actvtyNum",
-                                51
-                            )
-                        )
 
-                        finish()
-                    }
-                    nextBtn.setOnClickListener {
-                        startActivity(
-                            Intent(this, BressBall_L49::class.java).putExtra(
-                                "actvtyNum",
-                                53
-                            )
-                        )
-                        finish()
-                    }
-                }
-                replayBtn.setOnClickListener {
-                    startActivity(
-                        Intent(
-                            this,
-                            BoyandGirl_45::class.java
-                        ).putExtra("actvtyNum", index)
-                    )
-                    finish()
-                }
 
                 options.visibility = View.VISIBLE
 

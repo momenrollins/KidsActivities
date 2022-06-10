@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -46,7 +47,9 @@ public class MovingActivity extends AppCompatActivity {
     String path = "";
     private LinearLayout moviLinearv;
     private ImageView btn;
+    private ImageView mImg;
     private MaterialButton repeat;
+    private MaterialButton homeBtn;
     private MaterialButton next;
     private LinearLayout options;
     private ImageButton nextBtn;
@@ -62,22 +65,39 @@ public class MovingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moving);
-        index = getIntent().getIntExtra("actvtyNum", 0) - 34;
+        index = getIntent().getIntExtra("actvtyNum", 0) - 15;
 
         Log.d("TAG", "onCreate: " + Environment.getExternalStorageDirectory());
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         img = findViewById(R.id.btn);
+
         initView();
+        if (index>0){
+            mImg.setVisibility(View.VISIBLE);
+            if (index==2)
+                mImg.setImageResource(R.drawable.mataha3);
+        }
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoScreenVar = new Intent(MovingActivity.this, LevelTypeActivity.class).putExtra("lvl", 1);
+
+                gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(gotoScreenVar);
+            }
+        });
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (index == 0)
                     startActivity(new Intent(MovingActivity.this, DragActivity.class)
-                            .putExtra("actvtyNum", 33));
-                else  startActivity(new Intent(MovingActivity.this, MovingActivity.class)
-                        .putExtra("actvtyNum", --index + 34));
+                            .putExtra("actvtyNum", 14));
+                else startActivity(new Intent(MovingActivity.this, MovingActivity.class)
+                        .putExtra("actvtyNum", --index + 15));
                 finish();
             }
         });
@@ -85,7 +105,7 @@ public class MovingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MovingActivity.this, MovingActivity.class)
-                        .putExtra("actvtyNum", index + 34));
+                        .putExtra("actvtyNum", index + 15));
                 finish();
             }
         });
@@ -93,11 +113,11 @@ public class MovingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (index == 2)
-                    startActivity(new Intent(MovingActivity.this,  TasneefActivity.class)
-                        .putExtra("actvtyNum", 37));
+                    startActivity(new Intent(MovingActivity.this, TasneefActivity.class)
+                            .putExtra("actvtyNum", 18));
                 else
                     startActivity(new Intent(MovingActivity.this, MovingActivity.class)
-                            .putExtra("actvtyNum", ++index + 34));
+                            .putExtra("actvtyNum", ++index + 15));
                 finish();
             }
         });
@@ -570,7 +590,10 @@ public class MovingActivity extends AppCompatActivity {
         nextBtn = findViewById(R.id.nextBtn);
         backBtn = findViewById(R.id.backBtn);
         replayBtn = findViewById(R.id.replayBtn);
-        options = findViewById(R.id.options);    }
+        mImg = findViewById(R.id.m_img);
+        homeBtn = findViewById(R.id.homeBtn);
+        options = findViewById(R.id.options);
+    }
 
     public void playVideo(String path, boolean isSuccess) {
         videoView.setVideoURI(Uri.parse(path));
@@ -585,7 +608,7 @@ public class MovingActivity extends AppCompatActivity {
                    /* next.setVisibility(View.VISIBLE);
                     repeat.setVisibility(View.VISIBLE);*/
                     options.setVisibility(View.VISIBLE);
-                    
+
                 } else {
 
                     if (isStarted) {

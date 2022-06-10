@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,16 +36,25 @@ import java.util.List;
 
 public class BoardingActivity extends AppCompatActivity {
     private OnboardingAdapter onboardingAdapter;
-    private LinearLayout layoutOnboardingIndicator;
+    //    private LinearLayout layoutOnboardingIndicator;
     private MaterialButton buttonOnboardingAction;
+    private MaterialButton exitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boarding);
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        layoutOnboardingIndicator = findViewById(R.id.layoutOnboardingIndicators);
+//        layoutOnboardingIndicator = findViewById(R.id.layoutOnboardingIndicators);
         buttonOnboardingAction = findViewById(R.id.buttonOnBoardingAction);
+        exitBtn = findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         sharedPreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         setOnboardingItem();
@@ -59,7 +69,7 @@ public class BoardingActivity extends AppCompatActivity {
                 setCurrentOnboardingIndicators(position);
             }
         });
-        openPasswordDialog();
+//        openPasswordDialog();
         buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +78,7 @@ public class BoardingActivity extends AppCompatActivity {
                 } else {
                     if (sharedPreferences.getString("flag", "no net").equals("yes")) {
                         startActivity(new Intent(getApplicationContext(), IntroActivity.class));
-                        finish();
+//                        finish();
                     } else if (sharedPreferences.getString("flag", "no net").equals("no net")) {
                         Toast.makeText(BoardingActivity.this, "برجاء الاتصال بالانترنت", Toast.LENGTH_SHORT).show();
                     } else {
@@ -161,13 +171,13 @@ public class BoardingActivity extends AppCompatActivity {
                     getApplicationContext(), R.drawable.indicator_inactive
             ));
             indicators[i].setLayoutParams(layoutParams);
-            layoutOnboardingIndicator.addView(indicators[i]);
+//            layoutOnboardingIndicator.addView(indicators[i]);
         }
     }
 
     @SuppressLint("SetTextI18n")
     private void setCurrentOnboardingIndicators(int index) {
-        int childCount = layoutOnboardingIndicator.getChildCount();
+      /*  int childCount = layoutOnboardingIndicator.getChildCount();
         for (int i = 0; i < childCount; i++) {
             ImageView imageView = (ImageView) layoutOnboardingIndicator.getChildAt(i);
             if (i == index) {
@@ -175,11 +185,11 @@ public class BoardingActivity extends AppCompatActivity {
             } else {
                 imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.indicator_inactive));
             }
-        }
+        }*/
         if (index == onboardingAdapter.getItemCount() - 1) {
-            buttonOnboardingAction.setText("البدأ");
+            buttonOnboardingAction.setText("التالي");
         } else {
-            buttonOnboardingAction.setText("Next");
+            buttonOnboardingAction.setText("التالي");
         }
     }
 

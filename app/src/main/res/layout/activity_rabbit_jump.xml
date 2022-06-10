@@ -7,6 +7,11 @@
     android:background="@drawable/rabbit_jimp_back"
     android:id="@+id/container"
     tools:context=".RabbitJump">
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/rabbit_jimp_back"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"/>
     <VideoView
 
         android:id="@+id/videoView"
@@ -41,9 +46,15 @@
         android:layout_height="100dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/videoView">
 
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_before_24" />
         <ImageButton
             android:id="@+id/replayBtn"
             android:layout_width="wrap_content"
@@ -52,12 +63,18 @@
             android:backgroundTint="@color/white"
             android:src="@drawable/ic_baseline_replay_24" />
 
-        <ImageButton
-            android:id="@+id/nextBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_baseline_navigate_next_24" />
     </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:text="الرئيسية"
+        android:textStyle="bold"
+        app:cornerRadius="9dp"
+        app:icon="@drawable/ic_twotone_home_24"
+        app:layout_constraintBottom_toBottomOf="@+id/options"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

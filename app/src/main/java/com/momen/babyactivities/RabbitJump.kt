@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,12 +27,30 @@ class RabbitJump : AppCompatActivity() {
     private var container: ConstraintLayout? = null
     var path = Path()
     var isStart = false
-
+    var handler2 = Handler()
+    var runnable2: Runnable? = null
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rabbit_jump)
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         initView()
+        homeBtn.setOnClickListener {
+            val gotoScreenVar =
+                Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 2)
+            gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(gotoScreenVar)
+        }
+        runnable2 = Runnable {
+            handler2.postDelayed(runnable2!!, 6500)
+
+            playVideo(
+                "android.resource://" + packageName + "/" + R.raw.rabbit_j_start,
+                false,
+                false
+            )
+        }
         action()
         replayBtn.setOnClickListener {
             options.visibility = GONE
@@ -91,6 +110,7 @@ class RabbitJump : AppCompatActivity() {
                     handler.removeCallbacks(runnable!!)
                 }
             } else {
+
                 playVideo(
                     "android.resource://" + packageName + "/" + R.raw.rabbit_j_start,
                     false,
@@ -100,10 +120,13 @@ class RabbitJump : AppCompatActivity() {
                 // handler.postDelayed(runnable, 2500);
             }
         }
+
         rabbit!!.setOnClickListener { /* path.arcTo(0f, (float) pointList.get(index).y,(float) pointList.get(index).x,0f, 180f, 60f, true);
                 ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.X, View.Y, path);
                 animator.setDuration(2000);
                 animator.start();*/
+            handler2.removeCallbacks(runnable2!!)
+
             isStart = true
             Log.d("TAG", "action: INDEX $index")
             if (index < pointList.size) {
@@ -125,6 +148,7 @@ class RabbitJump : AppCompatActivity() {
                     false
                 )
                 handler.removeCallbacks(runnable!!)
+                handler2.removeCallbacks(runnable2!!)
             }
         }
         container!!.setOnClickListener {
@@ -144,6 +168,8 @@ class RabbitJump : AppCompatActivity() {
     }
 
     fun playVideo(path: String?, finish: Boolean, faild: Boolean) {
+      if (!finish)  handler2.postDelayed(runnable2!!, 6500)
+
         videoView!!.setVideoURI(Uri.parse(path))
         videoView!!.start()
         videoView!!.setOnCompletionListener {

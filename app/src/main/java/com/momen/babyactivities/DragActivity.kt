@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.*
+import android.view.WindowManager
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_drag.*
@@ -241,21 +242,9 @@ class DragActivity : AppCompatActivity() {
 
     var startList = intArrayOf(
         R.raw.sampel1,
-        R.raw.transports1,
-        R.raw.clothes1,
-        R.raw.fruit1,
-        R.raw.horse1,
-        R.raw.eleph1,
-        R.raw.grif1,
     )
     var failedList = intArrayOf(
         R.raw.sampel2,
-        R.raw.transports2,
-        R.raw.clothes2,
-        R.raw.fruit2,
-        R.raw.horse2,
-        R.raw.eleph2,
-        R.raw.grif2,
     )
     var count = 0
 
@@ -263,37 +252,34 @@ class DragActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag)
-        index = intent.getIntExtra("actvtyNum", 0) - 27
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        index = intent.getIntExtra("actvtyNum", 0)
+
+        homeBtn.setOnClickListener {
+            val gotoScreenVar = Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 1)
+            gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(gotoScreenVar)
+        }
         backBtn.setOnClickListener {
-            if (index == 0)
                 startActivity(
                     Intent(this, MainActivity::class.java)
-                        .putExtra("actvtyNum", 26)
+                        .putExtra("actvtyNum", 13)
                 )
-            else startActivity(
-                Intent(this, DragActivity::class.java)
-                    .putExtra("actvtyNum", --index + 27)
-            )
             finish()
         }
         replayBtn.setOnClickListener {
             startActivity(
                 Intent(this, DragActivity::class.java)
-                    .putExtra("actvtyNum", index + 27)
+                    .putExtra("actvtyNum", index )
             )
             finish()
         }
         nextBtn.setOnClickListener {
-            if (index == 6)
                 startActivity(
                     Intent(this, MovingActivity::class.java)
-                        .putExtra("actvtyNum", 34)
+                        .putExtra("actvtyNum", 15)
                 )
-            else startActivity(
-                Intent(this, DragActivity::class.java)
-                    .putExtra("actvtyNum", ++index + 27)
-            )
             finish()
         }
         shape1!!.setOnTouchListener(OnTouchListener { view, event ->
@@ -885,9 +871,19 @@ class DragActivity : AppCompatActivity() {
                     MediaPlayer.create(this, R.raw.faild).start()
                     if (index == 0) {
                         when (shape) {
-                            "Sh1" -> isShape1 = false
-                            "Sh2" -> isShape2 = false
-                            else -> isShape3 = false
+                            "Sh1" -> {
+                                isShape1 = false
+                                shape1.animate().x(83.0f).y(633.0f).duration = 300
+                            }
+                            "Sh2" -> {
+                                isShape2 = false
+                                shape2.animate().x(90.0f).y(400.0f).duration = 300
+                            }
+                            else -> {
+                                isShape3 = false
+                                shape3.animate().x(73.0f).y(83.0f).duration = 300
+
+                            }
                         }
                     } else if (index == 1) {
                         when (shape) {

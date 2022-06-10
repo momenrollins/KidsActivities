@@ -2,21 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/container"
     android:background="@drawable/background"
     tools:context=".BoyandGirl_45">
+
     <VideoView
 
         android:id="@+id/videoView"
-        android:background="@drawable/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.777" />
+
     <ImageView
         android:id="@+id/boy"
         android:layout_width="151dp"
@@ -87,15 +89,16 @@
         android:layout_height="100dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/videoView">
+
         <ImageButton
-            android:id="@+id/backBtn"
+            android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/ic_baseline_navigate_before_24" />
+
         <ImageButton
             android:id="@+id/replayBtn"
             android:layout_width="wrap_content"
@@ -105,11 +108,25 @@
             android:src="@drawable/ic_baseline_replay_24" />
 
         <ImageButton
-            android:id="@+id/nextBtn"
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/ic_baseline_navigate_next_24" />
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/homeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:text="الرئيسية"
+        android:textStyle="bold"
+        app:cornerRadius="9dp"
+        app:icon="@drawable/ic_twotone_home_24"
+        app:layout_constraintBottom_toBottomOf="@+id/options"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

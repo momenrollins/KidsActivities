@@ -1,70 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/paper_back"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="30dp"
     tools:context=".ChooseLevelActivity">
 
-    <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="مكونات البرنامج\nيتكون البرنامج من ٣ مراحل:"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lvl1"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="start"
+                android:padding="7dp"
+                android:paddingEnd="60sp"
+                android:text="المرحلة الأولى: التدريب على المهارات المهيئة للانتباه المشترك"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="9dp"
+                app:strokeColor="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lvl2"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="start"
+                android:padding="7dp"
+                android:paddingEnd="60sp"
+                android:text="المرحلة الثانية: التدريب على الاستجابة للانتباه المشترك"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="9dp"
+                app:strokeColor="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lvl3"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="start"
+                android:padding="7dp"
+                android:paddingEnd="60sp"
+                android:text="المرحلة الثالثة: التدريب على المبادأة بالانتباه المشترك"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="9dp"
+                app:strokeColor="@color/black" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:text="مكونات البرنامج\nيتكون البرنامج من 3 مراحل:"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:text="الخروج"
+        android:textSize="16sp"
+        app:backgroundTint="@color/black"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/lvl1"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:gravity="start"
-        android:padding="7dp"
-        android:paddingEnd="60sp"
-        android:text="المرحلة الأولى: التدريب على المهارات المهيئة للانتباه المشترك"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:cornerRadius="6dp"
-        app:strokeColor="@color/black" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/lvl2"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:gravity="start"
-        android:padding="7dp"
-        android:paddingEnd="60sp"
-        android:text="المرحلة الثانية: التدريب على الاستجابة للانتباه المشترك"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:cornerRadius="6dp"
-        app:strokeColor="@color/black" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/lvl3"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:gravity="start"
-        android:padding="7dp"
-        android:paddingEnd="60sp"
-        android:text="المرحلة الثالثة: التدريب على المبادأة بالانتباه المشترك"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:cornerRadius="6dp"
-        app:strokeColor="@color/black" />
-</LinearLayout>
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="15dp"
+        android:text="الرجوع"
+        android:textSize="14sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

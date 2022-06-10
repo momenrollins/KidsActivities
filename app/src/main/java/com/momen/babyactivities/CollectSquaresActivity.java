@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
@@ -37,6 +40,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
     private ImageButton nextBtn;
     private ImageButton replayBtn;
     private ImageButton backBtn;
+    private MaterialButton homeBtn;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -44,13 +48,24 @@ public class CollectSquaresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collect_squares);
 
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         initView();
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoScreenVar = new Intent(CollectSquaresActivity.this, LevelTypeActivity.class).putExtra("lvl", 1);
+
+                gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(gotoScreenVar);
+            }
+        });
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CollectSquaresActivity.this, ColorActivity.class)
-                       .putExtra("actvtyNum", 40));
+                       .putExtra("actvtyNum", 21));
                 finish();
             }
         });
@@ -67,7 +82,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CollectSquaresActivity.this, PlayVideoActivity.class)
-                        .putExtra("lvl", 1).putExtra("actvtyNum", 1));
+                        .putExtra("lvl", 1).putExtra("actvtyNum", 0));
                 finish();
             }
         });
@@ -678,6 +693,7 @@ public class CollectSquaresActivity extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtn);
         replayBtn = findViewById(R.id.replayBtn);
         options = findViewById(R.id.options);
+        homeBtn = findViewById(R.id.homeBtn);
         ivSContainer = (ImageView) findViewById(R.id.iv_s_container);
         VideoView = (VideoView) findViewById(R.id.VideoView);
         ivS8 = (ImageView) findViewById(R.id.iv_s_8);

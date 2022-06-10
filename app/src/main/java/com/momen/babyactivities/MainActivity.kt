@@ -9,6 +9,7 @@ import android.util.TypedValue
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
@@ -49,20 +50,6 @@ class MainActivity : AppCompatActivity() {
         R.drawable.red,
         R.drawable.red,
         R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red,
-        R.drawable.red
     )
     var startList = intArrayOf(
         R.raw.lvl1_1_start,
@@ -71,40 +58,31 @@ class MainActivity : AppCompatActivity() {
         R.raw.bana_app1,
         R.raw.duck1,
         R.raw.duckdog1,
-        R.raw.lion1,
-        R.raw.lion_gr1,
-        R.raw.red1,
-        R.raw.black_red1,
+
         R.raw.v12_1,
         R.raw.apple_banana1,
         R.raw.v14_1,
         R.raw.duck_dog1,
-        R.raw.v16_1,
-        R.raw.lion_grf1,
-        R.raw.v18_1,
-        R.raw.red_black1,
+
         R.raw.v20_1,
         R.raw.ap_bana1,
         R.raw.v22_1,
         R.raw.duck_dog_1,
-        R.raw.v24_1,
-        R.raw.lion_grf_1,
-        R.raw.v26_1,
-        R.raw.red_black_1
-    )
+
+        )
     var successList = intArrayOf(
         R.raw.lvl1_1_success, R.raw.lvl1_2_success,
         R.raw.selectappal3, R.raw.bana_app3,
         R.raw.duck3, R.raw.duckdog3,
-        R.raw.lion3, R.raw.lion_gr3, R.raw.red3,
-        R.raw.black_red2, R.raw.v12_3, R.raw.apple_banana2,
+        R.raw.v12_3, R.raw.apple_banana2,
         R.raw.v14_3,
-        R.raw.duck_dog2, R.raw.v16_3, R.raw.lion_grf2,
-        R.raw.v18_3, R.raw.red_black2, R.raw.v20_3,
+        R.raw.duck_dog2,
+
+        R.raw.v20_3,
         R.raw.ap_bana2,
-        R.raw.v22_3, R.raw.duck_dog_2, R.raw.v24_3,
-        R.raw.lion_grf_2, R.raw.v26_3, R.raw.red_black_2
-    )
+        R.raw.v22_3, R.raw.duck_dog_2,
+
+        )
     var failedList = intArrayOf(
         R.raw.lvl1_1_failed,
         R.raw.lvl1_2_failed,
@@ -112,27 +90,18 @@ class MainActivity : AppCompatActivity() {
         R.raw.bana_app2,
         R.raw.duck2,
         R.raw.duckdog2,
-        R.raw.lion2,
-        R.raw.lion_gr2,
-        R.raw.red2,
-        R.raw.black_red3,
+
         R.raw.v12_2,
         R.raw.apple_banana3,
         R.raw.v14_2,
         R.raw.duck_dog3,
-        R.raw.v16_2,
-        R.raw.lion_grf3,
-        R.raw.v18_2,
-        R.raw.red_black3,
+
         R.raw.v20_2,
         R.raw.ap_bana3,
         R.raw.v22_2,
         R.raw.duck_dog_3,
-        R.raw.v24_2,
-        R.raw.lion_grf_3,
-        R.raw.v26_2,
-        R.raw.red_black_3
-    )
+
+        )
     var activityPosition = 0
     var viewSuccess: View? = null
     var viewFail: View? = null
@@ -140,27 +109,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         iv = findViewById(R.id.lvlImg)
         arwImg = findViewById(R.id.arwImg)
 
         select_ivRight = findViewById(R.id.selectImage1)
         select_ivLeft = findViewById(R.id.selectImage2)
-        activityPosition = intent.getIntExtra("actvtyNum", 0) - 1
-        if (activityPosition == 0 || activityPosition == -1) activityPosition++
+        activityPosition = intent.getIntExtra("actvtyNum", 0)
+//        if (activityPosition == 0 || activityPosition == -1) activityPosition++
         nextIndex = activityPosition
         Log.d(TAG, "onCreate:activityPosition  " + imgList.size)
         ballImg.setImageResource(imgList[activityPosition])
         container = findViewById(R.id.container)
         videoView = findViewById(R.id.VideoView)
         replatAgain = findViewById(R.id.reply)
+        homeBtn.setOnClickListener {
+            val gotoScreenVar = Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 1)
+            gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(gotoScreenVar)
+        }
         action(activityPosition)
         if (activityPosition == 0)
             backBtn.visibility = GONE
 
         replayBtn.setOnClickListener {
-            if (activityPosition > 1)
-                ++activityPosition
-
             startActivity(
                 Intent(this, MainActivity::class.java)
                     .putExtra("actvtyNum", activityPosition)
@@ -168,44 +141,23 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         backBtn.setOnClickListener {
-            if (activityPosition == 1) {
-                startActivity(
-                    Intent(this, MainActivity::class.java)
-                        .putExtra("actvtyNum", --activityPosition)
-                )
-            } else if (activityPosition == 2) {
-                startActivity(
-                    Intent(this, PlayVideoActivity::class.java)
-                        .putExtra("lvl", 1).putExtra("actvtyNum", 0)
-                )
-            } else startActivity(
+            startActivity(
                 Intent(this, MainActivity::class.java)
-                    .putExtra("actvtyNum", activityPosition)
+                    .putExtra("actvtyNum", --activityPosition)
             )
             finish()
         }
         nextBtn.setOnClickListener {
-            if (activityPosition == 0) {
+            if (activityPosition == 13) {
+                startActivity(
+                    Intent(this, DragActivity::class.java)
+                        .putExtra("actvtyNum", 0)
+                )
+            } else
                 startActivity(
                     Intent(this, MainActivity::class.java)
                         .putExtra("actvtyNum", ++activityPosition)
                 )
-            } else if (activityPosition == 1) {
-                startActivity(
-                    Intent(this, PlayVideoActivity::class.java)
-                        .putExtra("lvl", 1).putExtra("actvtyNum", 0)
-                )
-            } else if (activityPosition == 25) {
-                startActivity(
-                    Intent(this, DragActivity::class.java)
-                       .putExtra("actvtyNum", 27)
-                )
-            } else {
-                startActivity(
-                    Intent(this, MainActivity::class.java)
-                        .putExtra("actvtyNum", activityPosition + 2)
-                )
-            }
             finish()
         }
 
@@ -269,40 +221,8 @@ class MainActivity : AppCompatActivity() {
                 viewFail = select_ivRight
                 arrowTrue = findViewById(R.id.arwImgLeft)
             }
-            6 -> {
-                select_ivRight!!.visibility = View.VISIBLE
-                select_ivRight!!.setImageResource(R.drawable.lion)
-                viewSuccess = select_ivRight
-                viewFail = select_ivLeft
-                arrowTrue = findViewById(R.id.arwImgRight)
-            }
-            7 -> {
-                select_ivRight!!.visibility = View.VISIBLE
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivRight!!.setImageResource(R.drawable.lion)
-                select_ivLeft!!.setImageResource(R.drawable.giraffe)
-                viewSuccess = select_ivRight
-                viewFail = select_ivLeft
-                arrowTrue = findViewById(R.id.arwImgRight)
-            }
-            8 -> {
-                arrowTrue = findViewById(R.id.arwImgLeft)
-                select_ivRight!!.visibility = View.INVISIBLE
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivLeft!!.setImageResource(R.drawable.red)
-                viewSuccess = select_ivLeft
-                viewFail = select_ivRight
-            }
-            9 -> {
-                select_ivRight!!.visibility = View.VISIBLE
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivLeft!!.setImageResource(R.drawable.red)
-                select_ivRight!!.setImageResource(R.drawable.black)
-                viewSuccess = select_ivLeft
-                viewFail = select_ivRight
-                arrowTrue = findViewById(R.id.arwImgLeft)
-            }
-            10, 18 -> {
+
+            6, 10 -> {
                 select_ivRight!!.visibility = View.VISIBLE
                 select_ivLeft!!.visibility = View.INVISIBLE
                 select_ivRight!!.setImageResource(R.drawable.appel_with_back)
@@ -310,7 +230,7 @@ class MainActivity : AppCompatActivity() {
                 viewFail = select_ivLeft
                 arrowTrue = findViewById(R.id.arwImgRight)
             }
-            11, 19 -> {
+            7, 11 -> {
                 select_ivRight!!.visibility = View.VISIBLE
                 select_ivLeft!!.visibility = View.VISIBLE
                 select_ivRight!!.setImageResource(R.drawable.apple1)
@@ -319,7 +239,7 @@ class MainActivity : AppCompatActivity() {
                 viewFail = select_ivLeft
                 arrowTrue = findViewById(R.id.arwImgRight)
             }
-            12 -> {
+            8 -> {
                 select_ivRight!!.visibility = View.INVISIBLE
                 select_ivLeft!!.visibility = View.VISIBLE
                 select_ivLeft!!.setImageResource(R.drawable.duck_with_back)
@@ -327,7 +247,7 @@ class MainActivity : AppCompatActivity() {
                 viewFail = select_ivRight
                 arrowTrue = findViewById(R.id.arwImgLeft)
             }
-            13, 21 -> {
+            9, 13 -> {
                 select_ivRight!!.visibility = View.VISIBLE
                 select_ivLeft!!.visibility = View.VISIBLE
                 select_ivLeft!!.setImageResource(R.drawable.duck1)
@@ -336,41 +256,8 @@ class MainActivity : AppCompatActivity() {
                 viewFail = select_ivRight
                 arrowTrue = findViewById(R.id.arwImgLeft)
             }
-            14, 22 -> {
-                select_ivRight!!.visibility = View.VISIBLE
-                select_ivLeft!!.visibility = View.INVISIBLE
-                select_ivRight!!.setImageResource(R.drawable.lion_with_back)
-                viewSuccess = select_ivRight
-                viewFail = select_ivLeft
-                arrowTrue = findViewById(R.id.arwImgRight)
-            }
-            15, 23 -> {
-                select_ivRight!!.visibility = View.VISIBLE
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivRight!!.setImageResource(R.drawable.lion1)
-                select_ivLeft!!.setImageResource(R.drawable.grf1)
-                viewSuccess = select_ivRight
-                viewFail = select_ivLeft
-                arrowTrue = findViewById(R.id.arwImgRight)
-            }
-            16 -> {
-                select_ivRight!!.visibility = View.INVISIBLE
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivLeft!!.setImageResource(R.drawable.red_with_back)
-                viewSuccess = select_ivLeft
-                viewFail = select_ivRight
-                arrowTrue = findViewById(R.id.arwImgLeft)
-            }
-            17, 25 -> {
-                select_ivRight!!.visibility = View.VISIBLE
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivLeft!!.setImageResource(R.drawable.red1)
-                select_ivRight!!.setImageResource(R.drawable.black1)
-                viewSuccess = select_ivLeft
-                viewFail = select_ivRight
-                arrowTrue = findViewById(R.id.arwImgLeft)
-            }
-            20 -> {
+
+            12 -> {
                 select_ivLeft!!.visibility = View.VISIBLE
                 select_ivRight!!.visibility = View.INVISIBLE
                 select_ivLeft!!.setImageResource(R.drawable.duck_with_back)
@@ -378,14 +265,7 @@ class MainActivity : AppCompatActivity() {
                 viewFail = select_ivRight
                 arrowTrue = findViewById(R.id.arwImgLeft)
             }
-            24 -> {
-                select_ivLeft!!.visibility = View.VISIBLE
-                select_ivRight!!.visibility = View.INVISIBLE
-                select_ivLeft!!.setImageResource(R.drawable.red_with_back)
-                viewSuccess = select_ivLeft
-                viewFail = select_ivRight
-                arrowTrue = findViewById(R.id.arwImgLeft)
-            }
+
         }
         if (arrowTrue != null) YoYo.with(Techniques.Pulse)
             .repeat(YoYo.INFINITE)
@@ -517,5 +397,15 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        try {
+            handler.removeCallbacks(runnable!!)
+            handler2.removeCallbacks(runnable2!!)
+        } catch (e: Exception) {
+        }
+
     }
 }

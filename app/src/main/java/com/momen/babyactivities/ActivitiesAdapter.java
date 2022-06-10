@@ -9,13 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.AdapterViewHolder> {
     OnItemClickListener mListener;
 
     int lvl = 1;
+    ArrayList<String> activityTitle;
 
-    public ActivitiesAdapter(int lvl) {
+    public ActivitiesAdapter(int lvl, ArrayList<String> activityTitle) {
         this.lvl = lvl;
+        this.activityTitle = activityTitle;
     }
 
     public interface OnItemClickListener {
@@ -36,13 +40,12 @@ public class ActivitiesAdapter extends RecyclerView.Adapter<ActivitiesAdapter.Ad
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull AdapterViewHolder holder, int position) {
-        holder.activityTitle.setText("نشاط " + (position + 1));
+        holder.activityTitle.setText(activityTitle.get(position).trim());
     }
 
     @Override
     public int getItemCount() {
-        if (lvl == 1) return 43;
-        else return 10;
+        return activityTitle.size();
     }
 
     public class AdapterViewHolder extends RecyclerView.ViewHolder {

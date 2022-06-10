@@ -5,13 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_play_video.*
 
 class PlayVideoActivity : AppCompatActivity() {
     var path: String? = null
     var videos = intArrayOf(
-        R.raw.amp,
+//        R.raw.amp,
         R.raw.jump,
         R.raw.lvl3_1,
         R.raw.lvl3_2,
@@ -28,22 +29,24 @@ class PlayVideoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_video)
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         index = intent.getIntExtra("actvtyNum", 0)
 
         action(index)
-
+        homeBtn.setOnClickListener {
+            val gotoScreenVar =
+                if (index == 0) Intent(this, PlayVideoActivity::class.java).putExtra("lvl", 1)
+                else Intent(this, PlayVideoActivity::class.java).putExtra("lvl", 3)
+            gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(gotoScreenVar)
+        }
         finishBtn.setOnClickListener { super.onBackPressed() }
         backBtn.setOnClickListener {
             if (index == 0) {
                 startActivity(
-                    Intent(this, MainActivity::class.java)
-                        .putExtra("actvtyNum", 1)
-                )
-                finish()
-            } else if (index == 1) {
-                startActivity(
                     Intent(this, CollectSquaresActivity::class.java)
-                        .putExtra("actvtyNum", 41)
+                        .putExtra("actvtyNum", 22)
                 )
                 finish()
             } else
@@ -65,22 +68,20 @@ class PlayVideoActivity : AppCompatActivity() {
     }
 
     private fun action(index: Int) {
-        finishBtn.visibility = GONE
-        options.visibility = GONE
-        nextBtn.visibility = VISIBLE
         backBtn.visibility = VISIBLE
 
+        if (index == 1) {
+            options.visibility = VISIBLE
+            backBtn.visibility = GONE
+        } else if (index == videos.lastIndex || index == 0) {
+            options.visibility = VISIBLE
+            nextBtn.visibility = GONE
+        } else options.visibility = VISIBLE
         path = "android.resource://" + packageName + "/" + videos[index]
         videoView.setVideoURI(Uri.parse(path))
         videoView.start()
         videoView.setOnCompletionListener {
-            if (index == 2) {
-                options.visibility = VISIBLE
-                backBtn.visibility = GONE
-            } else if (index == videos.lastIndex || index == 1) {
-                options.visibility = VISIBLE
-                nextBtn.visibility = GONE
-            } else options.visibility = VISIBLE
+
         }
     }
 }

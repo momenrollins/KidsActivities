@@ -13,6 +13,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -52,8 +53,9 @@ public class TasneefActivity extends AppCompatActivity {
     private ImageButton nextBtn;
     private ImageButton replayBtn;
     private ImageButton backBtn;
+    private MaterialButton homeBtn;
     int index = 0;
-    Handler handler=new Handler();
+    Handler handler = new Handler();
     Runnable runnable;
 
     int[] tasnefl1A_images = {R.drawable.tasneefl1_hours, R.drawable.dog, R.drawable.tasneefl1_cat, R.drawable.tasneefl1_cow};
@@ -69,16 +71,31 @@ public class TasneefActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasneef);
-        initView();
-        index = getIntent().getIntExtra("actvtyNum", 0) - 37;
-        setData(index);
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        runnable=new Runnable() {
+        initView();
+        index = getIntent().getIntExtra("actvtyNum", 0) - 18;
+        setData(index);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoScreenVar = new Intent(TasneefActivity.this, LevelTypeActivity.class).putExtra("lvl", 1);
+
+                gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(gotoScreenVar);
+            }
+        });
+
+        runnable = new Runnable() {
             @Override
             public void run() {
-                if (index==0) playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1, false);
-                if (index==1) playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2, false);
-                if (index==2) playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3, false);
+                if (index == 0)
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l1, false);
+                if (index == 1)
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l2, false);
+                if (index == 2)
+                    playVideo("android.resource://" + getPackageName() + "/" + R.raw.tasneef_start_l3, false);
 
             }
         };
@@ -168,9 +185,9 @@ public class TasneefActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (index == 0)
                     startActivity(new Intent(TasneefActivity.this, MovingActivity.class)
-                            .putExtra("actvtyNum", 36));
-              else  startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
-                        .putExtra("actvtyNum", --index + 37));
+                            .putExtra("actvtyNum", 17));
+                else startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
+                        .putExtra("actvtyNum", --index + 18));
                 finish();
             }
         });
@@ -178,7 +195,7 @@ public class TasneefActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
-                        .putExtra("actvtyNum", index + 37));
+                        .putExtra("actvtyNum", index + 18));
                 finish();
             }
         });
@@ -187,10 +204,10 @@ public class TasneefActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (index == 2)
                     startActivity(new Intent(TasneefActivity.this, ColorActivity.class)
-                            .putExtra("actvtyNum", 40));
+                            .putExtra("actvtyNum", 21));
                 else
                     startActivity(new Intent(TasneefActivity.this, TasneefActivity.class)
-                            .putExtra("actvtyNum", ++index + 37));
+                            .putExtra("actvtyNum", ++index + 18));
                 finish();
             }
         });
@@ -254,14 +271,14 @@ public class TasneefActivity extends AppCompatActivity {
             txtLeft.setText("🐓🦜  \n ⬇ ");
         }
 
-        positionImage(ivA1);
+       /* positionImage(ivA1);
         positionImage(ivA2);
         positionImage(ivA3);
         positionImage(ivA4);
         positionImage(ivF1);
         positionImage(ivF2);
         positionImage(ivF3);
-        positionImage(ivF4);
+        positionImage(ivF4);*/
 
     }
 
@@ -280,7 +297,7 @@ public class TasneefActivity extends AppCompatActivity {
                     /*next.setVisibility(View.VISIBLE);
                     repeat.setVisibility(View.VISIBLE);*/
                 } else {
-                    handler.postDelayed(runnable,2000);
+                    handler.postDelayed(runnable, 2000);
                     next.setVisibility(View.INVISIBLE);
                     repeat.setVisibility(View.INVISIBLE);
                 }
@@ -425,6 +442,7 @@ public class TasneefActivity extends AppCompatActivity {
         nextBtn = findViewById(R.id.nextBtn);
         backBtn = findViewById(R.id.backBtn);
         replayBtn = findViewById(R.id.replayBtn);
+        homeBtn = findViewById(R.id.homeBtn);
         options = findViewById(R.id.options);
     }
 }

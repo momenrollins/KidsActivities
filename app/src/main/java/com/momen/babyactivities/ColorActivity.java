@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ public class ColorActivity extends AppCompatActivity {
     private ImageButton nextBtn;
     private ImageButton replayBtn;
     private ImageButton backBtn;
+    private MaterialButton homeBtn;
     int index = 0;
     private VideoView videoView;
     int startList[]={R.raw.blue_square,R.raw.square_yellow,R.raw.square_red};
@@ -42,8 +44,13 @@ public class ColorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color);
         initView();
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
+        homeBtn.setOnClickListener(view -> {
+            Intent gotoScreenVar = new Intent(ColorActivity.this, LevelTypeActivity.class).putExtra("lvl", 1);
+            gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(gotoScreenVar);
+        });
         circleImage.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -57,7 +64,7 @@ public class ColorActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(
                      new Intent(ColorActivity.this, TasneefActivity.class)
-                    .putExtra("actvtyNum", 39)
+                    .putExtra("actvtyNum", 20)
             );
                 finish();
             }
@@ -278,5 +285,6 @@ public class ColorActivity extends AppCompatActivity {
         nextBtn =  findViewById(R.id.nextBtn);
         backBtn =  findViewById(R.id.backBtn);
         replayBtn =  findViewById(R.id.replayBtn);
+        homeBtn =  findViewById(R.id.homeBtn);
     }
 }
