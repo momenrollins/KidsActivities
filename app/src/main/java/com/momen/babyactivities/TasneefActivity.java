@@ -34,6 +34,7 @@ import java.util.Random;
 
 public class TasneefActivity extends AppCompatActivity {
 
+
     private ConstraintLayout container;
     private ImageView ivA1;
     private ImageView ivA2;
@@ -55,6 +56,7 @@ public class TasneefActivity extends AppCompatActivity {
     private ImageButton backBtn;
     private MaterialButton homeBtn;
     int index = 0;
+    int countFaildPoints=0;
     Handler handler = new Handler();
     Runnable runnable;
 
@@ -292,6 +294,7 @@ public class TasneefActivity extends AppCompatActivity {
             public void onCompletion(MediaPlayer mp) {
 
                 if (isSuccess) {
+
 
                     options.setVisibility(View.VISIBLE);
                     /*next.setVisibility(View.VISIBLE);

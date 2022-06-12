@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +28,8 @@ class RabbitJump : AppCompatActivity() {
     var isStart = false
     var handler2 = Handler()
     var runnable2: Runnable? = null
+    var countFaildPoints = 0
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -152,6 +153,9 @@ class RabbitJump : AppCompatActivity() {
             }
         }
         container!!.setOnClickListener {
+            //                            isStarted=false;
+            countFaildPoints = countFaildPoints + 1
+
             playVideo(
                 "android.resource://" + packageName + "/" + R.raw.faild,
                 false,
@@ -174,6 +178,17 @@ class RabbitJump : AppCompatActivity() {
         videoView!!.start()
         videoView!!.setOnCompletionListener {
             if (finish) {
+
+                SHARDStorage.saveFaildPoints("level1rabbit", countFaildPoints)
+                if (countFaildPoints != 0) {
+                    SHARDStorage.AliartResult(
+                        this,
+                        SHARDStorage.sharedPreferences.getInt("level1rabbit", 0)
+                            .toString() + ": محاولة "
+                    )
+                }
+                countFaildPoints = 0
+
                 options.visibility = VISIBLE
                 /* finishBtn.setVisibility(View.VISIBLE);
                         finishBtn.setOnClickListener(new View.OnClickListener() {

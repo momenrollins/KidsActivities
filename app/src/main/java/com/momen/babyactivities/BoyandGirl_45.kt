@@ -29,6 +29,7 @@ class BoyandGirl_45 : AppCompatActivity() {
     private var girl2: ImageView? = null
     var isGirlPlay = false
     var count = 0
+    var countFaildPoints = 0
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,11 +125,15 @@ class BoyandGirl_45 : AppCompatActivity() {
             startActivity(gotoScreenVar)
         }
         container!!.setOnClickListener {
-            if (boyTurn || girlTurn) if (index < 2) playVideo(
-                "android.resource://" + packageName + "/" + R.raw.faild,
-                true,
-                false
-            ) else playVideo("android.resource://" + packageName + "/" + R.raw.smile2, true, false)
+            if (boyTurn || girlTurn) if (index < 2) {
+                countFaildPoints=countFaildPoints+1;
+
+                playVideo(
+                    "android.resource://" + packageName + "/" + R.raw.faild,
+                    true,
+                    false
+                )
+            } else playVideo("android.resource://" + packageName + "/" + R.raw.smile2, true, false)
         }
 
         /*girl.setOnTouchListener(new View.OnTouchListener() {
@@ -179,6 +184,8 @@ class BoyandGirl_45 : AppCompatActivity() {
                     boyTurn = false
                     girlTurn = true
                 } else {
+                    countFaildPoints=countFaildPoints+1
+
                     playVideo("android.resource://" + packageName + "/" + R.raw.faild, true, false)
                 }
             } else if (index == 1) {
@@ -194,11 +201,15 @@ class BoyandGirl_45 : AppCompatActivity() {
                     }
                     boyTurn = false
                     girlTurn = true
-                } else playVideo(
-                    "android.resource://" + packageName + "/" + R.raw.faild,
-                    true,
-                    false
-                )
+                } else {
+                    countFaildPoints=countFaildPoints+1;
+
+                    playVideo(
+                        "android.resource://" + packageName + "/" + R.raw.faild,
+                        true,
+                        false
+                    )
+                }
             } else {
                 if (boyTurn) {
                     playVideo("android.resource://" + packageName + "/" + R.raw.smile3, true, true)
@@ -228,6 +239,8 @@ class BoyandGirl_45 : AppCompatActivity() {
                             girlTurn = false
                         }
                     } else {
+                        countFaildPoints=countFaildPoints+1
+
                         playVideo(
                             "android.resource://" + packageName + "/" + R.raw.faild,
                             true,
@@ -243,17 +256,25 @@ class BoyandGirl_45 : AppCompatActivity() {
                         )
                         girlTurn = false
                         count++
-                    } else playVideo(
-                        "android.resource://" + packageName + "/" + R.raw.faild,
-                        true,
-                        false
-                    )
+                    } else {
+                        countFaildPoints=countFaildPoints+1
+
+                        playVideo(
+                            "android.resource://" + packageName + "/" + R.raw.faild,
+                            true,
+                            false
+                        )
+                    }
                 } else {
-                    if (girlTurn) playVideo(
-                        "android.resource://" + packageName + "/" + R.raw.smile2,
-                        true,
-                        false
-                    )
+                    if (girlTurn) {
+                        countFaildPoints=countFaildPoints+1
+
+                        playVideo(
+                            "android.resource://" + packageName + "/" + R.raw.smile2,
+                            true,
+                            false
+                        )
+                    }
                 }
             }
         })
@@ -321,10 +342,19 @@ class BoyandGirl_45 : AppCompatActivity() {
         videoView!!.setOnCompletionListener {
             if (finish) {
 
+                SHARDStorage.saveFaildPoints("level${index}",countFaildPoints);
+                if (countFaildPoints != 0) {
+                    SHARDStorage.AliartResult(
+                        this,
+                        SHARDStorage.sharedPreferences.getInt("level${index}", 0).toString()+": محاولة "
+                    );
 
+                }
+                countFaildPoints=0;
                 options.visibility = View.VISIBLE
 
             } else {
+
                 if (index == 0) {
                     if (!isBoy) {
                         playVideo(

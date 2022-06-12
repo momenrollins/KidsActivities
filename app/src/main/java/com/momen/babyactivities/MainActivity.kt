@@ -9,7 +9,6 @@ import android.util.TypedValue
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
@@ -106,11 +105,13 @@ class MainActivity : AppCompatActivity() {
     var viewSuccess: View? = null
     var viewFail: View? = null
     var arrowTrue: View? = null
+    var count = 0;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        SHARDStorage.initShaird(this);
         iv = findViewById(R.id.lvlImg)
         arwImg = findViewById(R.id.arwImg)
 
@@ -148,6 +149,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         nextBtn.setOnClickListener {
+            count = 0;
             if (activityPosition == 13) {
                 startActivity(
                     Intent(this, DragActivity::class.java)
@@ -299,7 +301,9 @@ class MainActivity : AppCompatActivity() {
             /*       view.setVisibility(View.GONE);
                     view2.setVisibility(View.GONE);*/playVideo(path, true)
         }
-        container!!.setOnClickListener { //                Toast.makeText(MainActivity.this, "container", Toast.LENGTH_SHORT).show();
+        container!!.setOnClickListener {
+            //              Toast.makeText(MainActivity.this, "container", Toast.LENGTH_SHORT).show();
+            count = count + 1;
             path = "android.resource://" + packageName + "/" + failedList[index]
             if (arrowTrue != null) {
                 arrowTrue!!.visibility = View.VISIBLE
@@ -327,6 +331,16 @@ class MainActivity : AppCompatActivity() {
         videoView!!.setOnCompletionListener {
             if (isSuccess) {
                 options.visibility = VISIBLE
+                SHARDStorage.saveFaildPoints("activity_num" + activityPosition, count);
+                if (count != 0) {
+                    SHARDStorage.AliartResult(
+                        this,
+                        SHARDStorage.sharedPreferences.getInt("activity_num" + activityPosition, 0)
+                            .toString() + ": محاولة "
+                    )
+
+                }
+                count = 0;
 
 
                 /* if (activityPosition == 2) {

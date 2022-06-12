@@ -7,7 +7,10 @@
     android:background="@drawable/paper_back"
     tools:context=".LevelTypeActivity">
 
+
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -38,12 +41,12 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_weight="1"
                 android:padding="7dp"
-                app:backgroundTint="@color/white"
                 android:paddingEnd="60sp"
                 android:text="الأنشطة"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                app:backgroundTint="@color/white"
                 app:cornerRadius="9dp"
                 app:strokeColor="@color/black" />
 
@@ -55,14 +58,15 @@
                 android:layout_weight="1"
                 android:padding="7dp"
                 android:text="الأهداف"
-                app:backgroundTint="@color/white"
-
                 android:textColor="@color/black"
+
                 android:textSize="24sp"
                 android:textStyle="bold"
+                app:backgroundTint="@color/white"
                 app:cornerRadius="9dp"
                 app:strokeColor="@color/black" />
         </LinearLayout>
+
 
     </LinearLayout>
 
@@ -90,4 +94,22 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reportsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تقارير الاخطاء"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:cornerRadius="20dp"
+        app:backgroundTint="#3F51B5"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.112" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

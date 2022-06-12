@@ -59,6 +59,7 @@ public class MovingActivity extends AppCompatActivity {
     boolean isStarted = false;
     Handler handler = new Handler();
     Runnable runnable;
+    int countFaildPoints=0;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -67,6 +68,7 @@ public class MovingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_moving);
         index = getIntent().getIntExtra("actvtyNum", 0) - 15;
 
+        SHARDStorage.initShaird(this);
         Log.d("TAG", "onCreate: " + Environment.getExternalStorageDirectory());
         // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -112,6 +114,7 @@ public class MovingActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                countFaildPoints=0;
                 if (index == 2)
                     startActivity(new Intent(MovingActivity.this, TasneefActivity.class)
                             .putExtra("actvtyNum", 18));
@@ -283,6 +286,9 @@ public class MovingActivity extends AppCompatActivity {
                         if (isWalkRight == false) {
                             path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
 //                            isStarted=false;
+                            countFaildPoints=countFaildPoints+1;
+
+
 
                             playVideo(path, false);
                             img.animate()
@@ -309,8 +315,8 @@ public class MovingActivity extends AppCompatActivity {
 //        latLngsArrayListy.clear();
         if (!isStarted)
             img.animate()
-                    .x((float) 314)
-                    .y((float) 323)
+                    .x((float) 253.0)
+                    .y((float) 311.0)
                     .setDuration(2200)
                     .start();
 
@@ -329,40 +335,20 @@ public class MovingActivity extends AppCompatActivity {
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
 
-                        Log.d("TAG", "onTouch:y  y = " + img.getY());
                         Log.d("TAG", "onTouch:x  x= " + img.getX());
+                        Log.d("TAG", "onTouch:y  y = " + img.getY());
 
 
-                        if (img.getX() < 800) {
-                            if (img.getY() > 268 && img.getY() < 419) {
+
+                        if (img.getX() < 325) {
+                            if (img.getY() > 258 && img.getY() < 503) {
                                 fResult.setText("شااااااااااطر");
                             } else {
                                 isWalkRight = false;
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 800 && img.getX() < 830) {
-                            if (img.getY() > 260 && img.getY() < 373) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 830 && img.getX() < 1188) {
-
-                            if (img.getY() > 270 && img.getY() < 612) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-
-                                isWalkRight = false;
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 1188 && img.getX() < 1392) {
-                            if (img.getY() > 463 && img.getY() < 625) {
+                        } else if (img.getX() > 325 && img.getX() < 521) {
+                            if (img.getY() > 337 && img.getY() < 572) {
                                 fResult.setText("شااااااااااطر");
 
 
@@ -371,8 +357,19 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 1392 && img.getX() < 1695) {
-                            if (img.getY() > 433 && img.getY() < 590) {
+                        } else if (img.getX() > 521 && img.getX() < 852) {
+
+                            if (img.getY() > 347 && img.getY() < 585) {
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+
+                                isWalkRight = false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 585 && img.getX() < 1036) {
+                            if (img.getY() > 296 && img.getY() < 497) {
                                 fResult.setText("شااااااااااطر");
 
 
@@ -381,10 +378,20 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 1695 && img.getX() < 1952) {
-                            if (img.getY() > 420 && img.getY() < 570) {
+                        } else if (img.getX() > 1037 && img.getX() < 1215) {
+                            if (img.getY() > 259 && img.getY() < 452) {
                                 fResult.setText("شااااااااااطر");
-                                if (img.getX() > 1766 && img.getX() < 2008 && isWalkRight) {
+
+
+                            } else {
+                                isWalkRight = false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 1217 && img.getX() < 1776) {
+                            if (img.getY() > 328 && img.getY() < 570) {
+                                fResult.setText("شااااااااااطر");
+                                if (img.getX() > 1663 && img.getX() < 1776 && isWalkRight) {
                                     playVideo("android.resource://" + getPackageName() + "/" + endtList[index], true);
 
                                 }
@@ -394,6 +401,10 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
+                        }else {
+                            isWalkRight = false;
+
+                            fResult.setText("حاااااااول تاااانى");
                         }
 
 
@@ -409,6 +420,7 @@ public class MovingActivity extends AppCompatActivity {
                         if (isWalkRight == false) {
                             path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
 //                            isStarted=false;
+                            countFaildPoints=countFaildPoints+1;
 
                             playVideo(path, false);
                             img.animate()
@@ -433,8 +445,8 @@ public class MovingActivity extends AppCompatActivity {
 
         if (!isStarted)
             img.animate()
-                    .x(304)
-                    .y(274)
+                    .x(178)
+                    .y(310)
                     .setDuration(2200)
                     .start();
 
@@ -453,42 +465,19 @@ public class MovingActivity extends AppCompatActivity {
                         img.setY((int) (StartPT.y + event.getY() - DownPT.y));
                         StartPT.set(img.getX(), img.getY());
 
-
-                        Log.d("TAG", "onTouch:y  y = " + img.getY());
                         Log.d("TAG", "onTouch:x  x = " + img.getX());
+                        Log.d("TAG", "onTouch:y  y = " + img.getY());
 
 
-                        if (img.getX() > 70 && img.getX() < 558) {
-                            if (img.getY() > 179 && img.getY() < 643) {
+                        if (img.getX() > 64 && img.getX() <= 384) {
+                            if (img.getY() > 230 && img.getY() <= 667) {
                                 fResult.setText("شااااااااااطر");
                             } else {
                                 isWalkRight = false;
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 558 && img.getX() < 802) {
-                            if (img.getY() > 507 && img.getY() < 674) {
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-                                isWalkRight = false;
-
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 802 && img.getX() < 1418) {
-                            if (img.getY() > 126 && img.getY() < 704) {
-
-                                fResult.setText("شااااااااااطر");
-
-
-                            } else {
-
-                                isWalkRight = false;
-                                fResult.setText("حاااااااول تاااانى");
-                            }
-                        } else if (img.getX() > 1418 && img.getX() < 1730) {
-                            if (img.getY() > 172 && img.getY() < 593.0) {
-
+                        } else if (img.getX() > 385 && img.getX() <= 542) {
+                            if (img.getY() > 494 && img.getY() < 693) {
                                 fResult.setText("شااااااااااطر");
 
 
@@ -497,11 +486,47 @@ public class MovingActivity extends AppCompatActivity {
 
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        } else if (img.getX() > 1730 && img.getX() < 1900) {
-                            if (img.getY() > 173 && img.getY() < 595) {
+                        } else if (img.getX() > 542 && img.getX() <= 880) {
+                            if (img.getY() > 184 && img.getY() < 642) {
 
                                 fResult.setText("شااااااااااطر");
-                                if (img.getX() > 1724 && isWalkRight) {
+
+
+                            } else {
+
+                                isWalkRight = false;
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 880 && img.getX() <= 1324) {
+                            if (img.getY() > 185 && img.getY() < 397) {
+
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight = false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        } else if (img.getX() > 1324 && img.getX() <= 1467) {
+                            if (img.getY() > 296 && img.getY() < 622) {
+
+                                fResult.setText("شااااااااااطر");
+
+
+                            } else {
+                                isWalkRight = false;
+
+                                fResult.setText("حاااااااول تاااانى");
+                            }
+                        }
+
+
+                        else if (img.getX() > 1467 && img.getX() <= 1833) {
+                            if (img.getY() > 422 && img.getY() < 655) {
+
+                                fResult.setText("شااااااااااطر");
+                                if (img.getX() > 1635 && isWalkRight) {
                                     playVideo("android.resource://" + getPackageName() + "/" + endtList[index], true);
 
                                 }
@@ -514,8 +539,11 @@ public class MovingActivity extends AppCompatActivity {
                                 playVideo(path, false);
                                 fResult.setText("حاااااااول تاااانى");
                             }
-                        }
+                        }else {
+                            isWalkRight = false;
 
+                            fResult.setText("حاااااااول تاااانى");
+                        }
 
                         break;
                     case MotionEvent.ACTION_DOWN:
@@ -527,10 +555,12 @@ public class MovingActivity extends AppCompatActivity {
                         if (!isWalkRight) {
                             path = "android.resource://" + getPackageName() + "/" + R.raw.faild;
                             isStarted = false;
+                            countFaildPoints=countFaildPoints+1;
+
                             playVideo(path, false);
                             img.animate()
-                                    .x((float) 314)
-                                    .y((float) 323)
+                                    .x((float) 178)
+                                    .y((float) 310)
                                     .setDuration(2200)
                                     .start();
                             isWalkRight = true;
@@ -605,6 +635,15 @@ public class MovingActivity extends AppCompatActivity {
 
 
                 if (isSuccess) {
+                    SHARDStorage.saveFaildPoints("moving_activity"+index,countFaildPoints);
+                    if (countFaildPoints != 0) {
+                        SHARDStorage.AliartResult(
+                                MovingActivity.this,
+                                SHARDStorage.sharedPreferences.getInt("moving_activity"+index, 0)+": محاولة "
+                        );
+
+                    }
+                    countFaildPoints=0;
                    /* next.setVisibility(View.VISIBLE);
                     repeat.setVisibility(View.VISIBLE);*/
                     options.setVisibility(View.VISIBLE);
