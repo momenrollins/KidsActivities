@@ -9,21 +9,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.View.GONE
-import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_boyand_girl45.*
 import kotlinx.android.synthetic.main.activity_bress_ball_l49.*
-import kotlinx.android.synthetic.main.activity_bress_ball_l49.backBtn
-import kotlinx.android.synthetic.main.activity_bress_ball_l49.homeBtn
-import kotlinx.android.synthetic.main.activity_bress_ball_l49.nextBtn
-import kotlinx.android.synthetic.main.activity_bress_ball_l49.options
-import kotlinx.android.synthetic.main.activity_bress_ball_l49.replayBtn
+import kotlinx.android.synthetic.main.item_activities.*
 
 class BressBall_L49 : AppCompatActivity() {
     private var videoView: VideoView? = null
     private var shape: ImageView? = null
+    var countFaildPoints = 0
 
     /*   private var repeat: MaterialButton? = null
        private var next: MaterialButton? = null*/
@@ -69,7 +64,7 @@ class BressBall_L49 : AppCompatActivity() {
         Log.d(TAG, "onCreate: playVideo: doos $numActivity")
         initView()
         // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        SHARDStorage.initShaird(this)
         homeBtn.setOnClickListener {
             val gotoScreenVar = Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 2)
             gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -121,10 +116,14 @@ class BressBall_L49 : AppCompatActivity() {
                 true, 1
             ) else if (numActivity == 47) {
                 val dos = if (index == 0) 1 else 2
-                if (index == 1) playVideo(
-                    "android.resource://" + packageName + "/" + faildList47[index],
-                    false, dos
-                ) else playVideo(
+                if (index == 1) {
+                    countFaildPoints=countFaildPoints+1
+
+                    playVideo(
+                        "android.resource://" + packageName + "/" + faildList47[index],
+                        false, dos
+                    )
+                } else playVideo(
                     "android.resource://" + packageName + "/" + successList47[index],
                     true, dos
                 )
@@ -150,16 +149,18 @@ class BressBall_L49 : AppCompatActivity() {
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener { mediaPlayer: MediaPlayer? ->
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[++index],
-                            false,1
+                            false, 1
                         )
                     })
                 } else {
+                    countFaildPoints=countFaildPoints+1
+
                     ta3zez_failed_Sound = MediaPlayer.create(this@BressBall_L49, R.raw.faild)
                     ta3zez_failed_Sound!!.start()
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener {
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[index],
-                            false,1
+                            false, 1
                         )
                     })
                 }
@@ -167,7 +168,10 @@ class BressBall_L49 : AppCompatActivity() {
                 if (index == 1) playVideo(
                     "android.resource://" + packageName + "/" + successList46[index],
                     true
-                ) else playVideo("android.resource://" + packageName + "/" + R.raw.faild, false)
+                ) else {
+                    countFaildPoints=countFaildPoints+1
+                    playVideo("android.resource://" + packageName + "/" + R.raw.faild, false)
+                }
             }
         }
         shape2!!.setOnClickListener {
@@ -178,16 +182,18 @@ class BressBall_L49 : AppCompatActivity() {
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener { mediaPlayer: MediaPlayer? ->
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[++index],
-                            false,1
+                            false, 1
                         )
                     })
                 } else {
+                    countFaildPoints=countFaildPoints+1
+
                     ta3zez_failed_Sound = MediaPlayer.create(this@BressBall_L49, R.raw.faild)
                     ta3zez_failed_Sound!!.start()
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener {
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[index],
-                            false,1
+                            false, 1
                         )
                     })
                 }
@@ -195,7 +201,11 @@ class BressBall_L49 : AppCompatActivity() {
                 if (index == 0) playVideo(
                     "android.resource://" + packageName + "/" + successList46[index],
                     true
-                ) else playVideo("android.resource://" + packageName + "/" + R.raw.faild, false)
+                ) else {
+                    countFaildPoints=countFaildPoints+1
+
+                    playVideo("android.resource://" + packageName + "/" + R.raw.faild, false)
+                }
             }
         }
         shape3!!.setOnClickListener {
@@ -206,12 +216,14 @@ class BressBall_L49 : AppCompatActivity() {
                     nextBtn.visibility = GONE
                     playVideo("android.resource://" + packageName + "/" + R.raw.shate_vid, true)
                 } else {
+                    countFaildPoints=countFaildPoints+1
+
                     ta3zez_failed_Sound = MediaPlayer.create(this@BressBall_L49, R.raw.faild)
                     ta3zez_failed_Sound!!.start()
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener {
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[index],
-                            false,1
+                            false, 1
                         )
                     })
                 }
@@ -219,32 +231,54 @@ class BressBall_L49 : AppCompatActivity() {
                 if (index == 2) playVideo(
                     "android.resource://" + packageName + "/" + successList46[index],
                     true
-                ) else playVideo("android.resource://" + packageName + "/" + R.raw.faild, false)
+                ) else {
+                    countFaildPoints=countFaildPoints+1
+
+                    playVideo("android.resource://" + packageName + "/" + R.raw.faild, false)
+                }
             }
         }
         videoView!!.setOnClickListener {
+
+
             if (numActivity == 47) {
                 val dos = if (index == 0) 1 else 2
+               countFaildPoints = countFaildPoints + 1;
+
                 playVideo(
                     "android.resource://" + packageName + "/" + faildList47[index],
                     false, dos
                 )
-            } else if (numActivity == 49) playVideo(
-                "android.resource://" + packageName + "/" + faildList49[index],
-                false,1
-            ) else if (numActivity == 50) playVideo(
-                "android.resource://" + packageName + "/" + faildList50[index],
-                false,1
-            ) else if (numActivity == 51) playVideo(
-                "android.resource://" + packageName + "/" + faildList51[index],
-                false,1
-            ) else if (numActivity == 53) {
+            } else if (numActivity == 49) {
+                countFaildPoints = countFaildPoints + 1;
+
+                playVideo(
+                    "android.resource://" + packageName + "/" + faildList49[index],
+                    false, 1
+                )
+            } else if (numActivity == 50) {
+                countFaildPoints = countFaildPoints + 1;
+
+                playVideo(
+                    "android.resource://" + packageName + "/" + faildList50[index],
+                    false, 1
+                )
+            } else if (numActivity == 51) {
+                countFaildPoints = countFaildPoints + 1;
+
+                playVideo(
+                    "android.resource://" + packageName + "/" + faildList51[index],
+                    false, 1
+                )
+            } else if (numActivity == 53) {
+               countFaildPoints = countFaildPoints + 1;
+
                 ta3zez_failed_Sound = MediaPlayer.create(this@BressBall_L49, R.raw.faild)
                 ta3zez_failed_Sound!!.start()
                 ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener {
                     playVideo(
                         "android.resource://" + packageName + "/" + startListL53[index],
-                        false,1
+                        false, 1
                     )
                 })
             }
@@ -260,7 +294,7 @@ class BressBall_L49 : AppCompatActivity() {
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener { mediaPlayer: MediaPlayer? ->
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[++index],
-                            false,1
+                            false, 1
                         )
                     })
                 } else {
@@ -269,7 +303,7 @@ class BressBall_L49 : AppCompatActivity() {
                     ta3zez_failed_Sound!!.setOnCompletionListener(OnCompletionListener {
                         playVideo(
                             "android.resource://" + packageName + "/" + startListL53[index],
-                            false,1
+                            false, 1
                         )
                     })
                 }
@@ -283,31 +317,111 @@ class BressBall_L49 : AppCompatActivity() {
         videoView!!.setOnCompletionListener {
 
             if (isSuccess) {
+
+                Log.d(TAG, "playVideo:teeeet1== ${countFaildPoints} ")
+
                 if (numActivity == 46)
-                    if (index == 2) options!!.visibility = View.VISIBLE else {
+                    if (index == 2) {
+                        SHARDStorage.saveFaildPoints("level" + numActivity, countFaildPoints);
+
+                        if (countFaildPoints != 0) {
+                            SHARDStorage.AliartResult(
+                                this,
+                                SHARDStorage.sharedPreferences.getInt("level" + numActivity, 0)
+                                    .toString() + ": محاولة "
+                            );
+
+                        }
+                        countFaildPoints = 0;
+                        options!!.visibility = View.VISIBLE
+                    } else {
                         next!!.visibility = GONE
                         repeat!!.visibility = GONE
                         nextStep()
-                    } else if (numActivity == 47) if (index == 1) options!!.visibility =
-                    View.VISIBLE else {
+                    } else if (numActivity == 47) if (index == 1) {
+                    SHARDStorage.saveFaildPoints("level" + numActivity, countFaildPoints);
+
+                    if (countFaildPoints != 0) {
+                        SHARDStorage.AliartResult(
+                            this,
+                            SHARDStorage.sharedPreferences.getInt("level" + numActivity, 0)
+                                .toString() + ": محاولة "
+                        );
+
+                    }
+                    countFaildPoints = 0;
+                    options!!.visibility =
+                        View.VISIBLE
+                } else {
                     next!!.visibility = GONE
                     repeat!!.visibility = GONE
                     nextStep()
-                } else if (numActivity == 49) if (index == 0) options!!.visibility =
-                    View.VISIBLE else {
+                } else if (numActivity == 49) if (index == 0) {
+                    SHARDStorage.saveFaildPoints("level" + numActivity, countFaildPoints);
+
+                    if (countFaildPoints != 0) {
+                        SHARDStorage.AliartResult(
+                            this,
+                            SHARDStorage.sharedPreferences.getInt("level" + numActivity, 0)
+                                .toString() + ": محاولة "
+                        );
+
+                    }
+                    countFaildPoints = 0;
+                    options!!.visibility =
+                        View.VISIBLE
+                } else {
                     next!!.visibility = View.VISIBLE
                     repeat!!.visibility = View.VISIBLE
-                } else if (numActivity == 50) if (index == 0) options!!.visibility =
-                    View.VISIBLE else {
+                } else if (numActivity == 50) if (index == 0) {
+                    SHARDStorage.saveFaildPoints("level" + numActivity, countFaildPoints);
+
+                    if (countFaildPoints != 0) {
+                        SHARDStorage.AliartResult(
+                            this,
+                            SHARDStorage.sharedPreferences.getInt("level" + numActivity, 0)
+                                .toString() + ": محاولة "
+                        );
+
+                    }
+                    countFaildPoints = 0;
+                    options!!.visibility =
+                        View.VISIBLE
+                } else {
                     next!!.visibility = View.VISIBLE
                     repeat!!.visibility = View.VISIBLE
-                } else if (numActivity == 51) if (index == 0) options!!.visibility =
-                    View.VISIBLE else {
+                } else if (numActivity == 51) if (index == 0) {
+                    SHARDStorage.saveFaildPoints("level" + numActivity, countFaildPoints);
+
+                    if (countFaildPoints != 0) {
+                        SHARDStorage.AliartResult(
+                            this,
+                            SHARDStorage.sharedPreferences.getInt("level" + numActivity, 0)
+                                .toString() + ": محاولة "
+                        );
+
+                    }
+                    countFaildPoints = 0;
+                    options!!.visibility =
+                        View.VISIBLE
+                } else {
                     next!!.visibility = View.VISIBLE
                     repeat!!.visibility = View.VISIBLE
                 } else if (numActivity == 53) {
+                    Log.d(TAG, "playVideo:teeeet2== ${countFaildPoints} ")
+                    SHARDStorage.saveFaildPoints("level" + numActivity, countFaildPoints);
+
                     ta3zez_failed_Sound = MediaPlayer.create(this@BressBall_L49, R.raw.shater)
                     ta3zez_failed_Sound!!.start()
+                    if (countFaildPoints != 0) {
+                        SHARDStorage.AliartResult(
+                            this,
+                            SHARDStorage.sharedPreferences.getInt("level" + numActivity, 0)
+                                .toString() + ": محاولة "
+                        );
+
+                    }
+                    countFaildPoints = 0;
                     /*  if (index == 3) finishBtn.setVisibility(View.VISIBLE);
                             else {
                                 next.setVisibility(View.VISIBLE);
@@ -316,6 +430,7 @@ class BressBall_L49 : AppCompatActivity() {
                 }
             } else {
                 Log.d(TAG, "playVideo: doos $doos")
+
                 if (doos == 1)
                     playVideo(
                         "android.resource://" + packageName + "/" + R.raw.doos3leha,
@@ -399,14 +514,14 @@ class BressBall_L49 : AppCompatActivity() {
                 .y(499.toFloat())
                 .setDuration(1)
                 .start()
-            playVideo("android.resource://" + packageName + "/" + startListL49[index], false,1)
+            playVideo("android.resource://" + packageName + "/" + startListL49[index], false, 1)
         } else if (numActivity == 50) {
             shape!!.animate()
                 .x(772.toFloat())
                 .y(466.toFloat())
                 .setDuration(1)
                 .start()
-            playVideo("android.resource://" + packageName + "/" + startListL50[index], false,1)
+            playVideo("android.resource://" + packageName + "/" + startListL50[index], false, 1)
         } else if (numActivity == 51) {
             shape!!.visibility = GONE
             shapeTrans!!.layoutParams.height = 550
@@ -417,9 +532,9 @@ class BressBall_L49 : AppCompatActivity() {
                 .y(138.toFloat())
                 .setDuration(1)
                 .start()
-            playVideo("android.resource://" + packageName + "/" + startListL51[index], false,1)
+            playVideo("android.resource://" + packageName + "/" + startListL51[index], false, 1)
         } else if (numActivity == 53) {
-            nextBtn.visibility=GONE
+            nextBtn.visibility = GONE
             shape!!.visibility = GONE
             shapeTrans!!.visibility = View.VISIBLE
             shape1!!.setImageResource(R.drawable.l53_tree)
@@ -447,7 +562,7 @@ class BressBall_L49 : AppCompatActivity() {
                 .y(65.toFloat())
                 .setDuration(1)
                 .start()
-            playVideo("android.resource://" + packageName + "/" + startListL53[index], false,1)
+            playVideo("android.resource://" + packageName + "/" + startListL53[index], false, 1)
         }
     }
 

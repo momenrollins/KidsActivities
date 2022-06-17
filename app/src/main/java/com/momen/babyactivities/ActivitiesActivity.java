@@ -108,7 +108,7 @@ public class ActivitiesActivity extends AppCompatActivity {
                 else if (position == 1)
                     startActivity(new Intent(this, BoyandGirl_45.class).putExtra("actvtyNum", 0));
                 else if (position == 2)
-                    startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 46));
+                    startActivity(new Intent( this, BressBall_L49.class).putExtra("actvtyNum", 46));
                 else if (position == 3)
                     startActivity(new Intent(this, BressBall_L49.class).putExtra("actvtyNum", 47));
                 else if (position == 4)

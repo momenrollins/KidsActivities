@@ -74,10 +74,10 @@
             android:src="@drawable/tasneefl1_cat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.434"
+            app:layout_constraintHorizontal_bias="0.342"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.913" />
+            app:layout_constraintVertical_bias="0.948" />
 
         <ImageView
             android:id="@+id/iv_a_3"
@@ -86,10 +86,10 @@
             android:src="@drawable/dog"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.597"
+            app:layout_constraintHorizontal_bias="0.659"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.913" />
+            app:layout_constraintVertical_bias="0.948" />
 
         <ImageView
             android:id="@+id/iv_a_4"
@@ -98,10 +98,10 @@
             android:src="@drawable/tasneefl1_cow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.307"
+            app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.53" />
+            app:layout_constraintVertical_bias="0.559" />
 
         <ImageView
             android:id="@+id/iv_f_1"
@@ -110,10 +110,10 @@
             android:src="@drawable/tasneefl1_mango"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.656"
+            app:layout_constraintHorizontal_bias="0.725"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.569" />
+            app:layout_constraintVertical_bias="0.588" />
 
         <ImageView
             android:id="@+id/iv_f_2"
@@ -122,7 +122,7 @@
             android:src="@drawable/appal2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.655"
+            app:layout_constraintHorizontal_bias="0.706"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.157" />
@@ -135,10 +135,10 @@
             android:src="@drawable/banana"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.083" />
+            app:layout_constraintVertical_bias="0.157" />
 
         <ImageView
             android:id="@+id/iv_f_4"
@@ -147,10 +147,10 @@
             android:src="@drawable/tasneefl1_ornage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.322"
+            app:layout_constraintHorizontal_bias="0.258"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.128" />
+            app:layout_constraintVertical_bias="0.157" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat"
@@ -188,54 +188,42 @@
             app:layout_constraintHorizontal_bias="0.911"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/options"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentBottom="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent">
 
-            <ImageButton
-                android:id="@+id/nextBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_baseline_navigate_before_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageButton
-                android:id="@+id/replayBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_baseline_replay_24" />
+    <LinearLayout
+        android:id="@+id/options"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/videoView">
 
-            <ImageButton
-                android:id="@+id/backBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:backgroundTint="@color/white"
-                android:src="@drawable/ic_baseline_navigate_next_24" />
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/homeBtn"
+        <ImageButton
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/black"
-            android:gravity="center"
-            android:text="الرئيسية"
-            android:textStyle="bold"
-            app:cornerRadius="9dp"
-            app:icon="@drawable/ic_twotone_home_24"
-            app:layout_constraintBottom_toBottomOf="@+id/options"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_before_24" />
+
+        <ImageButton
+            android:id="@+id/replayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_replay_24" />
+
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_baseline_navigate_next_24" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

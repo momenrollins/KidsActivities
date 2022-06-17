@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.*
-import android.view.WindowManager
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_drag.*
@@ -22,6 +21,7 @@ class DragActivity : AppCompatActivity() {
     }
 
     //    var videoView: VideoView? = null
+    var countFaildPoints = 0;
     var path: String? = null
     var dX = 0f
     var dY = 0f
@@ -255,31 +255,31 @@ class DragActivity : AppCompatActivity() {
         // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         index = intent.getIntExtra("actvtyNum", 0)
-
+        SHARDStorage.initShaird(this)
         homeBtn.setOnClickListener {
             val gotoScreenVar = Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 1)
             gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(gotoScreenVar)
         }
         backBtn.setOnClickListener {
-                startActivity(
-                    Intent(this, MainActivity::class.java)
-                        .putExtra("actvtyNum", 13)
-                )
+            startActivity(
+                Intent(this, MainActivity::class.java)
+                    .putExtra("actvtyNum", 13)
+            )
             finish()
         }
         replayBtn.setOnClickListener {
             startActivity(
                 Intent(this, DragActivity::class.java)
-                    .putExtra("actvtyNum", index )
+                    .putExtra("actvtyNum", index)
             )
             finish()
         }
         nextBtn.setOnClickListener {
-                startActivity(
-                    Intent(this, MovingActivity::class.java)
-                        .putExtra("actvtyNum", 15)
-                )
+            startActivity(
+                Intent(this, MovingActivity::class.java)
+                    .putExtra("actvtyNum", 15)
+            )
             finish()
         }
         shape1!!.setOnTouchListener(OnTouchListener { view, event ->
@@ -646,7 +646,7 @@ class DragActivity : AppCompatActivity() {
                         when (shape) {
                             "Sh001" -> {
                                 count++
-                                if (count <7) MediaPlayer.create(this, R.raw.shater).start()
+                                if (count < 7) MediaPlayer.create(this, R.raw.shater).start()
                                 shape001!!.animate().x(s001X).y(s001Y).duration = 150
                                 isShape1 = true
                             }
@@ -868,7 +868,10 @@ class DragActivity : AppCompatActivity() {
                         checkFinished7()
                     }
                 } else {
+
                     MediaPlayer.create(this, R.raw.faild).start()
+                    countFaildPoints=countFaildPoints+1
+
                     if (index == 0) {
                         when (shape) {
                             "Sh1" -> {
@@ -1106,6 +1109,8 @@ class DragActivity : AppCompatActivity() {
         videoView!!.setOnCompletionListener {
             if (!isSuccess) {
                 videoView!!.visibility = INVISIBLE
+
+
                 if (index == 0) {
                     container!!.visibility = VISIBLE
                     shape1!!.visibility = VISIBLE
@@ -1216,6 +1221,17 @@ class DragActivity : AppCompatActivity() {
                     shape0000008.visibility = VISIBLE
                 }
             } else {
+                Log.d(TAG, "playVideo:drag_activity_l ${index} ")
+                SHARDStorage.saveFaildPoints("drag_activity_l"+index,countFaildPoints);
+                if (countFaildPoints != 0) {
+                    SHARDStorage.AliartResult(
+                        this,
+                        SHARDStorage.sharedPreferences.getInt("drag_activity_l"+index, 0)
+                            .toString() + ": محاولة "
+                    )
+
+                }
+                countFaildPoints=0
                 options.visibility = VISIBLE
             }
         }

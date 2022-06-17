@@ -35,7 +35,7 @@ public class ColorActivity extends AppCompatActivity {
     int index = 0;
     private VideoView videoView;
     int startList[]={R.raw.blue_square,R.raw.square_yellow,R.raw.square_red};
-
+    int countFaildPoints=0;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -45,6 +45,7 @@ public class ColorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_color);
         initView();
         // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        SHARDStorage.initShaird(this);
 
         homeBtn.setOnClickListener(view -> {
             Intent gotoScreenVar = new Intent(ColorActivity.this, LevelTypeActivity.class).putExtra("lvl", 1);
@@ -123,6 +124,8 @@ public class ColorActivity extends AppCompatActivity {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, true);
 //                            x 142.0 y 767.0
                         } else {
+                            countFaildPoints=countFaildPoints+1;
+
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
 
                             positionImage(ivBluePin, 1788, 594);
@@ -168,6 +171,8 @@ public class ColorActivity extends AppCompatActivity {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.shater, true);
 
                         } else {
+                            countFaildPoints=countFaildPoints+1;
+
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
 
                             positionImage(ivYellowPin, 1778, 412);
@@ -211,6 +216,8 @@ public class ColorActivity extends AppCompatActivity {
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.ta3zez, true);
 //                            x 1683.0 y 765.0
                         } else {
+                            countFaildPoints=countFaildPoints+1;
+
                             playVideo("android.resource://" + getPackageName() + "/" + R.raw.faild, false);
 
                             positionImage(ivRedPin, 1787, 234);
@@ -252,6 +259,16 @@ public class ColorActivity extends AppCompatActivity {
 
 
                     }else  if (index == 3){
+
+                        SHARDStorage.saveFaildPoints("color_activity_l",countFaildPoints);
+                        if (countFaildPoints != 0) {
+                            SHARDStorage.AliartResult(
+                                    ColorActivity.this,
+                                    SHARDStorage.sharedPreferences.getInt("color_activity_l", 0)+": محاولة "
+                            );
+
+                        }
+                        countFaildPoints=0;
                         options.setVisibility(View.VISIBLE);
                         index=0;
                         positionImage(ivRedPin,  1787 , 234);
