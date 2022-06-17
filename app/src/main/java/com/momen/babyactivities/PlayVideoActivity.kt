@@ -36,8 +36,8 @@ class PlayVideoActivity : AppCompatActivity() {
         action(index)
         homeBtn.setOnClickListener {
             val gotoScreenVar =
-                if (index == 0) Intent(this, PlayVideoActivity::class.java).putExtra("lvl", 1)
-                else Intent(this, PlayVideoActivity::class.java).putExtra("lvl", 3)
+                if (index == 0) Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 1)
+                else Intent(this, LevelTypeActivity::class.java).putExtra("lvl", 3)
             gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(gotoScreenVar)
         }

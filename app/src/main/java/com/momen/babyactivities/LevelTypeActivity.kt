@@ -22,7 +22,7 @@ class LevelTypeActivity : AppCompatActivity() {
         else if (lvl == 2) "المرحلة الثانية\nالتدريب على الاستجابة للانتباه المشترك"
         else "المرحلة الثالثة\nالتدريب على المبادأة بالانتباه المشترك"
 
-        levelTv.text = level
+        levelTv.text = level.trim()
         backBtn.setOnClickListener { onBackPressed() }
         exitBtn.setOnClickListener { this.finishAffinity() }
         if (lvl == 1 || lvl == 2) {
